@@ -14,18 +14,19 @@ public class TCPMethodClient extends ConnectionClient implements
 
 	@Override
 	public int uploadFichier(String fichierNom) {
-		try { // 防止文件建立或读取失败，用catch捕捉错误并打印，也可以throw
-
-			/* 读入TXT文件 */
-			String pathname = "D:\\twitter\\13_9_6\\dataset\\en\\input.txt"; // 绝对路径或相对路径都可以，这里是绝对路径，写入文件时演示相对路径
-			File filename = new File(pathname); // 要读取以上路径的input。txt文件
+		try {
+			//String pathname = "D:\\twitter\\13_9_6\\dataset\\en\\input.txt"; // 锟斤拷锟铰凤拷锟斤拷锟斤拷锟斤拷路锟斤拷锟斤拷锟斤拷锟皆ｏ拷锟斤拷锟斤拷锟角撅拷锟铰凤拷锟斤拷锟叫达拷锟斤拷募锟绞憋拷锟绞撅拷锟斤拷路锟斤拷
+			File filename = new File(fichierNom); 
 			InputStreamReader reader = new InputStreamReader(
-					new FileInputStream(filename)); // 建立一个输入流对象reader
-			BufferedReader br = new BufferedReader(reader); // 建立一个对象，它把文件内容转成计算机能读懂的语言
+					new FileInputStream(filename)); 
+			BufferedReader br = new BufferedReader(reader); 
 			String msg;
 			PrintStream ps =new PrintStream(client.getOutputStream());  
 			while ((msg=br.readLine())!=null) {
-				ps.println(msg);   //将输入框中的内容发送给服务器端
+				System.out.println(msg);
+				
+				//ps.println(msg);   
+				
 			}
 			
 			
@@ -35,12 +36,12 @@ public class TCPMethodClient extends ConnectionClient implements
 			
 /*
 			
-			File writename = new File(".\\result\\en\\output.txt"); // 相对路径，如果没有则要建立一个新的output。txt文件
-			writename.createNewFile(); // 创建新文件
+			File writename = new File(".\\result\\en\\output.txt"); // 锟斤拷锟铰凤拷锟斤拷锟斤拷锟斤拷没锟斤拷锟斤拷要锟斤拷锟斤拷一锟斤拷锟铰碉拷output锟斤拷txt锟侥硷拷
+			writename.createNewFile(); // 锟斤拷锟斤拷锟斤拷锟侥硷拷
 			BufferedWriter out = new BufferedWriter(new FileWriter(writename));
-			out.write("我会写入文件啦\r\n"); // \r\n即为换行
-			out.flush(); // 把缓存区内容压入文件
-			out.close(); // 最后记得关闭文件
+			out.write("锟揭伙拷写锟斤拷锟侥硷拷锟斤拷\r\n"); // \r\n锟斤拷为锟斤拷锟斤拷
+			out.flush(); // 锟窖伙拷锟斤拷锟斤拷锟斤拷锟斤拷压锟斤拷锟侥硷拷
+			out.close(); // 锟斤拷锟角得关憋拷锟侥硷拷
 			**/
 
 		} catch (Exception e) {

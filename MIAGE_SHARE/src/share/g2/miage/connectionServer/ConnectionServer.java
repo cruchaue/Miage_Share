@@ -29,7 +29,7 @@ public abstract class ConnectionServer {
 		
 		
 		try {
-			// cr¨¦er la connection
+			// crï¿½ï¿½er la connection
 			serverSocket = new ServerSocket(port);
 			// saisir la connection de client
 			socket = serverSocket.accept();

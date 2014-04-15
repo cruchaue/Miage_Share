@@ -26,12 +26,12 @@ public abstract class ConnectionClient {
 				+ p.getProperty("portClient"));
 
 		try {
-			// 当触发连接按钮时，实例化一个客户端
+			
 			client = new Socket(serverIp, port);
-			// 隐藏连接界面，显示通信界面
+			
 
 		} catch (IOException e1) {
-			System.out.println("链接失败！");
+			System.out.println("锟斤拷锟斤拷失锟杰ｏ拷");
 			e1.printStackTrace();
 		}
 
