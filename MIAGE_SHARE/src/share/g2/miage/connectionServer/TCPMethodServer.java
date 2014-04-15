@@ -13,7 +13,7 @@ public class TCPMethodServer extends ConnectionServer implements
 	@Override
 	public int demarrerServer() {
 		try {
-			// l'entr¨¦e de serveur
+			// l'entrÃ©e de serveur
 			BufferedReader br;
 			// le sortie de serveur
 			PrintStream ps;
@@ -26,11 +26,11 @@ public class TCPMethodServer extends ConnectionServer implements
 			String msg;
 			// accepter le fichier
 			while ((msg = br.readLine()) != null) {
-				sb.append("·şÎñÆ÷¶ËÊÕµ½£º" + msg + "\n");
+				sb.append("reÃ§uï¼š" + msg + "\n");
 				ps.println(msg);
 				if (msg.equals("quit")) {
-					sb.append("¿Í»§¶Ë¡°2000¡±ÒÑÍË³ö£¡" + "\n");
-					sb.append("·şÎñÆ÷³ÌĞò½«ÍË³ö£¡");
+					sb.append("å®¢æˆ·ç«¯â€œ2000â€å·²é€€å‡ºï¼" + "\n");
+					sb.append("æœåŠ¡å™¨ç¨‹åºå°†é€€å‡ºï¼");
 					System.out.print(sb.toString());
 					break;
 				}
