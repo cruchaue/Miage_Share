@@ -13,9 +13,9 @@ public class TCPMethodServer extends ConnectionServer implements
 	@Override
 	public int demarrerServer() {
 		try {
-			// 服务器端的输入流
+			// l'entrée de serveur
 			BufferedReader br;
-			// 服务器端的输出流
+			// le sortie de serveur
 			PrintStream ps;
 			StringBuffer sb = new StringBuffer();
 
@@ -24,7 +24,7 @@ public class TCPMethodServer extends ConnectionServer implements
 
 			ps = new PrintStream(socket.getOutputStream());
 			String msg;
-			// 如果输入流不为空,将接受到的信息打印到相应的文本框中并反馈回收到的信息
+			// accepter le fichier
 			while ((msg = br.readLine()) != null) {
 				sb.append("服务器端收到：" + msg + "\n");
 				ps.println(msg);

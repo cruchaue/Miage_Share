@@ -29,9 +29,9 @@ public abstract class ConnectionServer {
 		
 		
 		try {
-			// 建立连接
+			// créer la connection
 			serverSocket = new ServerSocket(port);
-			// 获得连接
+			// saisir la connection de client
 			socket = serverSocket.accept();
 
 		} catch (Exception e) {
