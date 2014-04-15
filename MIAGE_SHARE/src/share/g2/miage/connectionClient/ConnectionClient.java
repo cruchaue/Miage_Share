@@ -23,7 +23,7 @@ public abstract class ConnectionClient {
 		client = null;
 
 		System.out.println("ip:" + p.getProperty("serverIp") + ",port:"
-				+ p.getProperty("port"));
+				+ p.getProperty("portClient"));
 
 		try {
 			// 当触发连接按钮时，实例化一个客户端
