@@ -1,4 +1,4 @@
-package share.g2.miage.connection;
+package share.g2.miage.connectionClient;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,7 +19,7 @@ public abstract class ConnectionClient {
 			e1.printStackTrace();
 		}
 		String serverIp = p.getProperty("serverIp");
-		int port = Integer.valueOf(p.getProperty("port"));
+		int port = Integer.valueOf(p.getProperty("portClient"));
 		client = null;
 
 		System.out.println("ip:" + p.getProperty("serverIp") + ",port:"

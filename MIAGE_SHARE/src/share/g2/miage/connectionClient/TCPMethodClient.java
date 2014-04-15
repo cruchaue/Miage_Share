@@ -1,4 +1,4 @@
-package share.g2.miage.connection;
+package share.g2.miage.connectionClient;
 
 
 
