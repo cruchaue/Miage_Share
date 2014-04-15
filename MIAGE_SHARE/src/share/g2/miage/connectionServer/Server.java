@@ -3,15 +3,23 @@ package share.g2.miage.connectionServer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.Properties;
 
-public abstract class ConnectionServer {
+public class Server {
 
-	protected ServerSocket serverSocket = null;
-	protected Socket socket = null;
+	private ServerSocket serverSocket = null;
+	private String fichierChemin;
+	
 
-	public ConnectionServer() {
+	public String getFichierChemin() {
+		return fichierChemin;
+	}
+
+	public ServerSocket getServerSocket() {
+		return serverSocket;
+	}
+
+	public int demarrer() {
 		InputStream inputStream = this.getClass().getClassLoader()
 				.getResourceAsStream("ipConfig.properties");
 		Properties p = new Properties();
@@ -22,21 +30,22 @@ public abstract class ConnectionServer {
 		}
 		
 		int port = Integer.valueOf(p.getProperty("portServer"));
-	
+		this.fichierChemin = p.getProperty("fichierChemin");
 
 		System.out.println(",port:"
 				+ p.getProperty("portServer"));
 		
 		
 		try {
-			// cr��er la connection
+			
 			serverSocket = new ServerSocket(port);
-			// saisir la connection de client
-			socket = serverSocket.accept();
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			return -1;
 		}
+		return 1;
 
 	}
 
@@ -44,7 +53,7 @@ public abstract class ConnectionServer {
 
 		try {
 
-			socket.close();
+			
 			serverSocket.close();
 
 		} catch (IOException e) {

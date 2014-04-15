@@ -6,10 +6,10 @@ import java.io.InputStream;
 import java.net.Socket;
 import java.util.Properties;
 
-public abstract class ConnectionClient {
-	protected Socket client = null;
+public class Client {
+	private Socket client = null;
 
-	public ConnectionClient() {
+	public int demarrer() {
 		InputStream inputStream = this.getClass().getClassLoader()
 				.getResourceAsStream("ipConfig.properties");
 		Properties p = new Properties();
@@ -33,8 +33,19 @@ public abstract class ConnectionClient {
 		} catch (IOException e1) {
 			System.out.println("����ʧ�ܣ�");
 			e1.printStackTrace();
+			return -1;
 		}
+		
+		return 1;
 
+	}
+
+	public Socket getClient() {
+		return client;
+	}
+
+	public void setClient(Socket client) {
+		this.client = client;
 	}
 
 	public int closeConnection() {

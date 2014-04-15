@@ -4,12 +4,14 @@ import java.io.*;
 import java.net.*;
 import javax.swing.*;
 
-public class clientTest {
+public class ClientTest {
 
 
 	public static void main(String[] args) throws Exception {
-		FonctionShareClient fsc = new TCPMethodClient();
-		fsc.uploadFichier("test.txt");
+		Client client = new Client();
+		client.demarrer();
+		FonctionClientFichier fcf = new UploadFichier();
+		fcf.excuter(client.getClient(),"test.txt");
 		
 	}
 
