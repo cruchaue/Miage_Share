@@ -11,7 +11,7 @@ public class ClientTest {
 		Client client = new Client();
 		client.demarrer();
 		FonctionClientFichier fcf = new UploadFichier();
-		fcf.excuter(client.getClient(),"test.txt");
+		fcf.excuter(client.getClient(),"C:\\Users\\cruchaue\\Desktop\\toto.txt");
 		
 	}
 

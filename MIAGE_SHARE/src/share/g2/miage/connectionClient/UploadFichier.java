@@ -18,6 +18,7 @@ public class UploadFichier implements
 	@Override
 	public int excuter(Socket client,String fichierNom) {
 		try {
+			
 			File filename = new File(fichierNom); 
 			// reçevoir les infos du serveur
 			BufferedReader br1 = new BufferedReader(new InputStreamReader(client.getInputStream()));
@@ -49,7 +50,7 @@ public class UploadFichier implements
 			
 			ps.println("<@finit>"); // dire au serveur que c'est finit d'envoyer le fichier
 			System.out.println("finir d'envoyer le fichier!");
-			System.out.println(br1.readLine());;
+			//System.out.println(br1.readLine());
 			br1.close();
 			ps.close();
 			client.close();

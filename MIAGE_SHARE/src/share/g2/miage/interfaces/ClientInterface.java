@@ -63,13 +63,15 @@ public class ClientInterface extends JFrame {
 				int returnVal = chooser.showOpenDialog(parent);
 				if(returnVal == JFileChooser.APPROVE_OPTION) {
 				   System.out.println("You chose to open this file: " + chooser.getSelectedFile().getName());
-				   System.out.println("Chemin absolu : "+chooser.getSelectedFile().getAbsolutePath());
+				   System.out.println("Chemin absolu : "+chooser.getSelectedFile().getAbsolutePath().replaceAll("\\\\", "\\\\\\\\"));
 				   
 				   
 				    Client client = new Client();
 					client.demarrer();
 					FonctionClientFichier fcf = new UploadFichier();
-					fcf.excuter(client.getClient(),chooser.getSelectedFile().getAbsolutePath().replace('\', '\\'));
+					String fichier = chooser.getSelectedFile().getAbsolutePath().replaceAll("\\\\", "\\\\\\\\");
+					System.out.println("Fichier : "+fichier);
+					fcf.excuter(client.getClient(),fichier);
 				}
 			}
 		});
