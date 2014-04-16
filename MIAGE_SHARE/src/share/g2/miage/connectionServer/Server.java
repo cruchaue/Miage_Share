@@ -34,7 +34,7 @@ public class Server {
 		int port = Integer.valueOf(p.getProperty("portServer"));
 		this.fichierChemin = p.getProperty("fichierChemin");
 
-		System.out.println(",port:"
+		System.out.println("Port:"
 				+ p.getProperty("portServer"));
 		
 		
