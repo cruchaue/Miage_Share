@@ -1,4 +1,0 @@
-serverIp=127.0.0.1   
-portClient=2000
-portServer=2000
-<@finit>
