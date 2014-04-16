@@ -20,6 +20,8 @@ public class Server {
 	}
 
 	public int demarrer() {
+		
+		//lire le fichier de parametre
 		InputStream inputStream = this.getClass().getClassLoader()
 				.getResourceAsStream("ipConfig.properties");
 		Properties p = new Properties();

@@ -48,9 +48,9 @@ public class AccepterFichier implements
             		return -1;
             	}
             	
-            	 /* 写入Txt文件 */  
-                File writename = new File(server.getFichierChemin()+fichierNom); // 相对路径，如果没有则要建立一个新的output。txt文件  
-                writename.createNewFile(); // 创建新文件  
+            	  
+                File writename = new File(server.getFichierChemin()+fichierNom); // créer un fichier  
+                writename.createNewFile(); 
                 BufferedWriter out = new BufferedWriter(new FileWriter(writename));
             	
             	while ((msg = br.readLine()) != null) {
@@ -65,14 +65,14 @@ public class AccepterFichier implements
     					System.out.print(sb.toString());
     					break;
     				}else{
-    					out.write(msg+"\r\n"); // \r\n即为换行  
+    					out.write(msg+"\r\n"); // \r\n changer la ligne
     				}
     				
     				ps.println(msg);
     			}
             	
-            	out.flush(); // 把缓存区内容压入文件  
-                out.close(); // 最后记得关闭文件
+            	out.flush(); // écrire le contenu qui est dans le mémoire au fichier
+                out.close(); // fermer le fichier
             }
 			
 			

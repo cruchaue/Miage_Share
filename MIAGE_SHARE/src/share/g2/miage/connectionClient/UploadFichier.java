@@ -18,9 +18,8 @@ public class UploadFichier implements
 	@Override
 	public int excuter(Socket client,String fichierNom) {
 		try {
-			//String pathname = "D:\\twitter\\13_9_6\\dataset\\en\\input.txt"; // ���·�������·�������ԣ������Ǿ��·����д���ļ�ʱ��ʾ���·��
 			File filename = new File(fichierNom); 
-			// 从服务端接受的数据流
+			// reçevoir les infos du serveur
 			BufferedReader br1 = new BufferedReader(new InputStreamReader(client.getInputStream()));
 			InputStreamReader reader = new InputStreamReader(
 					new FileInputStream(filename)); 
@@ -39,7 +38,7 @@ public class UploadFichier implements
 			
 			
 			while ((msg=br.readLine())!=null) {
-				ps.println(msg); // 将输入框中的内容发送给服务器端
+				ps.println(msg); //envoyer une ligne de text au serveur.
 				System.out.println(msg);
 				//System.out.println(br1.readLine());;
 				
@@ -48,7 +47,7 @@ public class UploadFichier implements
 			}
 			
 			
-			ps.println("<@finit>"); // 将输入框中的内容发送给服务器端
+			ps.println("<@finit>"); // dire au serveur que c'est finit d'envoyer le fichier
 			System.out.println("finir d'envoyer le fichier!");
 			System.out.println(br1.readLine());;
 			br1.close();
