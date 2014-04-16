@@ -2,6 +2,8 @@ package share.g2.miage.connectionClient;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -10,49 +12,59 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 
+import share.g2.miage.util.FonctionPublique;
+import share.g2.miage.util.ParametrePublique;
+
 public class UploadFichier implements
 		FonctionClientFichier {
 
 	
 
 	@Override
-	public int excuter(Socket client,String fichierNom) {
+	public int excuter(Client client) {
 		try {
-			File filename = new File(fichierNom); 
+			Socket socket = client.getClient();
+			File filename = new File(client.getParametre1()+client.getParametre2()); 
 			// reçevoir les infos du serveur
-			BufferedReader br1 = new BufferedReader(new InputStreamReader(client.getInputStream()));
-			InputStreamReader reader = new InputStreamReader(
-					new FileInputStream(filename)); 
-			BufferedReader br = new BufferedReader(reader); 
+			//BufferedReader br1 = new BufferedReader(new InputStreamReader(client.getInputStream()));
+			FileInputStream fis = new FileInputStream(filename); 
+			//BufferedReader br = new BufferedReader(reader); 
 			String msg;
-			PrintStream ps =new PrintStream(client.getOutputStream()); 
+			DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+			DataInputStream dis = new DataInputStream(socket.getInputStream());
 			
-				ps.println("<@uploadTXT>");
+			byte[] sendBytes = new byte[ParametrePublique.LENGTH_ENVOYER];
+			int length = 0;
 			
-			
-			if((msg=br1.readLine())!=null){
-				ps.println(fichierNom);
-			}else{
-				return -1;
+			dos.write(ParametrePublique.UPLOAD_FICHIER.getBytes());
+			length = dis.read(sendBytes, 0, sendBytes.length);
+			if("ok".equals(FonctionPublique.byteTableauToString(sendBytes,length))){
+				while ((length = fis.read(sendBytes, 0, sendBytes.length)) > 0) {
+					dos.write(sendBytes, 0, length);
+	                dos.flush();
+	                System.out.println("envoyer le fichier!");
+				}
 			}
 			
 			
-			while ((msg=br.readLine())!=null) {
-				ps.println(msg); //envoyer une ligne de text au serveur.
-				System.out.println(msg);
-				//System.out.println(br1.readLine());;
-				
-				//ps.println(msg);   
-				
-			}
 			
 			
-			ps.println("<@finit>"); // dire au serveur que c'est finit d'envoyer le fichier
+			
+			
+			
+			
+			
+			
+			
+			
+			//ps.println("<@finit>"); // dire au serveur que c'est finit d'envoyer le fichier
 			System.out.println("finir d'envoyer le fichier!");
-			System.out.println(br1.readLine());;
-			br1.close();
-			ps.close();
-			client.close();
+			//System.out.println(br1.readLine());;
+			//br1.close();
+			//ps.close();
+			socket.close();
+			fis.close();
+			dos.close();
 			
 			
 			

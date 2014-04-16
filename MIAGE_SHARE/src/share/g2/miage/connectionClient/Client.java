@@ -8,6 +8,24 @@ import java.util.Properties;
 
 public class Client {
 	private Socket client = null;
+	private String parametre1 = "";// la premier parametre
+	private String parametre2 = "";
+
+	public String getParametre1() {
+		return parametre1;
+	}
+
+	public void setParametre1(String parametre1) {
+		this.parametre1 = parametre1;
+	}
+
+	public void setParametre2(String parametre2) {
+		this.parametre2 = parametre2;
+	}
+
+	public String getParametre2() {
+		return parametre2;
+	}
 
 	public int demarrer() {
 		InputStream inputStream = this.getClass().getClassLoader()
