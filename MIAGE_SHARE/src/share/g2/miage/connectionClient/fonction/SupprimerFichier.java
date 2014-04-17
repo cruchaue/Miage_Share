@@ -11,7 +11,7 @@ import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionServer.Server;
 import share.g2.miage.util.ParametrePublique;
 
-public class TelechargerFichier implements
+public class SupprimerFichier implements
 		FonctionClientFichier {
 
 	
@@ -24,31 +24,25 @@ public class TelechargerFichier implements
 			//FileInputStream fis = new FileInputStream(file);
 
 			DataOutputStream dos = client.getDos();
-			DataInputStream dis = client.getDis();
+			//DataInputStream dis = client.getDis();
 
 			byte[] sendBytes = new byte[ParametrePublique.LENGTH_ENVOYER];
 			int length = 0;
 
-			dos.writeUTF(ParametrePublique.TELECHARGER_FICHIER);
+			dos.writeUTF(ParametrePublique.SUPPRIMER_FICHIER);
 			dos.flush();
 
-			dos.writeUTF(client.getParametre2());
+			dos.writeUTF(client.getParametre1());
 			dos.flush();
 			
 			
-			FileOutputStream fos = new FileOutputStream(new File(client.getParametre1()+ client.getParametre2()));
-			while ((length = dis.read(sendBytes, 0, sendBytes.length)) > 0) {
-				fos.write(sendBytes, 0, length);
-				fos.flush();
-			}
-
-			fos.close();
+			
 			
 			
 
-			System.out.println("finir de telecharger le fichier!");
+			System.out.println("finir de supprimer le fichier!");
 			//socket.close();
-			fos.close();
+			//fos.close();
 			//dos.close();
 
 		} catch (Exception e) {
