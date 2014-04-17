@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -14,6 +15,7 @@ import share.g2.miage.connectionClient.Client;
 import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.fonction.Login;
 import share.g2.miage.connectionClient.fonction.SupprimerFichier;
+import share.g2.miage.util.ParametrePublique;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -50,31 +52,31 @@ public class fenetreLogin extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblLogin = new JLabel("Login :");
 		lblLogin.setBounds(60, 79, 61, 16);
 		contentPane.add(lblLogin);
-		
+
 		JLabel lblMotDePasse = new JLabel("Mot de passe :");
 		lblMotDePasse.setBounds(60, 117, 105, 16);
 		contentPane.add(lblMotDePasse);
-		
+
 		textFieldLogin = new JTextField();
 		textFieldLogin.setBounds(194, 73, 134, 28);
 		contentPane.add(textFieldLogin);
 		textFieldLogin.setColumns(10);
-		
+
 		textFieldMdp = new JTextField();
 		textFieldMdp.setBounds(194, 111, 134, 28);
 		contentPane.add(textFieldMdp);
 		textFieldMdp.setColumns(10);
-		
+
 		JButton btnConnexion = new JButton("Connexion");
 		btnConnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String login = textFieldLogin.getText();
 				String mdp = textFieldMdp.getText();
-				
+
 				Client client = new Client();
 				client.demarrer();
 				client.setParametre1(login);
@@ -82,11 +84,51 @@ public class fenetreLogin extends JFrame {
 				FonctionClientFichier fcf = new Login();
 
 				fcf.excuter(client);
+				String resultat = client.getResultat();
+				if (ParametrePublique.OK.equals(resultat)) {
+					System.out.println("login ok");
+
+					EventQueue.invokeLater(new Runnable() {
+						public void run() {
+							try {
+								ClientInterface frame = new ClientInterface();
+								frame.setVisible(true);
+
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					});
+					
+					setVisible(false);
+
+				} else if (ParametrePublique.USER_EXISTE_PAS.equals(resultat)) {
+					System.out.println("pas de user");
+					
+					JOptionPane jop = new JOptionPane();
+					jop.showMessageDialog(null,
+							"Cet utilisateur n'existe pas.",
+							"Login failed",
+							JOptionPane.WARNING_MESSAGE);
+					
+				} else if (ParametrePublique.USER_PW_PAS_CORRECTE
+						.equals(resultat)) {
+					System.out.println("faute pw");
+					
+					JOptionPane jop = new JOptionPane();
+					jop.showMessageDialog(null,
+							"Mauvais mot de passe.",
+							"Login failed",
+							JOptionPane.WARNING_MESSAGE);
+				}
+
 				client.closeConnection();
 				
+
 			}
 		});
 		btnConnexion.setBounds(138, 173, 117, 29);
 		contentPane.add(btnConnexion);
+
 	}
 }

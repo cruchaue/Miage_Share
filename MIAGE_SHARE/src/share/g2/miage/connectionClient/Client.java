@@ -25,6 +25,15 @@ public class Client {
 	private BufferedOutputStream bos;
 	private String parametre1 = "";// la premier parametre
 	private String parametre2 = "";
+	private String resultat = "";
+
+	public String getResultat() {
+		return resultat;
+	}
+
+	public void setResultat(String resultat) {
+		this.resultat = resultat;
+	}
 
 	public String getParametre1() {
 		return parametre1;

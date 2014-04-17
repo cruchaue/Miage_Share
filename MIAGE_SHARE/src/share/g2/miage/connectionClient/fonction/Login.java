@@ -38,32 +38,7 @@ public class Login implements
 			dos.writeUTF(client.getParametre2());
 			dos.flush();
 			
-			String resultat = dis.readUTF();
-			if(ParametrePublique.OK.equals(resultat)){
-				System.out.println("login ok");
-				
-				
-				EventQueue.invokeLater(new Runnable() {
-					public void run() {
-						try {
-							ClientInterface frame = new ClientInterface();
-							frame.setVisible(true);
-
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-				});
-				
-				
-			}else if(ParametrePublique.USER_EXISTE_PAS.equals(resultat)){
-				System.out.println("pas de user");
-			}else if(ParametrePublique.USER_PW_PAS_CORRECTE.equals(resultat)){
-				System.out.println("faute pw");
-			}
-			
-			
-			
+			client.setResultat(dis.readUTF());
 
 			System.out.println("finir de supprimer le fichier!");
 			//socket.close();
