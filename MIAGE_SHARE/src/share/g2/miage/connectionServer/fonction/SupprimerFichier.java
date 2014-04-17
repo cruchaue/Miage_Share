@@ -26,7 +26,11 @@ public class SupprimerFichier implements FonctionServerFichier {
 			strTemp = dis.readUTF();
 			System.out.println(strTemp + ",");
 			File file = new File(Server.getFichierChemin()+strTemp);
-			file.deleteOnExit();
+			if(file.exists()){
+				file.delete();
+			}else{
+				System.out.println("fichier existe pas!");
+			}
 
 			clients.closeConnection();
 

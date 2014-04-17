@@ -15,6 +15,7 @@ import javax.swing.JButton;
 
 import share.g2.miage.connectionClient.Client;
 import share.g2.miage.connectionClient.FonctionClientFichier;
+import share.g2.miage.connectionClient.fonction.SupprimerFichier;
 import share.g2.miage.connectionClient.fonction.TelechargerFichier;
 import share.g2.miage.connectionClient.fonction.UploadFichier;
 
@@ -177,6 +178,17 @@ public class ClientInterface extends JFrame {
 		btnSupprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String fichierSuppression = (String) list.getSelectedValue();
+				
+				Client client = new Client();
+				client.demarrer();
+				client.setParametre1(fichierSuppression);
+				FonctionClientFichier fcf = new SupprimerFichier();
+
+				
+				
+				fcf.excuter(client);
+				client.closeConnection();
+				
 			}
 		});
 		btnSupprimer.setBounds(173, 190, 117, 29);

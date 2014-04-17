@@ -26,8 +26,6 @@ public class SupprimerFichier implements
 			DataOutputStream dos = client.getDos();
 			//DataInputStream dis = client.getDis();
 
-			byte[] sendBytes = new byte[ParametrePublique.LENGTH_ENVOYER];
-			int length = 0;
 
 			dos.writeUTF(ParametrePublique.SUPPRIMER_FICHIER);
 			dos.flush();

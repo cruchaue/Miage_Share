@@ -9,6 +9,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
+import share.g2.miage.connectionClient.Client;
+import share.g2.miage.connectionClient.FonctionClientFichier;
+import share.g2.miage.connectionClient.fonction.Login;
+import share.g2.miage.connectionClient.fonction.SupprimerFichier;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -68,6 +74,16 @@ public class fenetreLogin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String login = textFieldLogin.getText();
 				String mdp = textFieldMdp.getText();
+				
+				Client client = new Client();
+				client.demarrer();
+				client.setParametre1(login);
+				client.setParametre2(mdp);
+				FonctionClientFichier fcf = new Login();
+
+				fcf.excuter(client);
+				client.closeConnection();
+				
 			}
 		});
 		btnConnexion.setBounds(138, 173, 117, 29);

@@ -5,6 +5,7 @@ import java.net.*;
 
 import share.g2.miage.connectionServer.fonction.AccepterFichier;
 import share.g2.miage.connectionServer.fonction.EnvoyerFichier;
+import share.g2.miage.connectionServer.fonction.Login;
 import share.g2.miage.connectionServer.fonction.SupprimerFichier;
 import share.g2.miage.util.ParametrePublique;
 
@@ -39,7 +40,11 @@ class CreateServerThread extends Thread {
 				}else if(ParametrePublique.SUPPRIMER_FICHIER.equals(strFonction)){
 					fsf = new SupprimerFichier();
 					fsf.excuter(clients);
+				}else if(ParametrePublique.LOGIN.equals(strFonction)){
+					fsf = new Login();
+					fsf.excuter(clients);
 				}
+				
 			
 		} catch (IOException e) {
 		}
