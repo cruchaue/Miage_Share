@@ -97,13 +97,13 @@ public class ClientInterface extends JFrame {
 		
 		list = new JList(new DefaultListModel<String>());
 		
-		//listerFichier();
+		listerFichier();
 		// A METTRE ICI
 
 		btnUpload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFileChooser chooser = new JFileChooser();
-				FileNameExtensionFilter filter = new FileNameExtensionFilter(	"TXT files", "txt");
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT files", "txt");
 				chooser.setFileFilter(filter);
 				JFrame parent = new JFrame();
 				int returnVal = chooser.showOpenDialog(parent);
@@ -129,9 +129,11 @@ public class ClientInterface extends JFrame {
 					
 					
 					client.closeConnection();
-					listerFichier();
+					
 				}
+				listerFichier();
 			}
+			
 		});
 		btnUpload.setBounds(44, 78, 89, 23);
 		contentPane.add(btnUpload);
@@ -165,7 +167,7 @@ public class ClientInterface extends JFrame {
 	
 	public void listerFichier(){
 		
-		
+		System.out.println("LA");
 		
 
 		final DefaultListModel<String> model = new DefaultListModel<String>();
@@ -176,11 +178,20 @@ public class ClientInterface extends JFrame {
 		final String [] listefichiers; 
 
 
+		//Temps d'attente pour l'upload du fichier sur le serveur
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
 		int i;
 		listefichiers = repertoire.list();
 		for (i = 0; i < listefichiers.length; i++) {
 			//if (listefichiers[i].endsWith(".txt") == true) {
-				System.out.println(listefichiers[i]);
+				System.out.println("Valeur de " +i);
+				System.out.println("---" + listefichiers[i]);
 				model.addElement(listefichiers[i]);
 			//}
 		}
