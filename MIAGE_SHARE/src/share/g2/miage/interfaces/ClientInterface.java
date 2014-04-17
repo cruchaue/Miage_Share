@@ -162,6 +162,15 @@ public class ClientInterface extends JFrame {
 		});
 		btnDownload.setBounds(44, 135, 89, 23);
 		contentPane.add(btnDownload);
+		
+		JButton btnSupprimer = new JButton("Supprimer");
+		btnSupprimer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String fichierSuppression = (String) list.getSelectedValue();
+			}
+		});
+		btnSupprimer.setBounds(173, 190, 117, 29);
+		contentPane.add(btnSupprimer);
 
 	}
 	
