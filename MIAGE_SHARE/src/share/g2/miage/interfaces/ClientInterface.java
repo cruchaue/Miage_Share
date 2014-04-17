@@ -1,6 +1,7 @@
 package share.g2.miage.interfaces;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.DefaultListModel;
@@ -70,12 +71,12 @@ public class ClientInterface extends JFrame {
 		
 		final JList list;
 		list = new JList(new DefaultListModel<String>());
-		scrollPane.setViewportView(list);
-		DefaultListModel<String> model = (DefaultListModel<String>) list.getModel();
+		final DefaultListModel<String> model = new DefaultListModel<String>();
+		scrollPane.setViewportView(list);	
 		
 		
 		File repertoire = new File("Z:\\");
-		String [] listefichiers; 
+		final String [] listefichiers; 
 
 		int i; 
 		listefichiers=repertoire.list(); 
@@ -122,9 +123,7 @@ public class ClientInterface extends JFrame {
 		btnDownload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String nomFic = (String) list.getSelectedValue();
-				System.out.println(nomFic);
-				
-				
+				System.out.println(nomFic);			
 				
 			}
 		});
