@@ -3,6 +3,7 @@ package share.g2.miage.interfaces;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,6 +18,10 @@ import share.g2.miage.connectionClient.UploadFichier;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.File;
+
+import javax.swing.JList;
+import javax.swing.JScrollPane;
 
 public class ClientInterface extends JFrame {
 
@@ -57,6 +62,34 @@ public class ClientInterface extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnUpload = new JButton("Upload");
+		
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(204, 31, 151, 130);
+		contentPane.add(scrollPane);
+		
+		final JList list;
+		list = new JList(new DefaultListModel<String>());
+		scrollPane.setViewportView(list);
+		DefaultListModel<String> model = (DefaultListModel<String>) list.getModel();
+		
+		
+		File repertoire = new File("Z:\\");
+		String [] listefichiers; 
+
+		int i; 
+		listefichiers=repertoire.list(); 
+		for(i=0;i<listefichiers.length;i++){ 
+		if(listefichiers[i].endsWith(".txt")==true)
+		{ 			
+			System.out.println(listefichiers[i]);// on choisit la sous chaine - les 5 derniers caracteres ".java" 
+			model.addElement(listefichiers[i]);
+		} 			
+		} 
+		
+		
+		list.setModel(model);
+		
 		btnUpload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {				
 				JFileChooser chooser = new JFileChooser();
@@ -82,7 +115,21 @@ public class ClientInterface extends JFrame {
 				}
 			}
 		});
-		btnUpload.setBounds(153, 84, 89, 23);
+		btnUpload.setBounds(44, 78, 89, 23);
 		contentPane.add(btnUpload);
+		
+		JButton btnDownload = new JButton("Download");
+		btnDownload.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String nomFic = (String) list.getSelectedValue();
+				System.out.println(nomFic);
+				
+				
+				
+			}
+		});
+		btnDownload.setBounds(44, 135, 89, 23);
+		contentPane.add(btnDownload);
+		
 	}
 }
