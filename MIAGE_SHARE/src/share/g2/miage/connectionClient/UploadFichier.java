@@ -15,11 +15,10 @@ public class UploadFichier implements FonctionClientFichier {
 
 			Socket socket = client.getClient();
 			File file = new File(client.getParametre1());
-
+			
 			FileInputStream fis = new FileInputStream(file);
 
-			DataOutputStream dos = new DataOutputStream(
-					socket.getOutputStream());
+			DataOutputStream dos = client.getDos();
 
 			byte[] sendBytes = new byte[ParametrePublique.LENGTH_ENVOYER];
 			int length = 0;
@@ -37,10 +36,9 @@ public class UploadFichier implements FonctionClientFichier {
 			}
 
 			System.out.println("finir d'envoyer le fichier!");
-
-			socket.close();
+			//socket.close();
 			fis.close();
-			dos.close();
+			//dos.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();

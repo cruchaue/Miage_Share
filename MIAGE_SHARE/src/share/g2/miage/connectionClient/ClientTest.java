@@ -11,9 +11,10 @@ public class ClientTest {
 		Client client = new Client();
 		client.demarrer();
 		FonctionClientFichier fcf = new UploadFichier();
-		client.setParametre1("");
+		client.setParametre1("test.jpg");
 		client.setParametre2("test.jpg");
 		fcf.excuter(client);
+		client.closeConnection();
 	
 	}
 

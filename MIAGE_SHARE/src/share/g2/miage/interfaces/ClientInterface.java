@@ -21,6 +21,7 @@ import java.awt.event.ActionEvent;
 public class ClientInterface extends JFrame {
 
 	private JPanel contentPane;
+	//private Client client;
 
 	/**
 	 * Launch the application.
@@ -31,6 +32,7 @@ public class ClientInterface extends JFrame {
 				try {
 					ClientInterface frame = new ClientInterface();
 					frame.setVisible(true);
+					 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -42,6 +44,8 @@ public class ClientInterface extends JFrame {
 	 * Create the frame.
 	 */
 	public ClientInterface() {
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
@@ -66,7 +70,7 @@ public class ClientInterface extends JFrame {
 				   System.out.println("Chemin absolu : "+chooser.getSelectedFile().getAbsolutePath().replaceAll("\\\\", "\\\\\\\\"));
 				   
 				   
-				    Client client = new Client();
+				   Client client = new Client();
 					client.demarrer();
 					client.setParametre1(chooser.getSelectedFile().getAbsolutePath().replaceAll("\\\\", "\\\\\\\\"));
 					client.setParametre2(chooser.getSelectedFile().getName());
@@ -74,6 +78,7 @@ public class ClientInterface extends JFrame {
 					String fichier = chooser.getSelectedFile().getAbsolutePath().replaceAll("\\\\", "\\\\\\\\");
 					System.out.println("Fichier : "+fichier);
 					fcf.excuter(client);
+					client.closeConnection();
 				}
 			}
 		});

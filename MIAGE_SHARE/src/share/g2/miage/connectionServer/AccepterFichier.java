@@ -6,42 +6,35 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-
 import share.g2.miage.util.ParametrePublique;
 
 public class AccepterFichier implements FonctionServerFichier {
 
 	@Override
-	public int excuter(Server server) {
+	public int excuter(ClientS clients) {
 		try {
-			Socket client = server.getServerSocket().accept();
 
-			DataInputStream dis = new DataInputStream(client.getInputStream());
+			DataInputStream dis = clients.getDis();
 			FileOutputStream fos = null;
-			
+
 			byte[] byteTemp = new byte[1024];
 			int lengthTemp = 0;
 			String strTemp = "";
-			
+
 			strTemp = dis.readUTF();
 			System.out.println(strTemp + ",");
 
-			if (ParametrePublique.UPLOAD_FICHIER.equals(strTemp)) {
-				strTemp = dis.readUTF();
-				System.out.println(lengthTemp+", "+strTemp);
-				
-				fos = new FileOutputStream(new File(
-						server.getFichierChemin() + strTemp));
-				while ((lengthTemp = dis.read(byteTemp, 0, byteTemp.length)) > 0) {
-						fos.write(byteTemp, 0, lengthTemp);
-						fos.flush();
-				}
+			System.out.println(lengthTemp + ", " + strTemp);
 
+			fos = new FileOutputStream(new File(Server.getFichierChemin()
+					+ strTemp));
+			while ((lengthTemp = dis.read(byteTemp, 0, byteTemp.length)) > 0) {
+				fos.write(byteTemp, 0, lengthTemp);
+				fos.flush();
 			}
 
 			fos.close();
-			dis.close();
-			client.close();
+			clients.closeConnection();
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

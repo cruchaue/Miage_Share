@@ -1,13 +1,16 @@
 package share.g2.miage.connectionClient;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.net.Socket;
 import java.util.Properties;
 
 public class Client {
 	private Socket client = null;
+	private DataInputStream dis;
+	private DataOutputStream dos;
 	private String parametre1 = "";// la premier parametre
 	private String parametre2 = "";
 
@@ -25,6 +28,14 @@ public class Client {
 
 	public String getParametre2() {
 		return parametre2;
+	}
+
+	public DataInputStream getDis() {
+		return dis;
+	}
+
+	public DataOutputStream getDos() {
+		return dos;
 	}
 
 	public int demarrer() {
@@ -46,8 +57,8 @@ public class Client {
 		try {
 			
 			client = new Socket(serverIp, port);
-			
-
+			dis = new DataInputStream(client.getInputStream());
+		    dos = new DataOutputStream(client.getOutputStream());
 		} catch (IOException e1) {
 			System.out.println("����ʧ�ܣ�");
 			e1.printStackTrace();
@@ -70,6 +81,8 @@ public class Client {
 
 		try {
 			client.close();
+			dis.close();
+			dos.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

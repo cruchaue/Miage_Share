@@ -3,15 +3,17 @@ package share.g2.miage.connectionServer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.Properties;
 
 public class Server {
 
 	private ServerSocket serverSocket = null;
-	private String fichierChemin;
+	private static String fichierChemin;
+	private boolean demarre = true;
 	
 
-	public String getFichierChemin() {
+	public static String getFichierChemin() {
 		return fichierChemin;
 	}
 
@@ -38,9 +40,17 @@ public class Server {
 				+ p.getProperty("portServer"));
 		
 		
+		
+		
 		try {
 			
 			serverSocket = new ServerSocket(port);
+			
+			while (demarre) {
+				Socket socket = serverSocket.accept();
+				new CreateServerThread(socket);
+			}
+			serverSocket.close();
 			
 
 		} catch (Exception e) {
@@ -51,19 +61,8 @@ public class Server {
 
 	}
 
-	public int closeConnection() {
-
-		try {
-
-			
-			serverSocket.close();
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return -1;
-		}
-		return 1;
+	public void closeServer() {
+		demarre = false;
 	}
 
 }
