@@ -169,8 +169,18 @@ public class ClientInterface extends JFrame {
 				String fichierSuppression = (String) list.getSelectedValue();
 			}
 		});
-		btnSupprimer.setBounds(173, 190, 117, 29);
+		btnSupprimer.setBounds(214, 172, 117, 29);
 		contentPane.add(btnSupprimer);
+		
+		JButton btnChat = new JButton("Chat");
+		btnChat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fenetreChat fc = new fenetreChat();
+				fc.show();
+			}
+		});
+		btnChat.setBounds(23, 193, 117, 29);
+		contentPane.add(btnChat);
 
 	}
 	
