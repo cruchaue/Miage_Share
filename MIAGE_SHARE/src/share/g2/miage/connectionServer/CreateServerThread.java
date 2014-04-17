@@ -19,6 +19,8 @@ class CreateServerThread extends Thread {
 		clients.setClient(s);
 		clients.setDis(new DataInputStream(s.getInputStream()));
 		clients.setDos(new DataOutputStream(s.getOutputStream()));
+		clients.setBis(new BufferedInputStream(s.getInputStream()));
+		clients.setBos(new BufferedOutputStream(s.getOutputStream()));
 		clients.setInetAdr(s.getInetAddress());
 		
 		start();

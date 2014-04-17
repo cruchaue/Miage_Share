@@ -1,8 +1,11 @@
 package share.g2.miage.connectionClient.fonction;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+
 import share.g2.miage.connectionClient.Client;
 import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.util.ParametrePublique;
@@ -18,6 +21,8 @@ public class UploadFichier implements FonctionClientFichier {
 			FileInputStream fis = new FileInputStream(file);
 
 			DataOutputStream dos = client.getDos();
+			BufferedInputStream bis = client.getBis();
+			BufferedOutputStream bos = client.getBos();
 
 			byte[] sendBytes = new byte[ParametrePublique.LENGTH_ENVOYER];
 			int length = 0;
@@ -29,8 +34,8 @@ public class UploadFichier implements FonctionClientFichier {
 			dos.flush();
 
 			while ((length = fis.read(sendBytes, 0, sendBytes.length)) > 0) {
-				dos.write(sendBytes, 0, length);
-				dos.flush();
+				bos.write(sendBytes, 0, length);
+				bos.flush();
 				System.out.println("envoyer le fichier!");
 			}
 

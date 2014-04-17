@@ -1,5 +1,7 @@
 package share.g2.miage.connectionServer;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -10,6 +12,8 @@ public class ClientS {
 	private Socket client;
 	private DataInputStream dis;
 	private DataOutputStream dos;
+	private BufferedInputStream bis;
+	private BufferedOutputStream bos;
 	private InetAddress inetAdr;
 	public InetAddress getInetAdr() {
 		return inetAdr;
@@ -32,6 +36,18 @@ public class ClientS {
 	public DataOutputStream getDos() {
 		return dos;
 	}
+	public BufferedInputStream getBis() {
+		return bis;
+	}
+	public void setBis(BufferedInputStream bis) {
+		this.bis = bis;
+	}
+	public BufferedOutputStream getBos() {
+		return bos;
+	}
+	public void setBos(BufferedOutputStream bos) {
+		this.bos = bos;
+	}
 	public void setDos(DataOutputStream dos) {
 		this.dos = dos;
 	}
@@ -42,6 +58,8 @@ public class ClientS {
 			client.close();
 			dis.close();
 			dos.close();
+			bis.close();
+			bos.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

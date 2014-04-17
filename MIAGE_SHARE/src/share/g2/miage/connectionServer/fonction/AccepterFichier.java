@@ -1,5 +1,6 @@
 package share.g2.miage.connectionServer.fonction;
 
+import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -18,6 +19,7 @@ public class AccepterFichier implements FonctionServerFichier {
 		try {
 
 			DataInputStream dis = clients.getDis();
+			BufferedInputStream bis = clients.getBis();
 			FileOutputStream fos = null;
 
 			byte[] byteTemp = new byte[1024];
@@ -31,7 +33,7 @@ public class AccepterFichier implements FonctionServerFichier {
 
 			fos = new FileOutputStream(new File(Server.getFichierChemin()
 					+ strTemp));
-			while ((lengthTemp = dis.read(byteTemp, 0, byteTemp.length)) > 0) {
+			while ((lengthTemp = bis.read(byteTemp, 0, byteTemp.length)) > 0) {
 				fos.write(byteTemp, 0, lengthTemp);
 				fos.flush();
 			}
