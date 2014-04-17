@@ -13,7 +13,7 @@ import javax.swing.JButton;
 
 import share.g2.miage.connectionClient.Client;
 import share.g2.miage.connectionClient.FonctionClientFichier;
-import share.g2.miage.connectionClient.UploadFichier;
+import share.g2.miage.connectionClient.fonction.UploadFichier;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

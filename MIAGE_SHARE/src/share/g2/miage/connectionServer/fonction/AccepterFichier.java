@@ -1,4 +1,4 @@
-package share.g2.miage.connectionServer;
+package share.g2.miage.connectionServer.fonction;
 
 import java.io.DataInputStream;
 import java.io.File;
@@ -6,6 +6,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
+import share.g2.miage.connectionServer.ClientS;
+import share.g2.miage.connectionServer.FonctionServerFichier;
+import share.g2.miage.connectionServer.Server;
 import share.g2.miage.util.ParametrePublique;
 
 public class AccepterFichier implements FonctionServerFichier {

@@ -2,7 +2,10 @@ package share.g2.miage.connectionClient;
 
 import java.io.*;
 import java.net.*;
+
 import javax.swing.*;
+
+import share.g2.miage.connectionClient.fonction.UploadFichier;
 
 public class ClientTest {
 

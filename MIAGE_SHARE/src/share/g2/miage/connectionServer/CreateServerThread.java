@@ -3,6 +3,8 @@ package share.g2.miage.connectionServer;
 import java.io.*;
 import java.net.*;
 
+import share.g2.miage.connectionServer.fonction.AccepterFichier;
+import share.g2.miage.connectionServer.fonction.EnvoyerFichier;
 import share.g2.miage.util.ParametrePublique;
 
 //--- CreateServerThread
@@ -30,6 +32,9 @@ class CreateServerThread extends Thread {
 					fsf = new AccepterFichier();
 					fsf.excuter(clients);
 					
+				}else if(ParametrePublique.TELECHARGER_FICHIER.equals(strFonction)){
+					fsf = new EnvoyerFichier();
+					fsf.excuter(clients);
 				}
 			
 		} catch (IOException e) {
