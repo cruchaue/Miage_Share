@@ -33,14 +33,13 @@ public class TelechargerFichier implements
 			dos.writeUTF(ParametrePublique.TELECHARGER_FICHIER);
 			dos.flush();
 
-			dos.writeUTF(client.getParametre1());
+			dos.writeUTF(client.getParametre2());
 			dos.flush();
 			
 			
-			FileOutputStream fos = new FileOutputStream(new File(Server.getFichierChemin()
-					+ strTemp));
-			while ((lengthTemp = dis.read(byteTemp, 0, byteTemp.length)) > 0) {
-				fos.write(byteTemp, 0, lengthTemp);
+			FileOutputStream fos = new FileOutputStream(new File(client.getParametre1()+ client.getParametre2()));
+			while ((length = dis.read(sendBytes, 0, sendBytes.length)) > 0) {
+				fos.write(sendBytes, 0, length);
 				fos.flush();
 			}
 
@@ -48,15 +47,9 @@ public class TelechargerFichier implements
 			
 			
 
-			while ((length = fis.read(sendBytes, 0, sendBytes.length)) > 0) {
-				dos.write(sendBytes, 0, length);
-				dos.flush();
-				System.out.println("envoyer le fichier!");
-			}
-
-			System.out.println("finir d'envoyer le fichier!");
+			System.out.println("finir de telecharger le fichier!");
 			//socket.close();
-			fis.close();
+			fos.close();
 			//dos.close();
 
 		} catch (Exception e) {
