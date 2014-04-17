@@ -32,6 +32,8 @@ import javax.swing.JScrollPane;
 public class ClientInterface extends JFrame {
 
 	private JPanel contentPane;
+	private JList list;
+	private JScrollPane scrollPane;
 	private String cheminC_enregistrer_fichier_defaut;
 	private String cheminS_liste_fichier;
 
@@ -86,42 +88,23 @@ public class ClientInterface extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		
+		
 		JButton btnUpload = new JButton("Upload");
 
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(204, 31, 151, 130);
 		contentPane.add(scrollPane);
-
-		final JList list;
+		
 		list = new JList(new DefaultListModel<String>());
-
-		final DefaultListModel<String> model = new DefaultListModel<String>();
-		scrollPane.setViewportView(list);	
 		
-		
-		File repertoire = new File(cheminS_liste_fichier);
-		final String [] listefichiers; 
-
-
-		int i;
-		listefichiers = repertoire.list();
-		for (i = 0; i < listefichiers.length; i++) {
-			if (listefichiers[i].endsWith(".txt") == true) {
-				System.out.println(listefichiers[i]);// on choisit la sous
-														// chaine - les 5
-														// derniers caracteres
-														// ".java"
-				model.addElement(listefichiers[i]);
-			}
-		}
-
-		list.setModel(model);
+		listerFichier();
+		// A METTRE ICI
 
 		btnUpload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFileChooser chooser = new JFileChooser();
-				FileNameExtensionFilter filter = new FileNameExtensionFilter(
-						"TXT files", "txt");
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT files", "txt");
 				chooser.setFileFilter(filter);
 				JFrame parent = new JFrame();
 				int returnVal = chooser.showOpenDialog(parent);
@@ -142,9 +125,16 @@ public class ClientInterface extends JFrame {
 							.getAbsolutePath().replaceAll("\\\\", "\\\\\\\\");
 					System.out.println("Fichier : " + fichier);
 					fcf.excuter(client);
+					
+					
+					
+					
 					client.closeConnection();
+					
 				}
+				listerFichier();
 			}
+			
 		});
 		btnUpload.setBounds(44, 78, 89, 23);
 		contentPane.add(btnUpload);
@@ -191,8 +181,52 @@ public class ClientInterface extends JFrame {
 				
 			}
 		});
-		btnSupprimer.setBounds(173, 190, 117, 29);
+		btnSupprimer.setBounds(214, 172, 117, 29);
 		contentPane.add(btnSupprimer);
+		
+		JButton btnChat = new JButton("Chat");
+		btnChat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fenetreChat fc = new fenetreChat();
+				fc.show();
+			}
+		});
+		btnChat.setBounds(23, 193, 117, 29);
+		contentPane.add(btnChat);
 
+	}
+	
+	public void listerFichier(){
+		
+		System.out.println("LA");
+		
+
+		final DefaultListModel<String> model = new DefaultListModel<String>();
+		scrollPane.setViewportView(list);	
+		
+		
+		File repertoire = new File(cheminS_liste_fichier);
+		final String [] listefichiers; 
+
+
+		//Temps d'attente pour l'upload du fichier sur le serveur
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		int i;
+		listefichiers = repertoire.list();
+		for (i = 0; i < listefichiers.length; i++) {
+			//if (listefichiers[i].endsWith(".txt") == true) {
+				System.out.println("Valeur de " +i);
+				System.out.println("---" + listefichiers[i]);
+				model.addElement(listefichiers[i]);
+			//}
+		}
+
+	list.setModel(model);
 	}
 }
