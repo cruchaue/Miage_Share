@@ -19,12 +19,13 @@ import share.g2.miage.util.ParametrePublique;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
 
 public class fenetreLogin extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldLogin;
-	private JTextField textFieldMdp;
+	private JPasswordField passwordFieldMdp;
 
 	/**
 	 * Launch the application.
@@ -65,17 +66,17 @@ public class fenetreLogin extends JFrame {
 		textFieldLogin.setBounds(194, 73, 134, 28);
 		contentPane.add(textFieldLogin);
 		textFieldLogin.setColumns(10);
+		
 
-		textFieldMdp = new JTextField();
-		textFieldMdp.setBounds(194, 111, 134, 28);
-		contentPane.add(textFieldMdp);
-		textFieldMdp.setColumns(10);
+		passwordFieldMdp = new JPasswordField();
+		passwordFieldMdp.setBounds(194, 117, 134, 28);
+		contentPane.add(passwordFieldMdp);
 
 		JButton btnConnexion = new JButton("Connexion");
 		btnConnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String login = textFieldLogin.getText();
-				String mdp = textFieldMdp.getText();
+				String mdp = passwordFieldMdp.getText();
 
 				Client client = new Client();
 				client.demarrer();
@@ -129,6 +130,7 @@ public class fenetreLogin extends JFrame {
 		});
 		btnConnexion.setBounds(138, 173, 117, 29);
 		contentPane.add(btnConnexion);
+		
 
 	}
 }
