@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Commentaire {
 	private String user;
-	private Date date;
+	private String date;
 	private String contenu;
 	public String getUser() {
 		return user;
@@ -12,10 +12,11 @@ public class Commentaire {
 	public void setUser(String user) {
 		this.user = user;
 	}
-	public Date getDate() {
+	
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getContenu() {

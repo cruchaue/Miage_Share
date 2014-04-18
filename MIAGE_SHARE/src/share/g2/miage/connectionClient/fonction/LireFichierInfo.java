@@ -44,11 +44,8 @@ public class LireFichierInfo implements
 				
 			}
 			
-			
-			
+			client.setResultat(sb.toString());
 			System.out.println(sb.toString());
-			
-			
 			
 			//socket.close();
 			//fos.close();

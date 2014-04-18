@@ -15,6 +15,7 @@ import javax.swing.JButton;
 
 import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.dao.Client;
+import share.g2.miage.connectionClient.dao.Fichier;
 import share.g2.miage.connectionClient.fonction.LireFichierInfo;
 import share.g2.miage.connectionClient.fonction.SupprimerFichier;
 import share.g2.miage.connectionClient.fonction.TelechargerFichier;
@@ -200,7 +201,7 @@ public class ClientInterface extends JFrame {
 		btnInformationsFichier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String filename = (String) list.getSelectedValue();
-				fenetreInformations finfo = new fenetreInformations(filename);
+				
 				
 				Client client = new Client();
 				client.demarrer();
@@ -211,7 +212,9 @@ public class ClientInterface extends JFrame {
 				
 				fcf.excuter(client);
 				client.closeConnection();
+				System.out.println(client.getResultat());
 				
+				fenetreInformations finfo = new fenetreInformations(new Fichier(filename, client.getResultat()), filename);
 				finfo.show();
 			}
 		});

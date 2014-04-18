@@ -10,16 +10,8 @@ import java.net.Socket;
 import java.util.Properties;
 
 public class Client {
-	public BufferedInputStream getBis() {
-		return bis;
-	}
 
-	public BufferedOutputStream getBos() {
-		return bos;
-	}
-
-
-private Socket client = null;
+	private Socket client = null;
 	private DataInputStream dis;
 	private DataOutputStream dos;
 	private BufferedInputStream bis;
@@ -27,6 +19,14 @@ private Socket client = null;
 	private String parametre1 = "";// la premier parametre
 	private String parametre2 = "";
 	private String resultat = "";
+
+	public BufferedInputStream getBis() {
+		return bis;
+	}
+
+	public BufferedOutputStream getBos() {
+		return bos;
+	}
 
 	public String getResultat() {
 		return resultat;
@@ -77,19 +77,19 @@ private Socket client = null;
 				+ p.getProperty("portClient"));
 
 		try {
-			
+
 			client = new Socket(serverIp, port);
 			dis = new DataInputStream(client.getInputStream());
-		    dos = new DataOutputStream(client.getOutputStream());
-		    
-		    bis = new BufferedInputStream(client.getInputStream());
-		    bos = new BufferedOutputStream(client.getOutputStream());
+			dos = new DataOutputStream(client.getOutputStream());
+
+			bis = new BufferedInputStream(client.getInputStream());
+			bos = new BufferedOutputStream(client.getOutputStream());
 		} catch (IOException e1) {
 			System.out.println("����ʧ�ܣ�");
 			e1.printStackTrace();
 			return -1;
 		}
-		
+
 		return 1;
 
 	}

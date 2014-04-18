@@ -8,7 +8,13 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
+import share.g2.miage.connectionClient.dao.Fichier;
+
 public class fenetreInformations extends JFrame {
+	private Fichier fichier;
+	public void setFichier(Fichier fichier) {
+		this.fichier = fichier;
+	}
 
 	private JPanel contentPane;
 
@@ -19,7 +25,7 @@ public class fenetreInformations extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					fenetreInformations frame = new fenetreInformations("");
+					fenetreInformations frame = new fenetreInformations(null,"");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,7 +37,8 @@ public class fenetreInformations extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public fenetreInformations(String nomFichier) {
+	public fenetreInformations(Fichier fichier, String nomFichier) {
+		this.fichier = fichier;
 		setTitle("Informations fichier");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -93,10 +100,10 @@ public class fenetreInformations extends JFrame {
 		contentPane.add(droitsLabel);
 		
 		nomFicLabel.setText(nomFichier);
-		auteurLabel.setText("");
-		tailleLabel.setText("");
-		tempsUploadLabel.setText("");
-		nbTelechargementLabel.setText("");
-		droitsLabel.setText("");
+		auteurLabel.setText(this.fichier.getAuteur());
+		tailleLabel.setText(this.fichier.getTaille());
+		tempsUploadLabel.setText(this.fichier.getDate().toString());
+		nbTelechargementLabel.setText(this.fichier.getNumTelechargement()+"");
+		droitsLabel.setText(this.fichier.getDroit()+"");
 	}
 }
