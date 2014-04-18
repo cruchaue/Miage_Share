@@ -18,7 +18,8 @@ public class Client {
 		return bos;
 	}
 
-	private Socket client = null;
+
+private Socket client = null;
 	private DataInputStream dis;
 	private DataOutputStream dos;
 	private BufferedInputStream bis;

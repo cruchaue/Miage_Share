@@ -181,7 +181,7 @@ public class ClientInterface extends JFrame {
 				
 			}
 		});
-		btnSupprimer.setBounds(214, 172, 117, 29);
+		btnSupprimer.setBounds(204, 172, 151, 29);
 		contentPane.add(btnSupprimer);
 		
 		JButton btnChat = new JButton("Chat");
@@ -193,6 +193,16 @@ public class ClientInterface extends JFrame {
 		});
 		btnChat.setBounds(23, 193, 117, 29);
 		contentPane.add(btnChat);
+		
+		JButton btnInformationsFichier = new JButton("Informations fichier");
+		btnInformationsFichier.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				fenetreInformations finfo = new fenetreInformations((String) list.getSelectedValue());
+				finfo.show();
+			}
+		});
+		btnInformationsFichier.setBounds(204, 207, 151, 23);
+		contentPane.add(btnInformationsFichier);
 
 	}
 	
