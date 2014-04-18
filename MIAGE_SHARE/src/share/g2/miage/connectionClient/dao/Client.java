@@ -1,4 +1,4 @@
-package share.g2.miage.connectionClient;
+package share.g2.miage.connectionClient.dao;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

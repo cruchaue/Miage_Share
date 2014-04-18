@@ -6,8 +6,8 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 
-import share.g2.miage.connectionClient.Client;
 import share.g2.miage.connectionClient.FonctionClientFichier;
+import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.util.ParametrePublique;
 
 public class UploadFichier implements FonctionClientFichier {
