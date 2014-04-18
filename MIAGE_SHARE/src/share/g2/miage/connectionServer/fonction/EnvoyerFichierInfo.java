@@ -19,7 +19,7 @@ public class EnvoyerFichierInfo implements FonctionServerFichier {
 	public int excuter(ClientS clients) {
 		try {
 			DataInputStream dis = clients.getDis();
-			DataOutputStream dos = clients.getDos()();
+			DataOutputStream dos = clients.getDos();
 			FileInputStream fis;
 
 			String strTemp = "";
