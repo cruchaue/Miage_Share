@@ -172,6 +172,7 @@ public class ClientInterface extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				String fichierSuppression = (String) list.getSelectedValue();
 				
+					
 				Client client = new Client();
 				client.demarrer();
 				client.setParametre1(fichierSuppression);
@@ -181,6 +182,7 @@ public class ClientInterface extends JFrame {
 				
 				fcf.excuter(client);
 				client.closeConnection();
+				listerFichier();
 				
 			}
 		});
@@ -225,7 +227,7 @@ public class ClientInterface extends JFrame {
 	
 	public void listerFichier(){
 		
-		System.out.println("LA");
+		
 		
 
 		final DefaultListModel<String> model = new DefaultListModel<String>();
@@ -248,8 +250,8 @@ public class ClientInterface extends JFrame {
 		listefichiers = repertoire.list();
 		for (i = 0; i < listefichiers.length; i++) {
 			//if (listefichiers[i].endsWith(".txt") == true) {
-				System.out.println("Valeur de " +i);
-				System.out.println("---" + listefichiers[i]);
+				
+				
 				model.addElement(listefichiers[i]);
 			//}
 		}
