@@ -15,10 +15,12 @@ import share.g2.miage.connectionClient.Client;
 import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.fonction.Login;
 import share.g2.miage.connectionClient.fonction.SupprimerFichier;
+import share.g2.miage.util.CrypterMDP;
 import share.g2.miage.util.ParametrePublique;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JPasswordField;
 
 public class fenetreLogin extends JFrame {
@@ -78,6 +80,7 @@ public class fenetreLogin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String login = textFieldLogin.getText();
 				String mdp = passwordFieldMdp.getText();
+				mdp = CrypterMDP.crypteMDP(mdp);
 
 				Client client = new Client();
 				client.demarrer();

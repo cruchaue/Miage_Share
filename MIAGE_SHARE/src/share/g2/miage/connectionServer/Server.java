@@ -19,7 +19,14 @@ public class Server {
 
 	private ServerSocket serverSocket = null;
 	private static String fichierChemin;
+	private static String fichiersConfigChemin;
 	private boolean demarre = true;
+	
+
+	public static String getFichiersConfigChemin() {
+		return fichiersConfigChemin;
+	}
+
 	private static Map<String,Utilisateur> listeUser;
 
 	public static String getFichierChemin() {
@@ -44,6 +51,7 @@ public class Server {
 
 		int port = Integer.valueOf(p.getProperty("portServer"));
 		this.fichierChemin = p.getProperty("fichierChemin");
+		this.fichiersConfigChemin = p.getProperty("config_fichiers");
 		
 		chargerUtilisateur(p.getProperty("BD_utilisateurs"));
 
