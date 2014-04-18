@@ -18,7 +18,7 @@ public class Client {
 	private BufferedOutputStream bos;
 	private String parametre1 = "";// la premier parametre
 	private String parametre2 = "";
-	private String resultat = "";
+	private String resultat = ""; 
 
 	public BufferedInputStream getBis() {
 		return bis;
