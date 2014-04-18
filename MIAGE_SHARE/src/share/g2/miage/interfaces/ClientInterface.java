@@ -181,7 +181,7 @@ public class ClientInterface extends JFrame {
 				
 			}
 		});
-		btnSupprimer.setBounds(204, 172, 151, 29);
+		btnSupprimer.setBounds(204, 172, 151, 23);
 		contentPane.add(btnSupprimer);
 		
 		JButton btnChat = new JButton("Chat");
@@ -201,7 +201,7 @@ public class ClientInterface extends JFrame {
 				finfo.show();
 			}
 		});
-		btnInformationsFichier.setBounds(204, 207, 151, 23);
+		btnInformationsFichier.setBounds(204, 206, 151, 23);
 		contentPane.add(btnInformationsFichier);
 
 	}
