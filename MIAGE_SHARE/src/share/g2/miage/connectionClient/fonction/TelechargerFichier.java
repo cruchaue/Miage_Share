@@ -6,8 +6,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import share.g2.miage.connectionClient.Client;
 import share.g2.miage.connectionClient.FonctionClientFichier;
+import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionServer.Server;
 import share.g2.miage.util.ParametrePublique;
 

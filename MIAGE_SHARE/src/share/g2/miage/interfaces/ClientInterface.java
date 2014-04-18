@@ -13,8 +13,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
 
-import share.g2.miage.connectionClient.Client;
 import share.g2.miage.connectionClient.FonctionClientFichier;
+import share.g2.miage.connectionClient.dao.Client;
+import share.g2.miage.connectionClient.fonction.LireFichierInfo;
 import share.g2.miage.connectionClient.fonction.SupprimerFichier;
 import share.g2.miage.connectionClient.fonction.TelechargerFichier;
 import share.g2.miage.connectionClient.fonction.UploadFichier;
@@ -198,7 +199,19 @@ public class ClientInterface extends JFrame {
 		JButton btnInformationsFichier = new JButton("Informations fichier");
 		btnInformationsFichier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				fenetreInformations finfo = new fenetreInformations((String) list.getSelectedValue());
+				String filename = (String) list.getSelectedValue();
+				fenetreInformations finfo = new fenetreInformations(filename);
+				
+				Client client = new Client();
+				client.demarrer();
+				client.setParametre1(filename);
+				FonctionClientFichier fcf = new LireFichierInfo();
+
+				
+				
+				fcf.excuter(client);
+				client.closeConnection();
+				
 				finfo.show();
 			}
 		});

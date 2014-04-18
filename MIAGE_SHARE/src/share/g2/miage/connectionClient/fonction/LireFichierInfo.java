@@ -6,8 +6,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import share.g2.miage.connectionClient.Client;
 import share.g2.miage.connectionClient.FonctionClientFichier;
+import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionServer.Server;
 import share.g2.miage.util.ParametrePublique;
 
@@ -24,7 +24,7 @@ public class LireFichierInfo implements
 			//FileInputStream fis = new FileInputStream(file);
 
 			DataOutputStream dos = client.getDos();
-			//DataInputStream dis = client.getDis();
+			DataInputStream dis = client.getDis();
 
  
 			dos.writeUTF(ParametrePublique.LIRE_FICHIER_INFO);
@@ -33,7 +33,23 @@ public class LireFichierInfo implements
 			dos.writeUTF(client.getParametre1());
 			dos.flush();
 			
-			System.out.println("finir de supprimer le fichier!");
+			byte[] sendBytes = new byte[ParametrePublique.LENGTH_ENVOYER];
+			int length = 0;
+
+			StringBuffer sb = new StringBuffer();
+			while ((length = dis.read(sendBytes, 0, sendBytes.length)) > 0) {
+				String strRead = new String(sendBytes);
+				strRead = String.copyValueOf(strRead.toCharArray(), 0, length);
+				sb.append(strRead);
+				
+			}
+			
+			
+			
+			System.out.println(sb.toString());
+			
+			
+			
 			//socket.close();
 			//fos.close();
 			//dos.close();
