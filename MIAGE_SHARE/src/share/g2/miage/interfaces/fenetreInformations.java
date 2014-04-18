@@ -9,6 +9,10 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
 import share.g2.miage.connectionClient.dao.Fichier;
+import javax.swing.JScrollPane;
+import javax.swing.JList;
+import javax.swing.JTextField;
+import javax.swing.JButton;
 
 public class fenetreInformations extends JFrame {
 	private Fichier fichier;
@@ -17,6 +21,7 @@ public class fenetreInformations extends JFrame {
 	}
 
 	private JPanel contentPane;
+	private JTextField textFieldCommentaire;
 
 	/**
 	 * Launch the application.
@@ -41,7 +46,7 @@ public class fenetreInformations extends JFrame {
 		this.fichier = fichier;
 		setTitle("Informations fichier");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 699, 482);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -72,7 +77,7 @@ public class fenetreInformations extends JFrame {
 		contentPane.add(lblDroits);
 		
 		JLabel lblCommentaires = new JLabel("Commentaires :");
-		lblCommentaires.setBounds(43, 185, 110, 14);
+		lblCommentaires.setBounds(324, 30, 110, 14);
 		contentPane.add(lblCommentaires);
 		
 		JLabel nomFicLabel = new JLabel("New label");
@@ -95,15 +100,35 @@ public class fenetreInformations extends JFrame {
 		nbTelechargementLabel.setBounds(229, 135, 131, 14);
 		contentPane.add(nbTelechargementLabel);
 		
-		JLabel droitsLabel = new JLabel("New label");
-		droitsLabel.setBounds(229, 160, 131, 14);
-		contentPane.add(droitsLabel);
-		
 		nomFicLabel.setText(nomFichier);
 		auteurLabel.setText(this.fichier.getAuteur());
 		tailleLabel.setText(this.fichier.getTaille());
 		tempsUploadLabel.setText(this.fichier.getDate().toString());
 		nbTelechargementLabel.setText(this.fichier.getNumTelechargement()+"");
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(322, 56, 334, 118);
+		contentPane.add(scrollPane);
+		
+		JList list = new JList();
+		scrollPane.setViewportView(list);
+		
+		JLabel droitsLabel = new JLabel("New label");
+		droitsLabel.setBounds(229, 155, 49, 24);
+		contentPane.add(droitsLabel);
 		droitsLabel.setText(this.fichier.getDroit()+"");
+		
+		textFieldCommentaire = new JTextField();
+		textFieldCommentaire.setBounds(44, 233, 612, 20);
+		contentPane.add(textFieldCommentaire);
+		textFieldCommentaire.setColumns(10);
+		
+		JButton btnEnvoyer = new JButton("Envoyer");
+		btnEnvoyer.setBounds(567, 264, 89, 23);
+		contentPane.add(btnEnvoyer);
+		
+		JLabel lblVotreCommentaire = new JLabel("Votre commentaire :");
+		lblVotreCommentaire.setBounds(43, 207, 176, 14);
+		contentPane.add(lblVotreCommentaire);
 	}
 }
