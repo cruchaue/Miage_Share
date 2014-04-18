@@ -64,6 +64,7 @@ public class ClientInterface extends JFrame {
 	 * Create the frame.
 	 */
 	public ClientInterface() {
+		setResizable(false);
 
 		// lire le fichier de parametre
 		InputStream inputStream = this.getClass().getClassLoader()
@@ -79,7 +80,7 @@ public class ClientInterface extends JFrame {
 		cheminS_liste_fichier = p.getProperty("fichierChemin");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 390, 298);
 
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
