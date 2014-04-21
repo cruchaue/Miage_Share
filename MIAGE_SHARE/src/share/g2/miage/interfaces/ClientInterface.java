@@ -30,6 +30,7 @@ import java.util.Properties;
 
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import share.g2.miage.connectionClient.dao.User;
 
 public class ClientInterface extends JFrame {
 
@@ -38,8 +39,17 @@ public class ClientInterface extends JFrame {
 	private JScrollPane scrollPane;
 	private String cheminC_enregistrer_fichier_defaut;
 	private String cheminS_liste_fichier;
+	private static User User;
 
 	// private Client client;
+
+	public static User getUser() {
+		return User;
+	}
+
+	public static void setUser(User user) {
+		User = user;
+	}
 
 	/**
 	 * Launch the application.
@@ -214,9 +224,9 @@ public class ClientInterface extends JFrame {
 				
 				fcf.excuter(client);
 				client.closeConnection();
-				System.out.println(client.getResultat());
+				System.out.println(client.getResultat1());
 				
-				fenetreInformations finfo = new fenetreInformations(new Fichier(filename, client.getResultat()), filename);
+				fenetreInformations finfo = new fenetreInformations(new Fichier(filename, client.getResultat1()), filename);
 				finfo.show();
 			}
 		});

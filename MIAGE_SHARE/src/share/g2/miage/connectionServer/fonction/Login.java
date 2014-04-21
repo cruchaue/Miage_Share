@@ -39,12 +39,17 @@ public class Login implements FonctionServerFichier {
 				if(user.getPassword().equals(pw)){
 					dos.writeUTF(ParametrePublique.OK);
 					System.out.println("login ok");
+					
+					dos.writeUTF(user.getLoginName()+"<@>"+user.getLimite());
+					System.out.println("login ok");
 				}else{
 					dos.writeUTF(ParametrePublique.USER_PW_PAS_CORRECTE);
+					dos.writeUTF("null");
 					System.out.println("faut pw");
 				}
 			}else{
 				dos.writeUTF(ParametrePublique.USER_EXISTE_PAS);
+				dos.writeUTF("null");
 				System.out.println("pas existe");
 			}
 			clients.closeConnection();

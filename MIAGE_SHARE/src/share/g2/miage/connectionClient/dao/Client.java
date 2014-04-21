@@ -18,7 +18,16 @@ public class Client {
 	private BufferedOutputStream bos;
 	private String parametre1 = "";// la premier parametre
 	private String parametre2 = "";
-	private String resultat = ""; 
+	private String resultat1 = ""; 
+	private String resultat2 = ""; 
+
+	public String getResultat2() {
+		return resultat2;
+	}
+
+	public void setResultat2(String resultat2) {
+		this.resultat2 = resultat2;
+	}
 
 	public BufferedInputStream getBis() {
 		return bis;
@@ -28,12 +37,12 @@ public class Client {
 		return bos;
 	}
 
-	public String getResultat() {
-		return resultat;
+	public String getResultat1() {
+		return resultat1;
 	}
 
-	public void setResultat(String resultat) {
-		this.resultat = resultat;
+	public void setResultat1(String resultat1) {
+		this.resultat1 = resultat1;
 	}
 
 	public String getParametre1() {

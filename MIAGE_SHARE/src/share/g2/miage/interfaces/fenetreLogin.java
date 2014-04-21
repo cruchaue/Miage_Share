@@ -13,6 +13,7 @@ import javax.swing.JButton;
 
 import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.dao.Client;
+import share.g2.miage.connectionClient.dao.User;
 import share.g2.miage.connectionClient.fonction.Login;
 import share.g2.miage.connectionClient.fonction.SupprimerFichier;
 import share.g2.miage.util.CrypterMDP;
@@ -89,13 +90,21 @@ public class fenetreLogin extends JFrame {
 				FonctionClientFichier fcf = new Login();
 
 				fcf.excuter(client);
-				String resultat = client.getResultat();
+				String resultat = client.getResultat1();
 				if (ParametrePublique.OK.equals(resultat)) {
 					System.out.println("login ok");
-
+					String userInfoStr = client.getResultat2();
+					String[] userInfo =  userInfoStr.split("<@>");
+					
+					User user = new User();
+					user.setUserName(userInfo[0]);
+					user.setDroit(Integer.valueOf(userInfo[1]));
+					ClientInterface.setUser(user);
+					
 					EventQueue.invokeLater(new Runnable() {
 						public void run() {
 							try {
+								
 								ClientInterface frame = new ClientInterface();
 								frame.setVisible(true);
 

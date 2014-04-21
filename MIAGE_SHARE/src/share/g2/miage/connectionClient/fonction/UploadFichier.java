@@ -8,6 +8,7 @@ import java.io.FileInputStream;
 
 import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.dao.Client;
+import share.g2.miage.interfaces.ClientInterface;
 import share.g2.miage.util.ParametrePublique;
 
 public class UploadFichier implements FonctionClientFichier {
@@ -31,6 +32,9 @@ public class UploadFichier implements FonctionClientFichier {
 			dos.flush();
 
 			dos.writeUTF(client.getParametre2());
+			dos.flush();
+			
+			dos.writeUTF(ClientInterface.getUser().getUserName());
 			dos.flush();
 
 			while ((length = fis.read(sendBytes, 0, sendBytes.length)) > 0) {

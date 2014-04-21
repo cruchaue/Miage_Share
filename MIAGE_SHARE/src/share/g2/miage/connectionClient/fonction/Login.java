@@ -38,7 +38,8 @@ public class Login implements
 			dos.writeUTF(client.getParametre2());
 			dos.flush();
 			
-			client.setResultat(dis.readUTF());
+			client.setResultat1(dis.readUTF());
+			client.setResultat2(dis.readUTF());
 
 			System.out.println("finir de supprimer le fichier!");
 			//socket.close();

@@ -34,18 +34,19 @@ public class Fichier {
 
 		this.numTelechargement = Integer.valueOf(strFI[3]);
 		this.droit = Integer.valueOf(strFI[4]);
+		if (strFI.length > 5) {
+			String[] strCMMS = strFI[5].split("<@_SC>");
+			this.comms = new ArrayList<Commentaire>();
+			for (int i = 0; i < strCMMS.length; i++) {
+				Commentaire cmm = new Commentaire();
+				String[] strCMM = strCMMS[i].split("<@_SC_>");
+				System.out.println(strCMMS[i]);
+				cmm.setUser(strCMM[0]);
 
-		String[] strCMMS = strFI[5].split("<@_SC>");
-		this.comms = new ArrayList<Commentaire>();
-		for (int i = 0; i < strCMMS.length; i++) {
-			Commentaire cmm = new Commentaire();
-			String[] strCMM = strCMMS[i].split("<@_SC_>");
-			System.out.println(strCMMS[i]);
-			cmm.setUser(strCMM[0]);
+				cmm.setDate(strCMM[1]);
 
-			cmm.setDate(strCMM[1]);
-
-			cmm.setContenu(strCMM[2]);
+				cmm.setContenu(strCMM[2]);
+			}
 		}
 
 	}
