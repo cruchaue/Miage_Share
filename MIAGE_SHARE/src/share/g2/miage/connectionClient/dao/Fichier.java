@@ -43,6 +43,7 @@ public class Fichier {
 
 		this.numTelechargement = Integer.valueOf(strFI[4]);
 		this.droit = Integer.valueOf(strFI[5]);
+		System.out.println("fichier length: " +strFI.length);
 		if (strFI.length > 6) {
 			String[] strCMMS = strFI[6].split(ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE1);
 			this.comms = new ArrayList<Commentaire>();
@@ -55,6 +56,7 @@ public class Fichier {
 				cmm.setDate(strCMM[1]);
 
 				cmm.setContenu(strCMM[2]);
+				this.comms.add(cmm);
 			}
 		}
 

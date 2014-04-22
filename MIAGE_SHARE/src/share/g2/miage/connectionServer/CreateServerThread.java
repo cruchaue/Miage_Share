@@ -3,6 +3,9 @@ package share.g2.miage.connectionServer;
 import java.io.*;
 import java.net.*;
 
+import share.g2.miage.connectionClient.chat.EnvoyerMessage;
+import share.g2.miage.connectionServer.chat.DistribuerMessage;
+import share.g2.miage.connectionServer.chat.RecupererMessage;
 import share.g2.miage.connectionServer.fonction.AccepterFichier;
 import share.g2.miage.connectionServer.fonction.CommenterFichier;
 import share.g2.miage.connectionServer.fonction.CreerUtilisateur;
@@ -53,6 +56,12 @@ class CreateServerThread extends Thread {
 					fsf.excuter(clients);
 				}else if(ParametrePublique.COMMENTER_FICHIER.equals(strFonction)){
 					fsf = new CommenterFichier();
+					fsf.excuter(clients);
+				}else if(ParametrePublique.DISTRIBUER_MESSAGE.equals(strFonction)){
+					fsf = new DistribuerMessage();
+					fsf.excuter(clients);
+				}else if(ParametrePublique.ENVOYER_MESSAGE.equals(strFonction)){
+					fsf = new RecupererMessage();
 					fsf.excuter(clients);
 				}
 				else if(ParametrePublique.CREER_UTILISATEUR.equals(strFonction)){

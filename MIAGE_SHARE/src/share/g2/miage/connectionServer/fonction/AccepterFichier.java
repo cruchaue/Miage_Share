@@ -96,6 +96,7 @@ public class AccepterFichier implements FonctionServerFichier {
 	    sb.append("0");
 	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
 	    sb.append("1");
+	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
 	    
 	    System.out.println(sb.toString());
 	    FileOutputStream fos;
