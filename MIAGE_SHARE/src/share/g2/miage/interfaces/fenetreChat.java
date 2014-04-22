@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.fonction.UploadFichier;
+import share.g2.miage.connectionServer.Server;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -22,6 +23,7 @@ public class fenetreChat extends JFrame {
 
 	private JPanel contentPane;
 	private final JButton btnRecevoir = new JButton("Recevoir");
+	Server server;
 	Client client;
 
 	/**
@@ -33,12 +35,7 @@ public class fenetreChat extends JFrame {
 				try {
 					fenetreChat frame = new fenetreChat();
 					frame.setVisible(true);
-					Client client = new Client();
-					client.demarrer();
-					FonctionClientFichier fcf = new UploadFichier();
-					client.setParametre1("test.jpg");
-					client.setParametre2("test.jpg");
-					fcf.excuter(client);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -60,7 +57,7 @@ public class fenetreChat extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblCeciEstUn = new JLabel("Ceci est un chat :");
-		lblCeciEstUn.setBounds(6, 18, 109, 16);
+		lblCeciEstUn.setBounds(16, 31, 109, 16);
 		contentPane.add(lblCeciEstUn);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -76,7 +73,7 @@ public class fenetreChat extends JFrame {
 				client.toString();
 			}
 		});
-		btnPoster.setBounds(214, 101, 89, 23);
+		btnPoster.setBounds(214, 114, 89, 23);
 		contentPane.add(btnPoster);
 		
 		JButton btnCloseConnexion = new JButton("Close connexion");
@@ -93,7 +90,28 @@ public class fenetreChat extends JFrame {
 		contentPane.add(btnRecevoir);
 		
 		JTextPane textPaneEcriture = new JTextPane();
-		textPaneEcriture.setBounds(16, 45, 451, 45);
+		textPaneEcriture.setBounds(16, 58, 451, 45);
 		contentPane.add(textPaneEcriture);
+		
+		JButton btnServeur = new JButton("Serveur");
+		btnServeur.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				server = new Server();
+				server.demarrer();				
+			}
+		});
+		btnServeur.setBounds(118, 11, 89, 23);
+		contentPane.add(btnServeur);
+		
+		JButton btnClient = new JButton("Client");
+		btnClient.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {				
+				client = new Client();
+				client.demarrer();
+				
+			}
+		});
+		btnClient.setBounds(266, 11, 89, 23);
+		contentPane.add(btnClient);
 	}
 }
