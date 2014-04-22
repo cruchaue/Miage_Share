@@ -13,6 +13,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class fenetreInformations extends JFrame {
 	private Fichier fichier;
@@ -124,6 +126,14 @@ public class fenetreInformations extends JFrame {
 		textFieldCommentaire.setColumns(10);
 		
 		JButton btnEnvoyer = new JButton("Envoyer");
+		btnEnvoyer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//A FINIR ECRITURE DANS FICHIER
+				textFieldCommentaire.getText();
+				//
+			
+			}
+		});
 		btnEnvoyer.setBounds(567, 264, 89, 23);
 		contentPane.add(btnEnvoyer);
 		

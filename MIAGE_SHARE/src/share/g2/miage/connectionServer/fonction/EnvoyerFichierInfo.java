@@ -41,7 +41,7 @@ public class EnvoyerFichierInfo implements FonctionServerFichier {
 					dos.flush();
 				}
 
-				System.out.println("finir d'envoyer le fichier!");
+				System.out.println("Fichier envoyé avec succès");
 				//socket.close();
 				fis.close();
 				
@@ -49,7 +49,7 @@ public class EnvoyerFichierInfo implements FonctionServerFichier {
 				
 				
 			}else{
-				System.out.println("fichier existe pas!");
+				System.out.println("Le fichier n'existe pas!");
 			}
 
 			clients.closeConnection();
