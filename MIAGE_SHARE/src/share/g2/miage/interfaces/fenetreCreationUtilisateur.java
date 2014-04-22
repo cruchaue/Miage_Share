@@ -6,13 +6,16 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
+import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionServer.Utilisateur;
+import share.g2.miage.util.ParametrePublique;
 
 public class fenetreCreationUtilisateur extends JFrame {
 	
@@ -94,6 +97,42 @@ public class fenetreCreationUtilisateur extends JFrame {
 				u.setPassword(pass.getText());
 				u.setMail(mail.getText());
 				
+				//verifier le password
+				if(!pass.getText().equals(verifPass.getText())){
+					JOptionPane jop = new JOptionPane();
+					jop.showMessageDialog(null,
+							"Cet utilisateur n'existe pas.",
+							"Login failed",
+							JOptionPane.WARNING_MESSAGE);
+				}else{
+					StringBuffer sb =  new StringBuffer();
+					sb.append(login);
+				    sb.append(ParametrePublique.SPEPARER_INFO_UTILISATEUR);
+				    sb.append(pass);
+				    sb.append(ParametrePublique.SPEPARER_INFO_UTILISATEUR);
+				    sb.append(verifPass);
+				    sb.append(ParametrePublique.SPEPARER_INFO_UTILISATEUR);
+				    sb.append(mail);
+				
+					
+					Client client = new Client();
+					client.demarrer();
+					client.setParametre1(sb.toString());
+					
+					
+					
+					//fcf.excuter(client);
+					
+					
+					
+					
+					client.closeConnection();
+				}
+				
+				
+				
+				
+				
 				
 				
 			}
@@ -104,4 +143,5 @@ public class fenetreCreationUtilisateur extends JFrame {
 		
 
 	}
+	
 }
