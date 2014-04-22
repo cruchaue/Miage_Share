@@ -39,7 +39,7 @@ public class CreerUtilisateur implements FonctionServerFichier {
 			sb.append(lesInfosUtilisateur[0]+";");
 			sb.append(lesInfosUtilisateur[1]+";");
 			sb.append("2;");
-			sb.append(lesInfosUtilisateur[3]+";\n");
+			sb.append(lesInfosUtilisateur[3]+";\r\n");
 			
 			
 			File file = new File("Z://spaceTest_share_G2//server//BD//utilisateurs.txt");

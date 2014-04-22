@@ -18,6 +18,7 @@ import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.fonction.CreerUtilisateur;
 import share.g2.miage.connectionClient.fonction.UploadFichier;
 import share.g2.miage.connectionServer.Utilisateur;
+import share.g2.miage.util.CrypterMDP;
 import share.g2.miage.util.ParametrePublique;
 
 public class fenetreCreationUtilisateur extends JFrame {
@@ -96,24 +97,42 @@ public class fenetreCreationUtilisateur extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Utilisateur u = new Utilisateur();
 				u.setLoginName(login.getText());
+				System.out.println(pass.getText()+"-- "+verifPass.getText());
 				
-				u.setPassword(pass.getText());
+				
+				
+				
+				
 				u.setMail(mail.getText());
 				
+				
+				
+				
 				//verifier le password
-				if(!pass.getText().equals(verifPass.getText())){
+				String mdp= (String)pass.getText();
+				
+				mdp = CrypterMDP.crypteMDP(mdp);
+				
+				String mdp2= (String)verifPass.getText();
+				mdp2 = CrypterMDP.crypteMDP(mdp2);
+				
+				
+				System.out.println(mdp+"-- "+mdp2);
+				//verifier le password
+				if(!mdp.equals(mdp2)){
 					JOptionPane jop = new JOptionPane();
 					jop.showMessageDialog(null,
-							"Cet utilisateur n'existe pas.",
-							"Login failed",
+							"Les 2 mots de passes sont différents",
+							"Mot de passe incorrect",
 							JOptionPane.WARNING_MESSAGE);
 				}else{
+					u.setPassword(mdp);
 					StringBuffer sb =  new StringBuffer();
 					sb.append(login.getText());
 				    sb.append(ParametrePublique.SPEPARER_INFO_UTILISATEUR);
-				    sb.append(pass.getText());
+				    sb.append(mdp);
 				    sb.append(ParametrePublique.SPEPARER_INFO_UTILISATEUR);
-				    sb.append(verifPass.getText());
+				    sb.append(mdp2);
 				    sb.append(ParametrePublique.SPEPARER_INFO_UTILISATEUR);
 				    sb.append(mail.getText());
 				
@@ -130,7 +149,15 @@ public class fenetreCreationUtilisateur extends JFrame {
 					
 					
 					client.closeConnection();
+					
+					JOptionPane jop = new JOptionPane();
+					jop.showMessageDialog(null,
+							"Utilisateur crée avec succès",
+							"Bravo",
+							JOptionPane.DEFAULT_OPTION);
+					
 				}
+				
 				
 				
 				
