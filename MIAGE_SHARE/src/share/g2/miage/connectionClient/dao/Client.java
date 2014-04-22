@@ -119,6 +119,7 @@ public class Client {
 			dos.close();
 			bis.close();
 			bos.close();
+			System.out.println("connexion fermée");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
