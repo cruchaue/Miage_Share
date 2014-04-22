@@ -1,6 +1,9 @@
 package share.g2.miage.interfaces;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,14 +12,16 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
+import share.g2.miage.connectionServer.Utilisateur;
+
 public class fenetreCreationUtilisateur extends JFrame {
 	
 	
 	private JPanel contentPane;
-	private JTextField textField;
-	private JPasswordField passwordField;
-	private JPasswordField passwordField_1;
-	private JTextField textField_1;
+	private JTextField login;
+	private JPasswordField pass;
+	private JPasswordField verifPass;
+	private JTextField mail;
 
 	/**
 	 * Launch the application.
@@ -45,43 +50,58 @@ public class fenetreCreationUtilisateur extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(197, 47, 134, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		login = new JTextField();
+		login.setBounds(197, 50, 134, 20);
+		contentPane.add(login);
+		login.setColumns(10);
 		
 		JLabel lblLogin = new JLabel("Login");
-		lblLogin.setBounds(41, 50, 86, 14);
+		lblLogin.setBounds(41, 53, 86, 14);
 		contentPane.add(lblLogin);
 		
 		JLabel lblNewLabel = new JLabel("Saisir un mot de passe");
-		lblNewLabel.setBounds(41, 85, 124, 14);
+		lblNewLabel.setBounds(41, 87, 124, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Confirmez votre mot de passe");
 		lblNewLabel_1.setBounds(41, 112, 146, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(197, 78, 134, 20);
-		contentPane.add(passwordField);
+		pass = new JPasswordField();
+		pass.setBounds(197, 78, 134, 20);
+		contentPane.add(pass);
 		
-		passwordField_1 = new JPasswordField();
-		passwordField_1.setBounds(197, 109, 134, 20);
-		contentPane.add(passwordField_1);
+		verifPass = new JPasswordField();
+		verifPass.setBounds(197, 109, 134, 20);
+		contentPane.add(verifPass);
 		
 		JLabel lblAdresseMail = new JLabel("Adresse mail");
 		lblAdresseMail.setBounds(41, 143, 86, 14);
 		contentPane.add(lblAdresseMail);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(197, 140, 134, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		mail = new JTextField();
+		mail.setBounds(197, 140, 134, 20);
+		contentPane.add(mail);
+		mail.setColumns(10);
 		
-		JButton btnCrerLeCompte = new JButton("Créer le compte");
-		btnCrerLeCompte.setBounds(221, 186, 109, 23);
-		contentPane.add(btnCrerLeCompte);
+		JButton btnCreerLeCompte = new JButton("Créer le compte");
+		btnCreerLeCompte.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent e) {
+				Utilisateur u = new Utilisateur();
+				u.setLoginName(login.getText());
+				
+				u.setPassword(pass.getText());
+				u.setMail(mail.getText());
+				
+				
+				
+			}
+		});
+		btnCreerLeCompte.setBounds(221, 186, 109, 23);
+		contentPane.add(btnCreerLeCompte);
+		
+		
 
 	}
 }

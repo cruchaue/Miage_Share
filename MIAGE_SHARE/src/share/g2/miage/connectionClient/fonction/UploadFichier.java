@@ -6,6 +6,8 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 
+import javax.swing.JOptionPane;
+
 import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.interfaces.ClientInterface;
@@ -40,10 +42,10 @@ public class UploadFichier implements FonctionClientFichier {
 			while ((length = fis.read(sendBytes, 0, sendBytes.length)) > 0) {
 				bos.write(sendBytes, 0, length);
 				bos.flush();
-				System.out.println("envoyer le fichier!");
+				System.out.println("upload en cours!");
 			}
 
-			System.out.println("finir d'envoyer le fichier!");
+			JOptionPane.showMessageDialog(null, "Fichier uploadé avec succès");
 			//socket.close();
 			fis.close();
 			//dos.close();

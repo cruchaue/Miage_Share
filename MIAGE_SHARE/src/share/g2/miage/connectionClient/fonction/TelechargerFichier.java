@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
+import javax.swing.JOptionPane;
+
 import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionServer.Server;
@@ -46,7 +48,7 @@ public class TelechargerFichier implements
 			
 			
 
-			System.out.println("finir de telecharger le fichier!");
+			JOptionPane.showMessageDialog(null, "Fichier telecharger avec succès");
 			//socket.close();
 			fos.close();
 			//dos.close();
