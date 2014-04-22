@@ -53,7 +53,7 @@ public class fenetreInformations extends JFrame {
 	public fenetreInformations(final Fichier fichier, String nomFichier) {
 		this.fichier = fichier;
 		setTitle("Informations fichier");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 699, 482);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
