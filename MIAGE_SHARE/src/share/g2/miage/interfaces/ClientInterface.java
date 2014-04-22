@@ -30,7 +30,9 @@ import java.util.Properties;
 
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+
 import share.g2.miage.connectionClient.dao.User;
+import share.g2.miage.util.ParametrePublique;
 
 public class ClientInterface extends JFrame {
 
@@ -226,7 +228,7 @@ public class ClientInterface extends JFrame {
 				client.closeConnection();
 				System.out.println(client.getResultat1());
 				
-				fenetreInformations finfo = new fenetreInformations(new Fichier(filename, client.getResultat1()), filename);
+				fenetreInformations finfo = new fenetreInformations(new Fichier(filename+ParametrePublique.SPEPARER_FICHIER_INFO+ client.getResultat1()), filename);
 				finfo.show();
 			}
 		});
