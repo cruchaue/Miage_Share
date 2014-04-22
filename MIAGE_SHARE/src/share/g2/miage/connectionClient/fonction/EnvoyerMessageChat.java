@@ -12,7 +12,7 @@ import share.g2.miage.util.ParametrePublique;
 
 public class EnvoyerMessageChat {
 
-	public int excuter(Client client,String message) {
+	public int excuter(Client client) {
 		try {
 
 
@@ -23,7 +23,7 @@ public class EnvoyerMessageChat {
 
 			int length = 0;
 
-			FileOutputStream fos = new FileOutputStream(message);
+			FileOutputStream fos = new FileOutputStream("toto");
 
 			fos.write(sendBytes, 0, length);
 			fos.flush();
