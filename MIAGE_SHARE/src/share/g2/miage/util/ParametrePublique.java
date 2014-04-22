@@ -16,8 +16,8 @@ public class ParametrePublique {
 	public final static String OK = "<@ok>";
 	
 	public final static String SPEPARER_FICHIER_INFO = "<@_SFI>";
-	public final static String SPEPARER_FICHIER_COMMENTAIRE1 = "<@_SFI>";
-	public final static String SPEPARER_FICHIER_COMMENTAIRE2 = "<@_SFI_>";
+	public final static String SPEPARER_FICHIER_COMMENTAIRE1 = "<@_SC>";
+	public final static String SPEPARER_FICHIER_COMMENTAIRE2 = "<@_SC_>";
 	
 	public final static String UPLOAD_FINIT = "<@finit>";
 	public final static int LENGTH_ENVOYER = 1024;

@@ -7,7 +7,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
+import share.g2.miage.connectionClient.dao.Commentaire;
 import share.g2.miage.connectionClient.dao.Fichier;
 import share.g2.miage.connectionServer.ClientS;
 import share.g2.miage.connectionServer.FonctionServerFichier;
@@ -29,25 +32,43 @@ public class CommenterFichier implements FonctionServerFichier {
 			String commentaire = dis.readUTF();
 			int lengthTemp;
 			byte[] byteTemp = new byte[ParametrePublique.LENGTH_ENVOYER];
+			//StringBuffer sb = new StringBuffer();
+			
+			File file = new File(Server.getFichiersConfigChemin()+fichierNom+".txt");
+			
+			System.out.println(commentaire);
+			
+			
 			StringBuffer sb = new StringBuffer();
-			
-			File file = new File(Server.getFichierChemin()+fichierNom);
-			
 			if(file.exists()){
 				FileInputStream fis = new FileInputStream(file);
-				
 				while ((lengthTemp = fis.read(byteTemp, 0, byteTemp.length)) > 0) {
-					sb.append(new String(byteTemp));
-				}
+					String strRead = new String(byteTemp);
+					sb.append(String.copyValueOf(strRead.toCharArray(), 0, lengthTemp));
 				
-				fis.close();
+				}
+				sb.append(commentaire);
+				
+				FileOutputStream fos = new FileOutputStream(file);
+				
+				fos.write(sb.toString().getBytes());
+				
+				fos.close();
+			}
+			/*
+			Fichier fichier = new Fichier(sb.toString());
+			List<Commentaire> comms = fichier.getComms();
+			if(comms==null){
+				comms = new ArrayList<Commentaire>();
 			}
 			
-			Fichier fichier = new Fichier(sb.toString());
-			
-			
-			
-
+			String[] commTable = commentaire.split(ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE2);
+			Commentaire comm = new Commentaire();
+			comm.setUser(commTable[0]);
+			comm.setDate(commTable[1]);
+			comm.setContenu(commTable[2]);
+			comms.add(comm);
+			*/
 			clients.closeConnection();
 
 		} catch (IOException e) {

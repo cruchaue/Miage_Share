@@ -13,7 +13,9 @@ import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.dao.Fichier;
 import share.g2.miage.connectionClient.fonction.CommenterFichier;
 import share.g2.miage.connectionClient.fonction.LireFichierInfo;
+import share.g2.miage.util.ParametrePublique;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.JTextField;
@@ -21,6 +23,8 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class fenetreInformations extends JFrame {
 	private final Fichier fichier;
@@ -114,8 +118,19 @@ public class fenetreInformations extends JFrame {
 		scrollPane.setBounds(322, 56, 334, 118);
 		contentPane.add(scrollPane);
 		
-		JList list = new JList();
+		DefaultListModel model = new DefaultListModel();
+		JList list = new JList(model);
+		
+		if(fichier.getComms()!=null&&fichier.getComms().size()>0){
+			for(int i = 0;i<fichier.getComms().size();i++){
+				model.addElement(fichier.getComms().get(i).getContenu()+
+						"  ["+fichier.getComms().get(i).getUser()+"/"+fichier.getComms().get(i).getDate()+"]");
+			}
+			
+		}
+		
 		scrollPane.setViewportView(list);
+		
 		
 		JLabel droitsLabel = new JLabel("New label");
 		droitsLabel.setBounds(229, 155, 49, 24);
@@ -131,15 +146,39 @@ public class fenetreInformations extends JFrame {
 		btnEnvoyer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//A FINIR ECRITURE DANS FICHIER
+				Date date = new Date(System.currentTimeMillis());
+				SimpleDateFormat sdf  =   new  SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+				
 				
 				Client client = new Client();
 				client.demarrer();
 				client.setParametre1(fichier.getNom());
-				client.setParametre2(textFieldCommentaire.getText());
-				//FonctionClientFichier fcf = new CommenterFichier();
-				//fcf.excuter(client);
+				client.setParametre2(ClientInterface.getUser().getUserName()+
+						ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE2+
+						sdf.format( date)+
+						ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE2+
+						textFieldCommentaire.getText()+
+						ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE1
+						);
+				FonctionClientFichier fcf = new CommenterFichier();
+				fcf.excuter(client);
 				client.closeConnection();
 				System.out.println(client.getParametre1()+client.getParametre2());
+			
+				
+				client = new Client();
+				client.demarrer();
+				client.setParametre1(fichier.getNom());
+				fcf = new LireFichierInfo();
+
+				
+				
+				fcf.excuter(client);
+				client.closeConnection();
+				System.out.println(client.getResultat1());
+				
+				fenetreInformations finfo = new fenetreInformations(new Fichier(fichier.getNom()+ParametrePublique.SPEPARER_FICHIER_INFO+ client.getResultat1()), fichier.getNom());
+				finfo.show();
 			
 			}
 		});
