@@ -88,13 +88,13 @@ public class AccepterFichier implements FonctionServerFichier {
 	    datestr = sdf.format( date); 
 		
 	    sb.append(userName);
-	    sb.append("<@_SFI>");
+	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
 	    sb.append(taille);
-	    sb.append("<@_SFI>");
+	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
 	    sb.append(datestr);
-	    sb.append("<@_SFI>");
+	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
 	    sb.append("0");
-	    sb.append("<@_SFI>");
+	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
 	    sb.append("1");
 	    
 	    System.out.println(sb.toString());

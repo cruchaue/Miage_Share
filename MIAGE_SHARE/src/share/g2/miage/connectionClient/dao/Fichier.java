@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import share.g2.miage.util.ParametrePublique;
+
 public class Fichier {
 	private String nom;
 	private String auteur;
@@ -25,7 +27,7 @@ public class Fichier {
 	}
 
 	public Fichier(String nomFichier, String infoFichier) {
-		String[] strFI = infoFichier.split("<@_SFI>");
+		String[] strFI = infoFichier.split(ParametrePublique.SPEPARER_FICHIER_INFO);
 		this.nom = nomFichier;
 		this.auteur = strFI[0];
 		this.taille = strFI[1];
@@ -35,11 +37,11 @@ public class Fichier {
 		this.numTelechargement = Integer.valueOf(strFI[3]);
 		this.droit = Integer.valueOf(strFI[4]);
 		if (strFI.length > 5) {
-			String[] strCMMS = strFI[5].split("<@_SC>");
+			String[] strCMMS = strFI[5].split(ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE1);
 			this.comms = new ArrayList<Commentaire>();
 			for (int i = 0; i < strCMMS.length; i++) {
 				Commentaire cmm = new Commentaire();
-				String[] strCMM = strCMMS[i].split("<@_SC_>");
+				String[] strCMM = strCMMS[i].split(ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE2);
 				System.out.println(strCMMS[i]);
 				cmm.setUser(strCMM[0]);
 
