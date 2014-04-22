@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.*;
 
 import share.g2.miage.connectionServer.fonction.AccepterFichier;
+import share.g2.miage.connectionServer.fonction.CommenterFichier;
 import share.g2.miage.connectionServer.fonction.EnvoyerFichier;
 import share.g2.miage.connectionServer.fonction.EnvoyerFichierInfo;
 import share.g2.miage.connectionServer.fonction.Login;
@@ -48,6 +49,9 @@ class CreateServerThread extends Thread {
 					fsf.excuter(clients);
 				}else if(ParametrePublique.LIRE_FICHIER_INFO.equals(strFonction)){
 					fsf = new EnvoyerFichierInfo();
+					fsf.excuter(clients);
+				}else if(ParametrePublique.COMMENTER_FICHIER.equals(strFonction)){
+					fsf = new CommenterFichier();
 					fsf.excuter(clients);
 				}
 				

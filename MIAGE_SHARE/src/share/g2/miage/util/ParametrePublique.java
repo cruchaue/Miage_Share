@@ -8,6 +8,7 @@ public class ParametrePublique {
 	public final static String UPLOAD_FICHIER = "<@uploadFichier>";
 	public final static String TELECHARGER_FICHIER = "<@telechargerFichier>";
 	public final static String SUPPRIMER_FICHIER = "<@supprimerFichier>";
+	public final static String COMMENTER_FICHIER = "<@commenterFichier>";
 	public final static String LOGIN = "<@login>";
 	public final static String LIRE_FICHIER_INFO = "<@lireFichierInfo>";
 	public final static String USER_EXISTE_PAS = "<@UserExistePas>";

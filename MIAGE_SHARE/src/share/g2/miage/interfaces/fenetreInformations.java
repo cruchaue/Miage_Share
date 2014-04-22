@@ -8,20 +8,22 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
+import share.g2.miage.connectionClient.FonctionClientFichier;
+import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.dao.Fichier;
+import share.g2.miage.connectionClient.fonction.CommenterFichier;
+import share.g2.miage.connectionClient.fonction.LireFichierInfo;
+
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class fenetreInformations extends JFrame {
-	private Fichier fichier;
-	public void setFichier(Fichier fichier) {
-		this.fichier = fichier;
-	}
-
+	private final Fichier fichier;
 	private JPanel contentPane;
 	private JTextField textFieldCommentaire;
 
@@ -44,7 +46,7 @@ public class fenetreInformations extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public fenetreInformations(Fichier fichier, String nomFichier) {
+	public fenetreInformations(final Fichier fichier, String nomFichier) {
 		this.fichier = fichier;
 		setTitle("Informations fichier");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -129,8 +131,15 @@ public class fenetreInformations extends JFrame {
 		btnEnvoyer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//A FINIR ECRITURE DANS FICHIER
-				textFieldCommentaire.getText();
-				//
+				
+				Client client = new Client();
+				client.demarrer();
+				client.setParametre1(fichier.getNom());
+				client.setParametre2(textFieldCommentaire.getText());
+				//FonctionClientFichier fcf = new CommenterFichier();
+				//fcf.excuter(client);
+				client.closeConnection();
+				System.out.println(client.getParametre1()+client.getParametre2());
 			
 			}
 		});
