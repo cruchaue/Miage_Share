@@ -16,6 +16,10 @@ public class ParametrePublique {
 	public final static String USER_PW_PAS_CORRECTE = "<@pwPasCorrecte>";
 	public final static String OK = "<@ok>";
 	
+	public final static String ENVOYER_MESSAGE = "<@envoyerMessage>";
+	public final static String RECEVOIR_MESSAGE = "<@recevoirMessage>";
+	public final static String DISTRIBUER_MESSAGE = "<@distribuerMessage>";
+	
 	public final static String SPEPARER_FICHIER_INFO = "<@_SFI>";
 	public final static String SPEPARER_FICHIER_COMMENTAIRE1 = "<@_SFI>";
 	public final static String SPEPARER_FICHIER_COMMENTAIRE2 = "<@_SFI_>";
