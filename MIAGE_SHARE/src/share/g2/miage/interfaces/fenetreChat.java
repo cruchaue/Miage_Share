@@ -12,6 +12,7 @@ import javax.swing.JTextPane;
 import javax.swing.JButton;
 
 import share.g2.miage.connectionClient.FonctionClientFichier;
+import share.g2.miage.connectionClient.chat.EnvoyerMessage;
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.fonction.UploadFichier;
 import share.g2.miage.connectionServer.Server;
@@ -64,13 +65,25 @@ public class fenetreChat extends JFrame {
 		scrollPane.setBounds(16, 148, 451, 140);
 		contentPane.add(scrollPane);
 		
-		JTextPane textPaneReception = new JTextPane();
+		final JTextPane textPaneReception = new JTextPane();
 		scrollPane.setViewportView(textPaneReception);
+		
+
+		final JTextPane textPaneEcriture = new JTextPane();
+		textPaneEcriture.setBounds(16, 58, 451, 45);
+		contentPane.add(textPaneEcriture);
 		
 		JButton btnPoster = new JButton("Poster");
 		btnPoster.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				client.toString();
+				Client client = new Client();
+				client.demarrer();
+				client.setParametre1(textPaneEcriture.getText());
+				client.setParametre2(ClientInterface.getUser().getUserName());
+				EnvoyerMessage fcf = new EnvoyerMessage();
+				fcf.excuter(client);
+				client.closeConnection();
+				System.out.println(client.getParametre1()+client.getParametre2());
 			}
 		});
 		btnPoster.setBounds(214, 114, 89, 23);
@@ -89,29 +102,5 @@ public class fenetreChat extends JFrame {
 		btnRecevoir.setBounds(186, 299, 109, 23);
 		contentPane.add(btnRecevoir);
 		
-		JTextPane textPaneEcriture = new JTextPane();
-		textPaneEcriture.setBounds(16, 58, 451, 45);
-		contentPane.add(textPaneEcriture);
-		
-		JButton btnServeur = new JButton("Serveur");
-		btnServeur.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				server = new Server();
-				server.demarrer();				
-			}
-		});
-		btnServeur.setBounds(118, 11, 89, 23);
-		contentPane.add(btnServeur);
-		
-		JButton btnClient = new JButton("Client");
-		btnClient.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {				
-				client = new Client();
-				client.demarrer();
-				
-			}
-		});
-		btnClient.setBounds(266, 11, 89, 23);
-		contentPane.add(btnClient);
 	}
 }
