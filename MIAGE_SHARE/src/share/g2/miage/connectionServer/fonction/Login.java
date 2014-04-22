@@ -28,10 +28,8 @@ public class Login implements FonctionServerFichier {
 			String pw;
 
 			userName = dis.readUTF();
-			System.out.println(userName + ",");
-			
 			pw = dis.readUTF();
-			System.out.println(pw + ",");
+			
 			
 			Utilisateur user;
 			Map<String,Utilisateur> users = Server.getListeUser();

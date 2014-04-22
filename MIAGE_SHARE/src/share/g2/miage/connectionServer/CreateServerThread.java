@@ -5,6 +5,7 @@ import java.net.*;
 
 import share.g2.miage.connectionServer.fonction.AccepterFichier;
 import share.g2.miage.connectionServer.fonction.CommenterFichier;
+import share.g2.miage.connectionServer.fonction.CreerUtilisateur;
 import share.g2.miage.connectionServer.fonction.EnvoyerFichier;
 import share.g2.miage.connectionServer.fonction.EnvoyerFichierInfo;
 import share.g2.miage.connectionServer.fonction.Login;
@@ -54,6 +55,11 @@ class CreateServerThread extends Thread {
 					fsf = new CommenterFichier();
 					fsf.excuter(clients);
 				}
+				else if(ParametrePublique.CREER_UTILISATEUR.equals(strFonction)){
+					fsf = new CreerUtilisateur();
+					fsf.excuter(clients);
+				}
+				
 				
 			
 		} catch (IOException e) {

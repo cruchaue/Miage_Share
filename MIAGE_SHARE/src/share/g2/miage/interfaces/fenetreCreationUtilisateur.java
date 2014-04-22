@@ -13,7 +13,10 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
+import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.dao.Client;
+import share.g2.miage.connectionClient.fonction.CreerUtilisateur;
+import share.g2.miage.connectionClient.fonction.UploadFichier;
 import share.g2.miage.connectionServer.Utilisateur;
 import share.g2.miage.util.ParametrePublique;
 
@@ -106,22 +109,22 @@ public class fenetreCreationUtilisateur extends JFrame {
 							JOptionPane.WARNING_MESSAGE);
 				}else{
 					StringBuffer sb =  new StringBuffer();
-					sb.append(login);
+					sb.append(login.getText());
 				    sb.append(ParametrePublique.SPEPARER_INFO_UTILISATEUR);
-				    sb.append(pass);
+				    sb.append(pass.getText());
 				    sb.append(ParametrePublique.SPEPARER_INFO_UTILISATEUR);
-				    sb.append(verifPass);
+				    sb.append(verifPass.getText());
 				    sb.append(ParametrePublique.SPEPARER_INFO_UTILISATEUR);
-				    sb.append(mail);
+				    sb.append(mail.getText());
 				
-					
+				    FonctionClientFichier fcf = new CreerUtilisateur();
 					Client client = new Client();
 					client.demarrer();
 					client.setParametre1(sb.toString());
 					
 					
 					
-					//fcf.excuter(client);
+					fcf.excuter(client);
 					
 					
 					
