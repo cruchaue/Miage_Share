@@ -25,6 +25,10 @@ public class ServerFichier   extends Thread {
 	private static String fichiers_BD_utilisateurs;
 	private static String droit_fichiers;
 
+	public static String getFichiers_BD_utilisateurs() {
+		return fichiers_BD_utilisateurs;
+	}
+
 	private static Map<String,Utilisateur> listeUser;
 	
 	public ServerFichier(){

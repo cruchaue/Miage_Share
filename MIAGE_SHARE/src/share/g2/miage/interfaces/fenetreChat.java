@@ -11,10 +11,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
 
-import share.g2.miage.connectionClient.chat.EnvoyerMessage;
-import share.g2.miage.connectionClient.dao.Client;
-import share.g2.miage.connectionClient.fonction.UploadFichier;
-import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.chat.EnvoyerMessage;
+import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.fonction.UploadFichier;
+import share.g2.miage.client.fonction.interfaces.FonctionClient;
 import share.g2.miage.connectionServer.Server.ServerFichier;
 
 import java.awt.event.ActionListener;

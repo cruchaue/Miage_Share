@@ -1,4 +1,4 @@
-package share.g2.miage.connectionClient.fonction;
+package share.g2.miage.client.fonction;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -8,8 +8,8 @@ import java.io.FileInputStream;
 
 import javax.swing.JOptionPane;
 
-import share.g2.miage.connectionClient.dao.Client;
-import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.fonction.interfaces.FonctionClient;
 import share.g2.miage.interfaces.ClientInterface;
 import share.g2.miage.util.Parametre;
 

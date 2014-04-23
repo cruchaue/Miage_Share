@@ -1,12 +1,12 @@
-package share.g2.miage.connectionClient.chat;
+package share.g2.miage.client.chat;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import share.g2.miage.connectionClient.dao.Client;
-import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.fonction.interfaces.FonctionClient;
 import share.g2.miage.util.Parametre;
 
 public class EnvoyerMessage implements FonctionClient {

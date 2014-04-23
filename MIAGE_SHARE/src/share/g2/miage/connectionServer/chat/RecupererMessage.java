@@ -4,7 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 
-import share.g2.miage.connectionClient.dao.User;
+import share.g2.miage.client.dao.User;
 import share.g2.miage.connectionServer.dao.ClientS;
 import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
 

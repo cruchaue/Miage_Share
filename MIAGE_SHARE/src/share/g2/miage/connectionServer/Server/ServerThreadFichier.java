@@ -3,7 +3,6 @@ package share.g2.miage.connectionServer.Server;
 import java.io.*;
 import java.net.*;
 
-import share.g2.miage.connectionClient.chat.EnvoyerMessage;
 import share.g2.miage.connectionServer.chat.DistribuerMessage;
 import share.g2.miage.connectionServer.chat.RecupererMessage;
 import share.g2.miage.connectionServer.dao.ClientS;

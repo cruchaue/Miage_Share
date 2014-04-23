@@ -1,4 +1,4 @@
-package share.g2.miage.connectionClient.chat;
+package share.g2.miage.client.chat;
 
 public class Chat {
 	private String user1;

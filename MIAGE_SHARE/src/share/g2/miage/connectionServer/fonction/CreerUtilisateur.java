@@ -38,11 +38,11 @@ public class CreerUtilisateur implements FonctionServer {
 			StringBuffer sb =  new StringBuffer();
 			sb.append(lesInfosUtilisateur[0]+";");
 			sb.append(lesInfosUtilisateur[1]+";");
-			sb.append("2;");
+			sb.append(Parametre.UTILISATEUR_DROIT_DEFAULT+";");
 			sb.append(lesInfosUtilisateur[3]+";\r\n");
 			
 			
-			File file = new File("Z://spaceTest_share_G2//server//BD//utilisateurs.txt");
+			File file = new File(ServerFichier.getFichiers_BD_utilisateurs());
 			 
 			
 			

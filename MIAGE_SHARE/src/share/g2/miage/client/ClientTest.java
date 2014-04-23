@@ -1,13 +1,14 @@
-package share.g2.miage.connectionClient;
+package share.g2.miage.client;
 
 import java.io.*;
 import java.net.*;
 
 import javax.swing.*;
 
-import share.g2.miage.connectionClient.dao.Client;
-import share.g2.miage.connectionClient.fonction.UploadFichier;
-import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.fonction.UploadFichier;
+import share.g2.miage.client.fonction.interfaces.FonctionClient;
+
 
 public class ClientTest {
 

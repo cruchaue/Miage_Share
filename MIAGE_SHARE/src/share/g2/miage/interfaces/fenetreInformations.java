@@ -8,11 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
-import share.g2.miage.connectionClient.dao.Client;
-import share.g2.miage.connectionClient.dao.Fichier;
-import share.g2.miage.connectionClient.fonction.CommenterFichier;
-import share.g2.miage.connectionClient.fonction.LireFichierInfo;
-import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.dao.Fichier;
+import share.g2.miage.client.fonction.CommenterFichier;
+import share.g2.miage.client.fonction.LireFichierInfo;
+import share.g2.miage.client.fonction.interfaces.FonctionClient;
 import share.g2.miage.util.Parametre;
 
 import javax.swing.DefaultListModel;

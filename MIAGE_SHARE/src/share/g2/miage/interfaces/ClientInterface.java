@@ -11,10 +11,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
 
-import share.g2.miage.connectionClient.dao.Client;
-import share.g2.miage.connectionClient.dao.Fichier;
-import share.g2.miage.connectionClient.fonction.*;
-import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.dao.Fichier;
+import share.g2.miage.client.fonction.*;
+import share.g2.miage.client.fonction.interfaces.FonctionClient;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -25,7 +25,7 @@ import java.util.Properties;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 
-import share.g2.miage.connectionClient.dao.User;
+import share.g2.miage.client.dao.User;
 import share.g2.miage.util.Parametre;
 
 public class ClientInterface extends JFrame {
