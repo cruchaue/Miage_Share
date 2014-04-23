@@ -21,7 +21,7 @@ import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.util.CrypterMDP;
 import share.g2.miage.util.Parametre;
 
-public class fenetreCreationUtilisateur extends JFrame {
+public class FenetreCreationUtilisateur extends JFrame {
 	
 	
 	private JPanel contentPane;
@@ -37,7 +37,7 @@ public class fenetreCreationUtilisateur extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					fenetreLogin frame = new fenetreLogin();
+					FenetreLogin frame = new FenetreLogin();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,7 +49,7 @@ public class fenetreCreationUtilisateur extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public fenetreCreationUtilisateur() {
+	public FenetreCreationUtilisateur() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

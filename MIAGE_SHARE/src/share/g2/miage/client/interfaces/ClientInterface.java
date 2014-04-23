@@ -11,6 +11,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
 
+import share.g2.miage.client.fenetreChat;
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.fonction.*;
@@ -210,8 +211,10 @@ public class ClientInterface extends JFrame {
 		JButton btnChat = new JButton("Chat");
 		btnChat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				fenetreChat fc = new fenetreChat();
-				fc.show();
+				
+				FenetreChat fc = new FenetreChat();
+				new Thread(fc).start();
+				
 			}
 		});
 		btnChat.setBounds(23, 193, 117, 29);
@@ -234,7 +237,7 @@ public class ClientInterface extends JFrame {
 				client.closeConnection();
 				System.out.println(client.getResultat1());
 				
-				fenetreInformations finfo = new fenetreInformations(new Fichier(filename+Parametre.SPEPARER_FICHIER_INFO+ client.getResultat1()), filename);
+				FenetreInformations finfo = new FenetreInformations(new Fichier(filename+Parametre.SPEPARER_FICHIER_INFO+ client.getResultat1()), filename);
 				finfo.show();
 			}
 		});

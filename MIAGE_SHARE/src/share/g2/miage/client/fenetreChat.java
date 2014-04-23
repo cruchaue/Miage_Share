@@ -1,4 +1,4 @@
-package share.g2.miage.client.interfaces;
+package share.g2.miage.client;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -15,6 +15,7 @@ import share.g2.miage.client.chat.EnvoyerMessage;
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.fonction.UploadFichier;
 import share.g2.miage.client.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.server.ServerFichier;
 
 import java.awt.event.ActionListener;

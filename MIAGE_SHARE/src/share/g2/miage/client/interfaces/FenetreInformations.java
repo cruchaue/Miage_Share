@@ -26,31 +26,16 @@ import java.awt.event.ActionEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class fenetreInformations extends JFrame {
+public class FenetreInformations extends JFrame {
 	private final Fichier fichier;
 	private JPanel contentPane;
 	private JTextField textFieldCommentaire;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					fenetreInformations frame = new fenetreInformations(null,"");
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public fenetreInformations(final Fichier fichier, String nomFichier) {
+	public FenetreInformations(final Fichier fichier, String nomFichier) {
 		this.fichier = fichier;
 		setTitle("Informations fichier");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -177,7 +162,7 @@ public class fenetreInformations extends JFrame {
 				client.closeConnection();
 				System.out.println(client.getResultat1());
 				
-				fenetreInformations finfo = new fenetreInformations(new Fichier(fichier.getNom()+Parametre.SPEPARER_FICHIER_INFO+ client.getResultat1()), fichier.getNom());
+				FenetreInformations finfo = new FenetreInformations(new Fichier(fichier.getNom()+Parametre.SPEPARER_FICHIER_INFO+ client.getResultat1()), fichier.getNom());
 				finfo.show();
 				
 				setVisible(false);
