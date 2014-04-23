@@ -1,4 +1,4 @@
-package share.g2.miage.interfaces;
+package share.g2.miage.connectionServer.interfaces;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

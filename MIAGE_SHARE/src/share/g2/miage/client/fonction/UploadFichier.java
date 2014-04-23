@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.fonction.interfaces.FonctionClient;
-import share.g2.miage.interfaces.ClientInterface;
+import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.util.Parametre;
 
 public class UploadFichier implements FonctionClient {

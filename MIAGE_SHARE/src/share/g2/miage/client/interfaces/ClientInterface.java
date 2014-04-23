@@ -1,4 +1,4 @@
-package share.g2.miage.interfaces;
+package share.g2.miage.client.interfaces;
 
 import java.awt.EventQueue;
 
