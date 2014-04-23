@@ -1,4 +1,4 @@
-package share.g2.miage.connectionServer.fonction;
+package share.g2.miage.server.fonction;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -8,42 +8,31 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-import share.g2.miage.connectionServer.Server.ServerFichier;
-import share.g2.miage.connectionServer.dao.ClientS;
-import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
+import share.g2.miage.server.ServerFichier;
+import share.g2.miage.server.dao.ClientS;
+import share.g2.miage.server.fonction.interfaces.FonctionServer;
 import share.g2.miage.util.Parametre;
 
-public class EnvoyerFichier implements FonctionServer {
+public class SupprimerFichier implements FonctionServer {
 
 	@Override
 	public int excuter(ClientS clients) {
 		try {
 			DataInputStream dis = clients.getDis();
-			DataOutputStream dos = clients.getDos();
 			//FileOutputStream fos = null;
 
-			byte[] byteTemp = new byte[1024];
-			int lengthTemp = 0;
 			String strTemp = "";
 
 			strTemp = dis.readUTF();
 			System.out.println(strTemp + ",");
-
-			System.out.println(lengthTemp + ", " + strTemp);
-
 			File file = new File(ServerFichier.getFichierChemin()+strTemp);
-
-			FileInputStream fis = new FileInputStream(file);
-			
-			while ((lengthTemp = fis.read(byteTemp, 0, byteTemp.length)) > 0) {
-				dos.write(byteTemp, 0, lengthTemp);
-				dos.flush();
-				System.out.println("envoyer le fichier!");
+			if(file.exists()){
+				file.delete();
+				System.out.println("Le fichier a été supprimé avec succès");
+			}else{
+				System.out.println("Aucun fichier selectionné");
 			}
-			
-			
 
-			fis.close();
 			clients.closeConnection();
 
 		} catch (IOException e) {

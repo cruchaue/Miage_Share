@@ -1,4 +1,4 @@
-package share.g2.miage.connectionServer.Server;
+package share.g2.miage.server;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,25 +15,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import share.g2.miage.connectionServer.dao.Utilisateur;
-public class ServerChat   extends Thread {
+import share.g2.miage.server.dao.Utilisateur;
+public class ServerFichier   extends Thread {
 
 	private ServerSocket serverFichier = null;
-	private ServerSocket serverChat = null;
 	private static String fichierChemin;
 	private static String fichiersConfigChemin;
 	private boolean demarre = true;
 	private static String fichiers_BD_utilisateurs;
 	private static String droit_fichiers;
-	List<Socket> clientLinkList = new ArrayList<Socket>();  
-    int count; 
-	
 
-	
+	public static String getFichiers_BD_utilisateurs() {
+		return fichiers_BD_utilisateurs;
+	}
 
 	private static Map<String,Utilisateur> listeUser;
 	
-	public ServerChat(){
+	public ServerFichier(){
 		start();
 	}
 	
@@ -62,7 +60,6 @@ public class ServerChat   extends Thread {
 		}
 
 		int portFichier = Integer.valueOf(p.getProperty("portServerFichier"));
-		int portChat = Integer.valueOf(p.getProperty("portServerChat"));
 		
 		fichierChemin = p.getProperty("fichierChemin");
 		fichiersConfigChemin = p.getProperty("config_fichiers");
@@ -74,23 +71,16 @@ public class ServerChat   extends Thread {
 		System.out.println(droit_fichiers);
 		chargerUtilisateur();
 
-		System.out.println("Port:" + p.getProperty("portServerChat"));
 
 		try {
 
 			serverFichier = new ServerSocket(portFichier);
-			serverChat = new ServerSocket(portChat);
 
 			while (demarre) {
 				Socket socketFichier = serverFichier.accept();
 				new ServerThreadFichier(socketFichier);
-				
-				Socket socketChat = serverChat.accept();
-				clientLinkList.add(socketChat);  
-                new ServerThreadChat(clientLinkList, socketChat);
 			}
 			serverFichier.close();
-			serverChat.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();

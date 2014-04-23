@@ -1,6 +1,6 @@
-package share.g2.miage.connectionServer.Server;
+package share.g2.miage.server;
 
-public class ServerTest {
+public class Server {
 
 
 	public static void main(String[] args) throws Exception {

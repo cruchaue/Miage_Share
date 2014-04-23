@@ -17,7 +17,7 @@ import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.fonction.CreerUtilisateur;
 import share.g2.miage.client.fonction.UploadFichier;
 import share.g2.miage.client.fonction.interfaces.FonctionClient;
-import share.g2.miage.connectionServer.dao.Utilisateur;
+import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.util.CrypterMDP;
 import share.g2.miage.util.Parametre;
 

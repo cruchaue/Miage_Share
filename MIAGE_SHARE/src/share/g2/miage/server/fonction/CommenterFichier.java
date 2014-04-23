@@ -1,4 +1,4 @@
-package share.g2.miage.connectionServer.fonction;
+package share.g2.miage.server.fonction;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -10,9 +10,9 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-import share.g2.miage.connectionServer.Server.ServerFichier;
-import share.g2.miage.connectionServer.dao.ClientS;
-import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
+import share.g2.miage.server.ServerFichier;
+import share.g2.miage.server.dao.ClientS;
+import share.g2.miage.server.fonction.interfaces.FonctionServer;
 import share.g2.miage.util.Parametre;
 
 public class CommenterFichier implements FonctionServer {

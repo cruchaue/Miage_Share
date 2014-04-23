@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.fonction.interfaces.FonctionClient;
 import share.g2.miage.client.interfaces.ClientInterface;
-import share.g2.miage.connectionServer.Server.ServerFichier;
+import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
 public class CreerUtilisateur implements

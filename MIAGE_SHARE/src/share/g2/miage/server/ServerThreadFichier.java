@@ -1,13 +1,21 @@
-package share.g2.miage.connectionServer.Server;
+package share.g2.miage.server;
 
 import java.io.*;
 import java.net.*;
 
-import share.g2.miage.connectionServer.chat.DistribuerMessage;
-import share.g2.miage.connectionServer.chat.RecupererMessage;
-import share.g2.miage.connectionServer.dao.ClientS;
-import share.g2.miage.connectionServer.fonction.*;
-import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
+import share.g2.miage.server.fonction.*;
+import share.g2.miage.server.chat.DistribuerMessage;
+import share.g2.miage.server.chat.RecupererMessage;
+import share.g2.miage.server.dao.ClientS;
+import share.g2.miage.server.fonction.AccepterFichier;
+import share.g2.miage.server.fonction.CommenterFichier;
+import share.g2.miage.server.fonction.CreerUtilisateur;
+import share.g2.miage.server.fonction.EnvoyerFichier;
+import share.g2.miage.server.fonction.EnvoyerFichierInfo;
+import share.g2.miage.server.fonction.EnvoyerFichierList;
+import share.g2.miage.server.fonction.Login;
+import share.g2.miage.server.fonction.SupprimerFichier;
+import share.g2.miage.server.fonction.interfaces.FonctionServer;
 import share.g2.miage.util.Parametre;
 
 //--- CreateServerThread

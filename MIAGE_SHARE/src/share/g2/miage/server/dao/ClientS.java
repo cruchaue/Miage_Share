@@ -1,5 +1,5 @@
 
-package share.g2.miage.connectionServer.dao;
+package share.g2.miage.server.dao;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

@@ -15,7 +15,7 @@ import share.g2.miage.client.chat.EnvoyerMessage;
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.fonction.UploadFichier;
 import share.g2.miage.client.fonction.interfaces.FonctionClient;
-import share.g2.miage.connectionServer.Server.ServerFichier;
+import share.g2.miage.server.ServerFichier;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

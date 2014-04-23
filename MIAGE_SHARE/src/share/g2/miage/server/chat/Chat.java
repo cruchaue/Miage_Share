@@ -1,4 +1,4 @@
-package share.g2.miage.connectionServer.chat;
+package share.g2.miage.server.chat;
 
 public class Chat {
 	private String message = "";

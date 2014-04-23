@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
-import share.g2.miage.connectionServer.Server.ServerFichier;
+import share.g2.miage.server.ServerFichier;
 
 public class Outil {
 	public static Map<String, String> getDroitsFichier() {

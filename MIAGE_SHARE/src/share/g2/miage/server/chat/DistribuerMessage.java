@@ -1,7 +1,7 @@
-package share.g2.miage.connectionServer.chat;
+package share.g2.miage.server.chat;
 
-import share.g2.miage.connectionServer.dao.ClientS;
-import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
+import share.g2.miage.server.dao.ClientS;
+import share.g2.miage.server.fonction.interfaces.FonctionServer;
 
 public class DistribuerMessage implements FonctionServer {
 

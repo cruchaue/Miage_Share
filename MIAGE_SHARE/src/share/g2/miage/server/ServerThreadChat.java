@@ -1,4 +1,4 @@
-package share.g2.miage.connectionServer.Server;
+package share.g2.miage.server;
 
 import java.io.BufferedReader;  
 import java.io.IOException;  
