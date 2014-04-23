@@ -26,7 +26,8 @@ public class ParametrePublique {
 	public final static String SPEPARER_FICHIER_COMMENTAIRE2 = "<@_SC_>";
 	public final static String SPEPARER_INFO_UTILISATEUR = "<@_SIU>";
 
-	
+	public final static String FICHIER_DROIT_DEFAULT = "3";
+	public final static String UTILISATEUR_DROIT_DEFAULT = "3";
 	public final static String UPLOAD_FINIT = "<@finit>";
 	public final static int LENGTH_ENVOYER = 1024;
 

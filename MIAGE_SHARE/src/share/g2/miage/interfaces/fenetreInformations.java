@@ -179,6 +179,8 @@ public class fenetreInformations extends JFrame {
 				
 				fenetreInformations finfo = new fenetreInformations(new Fichier(fichier.getNom()+ParametrePublique.SPEPARER_FICHIER_INFO+ client.getResultat1()), fichier.getNom());
 				finfo.show();
+				
+				setVisible(false);
 			
 			}
 		});

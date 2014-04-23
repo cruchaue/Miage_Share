@@ -50,8 +50,8 @@ public class Server {
 		}
 
 		int port = Integer.valueOf(p.getProperty("portServer"));
-		this.fichierChemin = p.getProperty("fichierChemin");
-		this.fichiersConfigChemin = p.getProperty("config_fichiers");
+		fichierChemin = p.getProperty("fichierChemin");
+		fichiersConfigChemin = p.getProperty("config_fichiers");
 		
 		chargerUtilisateur(p.getProperty("BD_utilisateurs"));
 

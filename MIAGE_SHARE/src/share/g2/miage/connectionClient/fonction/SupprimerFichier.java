@@ -20,23 +20,14 @@ public class SupprimerFichier implements
 	public int excuter(Client client) {
 		try {
 
-			
-			//FileInputStream fis = new FileInputStream(file);
 
 			DataOutputStream dos = client.getDos();
-			//DataInputStream dis = client.getDis();
-
  
 			dos.writeUTF(ParametrePublique.SUPPRIMER_FICHIER);
 			dos.flush();
 
 			dos.writeUTF(client.getParametre1());
 			dos.flush();
-			
-			
-			
-			
-			
 
 			System.out.println("finir de supprimer le fichier!");
 			//socket.close();

@@ -1,10 +1,12 @@
 package share.g2.miage.connectionServer.fonction;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -33,7 +35,7 @@ public class AccepterFichier implements FonctionServerFichier {
 			System.out.println(strTemp + ",");
 
 			System.out.println(lengthTemp + ", " + strTemp);
-			
+
 			String userName = dis.readUTF();
 
 			fos = new FileOutputStream(new File(Server.getFichierChemin()
@@ -44,8 +46,8 @@ public class AccepterFichier implements FonctionServerFichier {
 			}
 			fos.close();
 			clients.closeConnection();
-			
-			creerFichierInfo(strTemp,userName);
+
+			creerFichierInfo(strTemp, userName);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -55,68 +57,82 @@ public class AccepterFichier implements FonctionServerFichier {
 
 		return 1;
 	}
-	
-	private int creerFichierInfo(String fichierNom, String userName){
-		StringBuffer sb =  new StringBuffer();
+
+	private int creerFichierInfo(String fichierNom, String userName) {
+		StringBuffer sb = new StringBuffer();
 		String taille;
 		String datestr;
-		
+
 		double temp = 1024;
 		DecimalFormat df = new DecimalFormat("#.00");
-		
-		//obtenir la taille de fichier.
-		File file = new File(Server.getFichierChemin()
-				+ fichierNom);
+
+		// obtenir la taille de fichier.
+		File file = new File(Server.getFichierChemin() + fichierNom);
 		long filesize = file.length();
-		if(filesize<1024){
+		if (filesize < 1024) {
 			taille = filesize + "b";
-		}else if(filesize<1024*1024){
-			temp = filesize/temp;
-			taille = df.format(temp)+"kb";
-	        System.out.println(df.format(temp));
-		}else{
-			temp = 1024*1024;
-			temp = filesize/temp;
-			taille = df.format(temp)+"mb";
-	        System.out.println(df.format(temp));
+		} else if (filesize < 1024 * 1024) {
+			temp = filesize / temp;
+			taille = df.format(temp) + "kb";
+			System.out.println(df.format(temp));
+		} else {
+			temp = 1024 * 1024;
+			temp = filesize / temp;
+			taille = df.format(temp) + "mb";
+			System.out.println(df.format(temp));
 		}
-		System.out.println("filesize: --"+filesize);
-		
-		//obtenir le temps.
+		System.out.println("filesize: --" + filesize);
+
+		// obtenir le temps.
 		Date date = new Date(System.currentTimeMillis());
-		SimpleDateFormat sdf  =   new  SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-	    datestr = sdf.format( date); 
-		
-	    sb.append(userName);
-	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
-	    sb.append(taille);
-	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
-	    sb.append(datestr);
-	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
-	    sb.append("0");
-	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
-	    sb.append("1");
-	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
-	    
-	    System.out.println(sb.toString());
-	    FileOutputStream fos;
-	    try {
-	    fos = new FileOutputStream(new File(Server.getFichiersConfigChemin()
-				+ fichierNom+".txt"));
-	    byte[] byteFI = sb.toString().getBytes();
-	    
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		datestr = sdf.format(date);
+
+		sb.append(userName);
+		sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
+		sb.append(taille);
+		sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
+		sb.append(datestr);
+		sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
+		sb.append("0");
+		sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
+		sb.append(ParametrePublique.FICHIER_DROIT_DEFAULT);
+		sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
+
+		System.out.println(sb.toString());
+		FileOutputStream fos;
+		try {
+			fos = new FileOutputStream(new File(
+					Server.getFichiersConfigChemin() + fichierNom + ".txt"));
+			byte[] byteFI = sb.toString().getBytes();
+
 			fos.write(byteFI);
-		
-	    fos.flush();
-	    fos.close();
-	    } catch (IOException e) {
+
+			fos.flush();
+			fos.close();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return -1;
 		}
-		
-		
+
 		return 1;
+	}
+
+	private int ajouterDroit(String fichierNom) {
+
+		BufferedWriter out = null;
+		try {
+			out = new BufferedWriter(new OutputStreamWriter(
+					new FileOutputStream(fichierNom, true)));
+			out.write(fichierNom + ";"
+					+ ParametrePublique.FICHIER_DROIT_DEFAULT + "\r\n");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
+		return 1;
+
 	}
 
 }
