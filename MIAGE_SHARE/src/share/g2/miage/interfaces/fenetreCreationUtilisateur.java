@@ -122,7 +122,7 @@ public class fenetreCreationUtilisateur extends JFrame {
 				if(!mdp.equals(mdp2)){
 					JOptionPane jop = new JOptionPane();
 					jop.showMessageDialog(null,
-							"Les 2 mots de passes sont différents",
+							"Les 2 mots de passes sont diffï¿½rents",
 							"Mot de passe incorrect",
 							JOptionPane.WARNING_MESSAGE);
 				}else{

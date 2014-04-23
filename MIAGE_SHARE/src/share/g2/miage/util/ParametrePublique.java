@@ -19,6 +19,7 @@ public class ParametrePublique {
 	public final static String ENVOYER_MESSAGE = "<@envoyerMessage>";
 	public final static String RECEVOIR_MESSAGE = "<@recevoirMessage>";
 	public final static String DISTRIBUER_MESSAGE = "<@distribuerMessage>";
+	public final static String GET_FICHIER_LIST = "<@getFichierList>";
 	
 	public final static String SPEPARER_FICHIER_INFO = "<@_SFI>";
 

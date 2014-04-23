@@ -16,7 +16,9 @@ import javax.swing.JButton;
 import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.dao.Fichier;
+import share.g2.miage.connectionClient.fonction.GetFichierList;
 import share.g2.miage.connectionClient.fonction.LireFichierInfo;
+import share.g2.miage.connectionClient.fonction.Login;
 import share.g2.miage.connectionClient.fonction.SupprimerFichier;
 import share.g2.miage.connectionClient.fonction.TelechargerFichier;
 import share.g2.miage.connectionClient.fonction.UploadFichier;
@@ -26,12 +28,15 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 
 import share.g2.miage.connectionClient.dao.User;
+import share.g2.miage.util.Outil;
 import share.g2.miage.util.ParametrePublique;
 
 public class ClientInterface extends JFrame {
@@ -42,6 +47,7 @@ public class ClientInterface extends JFrame {
 	private String cheminC_enregistrer_fichier_defaut;
 	private String cheminS_liste_fichier;
 	private static User User;
+	private static String[] fichiers;
 
 	// private Client client;
 
@@ -79,6 +85,17 @@ public class ClientInterface extends JFrame {
 	 */
 	public ClientInterface() {
 		setResizable(false);
+		
+		
+		//getFichiers
+		Client client = new Client();
+		client.demarrer();
+		client.setParametre1(User.getUserName());
+		FonctionClientFichier fcf = new GetFichierList();
+
+		fcf.excuter(client);
+		fichiers = client.getResultat1().split(";");
+		
 
 		// lire le fichier de parametre
 		InputStream inputStream = this.getClass().getClassLoader()
@@ -260,12 +277,11 @@ public class ClientInterface extends JFrame {
 		
 		int i;
 		listefichiers = repertoire.list();
-		for (i = 0; i < listefichiers.length; i++) {
-			//if (listefichiers[i].endsWith(".txt") == true) {
+
+		
+		for (i = 0; i < fichiers.length; i++) {
 				
-				
-				model.addElement(listefichiers[i]);
-			//}
+				model.addElement(fichiers[i]);
 		}
 
 	list.setModel(model);

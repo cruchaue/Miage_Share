@@ -48,6 +48,8 @@ public class AccepterFichier implements FonctionServerFichier {
 			clients.closeConnection();
 
 			creerFichierInfo(strTemp, userName);
+			
+			ajouterDroit(strTemp);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -124,13 +126,16 @@ public class AccepterFichier implements FonctionServerFichier {
 		BufferedWriter out = null;
 		try {
 			out = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream(fichierNom, true)));
+					new FileOutputStream(Server.getDroit_fichiers(), true)));
 			out.write(fichierNom + ";"
 					+ ParametrePublique.FICHIER_DROIT_DEFAULT + "\r\n");
+			out.flush();
+			out.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return -1;
 		}
+		
 		return 1;
 
 	}

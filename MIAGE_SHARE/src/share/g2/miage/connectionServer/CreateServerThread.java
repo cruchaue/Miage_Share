@@ -6,13 +6,7 @@ import java.net.*;
 import share.g2.miage.connectionClient.chat.EnvoyerMessage;
 import share.g2.miage.connectionServer.chat.DistribuerMessage;
 import share.g2.miage.connectionServer.chat.RecupererMessage;
-import share.g2.miage.connectionServer.fonction.AccepterFichier;
-import share.g2.miage.connectionServer.fonction.CommenterFichier;
-import share.g2.miage.connectionServer.fonction.CreerUtilisateur;
-import share.g2.miage.connectionServer.fonction.EnvoyerFichier;
-import share.g2.miage.connectionServer.fonction.EnvoyerFichierInfo;
-import share.g2.miage.connectionServer.fonction.Login;
-import share.g2.miage.connectionServer.fonction.SupprimerFichier;
+import share.g2.miage.connectionServer.fonction.*;
 import share.g2.miage.util.ParametrePublique;
 
 //--- CreateServerThread
@@ -63,9 +57,11 @@ class CreateServerThread extends Thread {
 				}else if(ParametrePublique.ENVOYER_MESSAGE.equals(strFonction)){
 					fsf = new RecupererMessage();
 					fsf.excuter(clients);
-				}
-				else if(ParametrePublique.CREER_UTILISATEUR.equals(strFonction)){
+				}else if(ParametrePublique.CREER_UTILISATEUR.equals(strFonction)){
 					fsf = new CreerUtilisateur();
+					fsf.excuter(clients);
+				}else if(ParametrePublique.GET_FICHIER_LIST.equals(strFonction)){
+					fsf = new EnvoyerFichierList();
 					fsf.excuter(clients);
 				}
 				

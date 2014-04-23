@@ -22,12 +22,17 @@ public class Server {
 	private static String fichiersConfigChemin;
 	private boolean demarre = true;
 	private static String fichiers_BD_utilisateurs;
+	private static String droit_fichiers;
 
 	
 
 	private static Map<String,Utilisateur> listeUser;
 	public static String getFichiersConfigChemin() {
 		return fichiersConfigChemin;
+	}
+
+	public static String getDroit_fichiers() {
+		return droit_fichiers;
 	}
 
 	public static String getFichierChemin() {
@@ -53,8 +58,12 @@ public class Server {
 		int port = Integer.valueOf(p.getProperty("portServer"));
 		fichierChemin = p.getProperty("fichierChemin");
 		fichiersConfigChemin = p.getProperty("config_fichiers");
-
 		fichiers_BD_utilisateurs = p.getProperty("BD_utilisateurs");
+		droit_fichiers = p.getProperty("droit_fichiers");
+		
+		
+		
+		System.out.println(droit_fichiers);
 		chargerUtilisateur();
 
 		System.out.println("Port:" + p.getProperty("portServer"));

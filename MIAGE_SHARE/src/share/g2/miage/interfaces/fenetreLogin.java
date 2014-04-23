@@ -87,6 +87,7 @@ public class fenetreLogin extends JFrame {
 				String mdp = passwordFieldMdp.getText();
 				mdp = CrypterMDP.crypteMDP(mdp);
 				System.out.println("MDP : " +mdp);
+				
 				Client client = new Client();
 				client.demarrer();
 				client.setParametre1(login);
