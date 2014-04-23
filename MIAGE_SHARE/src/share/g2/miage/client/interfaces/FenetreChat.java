@@ -16,17 +16,17 @@ import javax.swing.JFrame;
   
 @SuppressWarnings("serial")  
 public class FenetreChat extends JFrame  implements Runnable {  
-    TextArea textArea = new TextArea();// ����һ���ı���  
-    TextField textField = new TextField();// ����һ���ı���  
+    private TextArea textArea = new TextArea();  
+    private TextField textField = new TextField();  
+    private String userName;
+    private Button button_send = new Button("Envoyer");  
+    private Button button_clear = new Button("Effacer");  
   
-    Button button_send = new Button("Envoyer");  
-    Button button_clear = new Button("Effacer");  
-  
-    static Socket clientLink;  
-    BufferedReader br;  
-    PrintStream ps;  
-    String msg;  
-    StringBuffer sb = new StringBuffer();  
+    private static Socket clientLink;  
+    private BufferedReader br;  
+    private PrintStream ps;  
+    private String msg;  
+    private StringBuffer sb = new StringBuffer();  
   
     static {  
         try {  
@@ -38,8 +38,9 @@ public class FenetreChat extends JFrame  implements Runnable {
         }  
     }  
   
-    public FenetreChat() {  
+    public FenetreChat(String userName) {  
         super("ChatRoom");  
+        this.userName = userName;
     }  
   
   
@@ -55,7 +56,7 @@ public class FenetreChat extends JFrame  implements Runnable {
         this.add(button_clear, BorderLayout.WEST);  
         this.setVisible(true);//   
         this.pack();//  
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  
+        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);  
   
         try {  
   
@@ -69,19 +70,16 @@ public class FenetreChat extends JFrame  implements Runnable {
                 public void actionPerformed(ActionEvent e) {  
                     msg = textField.getText();  
                     System.out.println(msg);  
-                    // ���ﲻ���û�����,�������������Ϣ  
-                    ps.println(msg);  
+                    ps.println(userName+": "+msg);  
                     ps.flush();  
                 }  
   
             });  
   
-            // �س�ʱ,�ı����¼�  
             textField.addActionListener(new ActionListener() {  
                 @Override  
                 public void actionPerformed(ActionEvent e) {  
                     msg = textField.getText();  
-                    // ���ﲻ���û�����д  
                     ps.println(msg);  
                     ps.flush();  
   
@@ -89,7 +87,6 @@ public class FenetreChat extends JFrame  implements Runnable {
   
             });  
   
-            // ������ť�¼�  
             button_clear.addActionListener(new ActionListener() {  
                 @Override  
                 public void actionPerformed(ActionEvent e) {  
@@ -98,8 +95,6 @@ public class FenetreChat extends JFrame  implements Runnable {
                 }  
             });  
   
-            // ���ܷ�������Ϣ 
-            show();
             while (true) {  
                 msg = br.readLine();  
                 sb.append(msg + "\n");  

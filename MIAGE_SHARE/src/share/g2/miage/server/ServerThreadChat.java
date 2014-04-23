@@ -33,7 +33,7 @@ public class ServerThreadChat extends Thread {
 					for (int i = 0; i < clientLinkList.size(); i++) {
 						ps = new PrintStream(clientLinkList.get(i)
 								.getOutputStream());
-						ps.println("IPΪ:" + ip + "dire:" + msg + "\n");
+						ps.println(msg);
 
 						ps.flush();
 					}

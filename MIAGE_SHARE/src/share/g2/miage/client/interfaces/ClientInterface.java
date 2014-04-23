@@ -38,6 +38,7 @@ public class ClientInterface extends JFrame {
 	private String cheminS_liste_fichier;
 	private static User User;
 	private static String[] fichiers;
+	private FenetreChat fc;
 
 	// private Client client;
 
@@ -209,11 +210,16 @@ public class ClientInterface extends JFrame {
 		contentPane.add(btnSupprimer);
 		
 		JButton btnChat = new JButton("Chat");
+		
 		btnChat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(fc==null){
+					fc = new FenetreChat(User.getUserName());
+					new Thread(fc).start();
+				}else{
+					fc.show();
+				}
 				
-				FenetreChat fc = new FenetreChat();
-				new Thread(fc).start();
 				
 			}
 		});
