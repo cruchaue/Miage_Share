@@ -9,7 +9,7 @@ import share.g2.miage.connectionServer.chat.RecupererMessage;
 import share.g2.miage.connectionServer.dao.ClientS;
 import share.g2.miage.connectionServer.fonction.*;
 import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 //--- CreateServerThread
 class ServerThreadFichier extends Thread {
@@ -34,35 +34,35 @@ class ServerThreadFichier extends Thread {
 			
 				String strFonction = clients.getDis().readUTF();
 				System.out.println("---  ---"+strFonction);
-				if (ParametrePublique.UPLOAD_FICHIER.equals(strFonction)) {
+				if (Parametre.UPLOAD_FICHIER.equals(strFonction)) {
 					fsf = new AccepterFichier();
 					fsf.excuter(clients);
 					
-				}else if(ParametrePublique.TELECHARGER_FICHIER.equals(strFonction)){
+				}else if(Parametre.TELECHARGER_FICHIER.equals(strFonction)){
 					fsf = new EnvoyerFichier();
 					fsf.excuter(clients);
-				}else if(ParametrePublique.SUPPRIMER_FICHIER.equals(strFonction)){
+				}else if(Parametre.SUPPRIMER_FICHIER.equals(strFonction)){
 					fsf = new SupprimerFichier();
 					fsf.excuter(clients);
-				}else if(ParametrePublique.LOGIN.equals(strFonction)){
+				}else if(Parametre.LOGIN.equals(strFonction)){
 					fsf = new Login();
 					fsf.excuter(clients);
-				}else if(ParametrePublique.LIRE_FICHIER_INFO.equals(strFonction)){
+				}else if(Parametre.LIRE_FICHIER_INFO.equals(strFonction)){
 					fsf = new EnvoyerFichierInfo();
 					fsf.excuter(clients);
-				}else if(ParametrePublique.COMMENTER_FICHIER.equals(strFonction)){
+				}else if(Parametre.COMMENTER_FICHIER.equals(strFonction)){
 					fsf = new CommenterFichier();
 					fsf.excuter(clients);
-				}else if(ParametrePublique.DISTRIBUER_MESSAGE.equals(strFonction)){
+				}else if(Parametre.DISTRIBUER_MESSAGE.equals(strFonction)){
 					fsf = new DistribuerMessage();
 					fsf.excuter(clients);
-				}else if(ParametrePublique.ENVOYER_MESSAGE.equals(strFonction)){
+				}else if(Parametre.ENVOYER_MESSAGE.equals(strFonction)){
 					fsf = new RecupererMessage();
 					fsf.excuter(clients);
-				}else if(ParametrePublique.CREER_UTILISATEUR.equals(strFonction)){
+				}else if(Parametre.CREER_UTILISATEUR.equals(strFonction)){
 					fsf = new CreerUtilisateur();
 					fsf.excuter(clients);
-				}else if(ParametrePublique.GET_FICHIER_LIST.equals(strFonction)){
+				}else if(Parametre.GET_FICHIER_LIST.equals(strFonction)){
 					fsf = new EnvoyerFichierList();
 					fsf.excuter(clients);
 				}

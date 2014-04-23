@@ -17,7 +17,7 @@ import share.g2.miage.connectionClient.fonction.Login;
 import share.g2.miage.connectionClient.fonction.SupprimerFichier;
 import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
 import share.g2.miage.util.CrypterMDP;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -97,7 +97,7 @@ public class fenetreLogin extends JFrame {
 
 				fcf.excuter(client);
 				String resultat = client.getResultat1();
-				if (ParametrePublique.OK.equals(resultat)) {
+				if (Parametre.OK.equals(resultat)) {
 					System.out.println("login ok");
 					String userInfoStr = client.getResultat2();
 					String[] userInfo =  userInfoStr.split("<@>");
@@ -122,7 +122,7 @@ public class fenetreLogin extends JFrame {
 					
 					setVisible(false);
 
-				} else if (ParametrePublique.USER_EXISTE_PAS.equals(resultat)) {
+				} else if (Parametre.USER_EXISTE_PAS.equals(resultat)) {
 					System.out.println("pas de user");
 					
 					JOptionPane jop = new JOptionPane();
@@ -131,7 +131,7 @@ public class fenetreLogin extends JFrame {
 							"Login failed",
 							JOptionPane.WARNING_MESSAGE);
 					
-				} else if (ParametrePublique.USER_PW_PAS_CORRECTE
+				} else if (Parametre.USER_PW_PAS_CORRECTE
 						.equals(resultat)) {
 					System.out.println("faute pw");
 					

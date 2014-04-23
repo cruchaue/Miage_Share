@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
 import share.g2.miage.connectionServer.Server.ServerFichier;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 public class CommenterFichier implements
 		FonctionClient {
@@ -27,7 +27,7 @@ public class CommenterFichier implements
 			//DataInputStream dis = client.getDis();
 
  
-			dos.writeUTF(ParametrePublique.COMMENTER_FICHIER);
+			dos.writeUTF(Parametre.COMMENTER_FICHIER);
 			dos.flush();
 
 			dos.writeUTF(client.getParametre1());

@@ -15,7 +15,7 @@ import share.g2.miage.connectionServer.Server.ServerFichier;
 import share.g2.miage.connectionServer.dao.ClientS;
 import share.g2.miage.connectionServer.dao.Utilisateur;
 import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 public class CreerUtilisateur implements FonctionServer {
 
@@ -30,7 +30,7 @@ public class CreerUtilisateur implements FonctionServer {
 		
 			infoUtilisateur = dis.readUTF();
 			System.out.println("Info util : " +infoUtilisateur);
-			String[] lesInfosUtilisateur = infoUtilisateur.split(ParametrePublique.SPEPARER_INFO_UTILISATEUR);
+			String[] lesInfosUtilisateur = infoUtilisateur.split(Parametre.SPEPARER_INFO_UTILISATEUR);
 			
 			// login lesInfosUtilisateur[0]
 			// mdp   lesInfosUtilisateur[1]

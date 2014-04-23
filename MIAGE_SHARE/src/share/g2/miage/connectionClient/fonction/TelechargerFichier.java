@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
 import share.g2.miage.connectionServer.Server.ServerFichier;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 public class TelechargerFichier implements
 		FonctionClient {
@@ -28,10 +28,10 @@ public class TelechargerFichier implements
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			byte[] sendBytes = new byte[ParametrePublique.LENGTH_ENVOYER];
+			byte[] sendBytes = new byte[Parametre.LENGTH_ENVOYER];
 			int length = 0;
 
-			dos.writeUTF(ParametrePublique.TELECHARGER_FICHIER);
+			dos.writeUTF(Parametre.TELECHARGER_FICHIER);
 			dos.flush();
 
 			dos.writeUTF(client.getParametre2());

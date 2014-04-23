@@ -11,7 +11,7 @@ import java.net.Socket;
 import share.g2.miage.connectionServer.Server.ServerFichier;
 import share.g2.miage.connectionServer.dao.ClientS;
 import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 public class SupprimerFichier implements FonctionServer {
 

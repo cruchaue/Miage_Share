@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
 import share.g2.miage.connectionServer.Server.ServerFichier;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 public class LireFichierInfo implements
 		FonctionClient {
@@ -27,13 +27,13 @@ public class LireFichierInfo implements
 			DataInputStream dis = client.getDis();
 
  
-			dos.writeUTF(ParametrePublique.LIRE_FICHIER_INFO);
+			dos.writeUTF(Parametre.LIRE_FICHIER_INFO);
 			dos.flush();
 
 			dos.writeUTF(client.getParametre1());
 			dos.flush();
 			
-			byte[] sendBytes = new byte[ParametrePublique.LENGTH_ENVOYER];
+			byte[] sendBytes = new byte[Parametre.LENGTH_ENVOYER];
 			int length = 0;
 
 			StringBuffer sb = new StringBuffer();

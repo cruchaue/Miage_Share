@@ -15,7 +15,7 @@ import share.g2.miage.connectionClient.dao.Fichier;
 import share.g2.miage.connectionServer.Server.ServerFichier;
 import share.g2.miage.connectionServer.dao.ClientS;
 import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 public class CommenterFichier implements FonctionServer {
 
@@ -31,7 +31,7 @@ public class CommenterFichier implements FonctionServer {
 			
 			String commentaire = dis.readUTF();
 			int lengthTemp;
-			byte[] byteTemp = new byte[ParametrePublique.LENGTH_ENVOYER];
+			byte[] byteTemp = new byte[Parametre.LENGTH_ENVOYER];
 			//StringBuffer sb = new StringBuffer();
 			
 			File file = new File(ServerFichier.getFichiersConfigChemin()+fichierNom+".txt");

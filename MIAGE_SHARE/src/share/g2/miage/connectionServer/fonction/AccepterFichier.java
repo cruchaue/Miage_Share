@@ -15,7 +15,7 @@ import java.util.Date;
 import share.g2.miage.connectionServer.Server.ServerFichier;
 import share.g2.miage.connectionServer.dao.ClientS;
 import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 public class AccepterFichier implements FonctionServer {
 
@@ -91,15 +91,15 @@ public class AccepterFichier implements FonctionServer {
 		datestr = sdf.format(date);
 
 		sb.append(userName);
-		sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
+		sb.append(Parametre.SPEPARER_FICHIER_INFO);
 		sb.append(taille);
-		sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
+		sb.append(Parametre.SPEPARER_FICHIER_INFO);
 		sb.append(datestr);
-		sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
+		sb.append(Parametre.SPEPARER_FICHIER_INFO);
 		sb.append("0");
-		sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
-		sb.append(ParametrePublique.FICHIER_DROIT_DEFAULT);
-		sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
+		sb.append(Parametre.SPEPARER_FICHIER_INFO);
+		sb.append(Parametre.FICHIER_DROIT_DEFAULT);
+		sb.append(Parametre.SPEPARER_FICHIER_INFO);
 
 		System.out.println(sb.toString());
 		FileOutputStream fos;
@@ -128,7 +128,7 @@ public class AccepterFichier implements FonctionServer {
 			out = new BufferedWriter(new OutputStreamWriter(
 					new FileOutputStream(ServerFichier.getDroit_fichiers(), true)));
 			out.write(fichierNom + ";"
-					+ ParametrePublique.FICHIER_DROIT_DEFAULT + "\r\n");
+					+ Parametre.FICHIER_DROIT_DEFAULT + "\r\n");
 			out.flush();
 			out.close();
 		} catch (Exception e) {

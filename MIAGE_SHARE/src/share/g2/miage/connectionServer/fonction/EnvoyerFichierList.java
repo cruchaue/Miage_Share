@@ -16,7 +16,7 @@ import share.g2.miage.connectionServer.dao.ClientS;
 import share.g2.miage.connectionServer.dao.Utilisateur;
 import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
 import share.g2.miage.util.Outil;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 public class EnvoyerFichierList implements FonctionServer {
 

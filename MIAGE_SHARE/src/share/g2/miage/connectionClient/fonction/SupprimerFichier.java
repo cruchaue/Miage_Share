@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
 import share.g2.miage.connectionServer.Server.ServerFichier;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 public class SupprimerFichier implements
 		FonctionClient {
@@ -23,7 +23,7 @@ public class SupprimerFichier implements
 
 			DataOutputStream dos = client.getDos();
  
-			dos.writeUTF(ParametrePublique.SUPPRIMER_FICHIER);
+			dos.writeUTF(Parametre.SUPPRIMER_FICHIER);
 			dos.flush();
 
 			dos.writeUTF(client.getParametre1());

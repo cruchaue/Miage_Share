@@ -11,7 +11,7 @@ import java.net.Socket;
 import share.g2.miage.connectionServer.Server.ServerFichier;
 import share.g2.miage.connectionServer.dao.ClientS;
 import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 public class EnvoyerFichierInfo implements FonctionServer {
 
@@ -33,7 +33,7 @@ public class EnvoyerFichierInfo implements FonctionServer {
 				
 				
 				
-				byte[] sendBytes = new byte[ParametrePublique.LENGTH_ENVOYER];
+				byte[] sendBytes = new byte[Parametre.LENGTH_ENVOYER];
 				int length = 0;
 
 				while ((length = fis.read(sendBytes, 0, sendBytes.length)) > 0) {

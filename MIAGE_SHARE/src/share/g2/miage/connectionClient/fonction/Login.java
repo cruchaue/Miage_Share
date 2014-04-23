@@ -11,7 +11,7 @@ import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
 import share.g2.miage.connectionServer.Server.ServerFichier;
 import share.g2.miage.interfaces.ClientInterface;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 public class Login implements
 		FonctionClient {
@@ -29,7 +29,7 @@ public class Login implements
 			DataInputStream dis = client.getDis();
 
 
-			dos.writeUTF(ParametrePublique.LOGIN);
+			dos.writeUTF(Parametre.LOGIN);
 			dos.flush();
 
 			dos.writeUTF(client.getParametre1());

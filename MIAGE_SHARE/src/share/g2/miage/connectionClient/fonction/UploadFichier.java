@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
 import share.g2.miage.interfaces.ClientInterface;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 public class UploadFichier implements FonctionClient {
 
@@ -27,10 +27,10 @@ public class UploadFichier implements FonctionClient {
 			BufferedInputStream bis = client.getBis();
 			BufferedOutputStream bos = client.getBos();
 
-			byte[] sendBytes = new byte[ParametrePublique.LENGTH_ENVOYER];
+			byte[] sendBytes = new byte[Parametre.LENGTH_ENVOYER];
 			int length = 0;
 
-			dos.writeUTF(ParametrePublique.UPLOAD_FICHIER);
+			dos.writeUTF(Parametre.UPLOAD_FICHIER);
 			dos.flush();
 
 			dos.writeUTF(client.getParametre2());

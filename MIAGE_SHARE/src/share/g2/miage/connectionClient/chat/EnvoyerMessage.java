@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 public class EnvoyerMessage implements FonctionClient {
 
@@ -19,7 +19,7 @@ public class EnvoyerMessage implements FonctionClient {
 			BufferedInputStream bis = client.getBis();
 			BufferedOutputStream bos = client.getBos();
 			
-			dos.writeUTF(ParametrePublique.ENVOYER_MESSAGE);
+			dos.writeUTF(Parametre.ENVOYER_MESSAGE);
 			dos.flush();
 			
 			//message

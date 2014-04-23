@@ -13,7 +13,7 @@ import share.g2.miage.connectionClient.dao.Fichier;
 import share.g2.miage.connectionClient.fonction.CommenterFichier;
 import share.g2.miage.connectionClient.fonction.LireFichierInfo;
 import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JScrollPane;
@@ -154,11 +154,11 @@ public class fenetreInformations extends JFrame {
 				client.demarrer();
 				client.setParametre1(fichier.getNom());
 				client.setParametre2(ClientInterface.getUser().getUserName()+
-						ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE2+
+						Parametre.SPEPARER_FICHIER_COMMENTAIRE2+
 						sdf.format( date)+
-						ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE2+
+						Parametre.SPEPARER_FICHIER_COMMENTAIRE2+
 						textFieldCommentaire.getText()+
-						ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE1
+						Parametre.SPEPARER_FICHIER_COMMENTAIRE1
 						);
 				FonctionClient fcf = new CommenterFichier();
 				fcf.excuter(client);
@@ -177,7 +177,7 @@ public class fenetreInformations extends JFrame {
 				client.closeConnection();
 				System.out.println(client.getResultat1());
 				
-				fenetreInformations finfo = new fenetreInformations(new Fichier(fichier.getNom()+ParametrePublique.SPEPARER_FICHIER_INFO+ client.getResultat1()), fichier.getNom());
+				fenetreInformations finfo = new fenetreInformations(new Fichier(fichier.getNom()+Parametre.SPEPARER_FICHIER_INFO+ client.getResultat1()), fichier.getNom());
 				finfo.show();
 				
 				setVisible(false);

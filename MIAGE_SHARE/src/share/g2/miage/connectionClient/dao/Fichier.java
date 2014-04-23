@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 import share.g2.miage.connectionServer.Server.ServerFichier;
-import share.g2.miage.util.ParametrePublique;
+import share.g2.miage.util.Parametre;
 
 public class Fichier {
 	private String nom;
@@ -34,7 +34,7 @@ public class Fichier {
 	}
 
 	public Fichier(String infoFichier) {
-		String[] strFI = infoFichier.split(ParametrePublique.SPEPARER_FICHIER_INFO);
+		String[] strFI = infoFichier.split(Parametre.SPEPARER_FICHIER_INFO);
 		this.nom = strFI[0];
 		this.auteur = strFI[1];
 		this.taille = strFI[2];
@@ -45,11 +45,11 @@ public class Fichier {
 		this.droit = Integer.valueOf(strFI[5]);
 		System.out.println("fichier length: " +strFI.length);
 		if (strFI.length > 6) {
-			String[] strCMMS = strFI[6].split(ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE1);
+			String[] strCMMS = strFI[6].split(Parametre.SPEPARER_FICHIER_COMMENTAIRE1);
 			this.comms = new ArrayList<Commentaire>();
 			for (int i = 0; i < strCMMS.length; i++) {
 				Commentaire cmm = new Commentaire();
-				String[] strCMM = strCMMS[i].split(ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE2);
+				String[] strCMM = strCMMS[i].split(Parametre.SPEPARER_FICHIER_COMMENTAIRE2);
 				System.out.println(strCMMS[i]);
 				cmm.setUser(strCMM[0]);
 
@@ -70,26 +70,26 @@ public class Fichier {
 		StringBuffer sb =  new StringBuffer();
 		
 	    sb.append(this.auteur);
-	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
+	    sb.append(Parametre.SPEPARER_FICHIER_INFO);
 	    sb.append(this.taille);
-	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
+	    sb.append(Parametre.SPEPARER_FICHIER_INFO);
 	    sb.append(this.date);
-	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
+	    sb.append(Parametre.SPEPARER_FICHIER_INFO);
 	    sb.append(this.numTelechargement);
-	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
+	    sb.append(Parametre.SPEPARER_FICHIER_INFO);
 	    sb.append(this.droit);
-	    sb.append(ParametrePublique.SPEPARER_FICHIER_INFO);
+	    sb.append(Parametre.SPEPARER_FICHIER_INFO);
 	    
 	    if(this.comms!=null){
 	    	for(int i = 0;i<comms.size();i++){
 	    		
 	    		sb.append(comms.get(i).getUser());
-	    		sb.append(ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE2);
+	    		sb.append(Parametre.SPEPARER_FICHIER_COMMENTAIRE2);
 	    		sb.append(comms.get(i).getDate());
-	    		sb.append(ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE2);
+	    		sb.append(Parametre.SPEPARER_FICHIER_COMMENTAIRE2);
 	    		sb.append(comms.get(i).getContenu());
 	    		if(i!=comms.size()-1){
-	    			sb.append(ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE1);
+	    			sb.append(Parametre.SPEPARER_FICHIER_COMMENTAIRE1);
 	    		}
 	    	}
 	    }
