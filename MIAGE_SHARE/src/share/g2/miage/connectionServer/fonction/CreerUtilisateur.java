@@ -56,7 +56,7 @@ public class CreerUtilisateur implements FonctionServerFichier {
 			
 		
 			clients.closeConnection();
-
+			Server.chargerUtilisateur();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

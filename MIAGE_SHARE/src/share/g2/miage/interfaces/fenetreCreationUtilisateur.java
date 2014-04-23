@@ -50,7 +50,7 @@ public class fenetreCreationUtilisateur extends JFrame {
 	 * Create the frame.
 	 */
 	public fenetreCreationUtilisateur() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -91,7 +91,7 @@ public class fenetreCreationUtilisateur extends JFrame {
 		contentPane.add(mail);
 		mail.setColumns(10);
 		
-		JButton btnCreerLeCompte = new JButton("Créer le compte");
+		JButton btnCreerLeCompte = new JButton("Creer le compte");
 		btnCreerLeCompte.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
@@ -122,7 +122,7 @@ public class fenetreCreationUtilisateur extends JFrame {
 				if(!mdp.equals(mdp2)){
 					JOptionPane jop = new JOptionPane();
 					jop.showMessageDialog(null,
-							"Les 2 mots de passes sont différents",
+							"Les 2 mots de passes sont diff�rents",
 							"Mot de passe incorrect",
 							JOptionPane.WARNING_MESSAGE);
 				}else{
@@ -149,12 +149,15 @@ public class fenetreCreationUtilisateur extends JFrame {
 					
 					
 					client.closeConnection();
+					setVisible(false);
+					
 					
 					JOptionPane jop = new JOptionPane();
 					jop.showMessageDialog(null,
-							"Utilisateur crée avec succès",
+							"Utilisateur creee avec succes",
 							"Bravo",
 							JOptionPane.DEFAULT_OPTION);
+					
 					
 				}
 				
@@ -167,7 +170,7 @@ public class fenetreCreationUtilisateur extends JFrame {
 				
 			}
 		});
-		btnCreerLeCompte.setBounds(221, 186, 109, 23);
+		btnCreerLeCompte.setBounds(197, 186, 133, 23);
 		contentPane.add(btnCreerLeCompte);
 		
 		

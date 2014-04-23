@@ -23,6 +23,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JPasswordField;
+import java.awt.SystemColor;
+import java.awt.Color;
 
 public class fenetreLogin extends JFrame {
 
@@ -50,9 +52,11 @@ public class fenetreLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public fenetreLogin() {
+		setBackground(SystemColor.activeCaption);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -144,7 +148,7 @@ public class fenetreLogin extends JFrame {
 		btnConnexion.setBounds(194, 156, 134, 29);
 		contentPane.add(btnConnexion);
 		
-		JButton btnCreer = new JButton("Créer un utilisateur");
+		JButton btnCreer = new JButton("Creer un utilisateur");
 		btnCreer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				EventQueue.invokeLater(new Runnable() {

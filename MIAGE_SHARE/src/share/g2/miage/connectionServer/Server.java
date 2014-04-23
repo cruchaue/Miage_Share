@@ -21,13 +21,14 @@ public class Server {
 	private static String fichierChemin;
 	private static String fichiersConfigChemin;
 	private boolean demarre = true;
+	private static String fichiers_BD_utilisateurs;
+
 	
 
+	private static Map<String,Utilisateur> listeUser;
 	public static String getFichiersConfigChemin() {
 		return fichiersConfigChemin;
 	}
-
-	private static Map<String,Utilisateur> listeUser;
 
 	public static String getFichierChemin() {
 		return fichierChemin;
@@ -50,10 +51,10 @@ public class Server {
 		}
 
 		int port = Integer.valueOf(p.getProperty("portServer"));
-		this.fichierChemin = p.getProperty("fichierChemin");
-		this.fichiersConfigChemin = p.getProperty("config_fichiers");
-		
-		chargerUtilisateur(p.getProperty("BD_utilisateurs"));
+		fichierChemin = p.getProperty("fichierChemin");
+		fichiersConfigChemin = p.getProperty("config_fichiers");
+		fichiers_BD_utilisateurs = p.getProperty("BD_utilisateurs");
+		chargerUtilisateur();
 
 		System.out.println("Port:" + p.getProperty("portServer"));
 
@@ -83,13 +84,13 @@ public class Server {
 		demarre = false;
 	}
 
-	private void chargerUtilisateur(String cheminBDUtilisateur) {
-		File filename = new File(cheminBDUtilisateur); // 要读取以上路径的input。txt文件
+	public static void chargerUtilisateur() {
+		File filename = new File(fichiers_BD_utilisateurs); // è¦�è¯»å�–ä»¥ä¸Šè·¯å¾„çš„inputã€‚txtæ–‡ä»¶
 		InputStreamReader reader;
 		try {
 			reader = new InputStreamReader(new FileInputStream(filename));
 
-			BufferedReader br = new BufferedReader(reader); // 建立一个对象，它把文件内容转成计算机能读懂的语言
+			BufferedReader br = new BufferedReader(reader); // å»ºç«‹ä¸€ä¸ªå¯¹è±¡ï¼Œå®ƒæŠŠæ–‡ä»¶å†…å®¹è½¬æˆ�è®¡ç®—æœºèƒ½è¯»æ‡‚çš„è¯­è¨€
 			String line = "";
 
 			while ((line =br.readLine()) != null) {
