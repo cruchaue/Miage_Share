@@ -93,6 +93,7 @@ public class Server {
 			String line = "";
 
 			while ((line =br.readLine()) != null) {
+				System.out.println(line);
 				String uStr[] = line.split(";");
 				Utilisateur u = new Utilisateur();
 				u.setLoginName(uStr[0]);

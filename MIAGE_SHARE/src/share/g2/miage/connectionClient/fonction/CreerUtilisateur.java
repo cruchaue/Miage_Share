@@ -35,6 +35,7 @@ public class CreerUtilisateur implements
 			dos.writeUTF(client.getParametre1());
 			dos.flush();
 			
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
