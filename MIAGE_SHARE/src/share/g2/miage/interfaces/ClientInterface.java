@@ -1,9 +1,6 @@
 package share.g2.miage.interfaces;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.EventQueue;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -12,31 +9,18 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
-
 import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.dao.Fichier;
-import share.g2.miage.connectionClient.fonction.GetFichierList;
-import share.g2.miage.connectionClient.fonction.LireFichierInfo;
-import share.g2.miage.connectionClient.fonction.Login;
-import share.g2.miage.connectionClient.fonction.SupprimerFichier;
-import share.g2.miage.connectionClient.fonction.TelechargerFichier;
-import share.g2.miage.connectionClient.fonction.UploadFichier;
-
+import share.g2.miage.connectionClient.fonction.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
 import java.util.Properties;
-
 import javax.swing.JList;
 import javax.swing.JScrollPane;
-
 import share.g2.miage.connectionClient.dao.User;
-import share.g2.miage.util.Outil;
 import share.g2.miage.util.ParametrePublique;
 
 public class ClientInterface extends JFrame {
@@ -263,8 +247,6 @@ public class ClientInterface extends JFrame {
 		scrollPane.setViewportView(list);	
 		
 		
-		File repertoire = new File(cheminS_liste_fichier);
-		final String [] listefichiers; 
 
 
 		//Temps d'attente pour l'upload du fichier sur le serveur
@@ -275,11 +257,8 @@ public class ClientInterface extends JFrame {
 			e.printStackTrace();
 		} 
 		
-		int i;
-		listefichiers = repertoire.list();
-
 		
-		for (i = 0; i < fichiers.length; i++) {
+		for (int i = 0; i < fichiers.length; i++) {
 				
 				model.addElement(fichiers[i]);
 		}
