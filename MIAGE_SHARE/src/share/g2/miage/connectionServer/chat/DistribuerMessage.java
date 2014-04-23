@@ -1,9 +1,9 @@
 package share.g2.miage.connectionServer.chat;
 
-import share.g2.miage.connectionServer.ClientS;
-import share.g2.miage.connectionServer.FonctionServerFichier;
+import share.g2.miage.connectionServer.dao.ClientS;
+import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
 
-public class DistribuerMessage implements FonctionServerFichier {
+public class DistribuerMessage implements FonctionServer {
 
 	@Override
 	public int excuter(ClientS clients) {

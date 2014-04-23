@@ -11,13 +11,13 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Map;
 
-import share.g2.miage.connectionServer.ClientS;
-import share.g2.miage.connectionServer.FonctionServerFichier;
-import share.g2.miage.connectionServer.Server;
-import share.g2.miage.connectionServer.Utilisateur;
+import share.g2.miage.connectionServer.Server.ServerFichier;
+import share.g2.miage.connectionServer.dao.ClientS;
+import share.g2.miage.connectionServer.dao.Utilisateur;
+import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
 import share.g2.miage.util.ParametrePublique;
 
-public class CreerUtilisateur implements FonctionServerFichier {
+public class CreerUtilisateur implements FonctionServer {
 
 	@Override
 	public int excuter(ClientS clients) {
@@ -56,7 +56,7 @@ public class CreerUtilisateur implements FonctionServerFichier {
 			
 		
 			clients.closeConnection();
-			Server.chargerUtilisateur();
+			ServerFichier.chargerUtilisateur();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

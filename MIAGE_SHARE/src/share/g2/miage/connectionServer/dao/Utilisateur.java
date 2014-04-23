@@ -1,4 +1,4 @@
-package share.g2.miage.connectionServer;
+package share.g2.miage.connectionServer.dao;
 
 public class Utilisateur {
 	private String loginName;

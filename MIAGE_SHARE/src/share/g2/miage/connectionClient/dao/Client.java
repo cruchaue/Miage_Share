@@ -79,11 +79,11 @@ public class Client {
 			e1.printStackTrace();
 		}
 		String serverIp = p.getProperty("serverIp");
-		int port = Integer.valueOf(p.getProperty("portClient"));
+		int port = Integer.valueOf(p.getProperty("portClientFichier"));
 		client = null;
 
 		System.out.println("ip:" + p.getProperty("serverIp") + ",port:"
-				+ p.getProperty("portClient"));
+				+ p.getProperty("portClientFichier"));
 
 		try {
 

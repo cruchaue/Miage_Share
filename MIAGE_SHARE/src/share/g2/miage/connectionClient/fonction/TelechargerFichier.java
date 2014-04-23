@@ -8,13 +8,13 @@ import java.io.FileOutputStream;
 
 import javax.swing.JOptionPane;
 
-import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.dao.Client;
-import share.g2.miage.connectionServer.Server;
+import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
+import share.g2.miage.connectionServer.Server.ServerFichier;
 import share.g2.miage.util.ParametrePublique;
 
 public class TelechargerFichier implements
-		FonctionClientFichier {
+		FonctionClient {
 
 	
 

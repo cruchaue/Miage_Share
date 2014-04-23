@@ -1,4 +1,4 @@
-package share.g2.miage.connectionServer;
+package share.g2.miage.connectionServer.Server;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,18 +15,28 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-public class Server {
+import share.g2.miage.connectionServer.dao.Utilisateur;
+public class ServerChat   extends Thread {
 
-	private ServerSocket serverSocket = null;
+	private ServerSocket serverFichier = null;
+	private ServerSocket serverChat = null;
 	private static String fichierChemin;
 	private static String fichiersConfigChemin;
 	private boolean demarre = true;
 	private static String fichiers_BD_utilisateurs;
 	private static String droit_fichiers;
+	List<Socket> clientLinkList = new ArrayList<Socket>();  
+    int count; 
+	
 
 	
 
 	private static Map<String,Utilisateur> listeUser;
+	
+	public ServerChat(){
+		start();
+	}
+	
 	public static String getFichiersConfigChemin() {
 		return fichiersConfigChemin;
 	}
@@ -39,11 +49,7 @@ public class Server {
 		return fichierChemin;
 	}
 
-	public ServerSocket getServerSocket() {
-		return serverSocket;
-	}
-
-	public int demarrer() {
+	public void run() { 
 		listeUser = new HashMap<String,Utilisateur>();
 		// lire le fichier de parametre
 		InputStream inputStream = this.getClass().getClassLoader()
@@ -55,7 +61,9 @@ public class Server {
 			e1.printStackTrace();
 		}
 
-		int port = Integer.valueOf(p.getProperty("portServer"));
+		int portFichier = Integer.valueOf(p.getProperty("portServerFichier"));
+		int portChat = Integer.valueOf(p.getProperty("portServerChat"));
+		
 		fichierChemin = p.getProperty("fichierChemin");
 		fichiersConfigChemin = p.getProperty("config_fichiers");
 		fichiers_BD_utilisateurs = p.getProperty("BD_utilisateurs");
@@ -66,23 +74,27 @@ public class Server {
 		System.out.println(droit_fichiers);
 		chargerUtilisateur();
 
-		System.out.println("Port:" + p.getProperty("portServer"));
+		System.out.println("Port:" + p.getProperty("portServerChat"));
 
 		try {
 
-			serverSocket = new ServerSocket(port);
+			serverFichier = new ServerSocket(portFichier);
+			serverChat = new ServerSocket(portChat);
 
 			while (demarre) {
-				Socket socket = serverSocket.accept();
-				new CreateServerThread(socket);
+				Socket socketFichier = serverFichier.accept();
+				new ServerThreadFichier(socketFichier);
+				
+				Socket socketChat = serverChat.accept();
+				clientLinkList.add(socketChat);  
+                new ServerThreadChat(clientLinkList, socketChat);
 			}
-			serverSocket.close();
+			serverFichier.close();
+			serverChat.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			return -1;
 		}
-		return 1;
 
 	}
 

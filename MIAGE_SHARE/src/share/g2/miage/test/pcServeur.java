@@ -19,7 +19,7 @@ public class pcServeur extends ServerSocket {
 		try {
 			while (true) {
 				Socket socket = accept();
-				new CreateServerThread(socket);
+				//new ServerThreadFichier(socket);
 			}
 		} catch (IOException e) {
 		} finally {

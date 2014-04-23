@@ -11,11 +11,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.dao.User;
 import share.g2.miage.connectionClient.fonction.Login;
 import share.g2.miage.connectionClient.fonction.SupprimerFichier;
+import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
 import share.g2.miage.util.CrypterMDP;
 import share.g2.miage.util.ParametrePublique;
 
@@ -23,6 +23,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JPasswordField;
+
 import java.awt.SystemColor;
 import java.awt.Color;
 
@@ -92,7 +93,7 @@ public class fenetreLogin extends JFrame {
 				client.demarrer();
 				client.setParametre1(login);
 				client.setParametre2(mdp);
-				FonctionClientFichier fcf = new Login();
+				FonctionClient fcf = new Login();
 
 				fcf.excuter(client);
 				String resultat = client.getResultat1();

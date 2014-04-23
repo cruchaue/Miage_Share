@@ -1,6 +1,7 @@
 package share.g2.miage.interfaces;
 
 import java.awt.EventQueue;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -9,17 +10,21 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
-import share.g2.miage.connectionClient.FonctionClientFichier;
+
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.dao.Fichier;
 import share.g2.miage.connectionClient.fonction.*;
+import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+
 import share.g2.miage.connectionClient.dao.User;
 import share.g2.miage.util.ParametrePublique;
 
@@ -75,7 +80,7 @@ public class ClientInterface extends JFrame {
 		Client client = new Client();
 		client.demarrer();
 		client.setParametre1(User.getUserName());
-		FonctionClientFichier fcf = new GetFichierList();
+		FonctionClient fcf = new GetFichierList();
 
 		fcf.excuter(client);
 		fichiers = client.getResultat1().split(";");
@@ -136,7 +141,7 @@ public class ClientInterface extends JFrame {
 					client.setParametre1(chooser.getSelectedFile()
 							.getAbsolutePath().replaceAll("\\\\", "\\\\\\\\"));
 					client.setParametre2(chooser.getSelectedFile().getName());
-					FonctionClientFichier fcf = new UploadFichier();
+					FonctionClient fcf = new UploadFichier();
 					String fichier = chooser.getSelectedFile()
 							.getAbsolutePath().replaceAll("\\\\", "\\\\\\\\");
 					System.out.println("Fichier : " + fichier);
@@ -167,7 +172,7 @@ public class ClientInterface extends JFrame {
 				client.demarrer();
 				client.setParametre1(cheminC_enregistrer_fichier_defaut);
 				client.setParametre2(nomFic);
-				FonctionClientFichier fcf = new TelechargerFichier();
+				FonctionClient fcf = new TelechargerFichier();
 
 				
 				
@@ -189,7 +194,7 @@ public class ClientInterface extends JFrame {
 				Client client = new Client();
 				client.demarrer();
 				client.setParametre1(fichierSuppression);
-				FonctionClientFichier fcf = new SupprimerFichier();
+				FonctionClient fcf = new SupprimerFichier();
 
 				
 				
@@ -221,7 +226,7 @@ public class ClientInterface extends JFrame {
 				Client client = new Client();
 				client.demarrer();
 				client.setParametre1(filename);
-				FonctionClientFichier fcf = new LireFichierInfo();
+				FonctionClient fcf = new LireFichierInfo();
 
 				
 				

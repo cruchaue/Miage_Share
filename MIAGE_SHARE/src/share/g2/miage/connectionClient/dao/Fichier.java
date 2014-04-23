@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import share.g2.miage.connectionServer.Server;
+import share.g2.miage.connectionServer.Server.ServerFichier;
 import share.g2.miage.util.ParametrePublique;
 
 public class Fichier {

@@ -8,12 +8,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-import share.g2.miage.connectionServer.ClientS;
-import share.g2.miage.connectionServer.FonctionServerFichier;
-import share.g2.miage.connectionServer.Server;
+import share.g2.miage.connectionServer.Server.ServerFichier;
+import share.g2.miage.connectionServer.dao.ClientS;
+import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
 import share.g2.miage.util.ParametrePublique;
 
-public class EnvoyerFichierInfo implements FonctionServerFichier {
+public class EnvoyerFichierInfo implements FonctionServer {
 
 	@Override
 	public int excuter(ClientS clients) {
@@ -26,7 +26,7 @@ public class EnvoyerFichierInfo implements FonctionServerFichier {
 
 			strTemp = dis.readUTF();
 			System.out.println(strTemp + ",");
-			File file = new File(Server.getFichiersConfigChemin()+strTemp+".txt");
+			File file = new File(ServerFichier.getFichiersConfigChemin()+strTemp+".txt");
 			if(file.exists()){
 				fis = new FileInputStream(file);
 				

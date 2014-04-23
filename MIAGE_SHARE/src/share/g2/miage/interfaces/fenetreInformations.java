@@ -8,11 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
-import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.dao.Fichier;
 import share.g2.miage.connectionClient.fonction.CommenterFichier;
 import share.g2.miage.connectionClient.fonction.LireFichierInfo;
+import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
 import share.g2.miage.util.ParametrePublique;
 
 import javax.swing.DefaultListModel;
@@ -160,7 +160,7 @@ public class fenetreInformations extends JFrame {
 						textFieldCommentaire.getText()+
 						ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE1
 						);
-				FonctionClientFichier fcf = new CommenterFichier();
+				FonctionClient fcf = new CommenterFichier();
 				fcf.excuter(client);
 				client.closeConnection();
 				System.out.println(client.getParametre1()+client.getParametre2());

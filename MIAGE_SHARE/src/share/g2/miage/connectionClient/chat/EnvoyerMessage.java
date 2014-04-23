@@ -5,11 +5,11 @@ import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.dao.Client;
+import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
 import share.g2.miage.util.ParametrePublique;
 
-public class EnvoyerMessage implements FonctionClientFichier {
+public class EnvoyerMessage implements FonctionClient {
 
 	@Override
 	public int excuter(Client client) {

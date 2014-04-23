@@ -1,11 +1,11 @@
-package share.g2.miage.connectionServer;
+package share.g2.miage.connectionServer.Server;
 
 public class ServerTest {
 
 
 	public static void main(String[] args) throws Exception {
-		Server server = new Server();
-		server.demarrer();
+		new ServerFichier();
+		
 		//FonctionServerFichier fsf = new AccepterFichier();
 		//fsf.excuter(server);
 		

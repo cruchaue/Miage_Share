@@ -6,13 +6,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.dao.Client;
-import share.g2.miage.connectionServer.Server;
+import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
+import share.g2.miage.connectionServer.Server.ServerFichier;
 import share.g2.miage.util.ParametrePublique;
 
 public class LireFichierInfo implements
-		FonctionClientFichier {
+		FonctionClient {
 
 	
 

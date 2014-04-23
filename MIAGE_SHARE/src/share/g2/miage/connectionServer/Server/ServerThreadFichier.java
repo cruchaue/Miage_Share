@@ -1,4 +1,4 @@
-package share.g2.miage.connectionServer;
+package share.g2.miage.connectionServer.Server;
 
 import java.io.*;
 import java.net.*;
@@ -6,15 +6,17 @@ import java.net.*;
 import share.g2.miage.connectionClient.chat.EnvoyerMessage;
 import share.g2.miage.connectionServer.chat.DistribuerMessage;
 import share.g2.miage.connectionServer.chat.RecupererMessage;
+import share.g2.miage.connectionServer.dao.ClientS;
 import share.g2.miage.connectionServer.fonction.*;
+import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
 import share.g2.miage.util.ParametrePublique;
 
 //--- CreateServerThread
-class CreateServerThread extends Thread {
+class ServerThreadFichier extends Thread {
 	private ClientS clients;
-	private FonctionServerFichier fsf;
+	private FonctionServer fsf;
 
-	public CreateServerThread(Socket s) throws IOException {
+	public ServerThreadFichier(Socket s) throws IOException {
 		clients = new ClientS();
 		clients.setClient(s);
 		clients.setDis(new DataInputStream(s.getInputStream()));

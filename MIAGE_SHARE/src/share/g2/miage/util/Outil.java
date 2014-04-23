@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
-import share.g2.miage.connectionServer.Server;
+import share.g2.miage.connectionServer.Server.ServerFichier;
 
 public class Outil {
 	public static Map<String, String> getDroitsFichier() {
@@ -17,8 +17,8 @@ public class Outil {
 		Map<String, String> droitsFichier = null;
 		try {
 			droitsFichier = new HashMap<String, String>();
-			System.out.println(Server.getDroit_fichiers());
-			InputStreamReader reader = new InputStreamReader(new FileInputStream(new File(Server.getDroit_fichiers())
+			System.out.println(ServerFichier.getDroit_fichiers());
+			InputStreamReader reader = new InputStreamReader(new FileInputStream(new File(ServerFichier.getDroit_fichiers())
 					));
 			br = new BufferedReader(reader);
 			String uneLigne;

@@ -12,12 +12,12 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import share.g2.miage.connectionServer.ClientS;
-import share.g2.miage.connectionServer.FonctionServerFichier;
-import share.g2.miage.connectionServer.Server;
+import share.g2.miage.connectionServer.Server.ServerFichier;
+import share.g2.miage.connectionServer.dao.ClientS;
+import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
 import share.g2.miage.util.ParametrePublique;
 
-public class AccepterFichier implements FonctionServerFichier {
+public class AccepterFichier implements FonctionServer {
 
 	@Override
 	public int excuter(ClientS clients) {
@@ -38,7 +38,7 @@ public class AccepterFichier implements FonctionServerFichier {
 
 			String userName = dis.readUTF();
 
-			fos = new FileOutputStream(new File(Server.getFichierChemin()
+			fos = new FileOutputStream(new File(ServerFichier.getFichierChemin()
 					+ strTemp));
 			while ((lengthTemp = bis.read(byteTemp, 0, byteTemp.length)) > 0) {
 				fos.write(byteTemp, 0, lengthTemp);
@@ -69,7 +69,7 @@ public class AccepterFichier implements FonctionServerFichier {
 		DecimalFormat df = new DecimalFormat("#.00");
 
 		// obtenir la taille de fichier.
-		File file = new File(Server.getFichierChemin() + fichierNom);
+		File file = new File(ServerFichier.getFichierChemin() + fichierNom);
 		long filesize = file.length();
 		if (filesize < 1024) {
 			taille = filesize + "b";
@@ -105,7 +105,7 @@ public class AccepterFichier implements FonctionServerFichier {
 		FileOutputStream fos;
 		try {
 			fos = new FileOutputStream(new File(
-					Server.getFichiersConfigChemin() + fichierNom + ".txt"));
+					ServerFichier.getFichiersConfigChemin() + fichierNom + ".txt"));
 			byte[] byteFI = sb.toString().getBytes();
 
 			fos.write(byteFI);
@@ -126,7 +126,7 @@ public class AccepterFichier implements FonctionServerFichier {
 		BufferedWriter out = null;
 		try {
 			out = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream(Server.getDroit_fichiers(), true)));
+					new FileOutputStream(ServerFichier.getDroit_fichiers(), true)));
 			out.write(fichierNom + ";"
 					+ ParametrePublique.FICHIER_DROIT_DEFAULT + "\r\n");
 			out.flush();

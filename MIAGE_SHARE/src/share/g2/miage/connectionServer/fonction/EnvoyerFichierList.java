@@ -11,14 +11,14 @@ import java.util.Iterator;
 import java.util.Map;
 
 import share.g2.miage.connectionClient.dao.User;
-import share.g2.miage.connectionServer.ClientS;
-import share.g2.miage.connectionServer.FonctionServerFichier;
-import share.g2.miage.connectionServer.Server;
-import share.g2.miage.connectionServer.Utilisateur;
+import share.g2.miage.connectionServer.Server.ServerFichier;
+import share.g2.miage.connectionServer.dao.ClientS;
+import share.g2.miage.connectionServer.dao.Utilisateur;
+import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
 import share.g2.miage.util.Outil;
 import share.g2.miage.util.ParametrePublique;
 
-public class EnvoyerFichierList implements FonctionServerFichier {
+public class EnvoyerFichierList implements FonctionServer {
 
 	@Override
 	public int excuter(ClientS clients) {
@@ -27,7 +27,7 @@ public class EnvoyerFichierList implements FonctionServerFichier {
 			DataOutputStream dos = clients.getDos();
 
 			String userName = dis.readUTF();
-			Map<String,Utilisateur> users = Server.getListeUser();
+			Map<String,Utilisateur> users = ServerFichier.getListeUser();
 			String droitU = users.get(userName).getLimite();
 			Map<String,String> fichierList = Outil.getDroitsFichier();
 			StringBuffer sb = new StringBuffer();

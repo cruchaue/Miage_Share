@@ -11,11 +11,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
 
-import share.g2.miage.connectionClient.FonctionClientFichier;
 import share.g2.miage.connectionClient.chat.EnvoyerMessage;
 import share.g2.miage.connectionClient.dao.Client;
 import share.g2.miage.connectionClient.fonction.UploadFichier;
-import share.g2.miage.connectionServer.Server;
+import share.g2.miage.connectionClient.fonction.interfaces.FonctionClient;
+import share.g2.miage.connectionServer.Server.ServerFichier;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -24,7 +24,7 @@ public class fenetreChat extends JFrame {
 
 	private JPanel contentPane;
 	private final JButton btnRecevoir = new JButton("Recevoir");
-	Server server;
+	ServerFichier server;
 	Client client;
 
 	/**

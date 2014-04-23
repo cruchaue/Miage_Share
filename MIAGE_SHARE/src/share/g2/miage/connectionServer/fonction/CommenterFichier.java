@@ -12,12 +12,12 @@ import java.util.List;
 
 import share.g2.miage.connectionClient.dao.Commentaire;
 import share.g2.miage.connectionClient.dao.Fichier;
-import share.g2.miage.connectionServer.ClientS;
-import share.g2.miage.connectionServer.FonctionServerFichier;
-import share.g2.miage.connectionServer.Server;
+import share.g2.miage.connectionServer.Server.ServerFichier;
+import share.g2.miage.connectionServer.dao.ClientS;
+import share.g2.miage.connectionServer.fonction.interfaces.FonctionServer;
 import share.g2.miage.util.ParametrePublique;
 
-public class CommenterFichier implements FonctionServerFichier {
+public class CommenterFichier implements FonctionServer {
 
 	@Override
 	public int excuter(ClientS clients) {
@@ -34,7 +34,7 @@ public class CommenterFichier implements FonctionServerFichier {
 			byte[] byteTemp = new byte[ParametrePublique.LENGTH_ENVOYER];
 			//StringBuffer sb = new StringBuffer();
 			
-			File file = new File(Server.getFichiersConfigChemin()+fichierNom+".txt");
+			File file = new File(ServerFichier.getFichiersConfigChemin()+fichierNom+".txt");
 			
 			System.out.println(commentaire);
 			
