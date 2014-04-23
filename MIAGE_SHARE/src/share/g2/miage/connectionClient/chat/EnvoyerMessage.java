@@ -20,6 +20,15 @@ public class EnvoyerMessage implements FonctionClientFichier {
 			BufferedOutputStream bos = client.getBos();
 			
 			dos.writeUTF(ParametrePublique.ENVOYER_MESSAGE);
+			dos.flush();
+			
+			//message
+			dos.writeUTF(client.getParametre1());
+			dos.flush();
+			
+			//user
+			dos.writeUTF(client.getParametre2());
+			dos.flush();
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
