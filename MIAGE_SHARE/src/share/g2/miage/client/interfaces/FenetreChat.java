@@ -67,7 +67,7 @@ public class FenetreChat extends JFrame  implements Runnable {
             //   
             button_send.addActionListener(new ActionListener() {  
                 @Override  
-                public void actionPerformed(ActionEvent e) {  
+                public void actionPerformed(ActionEvent e) {
                     msg = textField.getText();  
                     System.out.println(msg);  
                     ps.println(userName+": "+msg);  
@@ -79,9 +79,10 @@ public class FenetreChat extends JFrame  implements Runnable {
             textField.addActionListener(new ActionListener() {  
                 @Override  
                 public void actionPerformed(ActionEvent e) {  
-                    msg = textField.getText();  
-                    ps.println(msg);  
-                    ps.flush();  
+                	 msg = textField.getText();  
+                     System.out.println(msg);  
+                     ps.println(userName+": "+msg);  
+                     ps.flush();  
   
                 }  
   
