@@ -11,7 +11,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
 
-import share.g2.miage.client.fenetreChat;
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.fonction.*;
@@ -99,8 +98,6 @@ public class ClientInterface extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 390, 298);
 
-		
-		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		contentPane = new JPanel();
@@ -118,7 +115,7 @@ public class ClientInterface extends JFrame {
 		model = new DefaultListModel<String>();
 		scrollPane.setViewportView(list);
 		list.setModel(model);
-		
+
 		listerFichier();
 		// A METTRE ICI
 
@@ -153,10 +150,16 @@ public class ClientInterface extends JFrame {
 					f1.setBounds(100, 100, 450, 175);
 					f1.setVisible(true);
 
-					client.closeConnection();
-
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					listerFichier();
 				}
-				listerFichier();
+
 			}
 
 		});
@@ -196,6 +199,14 @@ public class ClientInterface extends JFrame {
 
 				fcf.excuter(client);
 				client.closeConnection();
+				
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				listerFichier();
 
 			}
@@ -260,8 +271,6 @@ public class ClientInterface extends JFrame {
 		fcf.excuter(client);
 		fichiers = client.getResultat1().split(";");
 
-		
-
 		// Temps d'attente pour l'upload du fichier sur le serveur
 		try {
 			Thread.sleep(1000);
@@ -275,6 +284,5 @@ public class ClientInterface extends JFrame {
 			model.addElement(fichiers[i]);
 		}
 
-		
 	}
 }

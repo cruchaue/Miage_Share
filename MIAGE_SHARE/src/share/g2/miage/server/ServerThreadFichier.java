@@ -4,8 +4,6 @@ import java.io.*;
 import java.net.*;
 
 import share.g2.miage.server.fonction.*;
-import share.g2.miage.server.chat.DistribuerMessage;
-import share.g2.miage.server.chat.RecupererMessage;
 import share.g2.miage.server.dao.ClientS;
 import share.g2.miage.server.fonction.AccepterFichier;
 import share.g2.miage.server.fonction.CommenterFichier;
@@ -59,12 +57,6 @@ class ServerThreadFichier extends Thread {
 					fsf.excuter(clients);
 				}else if(Parametre.COMMENTER_FICHIER.equals(strFonction)){
 					fsf = new CommenterFichier();
-					fsf.excuter(clients);
-				}else if(Parametre.DISTRIBUER_MESSAGE.equals(strFonction)){
-					fsf = new DistribuerMessage();
-					fsf.excuter(clients);
-				}else if(Parametre.ENVOYER_MESSAGE.equals(strFonction)){
-					fsf = new RecupererMessage();
 					fsf.excuter(clients);
 				}else if(Parametre.CREER_UTILISATEUR.equals(strFonction)){
 					fsf = new CreerUtilisateur();
