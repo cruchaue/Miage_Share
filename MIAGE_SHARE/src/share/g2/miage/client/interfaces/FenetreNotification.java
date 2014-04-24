@@ -28,21 +28,54 @@ import java.awt.SystemColor;
 
 import java.awt.Color;
 import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
+import javax.swing.JScrollPane;
+import javax.swing.JList;
 
 public class FenetreNotification extends JFrame {
 	public FenetreNotification() {
-		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
-		JButton btnResize = new JButton("resize");
-		btnResize.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				setSize(100,100);
+		JLabel lblVoulezVousEnvoyer = new JLabel("Voulez- vous envoyer une notification ?  ");
+		lblVoulezVousEnvoyer.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVoulezVousEnvoyer.setVerticalAlignment(SwingConstants.TOP);
+		lblVoulezVousEnvoyer.setBounds(6, 65, 438, 16);
+		getContentPane().add(lblVoulezVousEnvoyer);
+		
+		JLabel lblFichierUploadeAvec = new JLabel("Fichier uploade avec succes !");
+		lblFichierUploadeAvec.setBounds(18, 21, 196, 16);
+		getContentPane().add(lblFichierUploadeAvec);
+		
+		JButton btnOui = new JButton("Oui");
+		btnOui.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setSize(450,300);
+				
 			}
 		});
-		btnResize.setBounds(128, 109, 117, 29);
-		getContentPane().add(btnResize);
+		btnOui.setBounds(97, 93, 117, 29);
+		getContentPane().add(btnOui);
+		
+		JButton btnNon = new JButton("Non");
+		btnNon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnNon.setBounds(226, 93, 117, 29);
+		getContentPane().add(btnNon);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(73, 138, 309, 97);
+		getContentPane().add(scrollPane);
+		
+		JList list = new JList();
+		scrollPane.setViewportView(list);
+		
+		JButton btnEnvoyer = new JButton("Envoyer");
+		btnEnvoyer.setBounds(175, 243, 117, 29);
+		getContentPane().add(btnEnvoyer);
 		
 		
 	}
