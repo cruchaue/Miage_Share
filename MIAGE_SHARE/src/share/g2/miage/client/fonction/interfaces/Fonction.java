@@ -4,7 +4,7 @@ import java.net.Socket;
 
 import share.g2.miage.client.dao.Client;
 
-public interface FonctionClient {
+public interface Fonction {
 	public int excuter(Client client);
 	
 }

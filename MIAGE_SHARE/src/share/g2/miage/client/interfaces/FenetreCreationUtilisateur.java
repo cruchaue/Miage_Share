@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.fonction.CreerUtilisateur;
 import share.g2.miage.client.fonction.UploadFichier;
-import share.g2.miage.client.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.fonction.interfaces.Fonction;
 import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.util.CrypterMDP;
 import share.g2.miage.util.Parametre;
@@ -136,7 +136,7 @@ public class FenetreCreationUtilisateur extends JFrame {
 				    sb.append(Parametre.SPEPARER_INFO_UTILISATEUR);
 				    sb.append(mail.getText());
 				
-				    FonctionClient fcf = new CreerUtilisateur();
+				    Fonction fcf = new CreerUtilisateur();
 					Client client = new Client();
 					client.demarrer();
 					client.setParametre1(sb.toString());

@@ -15,7 +15,7 @@ import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.dao.User;
 import share.g2.miage.client.fonction.Login;
 import share.g2.miage.client.fonction.SupprimerFichier;
-import share.g2.miage.client.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.fonction.interfaces.Fonction;
 import share.g2.miage.util.CrypterMDP;
 import share.g2.miage.util.Parametre;
 
@@ -93,7 +93,7 @@ public class FenetreLogin extends JFrame {
 				client.demarrer();
 				client.setParametre1(login);
 				client.setParametre2(mdp);
-				FonctionClient fcf = new Login();
+				Fonction fcf = new Login();
 
 				fcf.excuter(client);
 				String resultat = client.getResultat1();

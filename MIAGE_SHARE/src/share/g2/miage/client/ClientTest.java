@@ -7,7 +7,7 @@ import javax.swing.*;
 
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.fonction.UploadFichier;
-import share.g2.miage.client.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.fonction.interfaces.Fonction;
 
 
 public class ClientTest {
@@ -16,7 +16,7 @@ public class ClientTest {
 	public static void main(String[] args) throws Exception {
 		Client client = new Client();
 		client.demarrer();
-		FonctionClient fcf = new UploadFichier();
+		Fonction fcf = new UploadFichier();
 		client.setParametre1("test.jpg");
 		client.setParametre2("test.jpg");
 		fcf.excuter(client);

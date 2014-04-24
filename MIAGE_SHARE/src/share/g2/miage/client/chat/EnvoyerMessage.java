@@ -6,10 +6,10 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import share.g2.miage.client.dao.Client;
-import share.g2.miage.client.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.fonction.interfaces.Fonction;
 import share.g2.miage.util.Parametre;
 
-public class EnvoyerMessage implements FonctionClient {
+public class EnvoyerMessage implements Fonction {
 
 	@Override
 	public int excuter(Client client) {

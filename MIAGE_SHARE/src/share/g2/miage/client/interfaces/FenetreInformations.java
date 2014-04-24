@@ -11,8 +11,9 @@ import javax.swing.JLabel;
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.fonction.CommenterFichier;
+import share.g2.miage.client.fonction.FonctionClient;
 import share.g2.miage.client.fonction.LireFichierInfo;
-import share.g2.miage.client.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.fonction.interfaces.Fonction;
 import share.g2.miage.util.Parametre;
 
 import javax.swing.DefaultListModel;
@@ -140,34 +141,19 @@ public class FenetreInformations extends JFrame {
 				Date date = new Date(System.currentTimeMillis());
 				SimpleDateFormat sdf  =   new  SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 				
-				
-				Client client = new Client();
-				client.demarrer();
-				client.setParametre1(nomFicLabel.getText());
-				client.setParametre2(ClientInterface.getUser().getUserName()+
+				String commentaire = ClientInterface.getUser().getUserName()+
 						Parametre.SPEPARER_FICHIER_COMMENTAIRE2+
 						sdf.format( date)+
 						Parametre.SPEPARER_FICHIER_COMMENTAIRE2+
 						textFieldCommentaire.getText()+
-						Parametre.SPEPARER_FICHIER_COMMENTAIRE1
-						);
-				FonctionClient fcf = new CommenterFichier();
-				fcf.excuter(client);
-				client.closeConnection();
-				System.out.println(client.getParametre1()+client.getParametre2());
-			
-				
-				client = new Client();
-				client.demarrer();
-				client.setParametre1(nomFicLabel.getText());
-				fcf = new LireFichierInfo();
-
+						Parametre.SPEPARER_FICHIER_COMMENTAIRE1;
+						
+				new CommenterFichier(nomFicLabel.getText(),commentaire);
 				
 				
-				fcf.excuter(client);
-				client.closeConnection();
-				System.out.println(client.getResultat1());
+				Client client = new LireFichierInfo(nomFicLabel.getText()).getClient();
 				Fichier fichier = new Fichier(nomFicLabel.getText()+Parametre.SPEPARER_FICHIER_INFO+ client.getResultat1());
+				
 				setFichierInfo(fichier);
 				textFieldCommentaire.setText("");
 			

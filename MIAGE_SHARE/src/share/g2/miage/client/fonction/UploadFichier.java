@@ -9,11 +9,11 @@ import java.io.FileInputStream;
 import javax.swing.JOptionPane;
 
 import share.g2.miage.client.dao.Client;
-import share.g2.miage.client.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.fonction.interfaces.Fonction;
 import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.util.Parametre;
 
-public class UploadFichier implements FonctionClient {
+public class UploadFichier implements Fonction {
 
 	@Override
 	public int excuter(Client client) {

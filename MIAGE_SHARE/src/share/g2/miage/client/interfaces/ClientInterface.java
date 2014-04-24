@@ -15,7 +15,7 @@ import share.g2.miage.client.fenetreChat;
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.fonction.*;
-import share.g2.miage.client.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.fonction.interfaces.Fonction;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -82,7 +82,7 @@ public class ClientInterface extends JFrame {
 		Client client = new Client();
 		client.demarrer();
 		client.setParametre1(User.getUserName());
-		FonctionClient fcf = new GetFichierList();
+		Fonction fcf = new GetFichierList();
 
 		fcf.excuter(client);
 		fichiers = client.getResultat1().split(";");
@@ -142,7 +142,7 @@ public class ClientInterface extends JFrame {
 					client.setParametre1(chooser.getSelectedFile()
 							.getAbsolutePath().replaceAll("\\\\", "\\\\\\\\"));
 					client.setParametre2(chooser.getSelectedFile().getName());
-					FonctionClient fcf = new UploadFichier();
+					Fonction fcf = new UploadFichier();
 					String fichier = chooser.getSelectedFile()
 							.getAbsolutePath().replaceAll("\\\\", "\\\\\\\\");
 					System.out.println("Fichier : " + fichier);
@@ -169,7 +169,7 @@ public class ClientInterface extends JFrame {
 				client.demarrer();
 				client.setParametre1(cheminC_enregistrer_fichier_defaut);
 				client.setParametre2(nomFic);
-				FonctionClient fcf = new TelechargerFichier();
+				Fonction fcf = new TelechargerFichier();
 
 				fcf.excuter(client);
 				client.closeConnection();
@@ -187,7 +187,7 @@ public class ClientInterface extends JFrame {
 				Client client = new Client();
 				client.demarrer();
 				client.setParametre1(fichierSuppression);
-				FonctionClient fcf = new SupprimerFichier();
+				Fonction fcf = new SupprimerFichier();
 
 				fcf.excuter(client);
 				client.closeConnection();
@@ -223,14 +223,10 @@ public class ClientInterface extends JFrame {
 				} 
 				
 				String filename = (String) list.getSelectedValue();
-
-				Client client = new Client();
-				client.demarrer();
-				client.setParametre1(filename);
-				FonctionClient fcf = new LireFichierInfo();
-
-				fcf.excuter(client);
-				client.closeConnection();
+				
+				FonctionClient fClient = new LireFichierInfo(filename);
+				Client client = fClient.getClient();
+				
 				System.out.println(client.getResultat1());
 				Fichier fichier = new Fichier(filename
 						+ Parametre.SPEPARER_FICHIER_INFO

@@ -14,7 +14,7 @@ import javax.swing.JButton;
 import share.g2.miage.client.chat.EnvoyerMessage;
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.fonction.UploadFichier;
-import share.g2.miage.client.fonction.interfaces.FonctionClient;
+import share.g2.miage.client.fonction.interfaces.Fonction;
 import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.server.ServerFichier;
 

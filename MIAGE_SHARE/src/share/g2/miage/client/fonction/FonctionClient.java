@@ -13,34 +13,14 @@ import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
-public class GetFichierList implements
+public abstract class FonctionClient implements
 		Fonction {
+	protected Client client;
 
-	
-
-	@Override
-	public int excuter(Client client) {
-		try {
-
-			
-			DataOutputStream dos = client.getDos();
-			DataInputStream dis = client.getDis();
-
-
-			dos.writeUTF(Parametre.GET_FICHIER_LIST);
-			dos.flush();
-
-			dos.writeUTF(client.getParametre1());
-			dos.flush();
-			
-			client.setResultat1(dis.readUTF());
-			client.closeConnection();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return -1;
-		}
-
-		return 1;
+	public Client getClient() {
+		return client;
 	}
+
+	public abstract int excuter();
 
 }
