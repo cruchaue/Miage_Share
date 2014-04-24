@@ -38,6 +38,7 @@ public class Parametre {
 	public final static String fichiersConfigChemin;
 	public final static String fichiers_BD_utilisateurs;
 	public final static String droit_fichiers;
+	public final static int portServerChat;
 	
 	
 	static{
@@ -53,6 +54,7 @@ public class Parametre {
 		fichiersConfigChemin = p.getProperty("config_fichiers");
 		fichiers_BD_utilisateurs = p.getProperty("BD_utilisateurs");
 		droit_fichiers = p.getProperty("droit_fichiers");
+		portServerChat = Integer.valueOf(p.getProperty("portServerChat"));
 		
 	}
 	
