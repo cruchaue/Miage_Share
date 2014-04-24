@@ -27,16 +27,24 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class FenetreInformations extends JFrame {
-	private final Fichier fichier;
+	//private final Fichier fichier;
 	private JPanel contentPane;
+	private JLabel nomFicLabel;
+	private JLabel auteurLabel;
+	private JLabel tailleLabel;
+	private JLabel tempsUploadLabel;
+	private JLabel nbTelechargementLabel;
+	private JLabel droitsLabel;
+	JList list ;
+	DefaultListModel model ;
 	private JTextField textFieldCommentaire;
 
 
 	/**
 	 * Create the frame.
 	 */
-	public FenetreInformations(final Fichier fichier, String nomFichier) {
-		this.fichier = fichier;
+	public FenetreInformations() {
+		//this.fichier = fichier;
 		setTitle("Informations fichier");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 699, 482);
@@ -73,59 +81,57 @@ public class FenetreInformations extends JFrame {
 		lblCommentaires.setBounds(324, 30, 110, 14);
 		contentPane.add(lblCommentaires);
 		
-		JLabel nomFicLabel = new JLabel("New label");
+		nomFicLabel = new JLabel("New label");
 		nomFicLabel.setBounds(229, 30, 131, 14);
 		contentPane.add(nomFicLabel);
 		
-		JLabel auteurLabel = new JLabel("New label");
+		auteurLabel = new JLabel("New label");
 		auteurLabel.setBounds(229, 55, 131, 14);
 		contentPane.add(auteurLabel);
 		
-		JLabel tailleLabel = new JLabel("New label");
+		tailleLabel = new JLabel("New label");
 		tailleLabel.setBounds(229, 81, 131, 14);
 		contentPane.add(tailleLabel);
 		
-		JLabel tempsUploadLabel = new JLabel("New label");
+		tempsUploadLabel = new JLabel("New label");
 		tempsUploadLabel.setBounds(229, 107, 131, 14);
 		contentPane.add(tempsUploadLabel);
 		
-		JLabel nbTelechargementLabel = new JLabel("New label");
+		nbTelechargementLabel = new JLabel("New label");
 		nbTelechargementLabel.setBounds(229, 135, 131, 14);
 		contentPane.add(nbTelechargementLabel);
 		
-		nomFicLabel.setText(nomFichier);
-		auteurLabel.setText(this.fichier.getAuteur());
-		tailleLabel.setText(this.fichier.getTaille());
-		tempsUploadLabel.setText(this.fichier.getDate().toString());
-		nbTelechargementLabel.setText(this.fichier.getNumTelechargement()+"");
+		droitsLabel = new JLabel("New label");
+		droitsLabel.setBounds(229, 155, 49, 24);
+		contentPane.add(droitsLabel);
+		
+		//nomFicLabel.setText(nomFichier);
+		//auteurLabel.setText(this.fichier.getAuteur());
+		//tailleLabel.setText(this.fichier.getTaille());
+		//tempsUploadLabel.setText(this.fichier.getDate().toString());
+		//nbTelechargementLabel.setText(this.fichier.getNumTelechargement()+"");
+		//droitsLabel.setText(this.fichier.getDroit()+"");
+		
+		
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(322, 56, 334, 118);
 		contentPane.add(scrollPane);
 		
-		DefaultListModel model = new DefaultListModel();
-		JList list = new JList(model);
-		
-		if(fichier.getComms()!=null&&fichier.getComms().size()>0){
-			for(int i = 0;i<fichier.getComms().size();i++){
-				model.addElement(fichier.getComms().get(i).getContenu()+
-						"  ["+fichier.getComms().get(i).getUser()+"/"+fichier.getComms().get(i).getDate()+"]");
-			}
-			
-		}
+		model = new DefaultListModel();
+		list = new JList(model);
 		
 		scrollPane.setViewportView(list);
 		
 		
-		JLabel droitsLabel = new JLabel("New label");
-		droitsLabel.setBounds(229, 155, 49, 24);
-		contentPane.add(droitsLabel);
-		droitsLabel.setText(this.fichier.getDroit()+"");
+		
+		
 		
 		textFieldCommentaire = new JTextField();
 		textFieldCommentaire.setBounds(44, 233, 612, 20);
 		contentPane.add(textFieldCommentaire);
 		textFieldCommentaire.setColumns(10);
+		
 		
 		JButton btnEnvoyer = new JButton("Envoyer");
 		btnEnvoyer.addActionListener(new ActionListener() {
@@ -137,7 +143,7 @@ public class FenetreInformations extends JFrame {
 				
 				Client client = new Client();
 				client.demarrer();
-				client.setParametre1(fichier.getNom());
+				client.setParametre1(nomFicLabel.getText());
 				client.setParametre2(ClientInterface.getUser().getUserName()+
 						Parametre.SPEPARER_FICHIER_COMMENTAIRE2+
 						sdf.format( date)+
@@ -153,7 +159,7 @@ public class FenetreInformations extends JFrame {
 				
 				client = new Client();
 				client.demarrer();
-				client.setParametre1(fichier.getNom());
+				client.setParametre1(nomFicLabel.getText());
 				fcf = new LireFichierInfo();
 
 				
@@ -161,11 +167,9 @@ public class FenetreInformations extends JFrame {
 				fcf.excuter(client);
 				client.closeConnection();
 				System.out.println(client.getResultat1());
-				
-				FenetreInformations finfo = new FenetreInformations(new Fichier(fichier.getNom()+Parametre.SPEPARER_FICHIER_INFO+ client.getResultat1()), fichier.getNom());
-				finfo.show();
-				
-				setVisible(false);
+				Fichier fichier = new Fichier(nomFicLabel.getText()+Parametre.SPEPARER_FICHIER_INFO+ client.getResultat1());
+				setFichierInfo(fichier);
+				textFieldCommentaire.setText("");
 			
 			}
 		});
@@ -175,5 +179,22 @@ public class FenetreInformations extends JFrame {
 		JLabel lblVotreCommentaire = new JLabel("Votre commentaire :");
 		lblVotreCommentaire.setBounds(43, 207, 176, 14);
 		contentPane.add(lblVotreCommentaire);
+	}
+	
+	public void setFichierInfo(Fichier fichier){
+		nomFicLabel.setText(fichier.getNom());
+		auteurLabel.setText(fichier.getAuteur());
+		tailleLabel.setText(fichier.getTaille());
+		tempsUploadLabel.setText(fichier.getDate());
+		nbTelechargementLabel.setText(fichier.getNumTelechargement()+"");
+		droitsLabel.setText(fichier.getDroit()+"");
+		model.clear();
+		if(fichier.getComms()!=null&&fichier.getComms().size()>0){
+			for(int i = 0;i<fichier.getComms().size();i++){
+				model.addElement(fichier.getComms().get(i).getContenu()+
+						"  ["+fichier.getComms().get(i).getUser()+"/"+fichier.getComms().get(i).getDate()+"]");
+			}
+			
+		}
 	}
 }

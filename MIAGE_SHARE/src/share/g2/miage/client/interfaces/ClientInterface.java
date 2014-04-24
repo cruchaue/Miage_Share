@@ -39,6 +39,7 @@ public class ClientInterface extends JFrame {
 	private static User User;
 	private static String[] fichiers;
 	private FenetreChat fc;
+	private FenetreInformations finfo;
 
 	// private Client client;
 
@@ -76,9 +77,8 @@ public class ClientInterface extends JFrame {
 	 */
 	public ClientInterface() {
 		setResizable(false);
-		
-		
-		//getFichiers
+
+		// getFichiers
 		Client client = new Client();
 		client.demarrer();
 		client.setParametre1(User.getUserName());
@@ -86,7 +86,6 @@ public class ClientInterface extends JFrame {
 
 		fcf.excuter(client);
 		fichiers = client.getResultat1().split(";");
-		
 
 		// lire le fichier de parametre
 		InputStream inputStream = this.getClass().getClassLoader()
@@ -98,9 +97,10 @@ public class ClientInterface extends JFrame {
 			e1.printStackTrace();
 		}
 
-		cheminC_enregistrer_fichier_defaut = p.getProperty("cheminC_enregistrer_defaut");
+		cheminC_enregistrer_fichier_defaut = p
+				.getProperty("cheminC_enregistrer_defaut");
 		cheminS_liste_fichier = p.getProperty("fichierChemin");
-		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 390, 298);
 
@@ -111,23 +111,22 @@ public class ClientInterface extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		
-		
 		JButton btnUpload = new JButton("Upload");
 
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(204, 31, 151, 130);
 		contentPane.add(scrollPane);
-		
+
 		list = new JList(new DefaultListModel<String>());
-		
+
 		listerFichier();
 		// A METTRE ICI
 
 		btnUpload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFileChooser chooser = new JFileChooser();
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT files", "txt");
+				FileNameExtensionFilter filter = new FileNameExtensionFilter(
+						"TXT files", "txt");
 				chooser.setFileFilter(filter);
 				JFrame parent = new JFrame();
 				int returnVal = chooser.showOpenDialog(parent);
@@ -148,16 +147,13 @@ public class ClientInterface extends JFrame {
 							.getAbsolutePath().replaceAll("\\\\", "\\\\\\\\");
 					System.out.println("Fichier : " + fichier);
 					fcf.excuter(client);
-					
-					
-					
-					
+
 					client.closeConnection();
-					
+
 				}
 				listerFichier();
 			}
-			
+
 		});
 		btnUpload.setBounds(44, 78, 89, 23);
 		contentPane.add(btnUpload);
@@ -168,82 +164,79 @@ public class ClientInterface extends JFrame {
 				String nomFic = (String) list.getSelectedValue();
 
 				System.out.println(nomFic);
-				
-				
+
 				Client client = new Client();
 				client.demarrer();
 				client.setParametre1(cheminC_enregistrer_fichier_defaut);
 				client.setParametre2(nomFic);
 				FonctionClient fcf = new TelechargerFichier();
 
-				
-				
 				fcf.excuter(client);
 				client.closeConnection();
-				
 
 			}
 		});
 		btnDownload.setBounds(44, 135, 89, 23);
 		contentPane.add(btnDownload);
-		
+
 		JButton btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String fichierSuppression = (String) list.getSelectedValue();
-				
-					
+
 				Client client = new Client();
 				client.demarrer();
 				client.setParametre1(fichierSuppression);
 				FonctionClient fcf = new SupprimerFichier();
 
-				
-				
 				fcf.excuter(client);
 				client.closeConnection();
 				listerFichier();
-				
+
 			}
 		});
 		btnSupprimer.setBounds(204, 172, 151, 23);
 		contentPane.add(btnSupprimer);
-		
+
 		JButton btnChat = new JButton("Chat");
-		
+
 		btnChat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(fc==null){
+				if (fc == null) {
 					fc = new FenetreChat(User.getUserName());
 					new Thread(fc).start();
-				}else{
+				} else {
 					fc.show();
 				}
-				
-				
+
 			}
 		});
 		btnChat.setBounds(23, 193, 117, 29);
 		contentPane.add(btnChat);
-		
+
 		JButton btnInformationsFichier = new JButton("Informations fichier");
 		btnInformationsFichier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if (finfo == null) {
+					finfo = new FenetreInformations();
+					
+				} 
+				
 				String filename = (String) list.getSelectedValue();
-				
-				
+
 				Client client = new Client();
 				client.demarrer();
 				client.setParametre1(filename);
 				FonctionClient fcf = new LireFichierInfo();
 
-				
-				
 				fcf.excuter(client);
 				client.closeConnection();
 				System.out.println(client.getResultat1());
+				Fichier fichier = new Fichier(filename
+						+ Parametre.SPEPARER_FICHIER_INFO
+						+ client.getResultat1());
+				finfo.setFichierInfo(fichier);
 				
-				FenetreInformations finfo = new FenetreInformations(new Fichier(filename+Parametre.SPEPARER_FICHIER_INFO+ client.getResultat1()), filename);
 				finfo.show();
 			}
 		});
@@ -251,32 +244,25 @@ public class ClientInterface extends JFrame {
 		contentPane.add(btnInformationsFichier);
 
 	}
-	
-	public void listerFichier(){
-		
-		
-		
+
+	public void listerFichier() {
 
 		final DefaultListModel<String> model = new DefaultListModel<String>();
-		scrollPane.setViewportView(list);	
-		
-		
+		scrollPane.setViewportView(list);
 
-
-		//Temps d'attente pour l'upload du fichier sur le serveur
+		// Temps d'attente pour l'upload du fichier sur le serveur
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
-		
-		for (int i = 0; i < fichiers.length; i++) {
-				
-				model.addElement(fichiers[i]);
 		}
 
-	list.setModel(model);
+		for (int i = 0; i < fichiers.length; i++) {
+
+			model.addElement(fichiers[i]);
+		}
+
+		list.setModel(model);
 	}
 }
