@@ -33,6 +33,7 @@ public class ClientInterface extends JFrame {
 
 	private JPanel contentPane;
 	private JList list;
+	private DefaultListModel<String> model;
 	private JScrollPane scrollPane;
 	private String cheminC_enregistrer_fichier_defaut;
 	private String cheminS_liste_fichier;
@@ -78,15 +79,6 @@ public class ClientInterface extends JFrame {
 	public ClientInterface() {
 		setResizable(false);
 
-		// getFichiers
-		Client client = new Client();
-		client.demarrer();
-		client.setParametre1(User.getUserName());
-		Fonction fcf = new GetFichierList();
-
-		fcf.excuter(client);
-		fichiers = client.getResultat1().split(";");
-
 		// lire le fichier de parametre
 		InputStream inputStream = this.getClass().getClassLoader()
 				.getResourceAsStream("ipConfig.properties");
@@ -104,6 +96,8 @@ public class ClientInterface extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 390, 298);
 
+		
+		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		contentPane = new JPanel();
@@ -118,7 +112,10 @@ public class ClientInterface extends JFrame {
 		contentPane.add(scrollPane);
 
 		list = new JList(new DefaultListModel<String>());
-
+		model = new DefaultListModel<String>();
+		scrollPane.setViewportView(list);
+		list.setModel(model);
+		
 		listerFichier();
 		// A METTRE ICI
 
@@ -219,20 +216,20 @@ public class ClientInterface extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if (finfo == null) {
 					finfo = new FenetreInformations();
-					
-				} 
-				
+
+				}
+
 				String filename = (String) list.getSelectedValue();
-				
+
 				FonctionClient fClient = new LireFichierInfo(filename);
 				Client client = fClient.getClient();
-				
+
 				System.out.println(client.getResultat1());
 				Fichier fichier = new Fichier(filename
 						+ Parametre.SPEPARER_FICHIER_INFO
 						+ client.getResultat1());
 				finfo.setFichierInfo(fichier);
-				
+
 				finfo.show();
 			}
 		});
@@ -242,9 +239,16 @@ public class ClientInterface extends JFrame {
 	}
 
 	public void listerFichier() {
+		// getFichiers
+		Client client = new Client();
+		client.demarrer();
+		client.setParametre1(User.getUserName());
+		Fonction fcf = new GetFichierList();
 
-		final DefaultListModel<String> model = new DefaultListModel<String>();
-		scrollPane.setViewportView(list);
+		fcf.excuter(client);
+		fichiers = client.getResultat1().split(";");
+
+		
 
 		// Temps d'attente pour l'upload du fichier sur le serveur
 		try {
@@ -253,12 +257,12 @@ public class ClientInterface extends JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		model.clear();
 		for (int i = 0; i < fichiers.length; i++) {
 
 			model.addElement(fichiers[i]);
 		}
 
-		list.setModel(model);
+		
 	}
 }
