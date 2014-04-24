@@ -154,6 +154,13 @@ public class FenetreInformations extends JFrame {
 				Client client = new LireFichierInfo(nomFicLabel.getText()).getClient();
 				Fichier fichier = new Fichier(nomFicLabel.getText()+Parametre.SPEPARER_FICHIER_INFO+ client.getResultat1());
 				
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				setFichierInfo(fichier);
 				textFieldCommentaire.setText("");
 			
