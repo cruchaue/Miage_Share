@@ -45,7 +45,22 @@ public class UploadFichier implements Fonction {
 				System.out.println("upload en cours!");
 			}
 
-			JOptionPane.showMessageDialog(null, "Fichier uploadé avec succès");
+			//JOptionPane.showMessageDialog(null, "Fichier uploade avec succes");
+			int rep=JOptionPane.showConfirmDialog(null,
+				    "Fichier uploade avec succes !\nVoulez vous envoyer une notification ?",
+				    "Question",
+				    JOptionPane.YES_NO_OPTION);
+			if(rep==0){
+				
+			}
+			
+				
+				
+			
+			
+			
+			
+			
 			//socket.close();
 			fis.close();
 			//dos.close();
