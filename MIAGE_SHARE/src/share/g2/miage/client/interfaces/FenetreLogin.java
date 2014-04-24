@@ -86,11 +86,11 @@ public class FenetreLogin extends JFrame {
 		JButton btnConnexion = new JButton("Connexion");
 		btnConnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setSize(300, 300);
+			
 				
 				
 				
-				/*String login = textFieldLogin.getText();
+				String login = textFieldLogin.getText();
 				String mdp = passwordFieldMdp.getText();
 				mdp = CrypterMDP.crypteMDP(mdp);
 				System.out.println("MDP : " +mdp);
@@ -150,7 +150,7 @@ public class FenetreLogin extends JFrame {
 
 				client.closeConnection();
 				
-*/
+
 			}
 
 			

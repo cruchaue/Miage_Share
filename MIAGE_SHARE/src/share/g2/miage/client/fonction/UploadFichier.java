@@ -46,13 +46,8 @@ public class UploadFichier implements Fonction {
 			}
 
 			//JOptionPane.showMessageDialog(null, "Fichier uploade avec succes");
-			int rep=JOptionPane.showConfirmDialog(null,
-				    "Fichier uploade avec succes !\nVoulez vous envoyer une notification ?",
-				    "Question",
-				    JOptionPane.YES_NO_OPTION);
-			if(rep==0){
-				
-			}
+			
+		
 			
 				
 				

@@ -25,11 +25,13 @@ import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
 import java.awt.SystemColor;
+
 import java.awt.Color;
 import javax.swing.JSeparator;
 
 public class FenetreNotification extends JFrame {
 	public FenetreNotification() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
@@ -39,7 +41,7 @@ public class FenetreNotification extends JFrame {
 				setSize(100,100);
 			}
 		});
-		btnResize.setBounds(94, 110, 117, 29);
+		btnResize.setBounds(128, 109, 117, 29);
 		getContentPane().add(btnResize);
 		
 		

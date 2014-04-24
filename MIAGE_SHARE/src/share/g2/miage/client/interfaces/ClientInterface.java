@@ -144,6 +144,15 @@ public class ClientInterface extends JFrame {
 							.getAbsolutePath().replaceAll("\\\\", "\\\\\\\\");
 					System.out.println("Fichier : " + fichier);
 					fcf.excuter(client);
+					
+					
+					/*int rep=JOptionPane.showConfirmDialog(null,
+				    "Fichier uploade avec succes !\nVoulez vous envoyer une notification ?",
+				    "Question",
+				    JOptionPane.YES_NO_OPTION);*/
+					
+					FenetreNotification f1 = new FenetreNotification();
+					f1.setVisible(true);
 
 					client.closeConnection();
 
