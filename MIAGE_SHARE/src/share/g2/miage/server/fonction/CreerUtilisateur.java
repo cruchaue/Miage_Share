@@ -42,7 +42,7 @@ public class CreerUtilisateur implements FonctionServer {
 			sb.append(lesInfosUtilisateur[3]+";\r\n");
 			
 			
-			File file = new File(ServerFichier.getFichiers_BD_utilisateurs());
+			File file = new File(Parametre.fichiers_BD_utilisateurs);
 			 
 			
 			

@@ -40,7 +40,7 @@ public class AccepterFichier implements FonctionServer {
 
 			String userName = dis.readUTF();
 
-			fos = new FileOutputStream(new File(ServerFichier.getFichierChemin()
+			fos = new FileOutputStream(new File(Parametre.fichierChemin
 					+ strTemp));
 			while ((lengthTemp = bis.read(byteTemp, 0, byteTemp.length)) > 0) {
 				fos.write(byteTemp, 0, lengthTemp);
@@ -76,7 +76,7 @@ public class AccepterFichier implements FonctionServer {
 		DecimalFormat df = new DecimalFormat("#.00");
 
 		// obtenir la taille de fichier.
-		File file = new File(ServerFichier.getFichierChemin() + fichierNom);
+		File file = new File(Parametre.fichierChemin + fichierNom);
 		long filesize = file.length();
 		if (filesize < 1024) {
 			taille = filesize + "b";
@@ -112,7 +112,7 @@ public class AccepterFichier implements FonctionServer {
 		FileOutputStream fos;
 		try {
 			fos = new FileOutputStream(new File(
-					ServerFichier.getFichiersConfigChemin() + fichierNom + ".txt"));
+					Parametre.fichiersConfigChemin + fichierNom + ".txt"));
 			byte[] byteFI = sb.toString().getBytes();
 
 			fos.write(byteFI);
@@ -133,7 +133,7 @@ public class AccepterFichier implements FonctionServer {
 		BufferedWriter out = null;
 		try {
 			out = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream(ServerFichier.getDroit_fichiers(), true)));
+					new FileOutputStream(Parametre.droit_fichiers, true)));
 			out.write(fichierNom + ";"
 					+ Parametre.FICHIER_DROIT_DEFAULT + "\r\n");
 			out.flush();
