@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import share.g2.miage.client.chat.EnvoyerMessage;
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.dao.User;
 import share.g2.miage.client.fonction.EnvoyerMail;
