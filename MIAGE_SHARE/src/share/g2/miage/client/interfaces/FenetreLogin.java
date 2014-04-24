@@ -1,7 +1,9 @@
 package share.g2.miage.client.interfaces;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Frame;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -84,6 +86,10 @@ public class FenetreLogin extends JFrame {
 		JButton btnConnexion = new JButton("Connexion");
 		btnConnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			
+				
+				
+				
 				String login = textFieldLogin.getText();
 				String mdp = passwordFieldMdp.getText();
 				mdp = CrypterMDP.crypteMDP(mdp);
@@ -146,6 +152,8 @@ public class FenetreLogin extends JFrame {
 				
 
 			}
+
+			
 		});
 		btnConnexion.setBounds(194, 156, 134, 29);
 		contentPane.add(btnConnexion);
