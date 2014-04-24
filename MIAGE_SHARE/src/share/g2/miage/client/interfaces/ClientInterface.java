@@ -37,6 +37,7 @@ public class ClientInterface extends JFrame {
 	private JScrollPane scrollPane;
 	private String cheminC_enregistrer_fichier_defaut;
 	private String cheminS_liste_fichier;
+	private static String BD_utilisateurs;
 	private static User User;
 	private static String[] fichiers;
 	private FenetreChat fc;
@@ -92,6 +93,8 @@ public class ClientInterface extends JFrame {
 		cheminC_enregistrer_fichier_defaut = p
 				.getProperty("cheminC_enregistrer_defaut");
 		cheminS_liste_fichier = p.getProperty("fichierChemin");
+		BD_utilisateurs = p.getProperty("BD_utilisateurs");
+		
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 390, 298);
@@ -145,13 +148,9 @@ public class ClientInterface extends JFrame {
 					System.out.println("Fichier : " + fichier);
 					fcf.excuter(client);
 					
-					
-					/*int rep=JOptionPane.showConfirmDialog(null,
-				    "Fichier uploade avec succes !\nVoulez vous envoyer une notification ?",
-				    "Question",
-				    JOptionPane.YES_NO_OPTION);*/
-					
+												
 					FenetreNotification f1 = new FenetreNotification();
+					f1.setBounds(100, 100, 450, 175);
 					f1.setVisible(true);
 
 					client.closeConnection();
@@ -245,6 +244,10 @@ public class ClientInterface extends JFrame {
 		btnInformationsFichier.setBounds(204, 206, 151, 23);
 		contentPane.add(btnInformationsFichier);
 
+	}
+
+	public static String getBD_utilisateurs() {
+		return BD_utilisateurs;
 	}
 
 	public void listerFichier() {

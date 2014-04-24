@@ -97,12 +97,12 @@ public class ServerFichier   extends Thread {
 	}
 
 	public static void chargerUtilisateur() {
-		File filename = new File(fichiers_BD_utilisateurs); // è¦�è¯»å�–ä»¥ä¸Šè·¯å¾„çš„inputã€‚txtæ–‡ä»¶
+		File filename = new File(fichiers_BD_utilisateurs); 
 		InputStreamReader reader;
 		try {
 			reader = new InputStreamReader(new FileInputStream(filename));
 
-			BufferedReader br = new BufferedReader(reader); // å»ºç«‹ä¸€ä¸ªå¯¹è±¡ï¼Œå®ƒæŠŠæ–‡ä»¶å†…å®¹è½¬æˆ�è®¡ç®—æœºèƒ½è¯»æ‡‚çš„è¯­è¨€
+			BufferedReader br = new BufferedReader(reader); 
 			String line = "";
 
 			while ((line =br.readLine()) != null) {
