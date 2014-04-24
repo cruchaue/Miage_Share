@@ -11,7 +11,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
 
-import share.g2.miage.client.fenetreChat;
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.fonction.*;

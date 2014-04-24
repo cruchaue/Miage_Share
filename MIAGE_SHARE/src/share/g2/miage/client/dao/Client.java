@@ -8,7 +8,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 import java.util.Properties;
-
+/**
+ * 
+ * 
+ *
+ */
 public class Client {
 
 	private Socket client = null;
@@ -16,7 +20,7 @@ public class Client {
 	private DataOutputStream dos;
 	private BufferedInputStream bis;
 	private BufferedOutputStream bos;
-	private String parametre1 = "";// la premier parametre
+	private String parametre1 = "";
 	private String parametre2 = "";
 	private String resultat1 = ""; 
 	private String resultat2 = ""; 

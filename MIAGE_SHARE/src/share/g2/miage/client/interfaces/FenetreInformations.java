@@ -79,31 +79,31 @@ public class FenetreInformations extends JFrame {
 		contentPane.add(lblDroits);
 		
 		JLabel lblCommentaires = new JLabel("Commentaires :");
-		lblCommentaires.setBounds(324, 30, 110, 14);
+		lblCommentaires.setBounds(322, 30, 131, 14);
 		contentPane.add(lblCommentaires);
 		
 		nomFicLabel = new JLabel("New label");
-		nomFicLabel.setBounds(229, 30, 131, 14);
+		nomFicLabel.setBounds(229, 30, 87, 14);
 		contentPane.add(nomFicLabel);
 		
 		auteurLabel = new JLabel("New label");
-		auteurLabel.setBounds(229, 55, 131, 14);
+		auteurLabel.setBounds(229, 55, 87, 14);
 		contentPane.add(auteurLabel);
 		
 		tailleLabel = new JLabel("New label");
-		tailleLabel.setBounds(229, 81, 131, 14);
+		tailleLabel.setBounds(229, 81, 87, 14);
 		contentPane.add(tailleLabel);
 		
 		tempsUploadLabel = new JLabel("New label");
-		tempsUploadLabel.setBounds(229, 107, 131, 14);
+		tempsUploadLabel.setBounds(229, 107, 87, 14);
 		contentPane.add(tempsUploadLabel);
 		
 		nbTelechargementLabel = new JLabel("New label");
-		nbTelechargementLabel.setBounds(229, 135, 131, 14);
+		nbTelechargementLabel.setBounds(229, 135, 87, 14);
 		contentPane.add(nbTelechargementLabel);
 		
 		droitsLabel = new JLabel("New label");
-		droitsLabel.setBounds(229, 155, 49, 24);
+		droitsLabel.setBounds(229, 155, 75, 24);
 		contentPane.add(droitsLabel);
 		
 		//nomFicLabel.setText(nomFichier);
@@ -129,7 +129,7 @@ public class FenetreInformations extends JFrame {
 		
 		
 		textFieldCommentaire = new JTextField();
-		textFieldCommentaire.setBounds(44, 233, 612, 20);
+		textFieldCommentaire.setBounds(44, 233, 612, 53);
 		contentPane.add(textFieldCommentaire);
 		textFieldCommentaire.setColumns(10);
 		
@@ -159,7 +159,7 @@ public class FenetreInformations extends JFrame {
 			
 			}
 		});
-		btnEnvoyer.setBounds(567, 264, 89, 23);
+		btnEnvoyer.setBounds(554, 298, 102, 23);
 		contentPane.add(btnEnvoyer);
 		
 		JLabel lblVotreCommentaire = new JLabel("Votre commentaire :");
