@@ -17,8 +17,8 @@ public class Outil {
 		Map<String, String> droitsFichier = null;
 		try {
 			droitsFichier = new HashMap<String, String>();
-			System.out.println(ServerFichier.getDroit_fichiers());
-			InputStreamReader reader = new InputStreamReader(new FileInputStream(new File(ServerFichier.getDroit_fichiers())
+			System.out.println(Parametre.droit_fichiers);
+			InputStreamReader reader = new InputStreamReader(new FileInputStream(new File(Parametre.droit_fichiers)
 					));
 			br = new BufferedReader(reader);
 			String uneLigne;

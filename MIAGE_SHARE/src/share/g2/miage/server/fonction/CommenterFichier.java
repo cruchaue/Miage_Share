@@ -32,7 +32,7 @@ public class CommenterFichier implements FonctionServer {
 			byte[] byteTemp = new byte[Parametre.LENGTH_ENVOYER];
 			//StringBuffer sb = new StringBuffer();
 			
-			File file = new File(ServerFichier.getFichiersConfigChemin()+fichierNom+".txt");
+			File file = new File(Parametre.fichiersConfigChemin+fichierNom+".txt");
 			
 			System.out.println(commentaire);
 			

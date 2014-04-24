@@ -31,7 +31,7 @@ public class EnvoyerFichier implements FonctionServer {
 
 			System.out.println(lengthTemp + ", " + strTemp);
 
-			File file = new File(ServerFichier.getFichierChemin()+strTemp);
+			File file = new File(Parametre.fichierChemin+strTemp);
 
 			FileInputStream fis = new FileInputStream(file);
 			
