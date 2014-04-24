@@ -2,6 +2,7 @@ package share.g2.miage.client.fonction;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,7 +25,7 @@ public class UploadFichier implements Fonction {
 			FileInputStream fis = new FileInputStream(file);
 
 			DataOutputStream dos = client.getDos();
-			BufferedInputStream bis = client.getBis();
+			DataInputStream dis = client.getDis();
 			BufferedOutputStream bos = client.getBos();
 
 			byte[] sendBytes = new byte[Parametre.LENGTH_ENVOYER];
@@ -44,11 +45,12 @@ public class UploadFichier implements Fonction {
 				bos.flush();
 				System.out.println("upload en cours!");
 			}
-
+			//client.setResultat1(dis.readUTF());
+			client.closeConnection();
 			JOptionPane.showMessageDialog(null, "Fichier uploadé avec succès");
-			//socket.close();
 			fis.close();
-			//dos.close();
+			
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
