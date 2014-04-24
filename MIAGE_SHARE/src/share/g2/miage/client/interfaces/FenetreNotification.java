@@ -31,8 +31,17 @@ import javax.swing.JSeparator;
 public class FenetreNotification extends JFrame {
 	public FenetreNotification() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		getContentPane().setLayout(null);
+		
+		JButton btnResize = new JButton("resize");
+		btnResize.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setSize(100,100);
+			}
+		});
+		btnResize.setBounds(94, 110, 117, 29);
+		getContentPane().add(btnResize);
 		
 		
 	}
-
 }
