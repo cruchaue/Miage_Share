@@ -115,6 +115,18 @@ public class ClientInterface extends JFrame {
 		model = new DefaultListModel<String>();
 		scrollPane.setViewportView(list);
 		list.setModel(model);
+		
+		
+		
+		JButton btnAdmin = new JButton("admin");
+		btnAdmin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				FenetreAdministration fa = new FenetreAdministration();
+				fa.setVisible(true);
+			}
+		});
+		btnAdmin.setBounds(44, 29, 123, 23);
+		contentPane.add(btnAdmin);
 
 		listerFichier();
 		// A METTRE ICI
@@ -254,6 +266,8 @@ public class ClientInterface extends JFrame {
 		});
 		btnInformationsFichier.setBounds(204, 206, 151, 23);
 		contentPane.add(btnInformationsFichier);
+		
+		
 
 	}
 
