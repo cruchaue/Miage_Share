@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction.statistiques;
+package share.g2.miage.client.fonction.statistiques.outil;
 import java.util.Hashtable;
 import java.util.Iterator;
 
@@ -20,9 +20,9 @@ public class StatUtils {
 		 */
 		public static DefaultPieDataset createUpDownUtil(Hashtable<Integer, User> ht){
 			DefaultPieDataset data=new DefaultPieDataset();
-			System.out.println("data crŽŽ");
+			System.out.println("data crï¿½ï¿½");
 			Iterator<Integer> it;
-		    it=ht.keySet().iterator(); // on cree un iterator sur les clŽs du hashmap
+		    it=ht.keySet().iterator(); // on cree un iterator sur les clï¿½s du hashmap
 		     
 		    while(it.hasNext()){
 		    	System.out.println("debut du while");
@@ -45,7 +45,7 @@ public class StatUtils {
 		/**
 		 * Creer un objet JFreeChart
 		 * @param titre: titre du diagramme
-		 * @param data: donnŽes (gŽnŽrŽes prŽcedemment)
+		 * @param data: donnï¿½es (gï¿½nï¿½rï¿½es prï¿½cedemment)
 		 * @return
 		 */
 		public static JFreeChart createPie(String titre,DefaultPieDataset data){
@@ -56,7 +56,7 @@ public class StatUtils {
 		/**
 		 * Affiche le JFreechart
 		 * @param name: nom de la fenetre
-		 * @param chart: JFreeChart ˆ afficher
+		 * @param chart: JFreeChart ï¿½ afficher
 		 */
 		public static void visualiseChart(String name,JFreeChart chart){
 		    ChartFrame frame=new ChartFrame(name,chart);

@@ -42,7 +42,6 @@ class ServerThreadFichier extends Thread {
 				if (Parametre.UPLOAD_FICHIER.equals(strFonction)) {
 					fsf = new AccepterFichier();
 					fsf.excuter(clients);
-					
 				}else if(Parametre.TELECHARGER_FICHIER.equals(strFonction)){
 					fsf = new EnvoyerFichier();
 					fsf.excuter(clients);

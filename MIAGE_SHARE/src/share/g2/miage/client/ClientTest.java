@@ -6,7 +6,7 @@ import java.net.*;
 import javax.swing.*;
 
 import share.g2.miage.client.dao.Client;
-import share.g2.miage.client.fonction.UploadFichier;
+import share.g2.miage.client.fonction.fichier.UploadFichier;
 import share.g2.miage.client.fonction.generalite.Fonction;
 
 

@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction;
+package share.g2.miage.client.fonction.fichier;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

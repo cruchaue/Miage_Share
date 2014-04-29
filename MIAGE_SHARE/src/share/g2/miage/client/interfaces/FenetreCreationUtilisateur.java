@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.fonction.CreerUtilisateur;
-import share.g2.miage.client.fonction.UploadFichier;
+import share.g2.miage.client.fonction.fichier.UploadFichier;
 import share.g2.miage.client.fonction.generalite.Fonction;
 import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.util.CrypterMDP;

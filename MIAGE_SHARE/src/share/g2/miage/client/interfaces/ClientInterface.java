@@ -14,6 +14,11 @@ import javax.swing.JButton;
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.fonction.*;
+import share.g2.miage.client.fonction.fichier.GetFichierList;
+import share.g2.miage.client.fonction.fichier.LireFichierInfo;
+import share.g2.miage.client.fonction.fichier.SupprimerFichier;
+import share.g2.miage.client.fonction.fichier.TelechargerFichier;
+import share.g2.miage.client.fonction.fichier.UploadFichier;
 import share.g2.miage.client.fonction.generalite.Fonction;
 import share.g2.miage.client.fonction.generalite.FonctionClient;
 

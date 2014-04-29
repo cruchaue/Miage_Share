@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction.statistiques;
+package share.g2.miage.client.fonction.statistiques.outil;
 
 import  org.jfree.chart.ChartFactory;
 import  org.jfree.chart.ChartFrame;	import  org.jfree.chart.JFreeChart;
@@ -37,7 +37,7 @@ public class ModuleStatTest {
 	/**
 	 * Creer un objet JFreeChart
 	 * @param titre: titre du diagramme
-	 * @param data: donnŽes (gŽnŽrŽes prŽcedemment)
+	 * @param data: donnï¿½es (gï¿½nï¿½rï¿½es prï¿½cedemment)
 	 * @return
 	 */
 	public static JFreeChart createPie(String titre,DefaultPieDataset data){
@@ -48,7 +48,7 @@ public class ModuleStatTest {
 	/**
 	 * Affiche le JFreechart
 	 * @param name: nom de la fenetre
-	 * @param chart: JFreeChart ˆ afficher
+	 * @param chart: JFreeChart ï¿½ afficher
 	 */
 	public static void visualiseChart(String name,JFreeChart chart){
 	    ChartFrame frame=new ChartFrame(name,chart);
