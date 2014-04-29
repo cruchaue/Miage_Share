@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 import share.g2.miage.client.dao.Client;
-import share.g2.miage.client.fonction.interfaces.Fonction;
+import share.g2.miage.client.fonction.generalite.Fonction;
 import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;

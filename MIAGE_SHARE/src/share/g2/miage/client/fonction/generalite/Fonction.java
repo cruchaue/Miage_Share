@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction.interfaces;
+package share.g2.miage.client.fonction.generalite;
 
 import java.net.Socket;
 

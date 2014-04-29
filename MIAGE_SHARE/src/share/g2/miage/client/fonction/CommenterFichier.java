@@ -7,7 +7,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 import share.g2.miage.client.dao.Client;
-import share.g2.miage.client.fonction.interfaces.Fonction;
+import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
@@ -15,7 +16,6 @@ import share.g2.miage.util.Parametre;
 public class CommenterFichier extends FonctionClient {
 	
 	public CommenterFichier(String nomFichier, String commentaire){
-		client = new Client();
 		client.demarrer();
 		client.setParametre1(nomFichier);
 		client.setParametre2(commentaire);
