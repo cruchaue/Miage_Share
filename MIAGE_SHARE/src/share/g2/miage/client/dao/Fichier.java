@@ -24,6 +24,23 @@ public class Fichier {
 	private int droit;
 	private List<Commentaire> comms;
 	private String commsStr;
+	private int nbDown,nbCom;
+
+	public int getNbDown() {
+		return nbDown;
+	}
+
+	public void setNbDown(int nbDown) {
+		this.nbDown = nbDown;
+	}
+
+	public int getNbCom() {
+		return nbCom;
+	}
+
+	public void setNbCom(int nbCom) {
+		this.nbCom = nbCom;
+	}
 
 	public String getCommsStr() {
 		return commsStr;
