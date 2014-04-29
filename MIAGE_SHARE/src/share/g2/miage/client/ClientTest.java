@@ -7,7 +7,7 @@ import javax.swing.*;
 
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.fonction.UploadFichier;
-import share.g2.miage.client.fonction.interfaces.Fonction;
+import share.g2.miage.client.fonction.generalite.Fonction;
 
 
 public class ClientTest {

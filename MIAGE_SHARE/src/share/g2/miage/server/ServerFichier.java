@@ -16,18 +16,12 @@ import java.util.Map;
 import java.util.Properties;
 
 import share.g2.miage.server.dao.Utilisateur;
+import share.g2.miage.util.Parametre;
 public class ServerFichier   extends Thread {
 
 	private ServerSocket serverFichier = null;
-	private static String fichierChemin;
-	private static String fichiersConfigChemin;
 	private boolean demarre = true;
-	private static String fichiers_BD_utilisateurs;
-	private static String droit_fichiers;
 
-	public static String getFichiers_BD_utilisateurs() {
-		return fichiers_BD_utilisateurs;
-	}
 
 	private static Map<String,Utilisateur> listeUser;
 	
@@ -35,17 +29,7 @@ public class ServerFichier   extends Thread {
 		start();
 	}
 	
-	public static String getFichiersConfigChemin() {
-		return fichiersConfigChemin;
-	}
 
-	public static String getDroit_fichiers() {
-		return droit_fichiers;
-	}
-
-	public static String getFichierChemin() {
-		return fichierChemin;
-	}
 
 	public void run() { 
 		listeUser = new HashMap<String,Utilisateur>();
@@ -61,14 +45,9 @@ public class ServerFichier   extends Thread {
 
 		int portFichier = Integer.valueOf(p.getProperty("portServerFichier"));
 		
-		fichierChemin = p.getProperty("fichierChemin");
-		fichiersConfigChemin = p.getProperty("config_fichiers");
-		fichiers_BD_utilisateurs = p.getProperty("BD_utilisateurs");
-		droit_fichiers = p.getProperty("droit_fichiers");
 		
 		
 		
-		System.out.println(droit_fichiers);
 		chargerUtilisateur();
 
 
@@ -97,7 +76,7 @@ public class ServerFichier   extends Thread {
 	}
 
 	public static void chargerUtilisateur() {
-		File filename = new File(fichiers_BD_utilisateurs); 
+		File filename = new File(Parametre.fichiers_BD_utilisateurs); // è¦�è¯»å�–ä»¥ä¸Šè·¯å¾„çš„inputã€‚txtæ–‡ä»¶
 		InputStreamReader reader;
 		try {
 			reader = new InputStreamReader(new FileInputStream(filename));

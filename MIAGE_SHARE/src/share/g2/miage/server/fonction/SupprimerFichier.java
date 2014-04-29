@@ -29,7 +29,7 @@ public class SupprimerFichier implements FonctionServer {
 			System.out.println(strTemp + ",");
 
 			// Supprimer fichier
-			File file = new File(ServerFichier.getFichierChemin() + strTemp);
+			File file = new File(Parametre.fichierChemin + strTemp);
 			if (file.exists()) {
 				file.delete();
 				System.out.println("Le fichier a été supprimé avec succès");
@@ -38,7 +38,7 @@ public class SupprimerFichier implements FonctionServer {
 			}
 
 			// Supprimer fichierInfo
-			file = new File(ServerFichier.getFichiersConfigChemin() + strTemp
+			file = new File(Parametre.fichiersConfigChemin + strTemp
 					+ ".txt");
 			if (file.exists()) {
 				file.delete();
@@ -64,7 +64,7 @@ public class SupprimerFichier implements FonctionServer {
 			}
 
 			FileOutputStream fos = new FileOutputStream(new File(
-					ServerFichier.getDroit_fichiers()));
+					Parametre.droit_fichiers));
 			fos.write(sb.toString().getBytes());
 
 			fos.close();

@@ -5,6 +5,7 @@ import java.util.Properties;
  
 
 
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -14,7 +15,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import share.g2.miage.client.dao.Client;
-import share.g2.miage.client.fonction.interfaces.Fonction;
+import share.g2.miage.client.fonction.generalite.Fonction;
  
 public class EnvoyerMail implements
 Fonction {

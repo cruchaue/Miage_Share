@@ -17,7 +17,7 @@ import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.dao.User;
 import share.g2.miage.client.fonction.Login;
 import share.g2.miage.client.fonction.SupprimerFichier;
-import share.g2.miage.client.fonction.interfaces.Fonction;
+import share.g2.miage.client.fonction.generalite.Fonction;
 import share.g2.miage.util.CrypterMDP;
 import share.g2.miage.util.Parametre;
 

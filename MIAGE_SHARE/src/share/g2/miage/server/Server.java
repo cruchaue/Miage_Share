@@ -1,5 +1,8 @@
 package share.g2.miage.server;
 
+import share.g2.miage.server.ServerChat;
+import share.g2.miage.server.ServerFichier;
+
 public class Server {
 
 

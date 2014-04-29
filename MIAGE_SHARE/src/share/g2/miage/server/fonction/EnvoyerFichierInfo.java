@@ -26,7 +26,7 @@ public class EnvoyerFichierInfo implements FonctionServer {
 
 			strTemp = dis.readUTF();
 			System.out.println(strTemp + ",");
-			File file = new File(ServerFichier.getFichiersConfigChemin()+strTemp+".txt");
+			File file = new File(Parametre.fichiersConfigChemin+strTemp+".txt");
 			if(file.exists()){
 				fis = new FileInputStream(file);
 				

@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import share.g2.miage.server.dao.Utilisateur;
+import share.g2.miage.util.Parametre;
 public class ServerChat   extends Thread {
 
 	private ServerSocket serverChat = null;
@@ -36,22 +37,10 @@ public class ServerChat   extends Thread {
 	public void run() { 
 		listeUser = new HashMap<String,Utilisateur>();
 		// lire le fichier de parametre
-		InputStream inputStream = this.getClass().getClassLoader()
-				.getResourceAsStream("ipConfig.properties");
-		Properties p = new Properties();
-		try {
-			p.load(inputStream);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-
-		int portChat = Integer.valueOf(p.getProperty("portServerChat"));
-
-		System.out.println("Port:" + p.getProperty("portServerChat"));
 
 		try {
 
-			serverChat = new ServerSocket(portChat);
+			serverChat = new ServerSocket(Parametre.portServerChat);
 
 			while (demarre) {
 				

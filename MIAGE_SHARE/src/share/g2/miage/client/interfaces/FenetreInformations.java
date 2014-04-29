@@ -11,9 +11,9 @@ import javax.swing.JLabel;
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.fonction.CommenterFichier;
-import share.g2.miage.client.fonction.FonctionClient;
 import share.g2.miage.client.fonction.LireFichierInfo;
-import share.g2.miage.client.fonction.interfaces.Fonction;
+import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.util.Parametre;
 
 import javax.swing.DefaultListModel;

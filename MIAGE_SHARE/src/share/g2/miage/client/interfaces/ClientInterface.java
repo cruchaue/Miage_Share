@@ -14,7 +14,8 @@ import javax.swing.JButton;
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.fonction.*;
-import share.g2.miage.client.fonction.interfaces.Fonction;
+import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.FonctionClient;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -115,6 +116,18 @@ public class ClientInterface extends JFrame {
 		model = new DefaultListModel<String>();
 		scrollPane.setViewportView(list);
 		list.setModel(model);
+		
+		
+		
+		JButton btnAdmin = new JButton("admin");
+		btnAdmin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				FenetreAdministration fa = new FenetreAdministration();
+				fa.setVisible(true);
+			}
+		});
+		btnAdmin.setBounds(44, 29, 123, 23);
+		contentPane.add(btnAdmin);
 
 		listerFichier();
 		// A METTRE ICI
@@ -254,6 +267,8 @@ public class ClientInterface extends JFrame {
 		});
 		btnInformationsFichier.setBounds(204, 206, 151, 23);
 		contentPane.add(btnInformationsFichier);
+		
+		
 
 	}
 
@@ -263,12 +278,8 @@ public class ClientInterface extends JFrame {
 
 	public void listerFichier() {
 		// getFichiers
-		Client client = new Client();
-		client.demarrer();
-		client.setParametre1(User.getUserName());
-		Fonction fcf = new GetFichierList();
-
-		fcf.excuter(client);
+		FonctionClient fc = new GetFichierList(User.getUserName());
+		Client client = fc.getClient();
 		fichiers = client.getResultat1().split(";");
 
 		// Temps d'attente pour l'upload du fichier sur le serveur

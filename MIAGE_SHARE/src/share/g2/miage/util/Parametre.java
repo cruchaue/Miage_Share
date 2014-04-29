@@ -32,6 +32,30 @@ public class Parametre {
 	public final static String UTILISATEUR_DROIT_DEFAULT = "3";
 	public final static String UPLOAD_FINIT = "<@finit>";
 	public final static int LENGTH_ENVOYER = 1024;
-
+	
+	
+	public final static String fichierChemin;
+	public final static String fichiersConfigChemin;
+	public final static String fichiers_BD_utilisateurs;
+	public final static String droit_fichiers;
+	public final static int portServerChat;
+	
+	
+	static{
+		InputStream inputStream = Parametre.class.getClassLoader()
+				.getResourceAsStream("ipConfig.properties");
+		Properties p = new Properties();
+		try {
+			p.load(inputStream);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		fichierChemin = p.getProperty("fichierChemin");
+		fichiersConfigChemin = p.getProperty("config_fichiers");
+		fichiers_BD_utilisateurs = p.getProperty("BD_utilisateurs");
+		droit_fichiers = p.getProperty("droit_fichiers");
+		portServerChat = Integer.valueOf(p.getProperty("portServerChat"));
+		
+	}
 	
 }
