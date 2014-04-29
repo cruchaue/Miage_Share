@@ -4,22 +4,15 @@ import java.io.*;
 import java.net.*;
 
 import share.g2.miage.server.fonction.*;
+import share.g2.miage.server.fonction.generalite.FonctionServer;
+import share.g2.miage.server.apresFonction.*;
 import share.g2.miage.server.dao.ClientS;
-import share.g2.miage.server.fonction.AccepterFichier;
-import share.g2.miage.server.fonction.CommenterFichier;
-import share.g2.miage.server.fonction.CreerUtilisateur;
-import share.g2.miage.server.fonction.EnvoyerFichier;
-import share.g2.miage.server.fonction.EnvoyerFichierInfo;
-import share.g2.miage.server.fonction.EnvoyerFichierList;
-import share.g2.miage.server.fonction.Login;
-import share.g2.miage.server.fonction.SupprimerFichier;
-import share.g2.miage.server.fonction.interfaces.FonctionServer;
 import share.g2.miage.util.Parametre;
 
 //--- CreateServerThread
 class ServerThreadFichier extends Thread {
 	private ClientS clients;
-	private FonctionServer fsf;
+	private FonctionServer fs;
 
 	public ServerThreadFichier(Socket s) throws IOException {
 		clients = new ClientS();
@@ -40,29 +33,21 @@ class ServerThreadFichier extends Thread {
 				String strFonction = clients.getDis().readUTF();
 				System.out.println("---  ---"+strFonction);
 				if (Parametre.UPLOAD_FICHIER.equals(strFonction)) {
-					fsf = new AccepterFichier();
-					fsf.excuter(clients);
+					fs = new ApresAccepterFichier(clients);
 				}else if(Parametre.TELECHARGER_FICHIER.equals(strFonction)){
-					fsf = new EnvoyerFichier();
-					fsf.excuter(clients);
+					fs = new ApresEnvoyerFichier(clients);
 				}else if(Parametre.SUPPRIMER_FICHIER.equals(strFonction)){
-					fsf = new SupprimerFichier();
-					fsf.excuter(clients);
+					fs = new ApresSupprimerFichier(clients);
 				}else if(Parametre.LOGIN.equals(strFonction)){
-					fsf = new Login();
-					fsf.excuter(clients);
+					fs = new ApresLogin(clients);
 				}else if(Parametre.LIRE_FICHIER_INFO.equals(strFonction)){
-					fsf = new EnvoyerFichierInfo();
-					fsf.excuter(clients);
+					fs = new ApresEnvoyerFichierInfo(clients);
 				}else if(Parametre.COMMENTER_FICHIER.equals(strFonction)){
-					fsf = new CommenterFichier();
-					fsf.excuter(clients);
+					fs = new ApresCommenterFichier(clients);
 				}else if(Parametre.CREER_UTILISATEUR.equals(strFonction)){
-					fsf = new CreerUtilisateur();
-					fsf.excuter(clients);
+					fs = new ApresCreerUtilisateur(clients);
 				}else if(Parametre.GET_FICHIER_LIST.equals(strFonction)){
-					fsf = new EnvoyerFichierList();
-					fsf.excuter(clients);
+					fs = new ApresEnvoyerFichierList(clients);
 				}
 				
 				

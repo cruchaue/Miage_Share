@@ -10,13 +10,19 @@ import java.net.Socket;
 
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.server.dao.ClientS;
-import share.g2.miage.server.fonction.interfaces.FonctionServer;
+import share.g2.miage.server.fonction.generalite.Fonction;
+import share.g2.miage.server.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
-public class EnvoyerFichier implements FonctionServer {
+public abstract class EnvoyerFichier extends FonctionServer {
+	
+	public EnvoyerFichier(ClientS clients){
+		this.clients = clients;
+		demarrer();
+	}
 
 	@Override
-	public int excuter(ClientS clients) {
+	public int excuter() {
 		try {
 			DataInputStream dis = clients.getDis();
 			DataOutputStream dos = clients.getDos();

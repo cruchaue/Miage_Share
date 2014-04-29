@@ -14,13 +14,19 @@ import java.util.Map;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.server.dao.ClientS;
 import share.g2.miage.server.dao.Utilisateur;
-import share.g2.miage.server.fonction.interfaces.FonctionServer;
+import share.g2.miage.server.fonction.generalite.Fonction;
+import share.g2.miage.server.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
-public class CreerUtilisateur implements FonctionServer {
+public abstract class CreerUtilisateur extends FonctionServer {
+	
+	public CreerUtilisateur(ClientS clients){
+		this.clients = clients;
+		demarrer();
+	}
 
 	@Override
-	public int excuter(ClientS clients) {
+	public int excuter() {
 		try {
 			DataInputStream dis = clients.getDis();
 			DataOutputStream dos = clients.getDos();

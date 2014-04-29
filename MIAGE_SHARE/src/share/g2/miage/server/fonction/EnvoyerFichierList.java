@@ -13,14 +13,20 @@ import java.util.Map;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.server.dao.ClientS;
 import share.g2.miage.server.dao.Utilisateur;
-import share.g2.miage.server.fonction.interfaces.FonctionServer;
+import share.g2.miage.server.fonction.generalite.Fonction;
+import share.g2.miage.server.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Outil;
 import share.g2.miage.util.Parametre;
 
-public class EnvoyerFichierList implements FonctionServer {
+public abstract class EnvoyerFichierList extends FonctionServer {
+	
+	public EnvoyerFichierList(ClientS clients){
+		this.clients = clients;
+		demarrer();
+	}
 
 	@Override
-	public int excuter(ClientS clients) {
+	public int excuter() {
 		try {
 			DataInputStream dis = clients.getDis();
 			DataOutputStream dos = clients.getDos();

@@ -12,13 +12,19 @@ import java.util.List;
 
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.server.dao.ClientS;
-import share.g2.miage.server.fonction.interfaces.FonctionServer;
+import share.g2.miage.server.fonction.generalite.Fonction;
+import share.g2.miage.server.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
-public class CommenterFichier implements FonctionServer {
+public abstract class CommenterFichier extends FonctionServer {
+	
+	public CommenterFichier(ClientS clients){
+		this.clients = clients;
+		demarrer();
+	}
 
 	@Override
-	public int excuter(ClientS clients) {
+	public int excuter() {
 		try {
 			DataInputStream dis = clients.getDis();
 			//FileOutputStream fos = null;
@@ -53,21 +59,7 @@ public class CommenterFichier implements FonctionServer {
 				
 				fos.close();
 			}
-			/*
-			Fichier fichier = new Fichier(sb.toString());
-			List<Commentaire> comms = fichier.getComms();
-			if(comms==null){
-				comms = new ArrayList<Commentaire>();
-			}
 			
-			String[] commTable = commentaire.split(ParametrePublique.SPEPARER_FICHIER_COMMENTAIRE2);
-			Commentaire comm = new Commentaire();
-			comm.setUser(commTable[0]);
-			comm.setDate(commTable[1]);
-			comm.setContenu(commTable[2]);
-			comms.add(comm);
-			*/
-			clients.closeConnection();
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
