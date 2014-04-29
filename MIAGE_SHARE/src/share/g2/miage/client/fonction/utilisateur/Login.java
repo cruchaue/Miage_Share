@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction;
+package share.g2.miage.client.fonction.utilisateur;
 
 import java.awt.EventQueue;
 import java.io.DataInputStream;

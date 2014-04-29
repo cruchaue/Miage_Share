@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction.statistiques;
+package share.g2.miage.client.fonction.utilisateur;
 
 import java.awt.EventQueue;
 import java.io.DataInputStream;
@@ -13,7 +13,7 @@ import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
-public class StatistiqueUpload implements
+public class SupprimerUtilisateur implements
 		Fonction {
 
 	
@@ -29,22 +29,13 @@ public class StatistiqueUpload implements
 			DataInputStream dis = client.getDis();
 
 
-			dos.writeUTF(Parametre.LOGIN);
+			dos.writeUTF(Parametre.CREER_UTILISATEUR);
 			dos.flush();
 
 			dos.writeUTF(client.getParametre1());
 			dos.flush();
 			
-			dos.writeUTF(client.getParametre2());
-			dos.flush();
 			
-			client.setResultat1(dis.readUTF());
-			client.setResultat2(dis.readUTF());
-
-			
-			//socket.close();
-			//fos.close();
-			//dos.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();

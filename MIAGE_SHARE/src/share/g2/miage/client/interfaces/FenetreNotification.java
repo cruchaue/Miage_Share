@@ -14,11 +14,11 @@ import javax.swing.JButton;
 
 import share.g2.miage.client.dao.Client;
 import share.g2.miage.client.dao.User;
-import share.g2.miage.client.fonction.EnvoyerMail;
-import share.g2.miage.client.fonction.Login;
+import share.g2.miage.client.fonction.autre.EnvoyerMail;
 import share.g2.miage.client.fonction.fichier.GetFichierList;
 import share.g2.miage.client.fonction.fichier.SupprimerFichier;
 import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.utilisateur.Login;
 import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.util.CrypterMDP;
 import share.g2.miage.util.Parametre;

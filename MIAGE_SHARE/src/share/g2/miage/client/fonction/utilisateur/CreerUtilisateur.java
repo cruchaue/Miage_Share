@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction;
+package share.g2.miage.client.fonction.utilisateur;
 
 import java.awt.EventQueue;
 import java.io.DataInputStream;
@@ -13,7 +13,7 @@ import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
-public class SupprimerUtilisateur implements
+public class CreerUtilisateur implements
 		Fonction {
 
 	
