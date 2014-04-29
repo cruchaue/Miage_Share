@@ -13,9 +13,10 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
-import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.fonction.fichier.UploadFichier;
 import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.client.fonction.utilisateur.CreerUtilisateur;
 import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.util.CrypterMDP;
@@ -136,21 +137,9 @@ public class FenetreCreationUtilisateur extends JFrame {
 				    sb.append(Parametre.SPEPARER_INFO_UTILISATEUR);
 				    sb.append(mail.getText());
 				
-				    Fonction fcf = new CreerUtilisateur();
-					Client client = new Client();
-					client.demarrer();
-					client.setParametre1(sb.toString());
+				    FonctionClient fc = new CreerUtilisateur(sb.toString());
 					
-					
-					
-					fcf.excuter(client);
-					
-					
-					
-					
-					client.closeConnection();
 					setVisible(false);
-					
 					
 					JOptionPane jop = new JOptionPane();
 					jop.showMessageDialog(null,

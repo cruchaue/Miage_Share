@@ -8,23 +8,24 @@ import java.io.FileOutputStream;
 
 import javax.swing.JOptionPane;
 
-import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
-public class TelechargerFichier implements
-		Fonction {
+public class TelechargerFichier extends FonctionClient {
 
-	
+	public TelechargerFichier(String chemin, String fichierNom){
+		super();
+		parametre1 = chemin;
+		parametre2 = fichierNom;
+		demarrer();
+	}
 
 	@Override
-	public int excuter(Client client) {
+	public int excuter() {
 		try {
-
-			
-			//FileInputStream fis = new FileInputStream(file);
-
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
@@ -34,24 +35,22 @@ public class TelechargerFichier implements
 			dos.writeUTF(Parametre.TELECHARGER_FICHIER);
 			dos.flush();
 
-			dos.writeUTF(client.getParametre2());
+			dos.writeUTF(parametre2);
 			dos.flush();
-			
-			
-			FileOutputStream fos = new FileOutputStream(new File(client.getParametre1()+ client.getParametre2()));
+
+			FileOutputStream fos = new FileOutputStream(new File(
+					parametre1 + parametre2));
 			while ((length = dis.read(sendBytes, 0, sendBytes.length)) > 0) {
 				fos.write(sendBytes, 0, length);
 				fos.flush();
 			}
-
 			fos.close();
-			
-			
 
-			JOptionPane.showMessageDialog(null, "Fichier telecharger avec succès");
-			//socket.close();
+			JOptionPane.showMessageDialog(null,
+					"Fichier telecharger avec succès");
+			// socket.close();
 			fos.close();
-			//dos.close();
+			// dos.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();

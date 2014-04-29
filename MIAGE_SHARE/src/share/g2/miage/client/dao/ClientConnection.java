@@ -13,26 +13,14 @@ import java.util.Properties;
  * 
  *
  */
-public class Client {
+public class ClientConnection {
 
 	private Socket client = null;
 	private DataInputStream dis;
 	private DataOutputStream dos;
 	private BufferedInputStream bis;
 	private BufferedOutputStream bos;
-	private String parametre1 = "";
-	private String parametre2 = "";
-	private String resultat1 = ""; 
-	private String resultat2 = ""; 
-
-	public String getResultat2() {
-		return resultat2;
-	}
-
-	public void setResultat2(String resultat2) {
-		this.resultat2 = resultat2;
-	}
-
+	
 	public BufferedInputStream getBis() {
 		return bis;
 	}
@@ -41,29 +29,6 @@ public class Client {
 		return bos;
 	}
 
-	public String getResultat1() {
-		return resultat1;
-	}
-
-	public void setResultat1(String resultat1) {
-		this.resultat1 = resultat1;
-	}
-
-	public String getParametre1() {
-		return parametre1;
-	}
-
-	public void setParametre1(String parametre1) {
-		this.parametre1 = parametre1;
-	}
-
-	public void setParametre2(String parametre2) {
-		this.parametre2 = parametre2;
-	}
-
-	public String getParametre2() {
-		return parametre2;
-	}
 
 	public DataInputStream getDis() {
 		return dis;

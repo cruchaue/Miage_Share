@@ -11,7 +11,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
 
-import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.fonction.*;
 import share.g2.miage.client.fonction.fichier.GetFichierList;
@@ -152,16 +152,13 @@ public class ClientInterface extends JFrame {
 							+ chooser.getSelectedFile().getAbsolutePath()
 									.replaceAll("\\\\", "\\\\\\\\"));
 
-					Client client = new Client();
-					client.demarrer();
-					client.setParametre1(chooser.getSelectedFile()
-							.getAbsolutePath().replaceAll("\\\\", "\\\\\\\\"));
-					client.setParametre2(chooser.getSelectedFile().getName());
-					Fonction fcf = new UploadFichier();
+					FonctionClient fc = new UploadFichier(chooser.getSelectedFile()
+							.getAbsolutePath().replaceAll("\\\\", "\\\\\\\\"),
+							chooser.getSelectedFile().getName()
+							);
 					String fichier = chooser.getSelectedFile()
 							.getAbsolutePath().replaceAll("\\\\", "\\\\\\\\");
 					System.out.println("Fichier : " + fichier);
-					fcf.excuter(client);
 					
 												
 					FenetreNotification f1 = new FenetreNotification();
@@ -190,16 +187,9 @@ public class ClientInterface extends JFrame {
 				String nomFic = (String) list.getSelectedValue();
 
 				System.out.println(nomFic);
-
-				Client client = new Client();
-				client.demarrer();
-				client.setParametre1(cheminC_enregistrer_fichier_defaut);
-				client.setParametre2(nomFic);
-				Fonction fcf = new TelechargerFichier();
-
-				fcf.excuter(client);
-				client.closeConnection();
-
+				
+				
+				FonctionClient fc = new TelechargerFichier(cheminC_enregistrer_fichier_defaut, nomFic);
 			}
 		});
 		btnDownload.setBounds(44, 135, 89, 23);
@@ -210,13 +200,7 @@ public class ClientInterface extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				String fichierSuppression = (String) list.getSelectedValue();
 
-				Client client = new Client();
-				client.demarrer();
-				client.setParametre1(fichierSuppression);
-				Fonction fcf = new SupprimerFichier();
-
-				fcf.excuter(client);
-				client.closeConnection();
+				FonctionClient fcf = new SupprimerFichier(fichierSuppression);
 				
 				try {
 					Thread.sleep(1000);
@@ -258,13 +242,12 @@ public class ClientInterface extends JFrame {
 
 				String filename = (String) list.getSelectedValue();
 
-				FonctionClient fClient = new LireFichierInfo(filename);
-				Client client = fClient.getClient();
+				FonctionClient fc = new LireFichierInfo(filename);
 
-				System.out.println(client.getResultat1());
+				System.out.println(fc.getResultat1());
 				Fichier fichier = new Fichier(filename
 						+ Parametre.SPEPARER_FICHIER_INFO
-						+ client.getResultat1());
+						+ fc.getResultat1());
 				finfo.setFichierInfo(fichier);
 
 				finfo.show();
@@ -284,8 +267,7 @@ public class ClientInterface extends JFrame {
 	public void listerFichier() {
 		// getFichiers
 		FonctionClient fc = new GetFichierList(User.getUserName());
-		Client client = fc.getClient();
-		fichiers = client.getResultat1().split(";");
+		fichiers = fc.getResultat1().split(";");
 
 		// Temps d'attente pour l'upload du fichier sur le serveur
 		try {

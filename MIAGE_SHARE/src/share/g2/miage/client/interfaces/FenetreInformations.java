@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
-import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.fonction.fichier.CommenterFichier;
 import share.g2.miage.client.fonction.fichier.LireFichierInfo;
@@ -151,8 +151,8 @@ public class FenetreInformations extends JFrame {
 				new CommenterFichier(nomFicLabel.getText(),commentaire);
 				
 				
-				Client client = new LireFichierInfo(nomFicLabel.getText()).getClient();
-				Fichier fichier = new Fichier(nomFicLabel.getText()+Parametre.SPEPARER_FICHIER_INFO+ client.getResultat1());
+				FonctionClient fc = new LireFichierInfo(nomFicLabel.getText());
+				Fichier fichier = new Fichier(nomFicLabel.getText()+Parametre.SPEPARER_FICHIER_INFO+ fc.getResultat1());
 				
 				try {
 					Thread.sleep(1000);

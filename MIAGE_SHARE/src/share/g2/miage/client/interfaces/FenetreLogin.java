@@ -13,10 +13,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.dao.User;
 import share.g2.miage.client.fonction.fichier.SupprimerFichier;
 import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.client.fonction.utilisateur.Login;
 import share.g2.miage.util.CrypterMDP;
 import share.g2.miage.util.Parametre;
@@ -95,17 +96,12 @@ public class FenetreLogin extends JFrame {
 				mdp = CrypterMDP.crypteMDP(mdp);
 				System.out.println("MDP : " +mdp);
 				
-				Client client = new Client();
-				client.demarrer();
-				client.setParametre1(login);
-				client.setParametre2(mdp);
-				Fonction fcf = new Login();
+				FonctionClient fc = new Login(login, mdp);
 
-				fcf.excuter(client);
-				String resultat = client.getResultat1();
+				String resultat = fc.getResultat1();
 				if (Parametre.OK.equals(resultat)) {
 					System.out.println("login ok");
-					String userInfoStr = client.getResultat2();
+					String userInfoStr = fc.getResultat2();
 					String[] userInfo =  userInfoStr.split("<@>");
 					
 					User user = new User();
@@ -147,10 +143,6 @@ public class FenetreLogin extends JFrame {
 							"Login failed",
 							JOptionPane.WARNING_MESSAGE);
 				}
-
-				client.closeConnection();
-				
-
 			}
 
 			

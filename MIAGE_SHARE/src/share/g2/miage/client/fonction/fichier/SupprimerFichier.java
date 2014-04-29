@@ -6,18 +6,23 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
-public class SupprimerFichier implements
-		Fonction {
+public class SupprimerFichier extends
+		FonctionClient {
 
-	
+	public SupprimerFichier(String fichierNom){
+		super();
+		parametre1 = fichierNom;
+		demarrer();
+	}
 
 	@Override
-	public int excuter(Client client) {
+	public int excuter() {
 		try {
 
 
@@ -26,13 +31,10 @@ public class SupprimerFichier implements
 			dos.writeUTF(Parametre.SUPPRIMER_FICHIER);
 			dos.flush();
 
-			dos.writeUTF(client.getParametre1());
+			dos.writeUTF(parametre1);
 			dos.flush();
 
 			System.out.println("finir de supprimer le fichier!");
-			//socket.close();
-			//fos.close();
-			//dos.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();
