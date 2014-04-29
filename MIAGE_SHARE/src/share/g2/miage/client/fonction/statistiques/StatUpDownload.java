@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction.fichier;
+package share.g2.miage.client.fonction.statistiques;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -6,12 +6,9 @@ import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.util.Parametre;
 
-public class GetFichierList extends FonctionClient {
+public class StatUpDownload extends FonctionClient {
+	public StatUpDownload(String userName) {
 
-	public GetFichierList(String userName) {
-		super();
-		parametre1 = userName;
-		demarrer();
 	}
 
 	@Override
@@ -21,18 +18,16 @@ public class GetFichierList extends FonctionClient {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			dos.writeUTF(Parametre.GET_FICHIER_LIST);
+			dos.writeUTF(Parametre.LOGIN);
 			dos.flush();
 
-			dos.writeUTF(parametre1);
-			dos.flush();
+			
 
-			resultat1 = dis.readUTF();
-			client.closeConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return -1;
 		}
+
 		return 1;
 	}
 

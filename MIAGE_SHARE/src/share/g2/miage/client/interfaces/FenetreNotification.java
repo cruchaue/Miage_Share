@@ -12,13 +12,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.dao.User;
-import share.g2.miage.client.fonction.EnvoyerMail;
-import share.g2.miage.client.fonction.Login;
+import share.g2.miage.client.fonction.autre.EnvoyerMail;
 import share.g2.miage.client.fonction.fichier.GetFichierList;
 import share.g2.miage.client.fonction.fichier.SupprimerFichier;
 import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.FonctionClient;
+import share.g2.miage.client.fonction.utilisateur.Login;
 import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.util.CrypterMDP;
 import share.g2.miage.util.Parametre;
@@ -110,12 +111,7 @@ public class FenetreNotification extends JFrame {
 				List<String> list2 = list.getSelectedValuesList();
 				for (int i=0; i<list2.size(); i++)
 				{
-					Client client = new Client();
-					client.demarrer();
-					client.setParametre1(list2.get(i));
-					Fonction fcf = new EnvoyerMail();
-					fcf.excuter(client);
-					client.closeConnection();
+					FonctionClient fc = new EnvoyerMail(list2.get(i));
 				}
 				
 				

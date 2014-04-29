@@ -2,23 +2,16 @@ package share.g2.miage.client.fonction.fichier;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.util.Parametre;
 
 public class LireFichierInfo extends FonctionClient {
 	
 	public LireFichierInfo(String filename){
-		client = new Client();
-		client.demarrer();
-		client.setParametre1(filename);
-		excuter();
-		client.closeConnection();
-	}
-
-	@Override
-	public int excuter(Client client) {
-		return 1;
+		super();
+		parametre1 = filename;
+		demarrer();
 	}
 
 	@Override
@@ -33,7 +26,7 @@ public class LireFichierInfo extends FonctionClient {
 			dos.writeUTF(Parametre.LIRE_FICHIER_INFO);
 			dos.flush();
 
-			dos.writeUTF(client.getParametre1());
+			dos.writeUTF(parametre1);
 			dos.flush();
 
 			byte[] sendBytes = new byte[Parametre.LENGTH_ENVOYER];
@@ -47,7 +40,7 @@ public class LireFichierInfo extends FonctionClient {
 
 			}
 
-			client.setResultat1(sb.toString());
+			resultat1 = sb.toString();
 			System.out.println(sb.toString());
 
 			// socket.close();

@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.fonction.generalite.Fonction;
 import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.client.interfaces.ClientInterface;
@@ -16,17 +16,10 @@ import share.g2.miage.util.Parametre;
 public class CommenterFichier extends FonctionClient {
 	
 	public CommenterFichier(String nomFichier, String commentaire){
-		client.demarrer();
-		client.setParametre1(nomFichier);
-		client.setParametre2(commentaire);
-		excuter();
-		client.closeConnection();
-	}
-
-	@Override
-	public int excuter(Client client) {
-		
-		return 1;
+		super();
+		parametre1 = nomFichier;
+		parametre1 = commentaire;
+		demarrer();
 	}
 
 	@Override
@@ -41,10 +34,10 @@ public class CommenterFichier extends FonctionClient {
 			dos.writeUTF(Parametre.COMMENTER_FICHIER);
 			dos.flush();
 
-			dos.writeUTF(client.getParametre1());
+			dos.writeUTF(parametre1);
 			dos.flush();
 
-			dos.writeUTF(client.getParametre2());
+			dos.writeUTF(parametre2);
 			dos.flush();
 
 			System.out.println("finir de commenter le fichier!");

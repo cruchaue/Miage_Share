@@ -9,19 +9,27 @@ import java.io.FileInputStream;
 
 import javax.swing.JOptionPane;
 
-import share.g2.miage.client.dao.Client;
+import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.util.Parametre;
 
-public class UploadFichier implements Fonction {
+public class UploadFichier extends FonctionClient {
+
+	public UploadFichier(String cheminEtNom, String fichierNom) {
+		super();
+		parametre1 = cheminEtNom;
+		parametre2 = fichierNom;
+		demarrer();
+	}
 
 	@Override
-	public int excuter(Client client) {
+	public int excuter() {
 		try {
 
-			File file = new File(client.getParametre1());
-			
+			File file = new File(parametre1);
+
 			FileInputStream fis = new FileInputStream(file);
 
 			DataOutputStream dos = client.getDos();
@@ -34,9 +42,9 @@ public class UploadFichier implements Fonction {
 			dos.writeUTF(Parametre.UPLOAD_FICHIER);
 			dos.flush();
 
-			dos.writeUTF(client.getParametre2());
+			dos.writeUTF(parametre2);
 			dos.flush();
-			
+
 			dos.writeUTF(ClientInterface.getUser().getUserName());
 			dos.flush();
 
@@ -45,13 +53,11 @@ public class UploadFichier implements Fonction {
 				bos.flush();
 				System.out.println("upload en cours!");
 			}
-			//client.setResultat1(dis.readUTF());
+			// client.setResultat1(dis.readUTF());
 			client.closeConnection();
 			JOptionPane.showMessageDialog(null, "Fichier uploadé avec succès");
 
 			fis.close();
-			
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
