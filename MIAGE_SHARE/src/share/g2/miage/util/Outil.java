@@ -14,7 +14,6 @@ import share.g2.miage.server.ServerFichier;
 /**
  * 
  * 
- *
  */
 public class Outil {
 	

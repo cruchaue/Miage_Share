@@ -13,7 +13,7 @@ public class Server {
 	/**
 	 * Permet de mettre en route les serveurs de fichiers et de chats.
 	 * @param args
-	 * 			??
+	 * 
 	 * @throws Exception Si un problème est apparu lors du lancement du serveur
 	 */
 	public static void main(String[] args) throws Exception {
