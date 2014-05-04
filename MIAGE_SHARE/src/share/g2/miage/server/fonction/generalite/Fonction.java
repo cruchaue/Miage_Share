@@ -14,5 +14,5 @@ public interface Fonction {
 	 * 
 	 * @return
 	 */
-	public int excuter();
+	public int executer();
 }

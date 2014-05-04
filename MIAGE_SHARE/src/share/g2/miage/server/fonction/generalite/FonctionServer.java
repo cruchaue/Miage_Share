@@ -28,7 +28,7 @@ Fonction {
 	 * 
 	 */
 	protected void demarrer(){
-		excuter();
+		executer();
 		clients.closeConnection();
 		apresConnection();
 	}

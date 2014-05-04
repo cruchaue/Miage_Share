@@ -24,7 +24,7 @@ public abstract class CommenterFichier extends FonctionServer {
 	}
 
 	@Override
-	public int excuter() {
+	public int executer() {
 		try {
 			DataInputStream dis = clients.getDis();
 			//FileOutputStream fos = null;
