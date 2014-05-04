@@ -3,29 +3,29 @@ package share.g2.miage.client.dao;
 import java.util.Date;
 
 /**
- * Commentaire représente un commentaire qu'un client peut laisser sur un Fichier.
- * Il est représenté par le nom du client, la date de dépose du commentaire et évidemment son contenu. 
+ * Commentaire reprï¿½sente un commentaire qu'un client peut laisser sur un Fichier.
+ * Il est reprï¿½sentï¿½ par le nom du client, la date de dï¿½pose du commentaire et ï¿½videmment son contenu. 
  *
  */
 public class Commentaire {
 	/**
-	 * Le nom de l'utilisateur qui a déposé le commentaire.
+	 * Le nom de l'utilisateur qui a dï¿½posï¿½ le commentaire.
 	 */
 	private String user;
 	
 	/**
-	 * La date de dépose du commentaire.
+	 * La date de dï¿½pose du commentaire.
 	 */
 	private String date;
 	
 	/**
-	 * Le commentaire lui même.
+	 * Le commentaire lui mï¿½me.
 	 */
 	private String contenu;
 	
 	/**
 	 * 
-	 * @return Le nom de l'utilisateur qui a déposé le commentaire.
+	 * @return Le nom de l'utilisateur qui a dï¿½posï¿½ le commentaire.
 	 */
 	public String getUser() {
 		return user;
@@ -37,7 +37,7 @@ public class Commentaire {
 	
 	/**
 	 * 
-	 * @return La date de dépose du commentaire.
+	 * @return La date de dï¿½pose du commentaire.
 	 */
 	public String getDate() {
 		return date;
@@ -52,7 +52,7 @@ public class Commentaire {
 	}
 	
 	/**
-	 * Retourne uniquement le commentaire laissé par l'utilisateur.
+	 * Retourne uniquement le commentaire laissï¿½ par l'utilisateur.
 	 * @return Le commentaire
 	 */
 	public String getContenu() {

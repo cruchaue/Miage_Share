@@ -21,14 +21,14 @@ import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.util.Parametre;
 
 /**
- * Lance le serveur, dans un nouveau Thread, qui va gérer toutes les opérations relatives à la gestion des fichiers.
+ * Lance le serveur, dans un nouveau Thread, qui va gï¿½rer toutes les opï¿½rations relatives ï¿½ la gestion des fichiers.
  *
  */
 public class ServerFichier   extends Thread {
 	
 	/**
 	 * Socket sur lequel les clients vont pouvoir se connecter afin de communiquer avec le serveur de gestion de Fichier.
-	 * Un Utilisateur, une fois connecté, va pouvoir Uploader, downloader, laisser un commentaire sur un fichier etc...
+	 * Un Utilisateur, une fois connectï¿½, va pouvoir Uploader, downloader, laisser un commentaire sur un fichier etc...
 	 */
 	private ServerSocket serverFichier = null;
 	
@@ -38,8 +38,8 @@ public class ServerFichier   extends Thread {
 	private boolean demarre = true;
 
 	/**
-     * Collection d'Utilisateurs qui sont connectés sur le serveur.
-     * Chaque utilisateur est identifié par son nom/pseudo.
+     * Collection d'Utilisateurs qui sont connectï¿½s sur le serveur.
+     * Chaque utilisateur est identifiï¿½ par son nom/pseudo.
      * 
      * @see Utilisateur
      * @see Collection
@@ -48,7 +48,7 @@ public class ServerFichier   extends Thread {
 	private static Map<String,Utilisateur> listeUser;
 	
 	/**
-	 * Démarre le serveur de Fichier.
+	 * Dï¿½marre le serveur de Fichier.
 	 * 
 	 * @see Fichier
 	 * @see Thread
@@ -96,9 +96,9 @@ public class ServerFichier   extends Thread {
 	}
 	
 	/**
-	 * Retourne une Map<String, Utilisateur> qui contient tous les Utilisateur connecté au serveur.
+	 * Retourne une Map<String, Utilisateur> qui contient tous les Utilisateur connectï¿½ au serveur.
 	 * 
-	 * @return La Collection de tous les Utilisateur connecté au serveur.
+	 * @return La Collection de tous les Utilisateur connectï¿½ au serveur.
 	 * 
 	 * @see Collection
 	 * @see Utilisateur
@@ -115,8 +115,8 @@ public class ServerFichier   extends Thread {
 	}
 	
 	/**
-	 * Lors du lancement du serveur, celui-ci va aller chercher dans un fichier, stocké en mémoire, toutes les informations sur les utilisateurs inscrits.
-	 * Ce fichier sert de sauvegarde en cas de défaillance du serveur et évite de tout perdre .
+	 * Lors du lancement du serveur, celui-ci va aller chercher dans un fichier, stockï¿½ en mï¿½moire, toutes les informations sur les utilisateurs inscrits.
+	 * Ce fichier sert de sauvegarde en cas de dï¿½faillance du serveur et ï¿½vite de tout perdre .
 	 * 
 	 * @see Utilisateur
 	 */

@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction.utilisateur;
+package share.g2.miage.clientJar.fonction.utilisateur;
 
 import java.awt.EventQueue;
 import java.io.DataInputStream;
@@ -7,19 +7,18 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import share.g2.miage.client.dao.ClientConnection;
-import share.g2.miage.client.fonction.generalite.Communication;
-import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.client.interfaces.ClientInterface;
+import share.g2.miage.clientJar.dao.ClientConnection;
+import share.g2.miage.clientJar.fonction.generalite.Communication;
+import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
-public class Login extends FonctionClient {
+public class CreerUtilisateur extends FonctionClient {
 
-	public Login(String utilisateurNom, String fichierNom) {
+	public CreerUtilisateur(String utilisateurInfo) {
 		super();
-		parametre1 = utilisateurNom;
-		parametre2 = fichierNom;
+		parametre1 = utilisateurInfo;
 		demarrer();
 	}
 
@@ -27,20 +26,16 @@ public class Login extends FonctionClient {
 	public int executer() {
 		try {
 
+			// FileInputStream fis = new FileInputStream(file);
+
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			dos.writeUTF(Parametre.UTILISATEUR_LOGIN);
+			dos.writeUTF(Parametre.UTILISATEUR_CREER);
 			dos.flush();
 
 			dos.writeUTF(parametre1);
 			dos.flush();
-
-			dos.writeUTF(parametre2);
-			dos.flush();
-
-			resultat1 = dis.readUTF();
-			resultat2 = dis.readUTF();
 
 		} catch (Exception e) {
 			e.printStackTrace();

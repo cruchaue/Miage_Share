@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction.generalite;
+package share.g2.miage.clientJar.fonction.generalite;
 
 import java.awt.EventQueue;
 import java.io.DataInputStream;
@@ -7,15 +7,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.interfaces.ClientInterface;
+import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
 /**
- * Superclasse (qui implémente l'interface Fonction) dont toutes les fonctions utilisables par un client découleront.
- * Toutes fonctions nouvellement implementées devra héritée de cette classe afin d'assurer le bon fonctionnement de cette dernière 
- * lors d'envoi ou la récuperation d'informations sur le serveur.  
+ * Superclasse (qui implï¿½mente l'interface Fonction) dont toutes les fonctions utilisables par un client dï¿½couleront.
+ * Toutes fonctions nouvellement implementï¿½es devra hï¿½ritï¿½e de cette classe afin d'assurer le bon fonctionnement de cette derniï¿½re 
+ * lors d'envoi ou la rï¿½cuperation d'informations sur le serveur.  
  *
  */
 public abstract class FonctionClient implements

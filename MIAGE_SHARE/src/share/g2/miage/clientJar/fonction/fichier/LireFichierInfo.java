@@ -1,9 +1,10 @@
-package share.g2.miage.client.fonction.fichier;
+package share.g2.miage.clientJar.fonction.fichier;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import share.g2.miage.client.dao.ClientConnection;
-import share.g2.miage.client.fonction.generalite.FonctionClient;
+
+import share.g2.miage.clientJar.dao.ClientConnection;
+import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.util.Parametre;
 
 public class LireFichierInfo extends FonctionClient {

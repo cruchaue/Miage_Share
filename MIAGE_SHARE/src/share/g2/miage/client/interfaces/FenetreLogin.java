@@ -13,12 +13,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.dao.User;
-import share.g2.miage.client.fonction.fichier.SupprimerFichier;
-import share.g2.miage.client.fonction.generalite.Communication;
-import share.g2.miage.client.fonction.generalite.FonctionClient;
-import share.g2.miage.client.fonction.utilisateur.Login;
+import share.g2.miage.clientJar.dao.ClientConnection;
+import share.g2.miage.clientJar.fonction.fichier.SupprimerFichier;
+import share.g2.miage.clientJar.fonction.generalite.Communication;
+import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
+import share.g2.miage.clientJar.fonction.utilisateur.Login;
 import share.g2.miage.util.CrypterMDP;
 import share.g2.miage.util.Parametre;
 

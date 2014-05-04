@@ -1,4 +1,4 @@
-package share.g2.miage.client.dao;
+package share.g2.miage.clientJar.dao;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -9,9 +9,9 @@ import java.io.InputStream;
 import java.net.Socket;
 import java.util.Properties;
 /**
- * La classe ClientConnection contient toutes les méthodes qui permettent
- * de se connecter et de communiquer grâce a un système de sockets et d'envoyer ou de récuperer 
- * des données sur un flux bufferisé.
+ * La classe ClientConnection contient toutes les mï¿½thodes qui permettent
+ * de se connecter et de communiquer grï¿½ce a un systï¿½me de sockets et d'envoyer ou de rï¿½cuperer 
+ * des donnï¿½es sur un flux bufferisï¿½.
  * 
  */
 public class ClientConnection {
@@ -22,36 +22,36 @@ public class ClientConnection {
 	private Socket client = null;
 	
 	/**
-	 * flux de données entrant de type primitifs
+	 * flux de donnï¿½es entrant de type primitifs
 	 */
 	private DataInputStream dis;
 	
 	/**
-	 * flux de données sortant de type primitifs
+	 * flux de donnï¿½es sortant de type primitifs
 	 */
 	private DataOutputStream dos;
 	
 	/**
-	 * flux de données entrant bufferisé
+	 * flux de donnï¿½es entrant bufferisï¿½
 	 */
 	private BufferedInputStream bis;
 	
 	/**
-	 * flus de données sortant bufférisé
+	 * flus de donnï¿½es sortant buffï¿½risï¿½
 	 */
 	private BufferedOutputStream bos;
 	
 	/**
-	 * Renvoie le flux entrant bufferisé afin recupérer les données contenues dans le buffer.
-	 * @return Le flux entrant bufferisé
+	 * Renvoie le flux entrant bufferisï¿½ afin recupï¿½rer les donnï¿½es contenues dans le buffer.
+	 * @return Le flux entrant bufferisï¿½
 	 */
 	public BufferedInputStream getBis() {
 		return bis;
 	}
 	
 	/**
-	 * Renvoi le flux entrant bufferisé afin de lui insérer les données à envoyer.
-	 * @return Le flux sortant bufferisé
+	 * Renvoi le flux entrant bufferisï¿½ afin de lui insï¿½rer les donnï¿½es ï¿½ envoyer.
+	 * @return Le flux sortant bufferisï¿½
 	 */
 	public BufferedOutputStream getBos() {
 		return bos;
@@ -59,7 +59,7 @@ public class ClientConnection {
 
 	/**
 	 * 
-	 * @return Le flux de données entrant 
+	 * @return Le flux de donnï¿½es entrant 
 	 */
 	public DataInputStream getDis() {
 		return dis;
@@ -67,14 +67,14 @@ public class ClientConnection {
 	
 	/**
 	 * 
-	 * @return Le flux de données sortant 
+	 * @return Le flux de donnï¿½es sortant 
 	 */
 	public DataOutputStream getDos() {
 		return dos;
 	}
 	
 	/**
-	 * Méthode permettant de lancer la séquence de connection du client à un serveur.
+	 * Mï¿½thode permettant de lancer la sï¿½quence de connection du client ï¿½ un serveur.
 	 *
 	 * @return -1 si une erreur c'est produite durant la connection.
 	 */
@@ -121,7 +121,7 @@ public class ClientConnection {
 	}
 	
 	/**
-	 * Met à jour le socket du client.
+	 * Met ï¿½ jour le socket du client.
 	 * @param client
 	 * 			Le nouveau socket du client
 	 */

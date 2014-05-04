@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction.statistiques.outil;
+package share.g2.miage.clientJar.fonction.statistiques.outil;
 import java.util.Hashtable;
 import java.util.Iterator;
 
@@ -10,7 +10,7 @@ import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.dao.User;
 
 /**
- * Contient les mthodes permettant de comparer les donnes de plusieurs utilisateurs 
+ * Contient les mï¿½thodes permettant de comparer les donnï¿½es de plusieurs utilisateurs 
  * 
  * @author loktora
  *
@@ -23,7 +23,7 @@ public class StatGenerales {
 		//private int tab[] = new int[10];
 		 
 		/**
-		 * Genere un DataSet pour les activits sur les fichiers
+		 * Genere un DataSet pour les activitï¿½s sur les fichiers
 		 * @return
 		 */
 		public static DefaultPieDataset createStatFic(Hashtable<Integer, Fichier> ht,String critere){
@@ -56,7 +56,7 @@ public class StatGenerales {
 		}
 		
 		/**
-		 * Genere un DataSet pour les activit des utilisateurs
+		 * Genere un DataSet pour les activitï¿½ des utilisateurs
 		 * @return
 		 */
 		public static DefaultPieDataset createStatUtil(Hashtable<Integer, User> ht,String critere){

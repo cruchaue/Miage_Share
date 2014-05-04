@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction.fichier;
+package share.g2.miage.clientJar.fonction.fichier;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -9,10 +9,10 @@ import java.io.FileInputStream;
 
 import javax.swing.JOptionPane;
 
-import share.g2.miage.client.dao.ClientConnection;
-import share.g2.miage.client.fonction.generalite.Communication;
-import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.client.interfaces.ClientInterface;
+import share.g2.miage.clientJar.dao.ClientConnection;
+import share.g2.miage.clientJar.fonction.generalite.Communication;
+import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.util.Parametre;
 
 public class UploadFichier extends FonctionClient {

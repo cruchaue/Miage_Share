@@ -13,11 +13,11 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
-import share.g2.miage.client.dao.ClientConnection;
-import share.g2.miage.client.fonction.fichier.UploadFichier;
-import share.g2.miage.client.fonction.generalite.Communication;
-import share.g2.miage.client.fonction.generalite.FonctionClient;
-import share.g2.miage.client.fonction.utilisateur.CreerUtilisateur;
+import share.g2.miage.clientJar.dao.ClientConnection;
+import share.g2.miage.clientJar.fonction.fichier.UploadFichier;
+import share.g2.miage.clientJar.fonction.generalite.Communication;
+import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
+import share.g2.miage.clientJar.fonction.utilisateur.CreerUtilisateur;
 import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.util.CrypterMDP;
 import share.g2.miage.util.Parametre;

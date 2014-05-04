@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction.statistiques.outil;
+package share.g2.miage.clientJar.fonction.statistiques.outil;
 import java.awt.Color;
 
 import org.jfree.chart.ChartFactory;

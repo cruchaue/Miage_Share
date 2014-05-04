@@ -1,7 +1,7 @@
 package share.g2.miage.client.dao;
 
 /**
- * un User est la représentation de l'utilisateur final de l'application.
+ * un User est la reprï¿½sentation de l'utilisateur final de l'application.
  * 
  *
  */
@@ -17,7 +17,7 @@ public class User {
 	private String email;
 	
 	/**
-	 * Les droits d'accès que l'utilisateur aura sur les fichiers
+	 * Les droits d'accï¿½s que l'utilisateur aura sur les fichiers
 	 */
 	private int droit;
 	
@@ -44,14 +44,14 @@ public class User {
 	
 	/**
 	 * 
-	 * @return Le nombre de Fichier que l'utilisateur a envoyé sur le serveurs.
+	 * @return Le nombre de Fichier que l'utilisateur a envoyï¿½ sur le serveurs.
 	 */
 	public int getNbUp() {
 		return nbUp;
 	}
 	
 	/**
-	 * Met à jour le nombre upload de l'utilisateur.
+	 * Met ï¿½ jour le nombre upload de l'utilisateur.
 	 * 
 	 * @param nbUp
 	 * 			Le nouveau nombre d'upload.
@@ -61,15 +61,15 @@ public class User {
 	}
 	
 	/**
-	 * Retourne le nombre de fichier téléchargé par l'utilisateur depuis le serveur.
-	 * @return Le nombre de fichier téléchargé par l'utilisateur.
+	 * Retourne le nombre de fichier tï¿½lï¿½chargï¿½ par l'utilisateur depuis le serveur.
+	 * @return Le nombre de fichier tï¿½lï¿½chargï¿½ par l'utilisateur.
 	 */
 	public int getNbDown() {
 		return nbDown;
 	}
 	
 	/**
-	 * Met à jour le nombre de download de l'utilisateur.
+	 * Met ï¿½ jour le nombre de download de l'utilisateur.
 	 * @param nbDown
 	 * 			Nouveau nom de download. nbDown > 0.
 	 */
@@ -95,31 +95,31 @@ public class User {
 	
 	/**
 	 * 
-	 * @return Le nombre de message envoyé par l'utilisateur sur un chat.
+	 * @return Le nombre de message envoyï¿½ par l'utilisateur sur un chat.
 	 */
 	public int getNbMessages() {
 		return nbMessages;
 	}
 	
 	/**
-	 * Met à jour le nombre de message laissé par l'utilisateur sur le chat.
+	 * Met ï¿½ jour le nombre de message laissï¿½ par l'utilisateur sur le chat.
 	 * @param nbMessages
-	 * 				Le nouveau nombre de message laissé par l'utilisateur.
+	 * 				Le nouveau nombre de message laissï¿½ par l'utilisateur.
 	 */
 	public void setNbMessages(int nbMessages) {
 		this.nbMessages = nbMessages;
 	}
 	
 	/**
-	 * Retoune le nombre de commentaire que l'utilisateur à laissé sur l'ensemble des fichiers du serveur.
-	 * @return Le nombre total de commentaire laissé par l'utilisateur.
+	 * Retoune le nombre de commentaire que l'utilisateur ï¿½ laissï¿½ sur l'ensemble des fichiers du serveur.
+	 * @return Le nombre total de commentaire laissï¿½ par l'utilisateur.
 	 */
 	public int getNbComm() {
 		return nbComm;
 	}
 	
 	/**
-	 * Met à jour le nombre de commentaire laissé par l'utilisateur.
+	 * Met ï¿½ jour le nombre de commentaire laissï¿½ par l'utilisateur.
 	 * @param nbComm
 	 * 			Le nouveau nombre de commentaire.
 	 */
@@ -144,7 +144,7 @@ public class User {
 	}
 	
 	/**
-	 * Retourne le nom/pseudo que l'utilisateur à choisi lors de son inscription. 
+	 * Retourne le nom/pseudo que l'utilisateur ï¿½ choisi lors de son inscription. 
 	 * @return Le nom (pseudo) de l'utilisateur.
 	 */
 	public String getUserName() {
@@ -152,7 +152,7 @@ public class User {
 	}
 	
 	/**
-	 * Modifie le nom/pseudo de l'utilisateur (si la fonction de modification de nom a été implentée).
+	 * Modifie le nom/pseudo de l'utilisateur (si la fonction de modification de nom a ï¿½tï¿½ implentï¿½e).
 	 * @param userName
 	 * 				Le nouveau nom de l'utilisateur.
 	 */

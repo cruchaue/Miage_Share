@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction.utilisateur;
+package share.g2.miage.clientJar.fonction.utilisateur;
 
 import java.awt.EventQueue;
 import java.io.DataInputStream;
@@ -7,10 +7,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import share.g2.miage.client.dao.ClientConnection;
-import share.g2.miage.client.fonction.generalite.Communication;
-import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.client.interfaces.ClientInterface;
+import share.g2.miage.clientJar.dao.ClientConnection;
+import share.g2.miage.clientJar.fonction.generalite.Communication;
+import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 

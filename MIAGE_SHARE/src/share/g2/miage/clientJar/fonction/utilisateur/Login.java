@@ -1,24 +1,25 @@
-package share.g2.miage.client.fonction.fichier;
+package share.g2.miage.clientJar.fonction.utilisateur;
 
+import java.awt.EventQueue;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import share.g2.miage.client.dao.ClientConnection;
-import share.g2.miage.client.fonction.generalite.Communication;
-import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.client.interfaces.ClientInterface;
+import share.g2.miage.clientJar.dao.ClientConnection;
+import share.g2.miage.clientJar.fonction.generalite.Communication;
+import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
-public class CommenterFichier extends FonctionClient {
-	
-	public CommenterFichier(String nomFichier, String commentaire){
+public class Login extends FonctionClient {
+
+	public Login(String utilisateurNom, String fichierNom) {
 		super();
-		parametre1 = nomFichier;
-		parametre1 = commentaire;
+		parametre1 = utilisateurNom;
+		parametre2 = fichierNom;
 		demarrer();
 	}
 
@@ -26,12 +27,10 @@ public class CommenterFichier extends FonctionClient {
 	public int executer() {
 		try {
 
-			// FileInputStream fis = new FileInputStream(file);
-
 			DataOutputStream dos = client.getDos();
-			// DataInputStream dis = client.getDis();
+			DataInputStream dis = client.getDis();
 
-			dos.writeUTF(Parametre.FICHIER_COMMENTER);
+			dos.writeUTF(Parametre.UTILISATEUR_LOGIN);
 			dos.flush();
 
 			dos.writeUTF(parametre1);
@@ -40,7 +39,8 @@ public class CommenterFichier extends FonctionClient {
 			dos.writeUTF(parametre2);
 			dos.flush();
 
-			System.out.println("finir de commenter le fichier!");
+			resultat1 = dis.readUTF();
+			resultat2 = dis.readUTF();
 
 		} catch (Exception e) {
 			e.printStackTrace();

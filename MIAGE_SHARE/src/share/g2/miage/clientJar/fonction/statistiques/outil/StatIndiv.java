@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction.statistiques.outil;
+package share.g2.miage.clientJar.fonction.statistiques.outil;
 
 import  org.jfree.chart.ChartFactory;
 import  org.jfree.chart.ChartFrame;	import  org.jfree.chart.JFreeChart;
@@ -9,7 +9,7 @@ import share.g2.miage.client.dao.User;
 	
 
 /**
- * Cette classe contient les diffŽrentes mŽthodes permettant d'afficher des diagramme statistiques d'un objet unique
+ * Cette classe contient les diffï¿½rentes mï¿½thodes permettant d'afficher des diagramme statistiques d'un objet unique
  * 
  * @author loktora
  *
@@ -17,7 +17,7 @@ import share.g2.miage.client.dao.User;
 public class StatIndiv {
 	
 	/**
-	 * Ajoute ˆ un DataSet d'un fichier le critere selectionnŽ
+	 * Ajoute ï¿½ un DataSet d'un fichier le critere selectionnï¿½
 	 * 
 	 * @param fic=fichier sur lequel on veut effectuer les calculs
 	 * @param critere=l'element qui nous interesse (download,commentaire...)
@@ -33,7 +33,7 @@ public class StatIndiv {
 	}
 	 
 	/**
-	 * Ajoute ˆ un DataSet d'utilisateur le critere selectionnŽ
+	 * Ajoute ï¿½ un DataSet d'utilisateur le critere selectionnï¿½
 	 * 
 	 * @param util=utilisateur sur lequel on veut effectuer les calculs
 	 * @param critere=l'element qui nous interesse (upload,connexion...)
@@ -63,7 +63,7 @@ public class StatIndiv {
 	/**
 	 * Creer un objet JFreeChart
 	 * @param titre: titre du diagramme
-	 * @param data: donnŽess (ˆ gŽnŽrer plus t™t)
+	 * @param data: donnï¿½ess (ï¿½ gï¿½nï¿½rer plus tï¿½t)
 	 * @return
 	 */
 	public static JFreeChart createPie(String titre,DefaultPieDataset data){
@@ -83,7 +83,7 @@ public class StatIndiv {
 	}
 	
 	/**
-	 * genere et affiche le Jfreechart a partir des donnŽes
+	 * genere et affiche le Jfreechart a partir des donnï¿½es
 	 * @param us
 	 * @param titreDiag
 	 * @param titreFen

@@ -1,4 +1,4 @@
-package share.g2.miage.client.fonction.autre;
+package share.g2.miage.clientJar.fonction.autre;
 
 import java.util.Properties;
 
@@ -10,9 +10,9 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import share.g2.miage.client.dao.ClientConnection;
-import share.g2.miage.client.fonction.generalite.Communication;
-import share.g2.miage.client.fonction.generalite.FonctionClient;
+import share.g2.miage.clientJar.dao.ClientConnection;
+import share.g2.miage.clientJar.fonction.generalite.Communication;
+import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 
 /**
  * 

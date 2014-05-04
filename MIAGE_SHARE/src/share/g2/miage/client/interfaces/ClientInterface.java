@@ -11,16 +11,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
 
-import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.dao.Fichier;
-import share.g2.miage.client.fonction.*;
-import share.g2.miage.client.fonction.fichier.GetFichierList;
-import share.g2.miage.client.fonction.fichier.LireFichierInfo;
-import share.g2.miage.client.fonction.fichier.SupprimerFichier;
-import share.g2.miage.client.fonction.fichier.TelechargerFichier;
-import share.g2.miage.client.fonction.fichier.UploadFichier;
-import share.g2.miage.client.fonction.generalite.Communication;
-import share.g2.miage.client.fonction.generalite.FonctionClient;
+import share.g2.miage.client.dao.User;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -31,7 +23,14 @@ import java.util.Properties;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 
-import share.g2.miage.client.dao.User;
+import share.g2.miage.clientJar.dao.ClientConnection;
+import share.g2.miage.clientJar.fonction.fichier.GetFichierList;
+import share.g2.miage.clientJar.fonction.fichier.LireFichierInfo;
+import share.g2.miage.clientJar.fonction.fichier.SupprimerFichier;
+import share.g2.miage.clientJar.fonction.fichier.TelechargerFichier;
+import share.g2.miage.clientJar.fonction.fichier.UploadFichier;
+import share.g2.miage.clientJar.fonction.generalite.Communication;
+import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.util.Parametre;
 
 public class ClientInterface extends JFrame {
