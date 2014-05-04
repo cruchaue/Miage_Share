@@ -7,7 +7,7 @@ import share.g2.miage.server.dao.ClientS;
  *
  */
 public  abstract class FonctionServer implements
-Fonction {
+Communication {
 	
 	/**
 	 * 
@@ -28,7 +28,7 @@ Fonction {
 	 * 
 	 */
 	protected void demarrer(){
-		executer();
+		commExecuter();
 		clients.closeConnection();
 		apresConnection();
 	}
