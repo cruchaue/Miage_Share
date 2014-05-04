@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 import javax.swing.JOptionPane;
 
 import share.g2.miage.client.dao.ClientConnection;
-import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.Communication;
 import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.util.Parametre;
@@ -25,7 +25,7 @@ public class UploadFichier extends FonctionClient {
 	}
 
 	@Override
-	public int excuter() {
+	public int executer() {
 		try {
 
 			File file = new File(parametre1);

@@ -17,7 +17,7 @@ import share.g2.miage.client.dao.User;
 import share.g2.miage.client.fonction.autre.EnvoyerMail;
 import share.g2.miage.client.fonction.fichier.GetFichierList;
 import share.g2.miage.client.fonction.fichier.SupprimerFichier;
-import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.Communication;
 import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.client.fonction.utilisateur.Login;
 import share.g2.miage.server.dao.Utilisateur;

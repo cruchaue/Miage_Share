@@ -12,7 +12,7 @@ import share.g2.miage.client.dao.ClientConnection;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.fonction.fichier.CommenterFichier;
 import share.g2.miage.client.fonction.fichier.LireFichierInfo;
-import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.Communication;
 import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.util.Parametre;
 

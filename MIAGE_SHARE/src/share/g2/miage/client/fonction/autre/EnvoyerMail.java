@@ -11,11 +11,20 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import share.g2.miage.client.dao.ClientConnection;
-import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.Communication;
 import share.g2.miage.client.fonction.generalite.FonctionClient;
 
-public class EnvoyerMail extends FonctionClient {
+/**
+ * 
+ *
+ */
 
+public class EnvoyerMail extends FonctionClient {
+	
+	/**
+	 * 
+	 * @param mail
+	 */
 	public EnvoyerMail(String mail) {
 		super();
 		parametre1 = mail;
@@ -23,7 +32,7 @@ public class EnvoyerMail extends FonctionClient {
 	}
 
 	@Override
-	public int excuter() {
+	public int executer() {
 		final String username = "easy.share.miage@gmail.com";
 		final String password = "123easy456";
 

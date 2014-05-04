@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import javax.swing.JOptionPane;
 
 import share.g2.miage.client.dao.ClientConnection;
-import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.Communication;
 import share.g2.miage.client.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
@@ -24,7 +24,7 @@ public class TelechargerFichier extends FonctionClient {
 	}
 
 	@Override
-	public int excuter() {
+	public int executer() {
 		try {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();

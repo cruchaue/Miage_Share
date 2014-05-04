@@ -15,7 +15,7 @@ public class LireFichierInfo extends FonctionClient {
 	}
 
 	@Override
-	public int excuter() {
+	public int executer() {
 		try {
 
 			// FileInputStream fis = new FileInputStream(file);

@@ -19,7 +19,7 @@ import share.g2.miage.client.fonction.fichier.LireFichierInfo;
 import share.g2.miage.client.fonction.fichier.SupprimerFichier;
 import share.g2.miage.client.fonction.fichier.TelechargerFichier;
 import share.g2.miage.client.fonction.fichier.UploadFichier;
-import share.g2.miage.client.fonction.generalite.Fonction;
+import share.g2.miage.client.fonction.generalite.Communication;
 import share.g2.miage.client.fonction.generalite.FonctionClient;
 
 import java.awt.event.ActionListener;

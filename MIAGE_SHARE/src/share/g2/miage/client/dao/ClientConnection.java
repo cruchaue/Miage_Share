@@ -10,10 +10,9 @@ import java.net.Socket;
 import java.util.Properties;
 /**
  * La classe ClientConnection contient toutes les méthodes qui permettent
- * de se connecter grâce a un système de sockets et d'envoyer ou de récuperer 
+ * de se connecter et de communiquer grâce a un système de sockets et d'envoyer ou de récuperer 
  * des données sur un flux bufferisé.
  * 
- *
  */
 public class ClientConnection {
 	

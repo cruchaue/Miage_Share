@@ -12,26 +12,69 @@ import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
+/**
+ * Superclasse (qui implémente l'interface Fonction) dont toutes les fonctions utilisables par un client découleront.
+ * Toutes fonctions nouvellement implementées devra héritée de cette classe afin d'assurer le bon fonctionnement de cette dernière 
+ * lors d'envoi ou la récuperation d'informations sur le serveur.  
+ *
+ */
 public abstract class FonctionClient implements
-		Fonction {
+		Communication {
+	
+	/**
+	 * instanciation d'un nouvel objet ClientConnection qui permettra de communiquer avec le serveur.
+	 * 
+	 * @see ClientConnection
+	 */
 	protected ClientConnection client = new ClientConnection();
+	
+	/**
+	 * 
+	 */
 	protected String parametre1 = "";
+	
+	/**
+	 * 
+	 */
 	protected String parametre2 = "";
+	
+	/**
+	 * 
+	 */
 	protected String resultat1 = ""; 
+	
+	/**
+	 * 
+	 */
 	protected String resultat2 = ""; 
+	
+	/**
+	 * 
+	 */
 	public FonctionClient(){
 		client.demarrer();
 	}
 	
+	/**
+	 * 
+	 */
 	public void demarrer(){
-		excuter();
+		executer();
 		client.closeConnection();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getResultat1() {
 		return resultat1;
 	}
-
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getResultat2() {
 		return resultat2;
 	}

@@ -15,7 +15,7 @@ public class GetFichierList extends FonctionClient {
 	}
 
 	@Override
-	public int excuter() {
+	public int executer() {
 		try {
 
 			DataOutputStream dos = client.getDos();
