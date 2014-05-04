@@ -19,12 +19,21 @@ import share.g2.miage.server.fonction.generalite.Fonction;
 import share.g2.miage.server.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
+/**
+ * 
+ *
+ */
 public abstract class AccepterFichier extends FonctionServer {
 	
+	/**
+	 * 
+	 * @param clients
+	 */
 	public AccepterFichier(ClientS clients){
 		this.clients = clients;
 		demarrer();
 	}
+	
 	@Override
 	public int excuter() {
 		try {

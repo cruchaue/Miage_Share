@@ -12,7 +12,10 @@ import java.util.Date;
 import share.g2.miage.server.dao.ClientS;
 import share.g2.miage.server.fonction.AccepterFichier;
 import share.g2.miage.util.Parametre;
-
+/**
+ * 
+ *
+ */
 public class ApresAccepterFichier extends AccepterFichier{
 
 	public ApresAccepterFichier(ClientS clients) {

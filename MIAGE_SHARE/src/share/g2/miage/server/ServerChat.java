@@ -17,23 +17,49 @@ import java.util.Properties;
 
 import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.util.Parametre;
-public class ServerChat   extends Thread {
 
+/**
+ * Lance le serveur qui va gérer un chat 
+ * 
+ *
+ */
+public class ServerChat   extends Thread {
+	
+	/**
+	 * 
+	 */
 	private ServerSocket serverChat = null;
+	
+	/**
+	 * 
+	 */
 	private boolean demarre = true;
+	
+	/**
+	 * 
+	 */
 	List<Socket> clientLinkList = new ArrayList<Socket>();  
+	
+	/**
+	 * 
+	 */
     int count; 
 	
-
-	
-
+    /**
+     * 
+     */
 	private static Map<String,Utilisateur> listeUser;
 	
+	/**
+	 * 
+	 */
 	public ServerChat(){
 		start();
 	}
 	
-
+	/**
+	 * 
+	 */
 	public void run() { 
 		listeUser = new HashMap<String,Utilisateur>();
 		// lire le fichier de parametre
@@ -55,11 +81,18 @@ public class ServerChat   extends Thread {
 		}
 
 	}
-
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public static Map<String, Utilisateur> getListeUser() {
 		return listeUser;
 	}
-
+	
+	/**
+	 * 
+	 */
 	public void closeServer() {
 		demarre = false;
 	}

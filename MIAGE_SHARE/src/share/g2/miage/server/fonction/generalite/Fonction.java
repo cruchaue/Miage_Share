@@ -4,7 +4,15 @@ import java.net.Socket;
 
 import share.g2.miage.server.dao.ClientS;
 
-
+/**
+ * 
+ *
+ */
 public interface Fonction {
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public int excuter();
 }

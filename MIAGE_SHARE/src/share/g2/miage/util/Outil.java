@@ -11,7 +11,17 @@ import java.util.Map;
 
 import share.g2.miage.server.ServerFichier;
 
+/**
+ * 
+ * 
+ *
+ */
 public class Outil {
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public static Map<String, String> getDroitsFichier() {
 		BufferedReader br;
 		Map<String, String> droitsFichier = null;
@@ -40,7 +50,13 @@ public class Outil {
 		}
 		return droitsFichier;
 	}
-
+	
+	/**
+	 * 
+	 * @param droitUtilisateur
+	 * @param droitFichier
+	 * @return
+	 */
 	public static boolean comparerDroit(String droitUtilisateur,
 			String droitFichier) {
 		int droitU = Integer.valueOf(droitUtilisateur);
