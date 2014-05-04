@@ -8,11 +8,11 @@ import share.g2.miage.server.dao.ClientS;
  * 
  *
  */
-public interface Fonction {
+public interface Communication {
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public int excuter();
+	public int commExecuter();
 }

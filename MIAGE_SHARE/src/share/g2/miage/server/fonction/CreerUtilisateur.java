@@ -14,7 +14,7 @@ import java.util.Map;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.server.dao.ClientS;
 import share.g2.miage.server.dao.Utilisateur;
-import share.g2.miage.server.fonction.generalite.Fonction;
+import share.g2.miage.server.fonction.generalite.Communication;
 import share.g2.miage.server.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
@@ -26,7 +26,7 @@ public abstract class CreerUtilisateur extends FonctionServer {
 	}
 
 	@Override
-	public int excuter() {
+	public int commExecuter() {
 		try {
 			DataInputStream dis = clients.getDis();
 			DataOutputStream dos = clients.getDos();
