@@ -10,27 +10,55 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.util.Parametre;
-public class ServerFichier   extends Thread {
 
+/**
+ * Lance le serveur, dans un nouveau Thread, qui va g�rer toutes les op�rations relatives � la gestion des fichiers.
+ *
+ */
+public class ServerFichier   extends Thread {
+	
+	/**
+	 * Socket sur lequel les clients vont pouvoir se connecter afin de communiquer avec le serveur de gestion de Fichier.
+	 * Un Utilisateur, une fois connect�, va pouvoir Uploader, downloader, laisser un commentaire sur un fichier etc...
+	 */
 	private ServerSocket serverFichier = null;
+	
+	/**
+	 * 
+	 */
 	private boolean demarre = true;
 
-
+	/**
+     * Collection d'Utilisateurs qui sont connect�s sur le serveur.
+     * Chaque utilisateur est identifi� par son nom/pseudo.
+     * 
+     * @see Utilisateur
+     * @see Collection
+     * @see Map
+     */
 	private static Map<String,Utilisateur> listeUser;
 	
+	/**
+	 * D�marre le serveur de Fichier.
+	 * 
+	 * @see Fichier
+	 * @see Thread
+	 */
 	public ServerFichier(){
 		start();
 	}
 	
 
-
+	@Override
 	public void run() { 
 		listeUser = new HashMap<String,Utilisateur>();
 		// lire le fichier de parametre
@@ -66,15 +94,32 @@ public class ServerFichier   extends Thread {
 		}
 
 	}
-
+	
+	/**
+	 * Retourne une Map<String, Utilisateur> qui contient tous les Utilisateur connect� au serveur.
+	 * 
+	 * @return La Collection de tous les Utilisateur connect� au serveur.
+	 * 
+	 * @see Collection
+	 * @see Utilisateur
+	 */
 	public static Map<String, Utilisateur> getListeUser() {
 		return listeUser;
 	}
-
+	
+	/**
+	 * Permet de fermer la connection entre le serveur et le client.
+	 */
 	public void closeServer() {
 		demarre = false;
 	}
-
+	
+	/**
+	 * Lors du lancement du serveur, celui-ci va aller chercher dans un fichier, stock� en m�moire, toutes les informations sur les utilisateurs inscrits.
+	 * Ce fichier sert de sauvegarde en cas de d�faillance du serveur et �vite de tout perdre .
+	 * 
+	 * @see Utilisateur
+	 */
 	public static void chargerUtilisateur() {
 		File filename = new File(Parametre.fichiers_BD_utilisateurs); // è¦�è¯»å�–ä»¥ä¸Šè·¯å¾„çš„inputã€‚txtæ–‡ä»¶
 		InputStreamReader reader;
