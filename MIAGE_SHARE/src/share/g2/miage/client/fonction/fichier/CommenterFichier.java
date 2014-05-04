@@ -31,7 +31,7 @@ public class CommenterFichier extends FonctionClient {
 			DataOutputStream dos = client.getDos();
 			// DataInputStream dis = client.getDis();
 
-			dos.writeUTF(Parametre.COMMENTER_FICHIER);
+			dos.writeUTF(Parametre.FICHIER_COMMENTER);
 			dos.flush();
 
 			dos.writeUTF(parametre1);

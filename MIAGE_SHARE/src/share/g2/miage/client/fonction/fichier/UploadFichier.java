@@ -39,7 +39,7 @@ public class UploadFichier extends FonctionClient {
 			byte[] sendBytes = new byte[Parametre.LENGTH_ENVOYER];
 			int length = 0;
 
-			dos.writeUTF(Parametre.UPLOAD_FICHIER);
+			dos.writeUTF(Parametre.FICHIER_UPLOAD);
 			dos.flush();
 
 			dos.writeUTF(parametre2);

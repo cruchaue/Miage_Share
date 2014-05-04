@@ -21,7 +21,7 @@ public class GetFichierList extends FonctionClient {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			dos.writeUTF(Parametre.GET_FICHIER_LIST);
+			dos.writeUTF(Parametre.FICHIER_GET_LIST);
 			dos.flush();
 
 			dos.writeUTF(parametre1);

@@ -23,7 +23,7 @@ public class LireFichierInfo extends FonctionClient {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			dos.writeUTF(Parametre.LIRE_FICHIER_INFO);
+			dos.writeUTF(Parametre.FICHIER_LIRE_INFO);
 			dos.flush();
 
 			dos.writeUTF(parametre1);

@@ -14,11 +14,11 @@ public class StatUpDownload extends FonctionClient {
 	@Override
 	public int executer() {
 		try {
-
+			
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			dos.writeUTF(Parametre.LOGIN);
+			dos.writeUTF(Parametre.UTILISATEUR_LOGIN);
 			dos.flush();
 
 			

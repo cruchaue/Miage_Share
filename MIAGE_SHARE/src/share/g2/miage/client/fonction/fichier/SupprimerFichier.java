@@ -28,7 +28,7 @@ public class SupprimerFichier extends
 
 			DataOutputStream dos = client.getDos();
  
-			dos.writeUTF(Parametre.SUPPRIMER_FICHIER);
+			dos.writeUTF(Parametre.FICHIER_SUPPRIMER);
 			dos.flush();
 
 			dos.writeUTF(parametre1);

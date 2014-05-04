@@ -32,7 +32,7 @@ public class TelechargerFichier extends FonctionClient {
 			byte[] sendBytes = new byte[Parametre.LENGTH_ENVOYER];
 			int length = 0;
 
-			dos.writeUTF(Parametre.TELECHARGER_FICHIER);
+			dos.writeUTF(Parametre.FICHIER_TELECHARGER);
 			dos.flush();
 
 			dos.writeUTF(parametre2);

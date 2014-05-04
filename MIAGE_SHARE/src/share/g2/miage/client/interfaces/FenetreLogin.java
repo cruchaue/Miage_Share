@@ -124,7 +124,7 @@ public class FenetreLogin extends JFrame {
 					
 					setVisible(false);
 
-				} else if (Parametre.USER_EXISTE_PAS.equals(resultat)) {
+				} else if (Parametre.UTILISATEUR_EXISTE_PAS.equals(resultat)) {
 					System.out.println("pas de user");
 					
 					JOptionPane jop = new JOptionPane();
@@ -133,7 +133,7 @@ public class FenetreLogin extends JFrame {
 							"Login failed",
 							JOptionPane.WARNING_MESSAGE);
 					
-				} else if (Parametre.USER_PW_PAS_CORRECTE
+				} else if (Parametre.UTILISATEUR_PW_PAS_CORRECTE
 						.equals(resultat)) {
 					System.out.println("faute pw");
 					

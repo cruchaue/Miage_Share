@@ -47,12 +47,12 @@ public abstract class Login extends FonctionServer {
 					dos.writeUTF(user.getLoginName()+"<@>"+user.getLimite());
 					System.out.println("login ok");
 				}else{
-					dos.writeUTF(Parametre.USER_PW_PAS_CORRECTE);
+					dos.writeUTF(Parametre.UTILISATEUR_PW_PAS_CORRECTE);
 					dos.writeUTF("null");
 					System.out.println("faut pw");
 				}
 			}else{
-				dos.writeUTF(Parametre.USER_EXISTE_PAS);
+				dos.writeUTF(Parametre.UTILISATEUR_EXISTE_PAS);
 				dos.writeUTF("null");
 				System.out.println("pas existe");
 			}

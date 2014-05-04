@@ -32,21 +32,21 @@ class ServerThreadFichier extends Thread {
 			
 				String strFonction = clients.getDis().readUTF();
 				System.out.println("---  ---"+strFonction);
-				if (Parametre.UPLOAD_FICHIER.equals(strFonction)) {
+				if (Parametre.FICHIER_UPLOAD.equals(strFonction)) {
 					fs = new ApresAccepterFichier(clients);
-				}else if(Parametre.TELECHARGER_FICHIER.equals(strFonction)){
+				}else if(Parametre.FICHIER_TELECHARGER.equals(strFonction)){
 					fs = new ApresEnvoyerFichier(clients);
-				}else if(Parametre.SUPPRIMER_FICHIER.equals(strFonction)){
+				}else if(Parametre.FICHIER_SUPPRIMER.equals(strFonction)){
 					fs = new ApresSupprimerFichier(clients);
-				}else if(Parametre.LOGIN.equals(strFonction)){
+				}else if(Parametre.UTILISATEUR_LOGIN.equals(strFonction)){
 					fs = new ApresLogin(clients);
-				}else if(Parametre.LIRE_FICHIER_INFO.equals(strFonction)){
+				}else if(Parametre.FICHIER_LIRE_INFO.equals(strFonction)){
 					fs = new ApresEnvoyerFichierInfo(clients);
-				}else if(Parametre.COMMENTER_FICHIER.equals(strFonction)){
+				}else if(Parametre.FICHIER_COMMENTER.equals(strFonction)){
 					fs = new ApresCommenterFichier(clients);
-				}else if(Parametre.CREER_UTILISATEUR.equals(strFonction)){
+				}else if(Parametre.UTILISATEUR_CREER.equals(strFonction)){
 					fs = new ApresCreerUtilisateur(clients);
-				}else if(Parametre.GET_FICHIER_LIST.equals(strFonction)){
+				}else if(Parametre.FICHIER_GET_LIST.equals(strFonction)){
 					fs = new ApresEnvoyerFichierList(clients);
 				}
 				

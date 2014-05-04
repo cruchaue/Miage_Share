@@ -32,7 +32,7 @@ public class SupprimerUtilisateur extends FonctionClient {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			dos.writeUTF(Parametre.CREER_UTILISATEUR);
+			dos.writeUTF(Parametre.UTILISATEUR_CREER);
 			dos.flush();
 
 			dos.writeUTF(parametre1);
