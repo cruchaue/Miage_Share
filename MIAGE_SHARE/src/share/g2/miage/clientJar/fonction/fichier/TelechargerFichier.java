@@ -14,8 +14,20 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
+/**
+ * Permet à l'utilisateur de Telecharger un fichier stocké sur le serveur.
+ * 
+ * Il est preferable de definir des droits d'acces aux fichiers 
+ * lors de la conception de l'application.
+ *
+ */
 public class TelechargerFichier extends FonctionClient {
-
+	
+	/**
+	 * 
+	 * @param chemin
+	 * @param fichierNom
+	 */
 	public TelechargerFichier(String chemin, String fichierNom){
 		super();
 		parametre1 = chemin;

@@ -7,8 +7,18 @@ import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.util.Parametre;
 
+/**
+ * Permet a l'utilisateur de lire les informations lié au fichier.
+ * 
+ * Il suffit de faire une demande au serveur avec le nom du fichier a consulter en parametre.
+ *
+ */
 public class LireFichierInfo extends FonctionClient {
 	
+	/**
+	 * 
+	 * @param filename
+	 */
 	public LireFichierInfo(String filename){
 		super();
 		parametre1 = filename;

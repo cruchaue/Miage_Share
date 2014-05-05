@@ -14,8 +14,22 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
+/**
+ * <b>Represente l'action de creer un utilisateur sur le serveur.</b>
+ * 
+ * <p>
+ * Permet, lors de l'inscription de l'utilisateur sur le reseau, de creer son profil sur le serveur.
+ * </p>
+ * <p>
+ * Il existe dans le package server une classe CreerUtilisateur qui fonctionne en complement de cette classe.
+ * </p>
+ */
 public class CreerUtilisateur extends FonctionClient {
-
+	
+	/**
+	 * 
+	 * @param utilisateurInfo
+	 */
 	public CreerUtilisateur(String utilisateurInfo) {
 		super();
 		parametre1 = utilisateurInfo;
