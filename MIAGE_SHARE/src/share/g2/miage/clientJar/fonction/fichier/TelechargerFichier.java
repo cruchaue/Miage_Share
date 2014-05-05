@@ -46,8 +46,7 @@ public class TelechargerFichier extends FonctionClient {
 			}
 			fos.close();
 
-			JOptionPane.showMessageDialog(null,
-					"Fichier telecharger avec succès");
+			
 			// socket.close();
 			fos.close();
 			// dos.close();

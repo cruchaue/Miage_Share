@@ -33,10 +33,11 @@ public class FenetreInformations extends JFrame {
 	private JLabel nomFicLabel;
 	private JLabel auteurLabel;
 	private JLabel tailleLabel;
+	private JList list;
 	private JLabel tempsUploadLabel;
 	private JLabel nbTelechargementLabel;
 	private JLabel droitsLabel;
-	JList list ;
+	
 	DefaultListModel model ;
 	private JTextField textFieldCommentaire;
 
@@ -48,7 +49,7 @@ public class FenetreInformations extends JFrame {
 		//this.fichier = fichier;
 		setTitle("Informations fichier");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 699, 482);
+		setBounds(100, 100, 705, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -79,7 +80,7 @@ public class FenetreInformations extends JFrame {
 		contentPane.add(lblDroits);
 		
 		JLabel lblCommentaires = new JLabel("Commentaires :");
-		lblCommentaires.setBounds(322, 30, 131, 14);
+		lblCommentaires.setBounds(43, 204, 131, 14);
 		contentPane.add(lblCommentaires);
 		
 		nomFicLabel = new JLabel("New label");
@@ -116,20 +117,19 @@ public class FenetreInformations extends JFrame {
 		
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(322, 56, 334, 118);
+		scrollPane.setBounds(43, 240, 612, 116);
 		contentPane.add(scrollPane);
-		
-		model = new DefaultListModel();
-		list = new JList(model);
-		
+		list = new JList(new DefaultListModel<String>());
 		scrollPane.setViewportView(list);
+		model = new DefaultListModel<String>();
+		list.setModel(model);
 		
 		
 		
 		
 		
 		textFieldCommentaire = new JTextField();
-		textFieldCommentaire.setBounds(44, 233, 612, 53);
+		textFieldCommentaire.setBounds(43, 406, 612, 53);
 		contentPane.add(textFieldCommentaire);
 		textFieldCommentaire.setColumns(10);
 		
@@ -166,11 +166,11 @@ public class FenetreInformations extends JFrame {
 			
 			}
 		});
-		btnEnvoyer.setBounds(554, 298, 102, 23);
+		btnEnvoyer.setBounds(554, 513, 102, 23);
 		contentPane.add(btnEnvoyer);
 		
 		JLabel lblVotreCommentaire = new JLabel("Votre commentaire :");
-		lblVotreCommentaire.setBounds(43, 207, 176, 14);
+		lblVotreCommentaire.setBounds(43, 381, 176, 14);
 		contentPane.add(lblVotreCommentaire);
 	}
 	

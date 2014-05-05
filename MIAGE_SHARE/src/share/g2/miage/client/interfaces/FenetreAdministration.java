@@ -82,7 +82,7 @@ public class FenetreAdministration extends JFrame {
 		JButton btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				deleteLine(Parametre.fichiers_BD_utilisateurs,list.getSelectedIndex());
+				supprimerUtilisateur(Parametre.fichiers_BD_utilisateurs,list.getSelectedIndex());
 			}
 		});
 		btnSupprimer.setBounds(223, 382, 115, 41);
@@ -135,7 +135,7 @@ public class FenetreAdministration extends JFrame {
 		}
 	}
 
-	public void deleteLine(String fileName, int lineNumber) {
+	public void supprimerUtilisateur(String fileName, int lineNumber) {
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
 					new FileInputStream(fileName)));
