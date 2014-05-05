@@ -11,7 +11,7 @@ import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.clientJar.Outil.ParametreCJ;
 
 /**
  * <b>Permet à l'utilisateur de supprimer un fichier sur le serveur.</b>
@@ -44,7 +44,7 @@ public class SupprimerFichier<T> extends
 
 			DataOutputStream dos = client.getDos();
  
-			dos.writeUTF(Parametre.FICHIER_SUPPRIMER);
+			dos.writeUTF(ParametreCJ.FICHIER_SUPPRIMER);
 			dos.flush();
 
 			dos.writeUTF(parametre1);

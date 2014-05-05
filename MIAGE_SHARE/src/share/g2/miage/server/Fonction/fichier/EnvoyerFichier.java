@@ -4,11 +4,19 @@ import java.util.Map;
 
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.server.dao.UtilisateurStat;
+import share.g2.miage.server.outil.ParametreS;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.fichier.CommenterFichierJar;
 import share.g2.miage.serverJar.fonction.fichier.EnvoyerFichierJar;
+import share.g2.miage.serverJar.outil.ParametreSJ;
 
 public class EnvoyerFichier extends EnvoyerFichierJar {
+
+	
+	public EnvoyerFichier(String fichierChemin) {
+		super(fichierChemin);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	protected int apresConnection() {

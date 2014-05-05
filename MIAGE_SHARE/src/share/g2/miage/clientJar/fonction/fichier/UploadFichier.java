@@ -13,7 +13,7 @@ import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.clientJar.Outil.ParametreCJ;
 
 /**
  * Permet a l'utilisateur d'uploader un fichier sur le serveur.
@@ -48,10 +48,10 @@ public class UploadFichier<T> extends FonctionClient<T> {
 			DataInputStream dis = client.getDis();
 			BufferedOutputStream bos = client.getBos();
 
-			byte[] sendBytes = new byte[Parametre.LENGTH_ENVOYER];
+			byte[] sendBytes = new byte[ParametreCJ.LENGTH_ENVOYER];
 			int length = 0;
 
-			dos.writeUTF(Parametre.FICHIER_UPLOAD);
+			dos.writeUTF(ParametreCJ.FICHIER_UPLOAD);
 			dos.flush();
 
 			dos.writeUTF(parametre2);

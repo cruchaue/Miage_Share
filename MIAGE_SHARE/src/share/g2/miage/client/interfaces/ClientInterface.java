@@ -12,6 +12,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
 
+import share.g2.miage.client.ParametreC;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.dao.User;
 import share.g2.miage.client.fonction.statistiques.StatUpDownload;
@@ -28,6 +29,7 @@ import javax.swing.JScrollPane;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
 
+import share.g2.miage.clientJar.Outil.Outil;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.fichier.GetFichierList;
 import share.g2.miage.clientJar.fonction.fichier.LireFichierInfo;
@@ -37,7 +39,6 @@ import share.g2.miage.clientJar.fonction.fichier.UploadFichier;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.clientJar.fonction.statistiques.StatUpDownloadJar;
-import share.g2.miage.util.Parametre;
 
 public class ClientInterface extends JFrame {
 
@@ -274,7 +275,7 @@ public class ClientInterface extends JFrame {
 
 				System.out.println(fc.getResultat1());
 				Fichier fichier = new Fichier(filename
-						+ Parametre.SPEPARER_FICHIER_INFO
+						+ ParametreC.SPEPARER_FICHIER_INFO
 						+ fc.getResultat1());
 				finfo.setFichierInfo(fichier);
 
@@ -299,11 +300,6 @@ public class ClientInterface extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				FenetreStat fs = new FenetreStat(User);
 				fs.setVisible(true);
-				FonctionClient<ChartFrame> fcf = new StatUpDownload(User.getUserName());
-				fcf.demarrer();
-				ChartFrame chartFrame = fcf.getResultat3();
-				
-				chartFrame.setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(23, 230, 151, 23);
@@ -320,7 +316,7 @@ public class ClientInterface extends JFrame {
 	public void listerFichier() {
 		// getFichiers
 		FonctionClient fc = new GetFichierList(User.getUserName());
-		fichiers = fc.getResultat1().split(Parametre.SEPARATEUR);
+		fichiers = Outil.StringToStringTableau(fc.getResultat1());
 
 		// Temps d'attente pour l'upload du fichier sur le serveur
 		try {

@@ -12,7 +12,7 @@ import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.clientJar.Outil.ParametreCJ;
 
 /**
  * <b>Login represente l'action de se logger sur le serveur</b>
@@ -46,7 +46,7 @@ public class Login<T> extends FonctionClient<T> {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			dos.writeUTF(Parametre.UTILISATEUR_LOGIN);
+			dos.writeUTF(ParametreCJ.UTILISATEUR_LOGIN);
 			dos.flush();
 
 			dos.writeUTF(parametre1);
@@ -56,6 +56,7 @@ public class Login<T> extends FonctionClient<T> {
 			dos.flush();
 
 			resultat1 = dis.readUTF();
+			
 			resultat2 = dis.readUTF();
 
 		} catch (Exception e) {

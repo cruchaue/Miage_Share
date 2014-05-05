@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import share.g2.miage.server.ServerFichier;
-import share.g2.miage.util.Parametre;
 
 /**
  * Classe regroupant quelques fonctions utiles pouvant etre couramment utilisees.
@@ -28,8 +27,8 @@ public class Outil {
 		Map<String, String> droitsFichier = null;
 		try {
 			droitsFichier = new HashMap<String, String>();
-			System.out.println(Parametre.droit_fichiers);
-			InputStreamReader reader = new InputStreamReader(new FileInputStream(new File(Parametre.droit_fichiers)
+			System.out.println(ParametreS.droit_fichiers);
+			InputStreamReader reader = new InputStreamReader(new FileInputStream(new File(ParametreS.droit_fichiers)
 					));
 			br = new BufferedReader(reader);
 			String uneLigne;

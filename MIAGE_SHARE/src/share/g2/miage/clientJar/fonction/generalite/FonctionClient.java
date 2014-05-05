@@ -10,7 +10,6 @@ import java.io.FileOutputStream;
 import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.server.ServerFichier;
-import share.g2.miage.util.Parametre;
 
 /**
  * Superclasse (qui impl�mente l'interface Fonction) dont toutes les fonctions utilisables par un client d�couleront.

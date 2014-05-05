@@ -4,7 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.clientJar.Outil.ParametreCJ;
 
 /**
  * Contient la méthode permettant de recuperer la liste des fichiers stockés sur le serveur.
@@ -30,7 +30,7 @@ public class GetFichierList<T> extends FonctionClient<T> {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			dos.writeUTF(Parametre.FICHIER_GET_LIST);
+			dos.writeUTF(ParametreCJ.FICHIER_GET_LIST);
 			dos.flush();
 
 			dos.writeUTF(parametre1);

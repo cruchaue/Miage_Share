@@ -14,13 +14,14 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import share.g2.miage.client.dao.User;
+import share.g2.miage.clientJar.Outil.Outil;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.fichier.SupprimerFichier;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.clientJar.fonction.utilisateur.Login;
 import share.g2.miage.util.CrypterMDP;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.client.ParametreC;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -102,10 +103,10 @@ public class FenetreLogin extends JFrame {
 				FonctionClient fc = new Login(login, mdp);
 
 				String resultat = fc.getResultat1();
-				if (Parametre.OK.equals(resultat)) {
+				if ("1".equals(resultat)) {
 					System.out.println("login ok");
 					String userInfoStr = fc.getResultat2();
-					String[] userInfo =  userInfoStr.split(Parametre.SEPARATEUR);
+					String[] userInfo =  Outil.StringToStringTableau(userInfoStr);
 					
 					User user = new User();
 					user.setUserName(userInfo[0]);
@@ -127,7 +128,7 @@ public class FenetreLogin extends JFrame {
 					
 					setVisible(false);
 
-				} else if (Parametre.UTILISATEUR_EXISTE_PAS.equals(resultat)) {
+				} else if ("0".equals(resultat)) {
 					System.out.println("pas de user");
 					
 					JOptionPane jop = new JOptionPane();
@@ -136,8 +137,7 @@ public class FenetreLogin extends JFrame {
 							"Login failed",
 							JOptionPane.WARNING_MESSAGE);
 					
-				} else if (Parametre.UTILISATEUR_PW_PAS_CORRECTE
-						.equals(resultat)) {
+				} else if ("-1".equals(resultat)) {
 					System.out.println("faute pw");
 					
 					JOptionPane jop = new JOptionPane();

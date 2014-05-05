@@ -3,7 +3,7 @@ package share.g2.miage.clientJar.fonction.utilisateur;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.clientJar.Outil.ParametreCJ;
 
 /**
  * <b>Represente l'action de supprimer un utilisateur du serveur</b>
@@ -34,7 +34,7 @@ public class SupprimerUtilisateur<T> extends FonctionClient<T> {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			dos.writeUTF(Parametre.UTILISATEUR_CREER);
+			dos.writeUTF(ParametreCJ.UTILISATEUR_CREER);
 			dos.flush();
 
 			dos.writeUTF(parametre1);

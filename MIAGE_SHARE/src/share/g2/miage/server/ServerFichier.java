@@ -19,7 +19,7 @@ import java.util.Properties;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.server.dao.UtilisateurStat;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.server.outil.ParametreS;
 
 /**
  * Lance le serveur, dans un nouveau Thread, qui va g�rer toutes les op�rations relatives � la gestion des fichiers.
@@ -129,7 +129,7 @@ public class ServerFichier   extends Thread {
 	 * @see Utilisateur
 	 */
 	public static void chargerUtilisateur() {
-		File filename = new File(Parametre.fichiers_BD_utilisateurs); 
+		File filename = new File(ParametreS.fichiers_BD_utilisateurs); 
 		InputStreamReader reader;
 		try {
 			reader = new InputStreamReader(new FileInputStream(filename));

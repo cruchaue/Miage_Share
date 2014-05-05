@@ -14,7 +14,7 @@ import share.g2.miage.clientJar.fonction.fichier.CommenterFichier;
 import share.g2.miage.clientJar.fonction.fichier.LireFichierInfo;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.client.ParametreC;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JScrollPane;
@@ -141,17 +141,17 @@ public class FenetreInformations extends JFrame {
 				SimpleDateFormat sdf  =   new  SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 				
 				String commentaire = ClientInterface.getUser().getUserName()+
-						Parametre.SPEPARER_FICHIER_COMMENTAIRE2+
+						ParametreC.SPEPARER_FICHIER_COMMENTAIRE2+
 						sdf.format( date)+
-						Parametre.SPEPARER_FICHIER_COMMENTAIRE2+
+						ParametreC.SPEPARER_FICHIER_COMMENTAIRE2+
 						textFieldCommentaire.getText()+
-						Parametre.SPEPARER_FICHIER_COMMENTAIRE1;
+						ParametreC.SPEPARER_FICHIER_COMMENTAIRE1;
 						
 				new CommenterFichier(nomFicLabel.getText(),commentaire);
 				
 				
 				FonctionClient fc = new LireFichierInfo(nomFicLabel.getText());
-				Fichier fichier = new Fichier(nomFicLabel.getText()+Parametre.SPEPARER_FICHIER_INFO+ fc.getResultat1());
+				Fichier fichier = new Fichier(nomFicLabel.getText()+ParametreC.SPEPARER_FICHIER_INFO+ fc.getResultat1());
 				
 				try {
 					Thread.sleep(1000);

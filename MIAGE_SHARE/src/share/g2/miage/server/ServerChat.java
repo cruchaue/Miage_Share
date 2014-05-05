@@ -17,15 +17,15 @@ import java.util.Map;
 import java.util.Properties;
 
 import share.g2.miage.server.dao.Utilisateur;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.server.outil.ParametreS;
 
 /**
- * Lance le serveur, dans un nouveau Thread, qui va gérer un chat. 
- * <p>Cette classe contient toutes les informations nécessaires aux chat.
+ * Lance le serveur, dans un nouveau Thread, qui va gï¿½rer un chat. 
+ * <p>Cette classe contient toutes les informations nï¿½cessaires aux chat.
  * <ul>
- * 	<li>Liste d'Utilisateurs connectés au chat</li>
+ * 	<li>Liste d'Utilisateurs connectï¿½s au chat</li>
  * 	<li>Liste des sockets des utilisateurs</li>
- * 	<li> Le nombre d'utilisateurs connectés</li>
+ * 	<li> Le nombre d'utilisateurs connectï¿½s</li>
  * </ul>
  *</p>
  */
@@ -43,9 +43,9 @@ public class ServerChat   extends Thread {
 	
 	/**
 	 * Liste des sockets de tout les utilisateurs pour que le serveur relai les messages 
-	 * des utilisateurs ce qui permet une discution à plusieurs clients (type salon).
+	 * des utilisateurs ce qui permet une discution ï¿½ plusieurs clients (type salon).
 	 * 
-	 *  Cette liste peut être vide.
+	 *  Cette liste peut ï¿½tre vide.
 	 */
 	List<Socket> clientLinkList = new ArrayList<Socket>();  
 	
@@ -56,8 +56,8 @@ public class ServerChat   extends Thread {
     int count; 
 	
     /**
-     * Collection d'Utilisateurs qui sont connectés sur le chat.
-     * Chaque utilisateur est identifié par son nom/pseudo.
+     * Collection d'Utilisateurs qui sont connectï¿½s sur le chat.
+     * Chaque utilisateur est identifiï¿½ par son nom/pseudo.
      * 
      * @see Utilisateur
      * @see Collection
@@ -66,7 +66,7 @@ public class ServerChat   extends Thread {
 	private static Map<String,Utilisateur> listeUser;
 	
 	/**
-	 * Démarre le serveur de Chat.
+	 * Dï¿½marre le serveur de Chat.
 	 */
 	public ServerChat(){
 		start();
@@ -79,7 +79,7 @@ public class ServerChat   extends Thread {
 
 		try {
 
-			serverChat = new ServerSocket(Parametre.portServerChat);
+			serverChat = new ServerSocket(ParametreS.portServerChat);
 
 			while (demarre) {
 				
@@ -96,8 +96,8 @@ public class ServerChat   extends Thread {
 	}
 	
 	/**
-	 * Retourne une Map<String, Utilisateur> qui contient tous les Utilisateur connecté au chat. Permet d'établir une liste de personne connecté par exemple. 
-	 * @return La Collection de tous les Utilisateur connecté au chat.
+	 * Retourne une Map<String, Utilisateur> qui contient tous les Utilisateur connectï¿½ au chat. Permet d'ï¿½tablir une liste de personne connectï¿½ par exemple. 
+	 * @return La Collection de tous les Utilisateur connectï¿½ au chat.
 	 * 
 	 * @see Collection
 	 * @see Utilisateur

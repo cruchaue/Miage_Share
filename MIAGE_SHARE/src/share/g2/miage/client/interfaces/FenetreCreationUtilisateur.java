@@ -20,7 +20,7 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.clientJar.fonction.utilisateur.CreerUtilisateur;
 import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.util.CrypterMDP;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.client.ParametreC;
 
 public class FenetreCreationUtilisateur extends JFrame {
 	
@@ -130,11 +130,11 @@ public class FenetreCreationUtilisateur extends JFrame {
 					u.setPassword(mdp);
 					StringBuffer sb =  new StringBuffer();
 					sb.append(login.getText());
-				    sb.append(Parametre.SPEPARER_INFO_UTILISATEUR);
+				    sb.append(ParametreC.SPEPARER_INFO_UTILISATEUR);
 				    sb.append(mdp);
-				    sb.append(Parametre.SPEPARER_INFO_UTILISATEUR);
+				    sb.append(ParametreC.SPEPARER_INFO_UTILISATEUR);
 				    sb.append(mdp2);
-				    sb.append(Parametre.SPEPARER_INFO_UTILISATEUR);
+				    sb.append(ParametreC.SPEPARER_INFO_UTILISATEUR);
 				    sb.append(mail.getText());
 				
 				    FonctionClient fc = new CreerUtilisateur(sb.toString());

@@ -23,9 +23,10 @@ import javax.swing.JList;
 import javax.swing.JButton;
 
 import share.g2.miage.client.dao.User;
+import share.g2.miage.clientJar.Outil.Outil;
 import share.g2.miage.clientJar.fonction.fichier.GetFichierList;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.client.ParametreC;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -89,7 +90,7 @@ public class FenetreAdministration extends JFrame {
 		JButton btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				supprimerUtilisateur(Parametre.fichiers_BD_utilisateurs,
+				supprimerUtilisateur(ParametreC.fichiers_BD_utilisateurs,
 						list.getSelectedIndex());
 
 			}
@@ -155,7 +156,7 @@ public class FenetreAdministration extends JFrame {
 	}
 
 	public void modifierDroitFichier(String nomFichier, String choixDroit) {
-		String droitFichier = Parametre.droit_fichiers;
+		String droitFichier = ParametreC.droit_fichiers;
 
 		File filename = new File(droitFichier);
 		InputStreamReader reader;
@@ -179,7 +180,7 @@ public class FenetreAdministration extends JFrame {
 			}
 			
 			
-			File file = new File(Parametre.droit_fichiers);
+			File file = new File(ParametreC.droit_fichiers);
 			FileWriter fw = new FileWriter(file.getAbsoluteFile(), false);
 
 			BufferedWriter bw = new BufferedWriter(fw);
@@ -198,7 +199,7 @@ public class FenetreAdministration extends JFrame {
 	public void listerFichiers() {
 		// getFichiers
 		FonctionClient fc = new GetFichierList(user.getUserName());
-		fichiers = fc.getResultat1().split(Parametre.SEPARATEUR);
+		fichiers = Outil.StringToStringTableau(fc.getResultat1());
 
 		// Temps d'attente pour l'upload du fichier sur le serveur
 		try {

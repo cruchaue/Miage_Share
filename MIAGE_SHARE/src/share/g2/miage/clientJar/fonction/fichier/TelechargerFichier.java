@@ -12,7 +12,7 @@ import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.clientJar.Outil.ParametreCJ;
 
 /**
  * Permet à l'utilisateur de Telecharger un fichier stocké sur le serveur.
@@ -42,10 +42,10 @@ public class TelechargerFichier<T> extends FonctionClient<T> {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			byte[] sendBytes = new byte[Parametre.LENGTH_ENVOYER];
+			byte[] sendBytes = new byte[ParametreCJ.LENGTH_ENVOYER];
 			int length = 0;
 
-			dos.writeUTF(Parametre.FICHIER_TELECHARGER);
+			dos.writeUTF(ParametreCJ.FICHIER_TELECHARGER);
 			dos.flush();
 
 			dos.writeUTF(parametre2);

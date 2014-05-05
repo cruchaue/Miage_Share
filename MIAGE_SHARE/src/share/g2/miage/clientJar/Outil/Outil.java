@@ -3,8 +3,6 @@ package share.g2.miage.clientJar.Outil;
 import java.util.ArrayList;
 import java.util.List;
 
-import share.g2.miage.util.Parametre;
-
 /**
  * 
  *
@@ -21,7 +19,7 @@ public class Outil {
 		for(int i = 0; i< lists.size();i++){
 			sb.append(lists.get(i));
 			if(i!=lists.size()-1){
-				sb.append(Parametre.SEPARATEUR);
+				sb.append(ParametreCJ.SEPARATEUR);
 			}
 		}
 		return sb.toString();
@@ -37,7 +35,7 @@ public class Outil {
 		for(int i = 0; i< strT.length;i++){
 			sb.append(strT[i]);
 			if(i!=strT.length-1){
-				sb.append(Parametre.SEPARATEUR);
+				sb.append(ParametreCJ.SEPARATEUR);
 			}
 		}
 		return sb.toString();
@@ -49,7 +47,7 @@ public class Outil {
 	 * @return
 	 */
 	public static List<String> StringToList(String str){
-		String[] strT =  str.split(Parametre.SEPARATEUR);
+		String[] strT =  str.split(ParametreCJ.SEPARATEUR);
 		List<String> list = new ArrayList<String>();
 		
 		for(int i = 0; i< strT.length;i++){
@@ -65,6 +63,6 @@ public class Outil {
 	 * @return
 	 */
 	public static String[] StringToStringTableau(String str){
-		return str.split(Parametre.SEPARATEUR);
+		return str.split(ParametreCJ.SEPARATEUR);
 	}
 }

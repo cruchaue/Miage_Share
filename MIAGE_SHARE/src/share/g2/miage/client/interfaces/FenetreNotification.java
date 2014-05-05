@@ -22,7 +22,7 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.clientJar.fonction.utilisateur.Login;
 import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.util.CrypterMDP;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.client.ParametreC;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
