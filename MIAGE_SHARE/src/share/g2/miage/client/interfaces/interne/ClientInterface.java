@@ -1,6 +1,4 @@
-package share.g2.miage.client.interfaces;
-
-import java.awt.EventQueue;
+package share.g2.miage.client.interfaces.interne;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
@@ -14,7 +12,6 @@ import javax.swing.JButton;
 
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.dao.User;
-import share.g2.miage.client.fonction.statistiques.StatUpDownload;
 import share.g2.miage.client.outil.ParametreC;
 
 import java.awt.event.ActionListener;
@@ -26,15 +23,12 @@ import java.util.Properties;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 
-import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.fichier.GetFichierList;
 import share.g2.miage.clientJar.fonction.fichier.LireFichierInfo;
 import share.g2.miage.clientJar.fonction.fichier.SupprimerFichier;
 import share.g2.miage.clientJar.fonction.fichier.TelechargerFichier;
 import share.g2.miage.clientJar.fonction.fichier.UploadFichier;
-import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.clientJar.fonction.statistiques.StatUpDownloadJar;
 import share.g2.miage.clientJar.outil.Outil;
 
 public class ClientInterface extends JFrame {
@@ -60,22 +54,6 @@ public class ClientInterface extends JFrame {
 		User = user;
 	}
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ClientInterface frame = new ClientInterface();
-					frame.setVisible(true);
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	public String getCheminC_enregistrer_fichier_defaut() {
 		return cheminC_enregistrer_fichier_defaut;

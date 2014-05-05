@@ -1,4 +1,4 @@
-package share.g2.miage.client.interfaces;
+package share.g2.miage.client.interfaces.interne;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -57,7 +57,7 @@ public class FenetreStat extends JFrame {
 	}
 
 	public static void setUser(User user) {
-		user = user;
+		User = user;
 	}
 
 	private JTabbedPane onglet = new JTabbedPane();

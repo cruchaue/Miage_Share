@@ -1,4 +1,4 @@
-package share.g2.miage.client.interfaces;
+package share.g2.miage.client.interfaces.interne;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -30,22 +30,6 @@ public class FenetreCreationUtilisateur extends JFrame {
 	private JPasswordField pass;
 	private JPasswordField verifPass;
 	private JTextField mail;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FenetreLoginF frame = new FenetreLoginF();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.

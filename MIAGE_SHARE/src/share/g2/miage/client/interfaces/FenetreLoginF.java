@@ -14,6 +14,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import share.g2.miage.client.dao.User;
+import share.g2.miage.client.interfaces.interne.ClientInterface;
+import share.g2.miage.client.interfaces.interne.FenetreCreationUtilisateur;
 import share.g2.miage.client.outil.CrypterMDP;
 import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.clientJar.dao.ClientConnection;

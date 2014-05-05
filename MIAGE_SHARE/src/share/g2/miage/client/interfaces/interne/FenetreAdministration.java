@@ -1,8 +1,7 @@
-package share.g2.miage.client.interfaces;
+package share.g2.miage.client.interfaces.interne;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,7 +11,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Properties;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -21,13 +19,11 @@ import javax.swing.JTabbedPane;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.JButton;
-
 import share.g2.miage.client.dao.User;
 import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.clientJar.fonction.fichier.GetFichierList;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.clientJar.outil.Outil;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
