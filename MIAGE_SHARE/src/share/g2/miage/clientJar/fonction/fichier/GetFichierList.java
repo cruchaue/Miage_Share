@@ -8,7 +8,8 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.util.Parametre;
 
 /**
- * 
+ * Contient la méthode permettant de recuperer la liste des fichiers stockés sur le serveur.
+ * Le seul parametre a envoyer est le nom d'utilisateur. 
  *
  */
 public class GetFichierList extends FonctionClient {

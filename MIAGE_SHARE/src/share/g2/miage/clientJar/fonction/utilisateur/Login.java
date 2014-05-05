@@ -14,8 +14,24 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
+/**
+ * <b>Login represente l'action de se logger sur le serveur</b>
+ * 
+ * <p>
+ * Effectue l'action de se logger sur le serveur. Login va envoyer une demande de login au serveur 
+ * qui effectuera toutes les verifications necessaires.
+ * </p>
+ * <p>
+ * Il existe dans le package server une classe Login qui fonctionne en complement de cette classe.
+ * </p>
+ */
 public class Login extends FonctionClient {
-
+	
+	/**
+	 * 
+	 * @param utilisateurNom
+	 * @param fichierNom
+	 */
 	public Login(String utilisateurNom, String fichierNom) {
 		super();
 		parametre1 = utilisateurNom;

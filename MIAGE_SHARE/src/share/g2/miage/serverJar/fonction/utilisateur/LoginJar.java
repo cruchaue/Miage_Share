@@ -16,6 +16,11 @@ import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
+/**
+ * <b>Action de logger un utilisateur sur le serveur</b>
+ * 
+ * <p>Classe abstraite dont vont heriter les classes de login</p>
+ */
 public abstract class LoginJar extends FonctionServer {
 
 	@Override
