@@ -129,7 +129,7 @@ public class ServerFichier   extends Thread {
 	 * @see Utilisateur
 	 */
 	public static void chargerUtilisateur() {
-		File filename = new File(Parametre.fichiers_BD_utilisateurs); // è¦�è¯»å�–ä»¥ä¸Šè·¯å¾„çš„inputã€‚txtæ–‡ä»¶
+		File filename = new File(Parametre.fichiers_BD_utilisateurs); 
 		InputStreamReader reader;
 		try {
 			reader = new InputStreamReader(new FileInputStream(filename));
