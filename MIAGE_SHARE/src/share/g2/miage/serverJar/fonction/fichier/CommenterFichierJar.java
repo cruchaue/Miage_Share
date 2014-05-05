@@ -1,4 +1,4 @@
-package share.g2.miage.serverJar.fonction;
+package share.g2.miage.serverJar.fonction.fichier;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -16,15 +16,15 @@ import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
-public abstract class CommenterFichier extends FonctionServer {
+public abstract class CommenterFichierJar extends FonctionServer {
 	
-	public CommenterFichier(ClientS clients){
+	public CommenterFichierJar(ClientS clients){
 		this.clients = clients;
 		demarrer();
 	}
 
 	@Override
-	public int commExecuter() {
+	public int commExecuter1() {
 		try {
 			DataInputStream dis = clients.getDis();
 			//FileOutputStream fos = null;

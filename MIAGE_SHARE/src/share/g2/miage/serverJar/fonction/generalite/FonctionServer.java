@@ -30,13 +30,26 @@ Communication {
 	 * 
 	 */
 	protected void demarrer(){
-		commExecuter();
+		avantConnection();
+		commExecuter1();
+		pendantConnection();
+		commExecuter2();
 		clients.closeConnection();
 		apresConnection();
+	}
+	
+	
+	@Override
+	public int commExecuter2(){
+		return 1;
 	}
 	
 	/**
 	 * 
 	 */
-	protected abstract void apresConnection();
+	protected void avantConnection(){}
+	
+	protected void pendantConnection(){}
+	
+	protected void apresConnection(){}
 }

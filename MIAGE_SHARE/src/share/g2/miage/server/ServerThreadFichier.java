@@ -3,7 +3,15 @@ package share.g2.miage.server;
 import java.io.*;
 import java.net.*;
 
-import share.g2.miage.server.apresFonction.*;
+import share.g2.miage.server.Fonction.*;
+import share.g2.miage.server.Fonction.fichier.AccepterFichier;
+import share.g2.miage.server.Fonction.fichier.CommenterFichier;
+import share.g2.miage.server.Fonction.fichier.EnvoyerFichier;
+import share.g2.miage.server.Fonction.fichier.EnvoyerFichierInfo;
+import share.g2.miage.server.Fonction.fichier.EnvoyerFichierList;
+import share.g2.miage.server.Fonction.fichier.SupprimerFichier;
+import share.g2.miage.server.Fonction.utilisateur.CreerUtilisateur;
+import share.g2.miage.server.Fonction.utilisateur.Login;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
@@ -33,21 +41,21 @@ class ServerThreadFichier extends Thread {
 				String strFonction = clients.getDis().readUTF();
 				System.out.println("---  ---"+strFonction);
 				if (Parametre.FICHIER_UPLOAD.equals(strFonction)) {
-					fs = new ApresAccepterFichier(clients);
+					fs = new AccepterFichier(clients);
 				}else if(Parametre.FICHIER_TELECHARGER.equals(strFonction)){
-					fs = new ApresEnvoyerFichier(clients);
+					fs = new EnvoyerFichier(clients);
 				}else if(Parametre.FICHIER_SUPPRIMER.equals(strFonction)){
-					fs = new ApresSupprimerFichier(clients);
+					fs = new SupprimerFichier(clients);
 				}else if(Parametre.UTILISATEUR_LOGIN.equals(strFonction)){
-					fs = new ApresLogin(clients);
+					fs = new Login(clients);
 				}else if(Parametre.FICHIER_LIRE_INFO.equals(strFonction)){
-					fs = new ApresEnvoyerFichierInfo(clients);
+					fs = new EnvoyerFichierInfo(clients);
 				}else if(Parametre.FICHIER_COMMENTER.equals(strFonction)){
-					fs = new ApresCommenterFichier(clients);
+					fs = new CommenterFichier(clients);
 				}else if(Parametre.UTILISATEUR_CREER.equals(strFonction)){
-					fs = new ApresCreerUtilisateur(clients);
+					fs = new CreerUtilisateur(clients);
 				}else if(Parametre.FICHIER_GET_LIST.equals(strFonction)){
-					fs = new ApresEnvoyerFichierList(clients);
+					fs = new EnvoyerFichierList(clients);
 				}
 				
 				

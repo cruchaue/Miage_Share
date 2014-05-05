@@ -115,7 +115,6 @@ public class FenetreInformations extends JFrame {
 		//droitsLabel.setText(this.fichier.getDroit()+"");
 		
 		
-		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(43, 240, 612, 116);
 		contentPane.add(scrollPane);

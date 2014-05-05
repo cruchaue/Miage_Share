@@ -1,4 +1,4 @@
-package share.g2.miage.serverJar.fonction;
+package share.g2.miage.serverJar.fonction.fichier;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
@@ -23,19 +23,19 @@ import share.g2.miage.util.Parametre;
  * 
  *
  */
-public abstract class AccepterFichier extends FonctionServer {
+public abstract class AccepterFichierJar extends FonctionServer {
 	
 	/**
 	 * 
 	 * @param clients
 	 */
-	public AccepterFichier(ClientS clients){
+	public AccepterFichierJar(ClientS clients){
 		this.clients = clients;
 		demarrer();
 	}
 	
 	@Override
-	public int commExecuter() {
+	public int commExecuter1() {
 		try {
 
 			DataInputStream dis = clients.getDis();

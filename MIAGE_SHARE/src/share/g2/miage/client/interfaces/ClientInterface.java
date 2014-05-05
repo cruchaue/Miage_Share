@@ -300,7 +300,7 @@ public class ClientInterface extends JFrame {
 	public void listerFichier() {
 		// getFichiers
 		FonctionClient fc = new GetFichierList(User.getUserName());
-		fichiers = fc.getResultat1().split(";");
+		fichiers = fc.getResultat1().split(Parametre.SEPARATEUR);
 
 		// Temps d'attente pour l'upload du fichier sur le serveur
 		try {

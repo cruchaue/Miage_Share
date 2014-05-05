@@ -17,6 +17,7 @@ public class Parametre {
 	//**************prédicat de JAR*************/
 	//prédicat d'opération en commun
 	public final static String OK = "<@ok>";
+	public final static String SEPARATEUR = "<@_>";
 	
 	//prédicat d'opération de fichier
 	public final static String FICHIER_UPLOAD = "<@uploadFichier>";

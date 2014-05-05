@@ -1,4 +1,4 @@
-package share.g2.miage.server.apresFonction;
+package share.g2.miage.server.Fonction.fichier;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,15 +10,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import share.g2.miage.serverJar.dao.ClientS;
-import share.g2.miage.serverJar.fonction.AccepterFichier;
+import share.g2.miage.serverJar.fonction.fichier.AccepterFichierJar;
 import share.g2.miage.util.Parametre;
 /**
  * 
  *
  */
-public class ApresAccepterFichier extends AccepterFichier{
+public class AccepterFichier extends AccepterFichierJar{
 
-	public ApresAccepterFichier(ClientS clients) {
+	public AccepterFichier(ClientS clients) {
 		super(clients);
 	}
 
@@ -108,6 +108,12 @@ public class ApresAccepterFichier extends AccepterFichier{
 		
 		return 1;
 
+	}
+
+	@Override
+	public int commExecuter2() {
+		// TODO Auto-generated method stub
+		return 1;
 	}
 
 }

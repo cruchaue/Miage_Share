@@ -1,4 +1,4 @@
-package share.g2.miage.serverJar.fonction;
+package share.g2.miage.serverJar.fonction.utilisateur;
 
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
@@ -18,15 +18,15 @@ import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
-public abstract class CreerUtilisateur extends FonctionServer {
+public abstract class CreerUtilisateurJar extends FonctionServer {
 	
-	public CreerUtilisateur(ClientS clients){
+	public CreerUtilisateurJar(ClientS clients){
 		this.clients = clients;
 		demarrer();
 	}
 
 	@Override
-	public int commExecuter() {
+	public int commExecuter1() {
 		try {
 			DataInputStream dis = clients.getDis();
 			DataOutputStream dos = clients.getDos();

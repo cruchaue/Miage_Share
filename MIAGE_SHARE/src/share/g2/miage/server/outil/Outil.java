@@ -1,4 +1,4 @@
-package share.g2.miage.util;
+package share.g2.miage.server.outil;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import share.g2.miage.server.ServerFichier;
+import share.g2.miage.util.Parametre;
 
 /**
  * 
