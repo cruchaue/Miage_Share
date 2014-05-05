@@ -11,7 +11,7 @@ import share.g2.miage.util.Parametre;
  * Le seul parametre a envoyer est le nom d'utilisateur. 
  *
  */
-public class GetFichierList extends FonctionClient {
+public class GetFichierList<T> extends FonctionClient<T> {
 	
 	/**
 	 * 

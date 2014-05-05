@@ -21,8 +21,8 @@ import share.g2.miage.util.Parametre;
  *
  * <p>Il existe, dans le package server, une classe SupprimerFichier qui fonctionne en complement de cette classe.</p> 
  */
-public class SupprimerFichier extends
-		FonctionClient {
+public class SupprimerFichier<T> extends
+		FonctionClient<T> {
 	
 	/**
 	 * Demarre la suppression du fichier sur le serveur

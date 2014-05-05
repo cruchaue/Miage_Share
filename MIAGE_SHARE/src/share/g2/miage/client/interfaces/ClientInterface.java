@@ -35,7 +35,7 @@ import share.g2.miage.clientJar.fonction.fichier.TelechargerFichier;
 import share.g2.miage.clientJar.fonction.fichier.UploadFichier;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.clientJar.fonction.statistiques.StatUpDownload;
+import share.g2.miage.clientJar.fonction.statistiques.StatUpDownloadJar;
 import share.g2.miage.util.Parametre;
 
 public class ClientInterface extends JFrame {
@@ -296,7 +296,7 @@ public class ClientInterface extends JFrame {
 		JButton btnNewButton = new JButton("Statistiques");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				FonctionClient<ChartFrame> fcf = new StatUpDownload(User.getUserName());
+				FonctionClient<ChartFrame> fcf = new StatUpDownloadJar(User.getUserName());
 				fcf.demarrer();
 				ChartFrame chartFrame = fcf.getResultat3();
 				

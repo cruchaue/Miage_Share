@@ -22,7 +22,7 @@ import share.g2.miage.util.Parametre;
  * 
  * Il existe dans le package server une classe AccepterFichier qui fonctionne en complement de cette classe. 
  */
-public class UploadFichier extends FonctionClient {
+public class UploadFichier<T> extends FonctionClient<T> {
 	
 	/**
 	 * 

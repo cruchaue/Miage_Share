@@ -21,7 +21,7 @@ import share.g2.miage.util.Parametre;
  * lors de la conception de l'application.
  *
  */
-public class TelechargerFichier extends FonctionClient {
+public class TelechargerFichier<T> extends FonctionClient<T> {
 	
 	/**
 	 * 

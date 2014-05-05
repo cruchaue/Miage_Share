@@ -19,7 +19,7 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
  *
  */
 
-public  class EnvoyerMail extends FonctionClient {
+public  class EnvoyerMail<T> extends FonctionClient<T> {
 	
 	/**
 	 * 

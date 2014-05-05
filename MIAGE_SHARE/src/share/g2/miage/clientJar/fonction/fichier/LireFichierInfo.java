@@ -13,7 +13,7 @@ import share.g2.miage.util.Parametre;
  * Il suffit de faire une demande au serveur avec le nom du fichier a consulter en parametre.
  *
  */
-public class LireFichierInfo extends FonctionClient {
+public class LireFichierInfo<T> extends FonctionClient<T> {
 	
 	/**
 	 * 

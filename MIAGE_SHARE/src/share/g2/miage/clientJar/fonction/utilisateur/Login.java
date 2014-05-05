@@ -25,7 +25,7 @@ import share.g2.miage.util.Parametre;
  * Il existe dans le package server une classe Login qui fonctionne en complement de cette classe.
  * </p>
  */
-public class Login extends FonctionClient {
+public class Login<T> extends FonctionClient<T> {
 	
 	/**
 	 * 

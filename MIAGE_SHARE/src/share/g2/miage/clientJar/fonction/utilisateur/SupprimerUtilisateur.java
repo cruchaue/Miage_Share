@@ -1,17 +1,8 @@
 package share.g2.miage.clientJar.fonction.utilisateur;
 
-import java.awt.EventQueue;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-
-import share.g2.miage.client.interfaces.ClientInterface;
-import share.g2.miage.clientJar.dao.ClientConnection;
-import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
 /**
@@ -22,7 +13,7 @@ import share.g2.miage.util.Parametre;
  * cet utilisateur.</p>
  *
  */
-public class SupprimerUtilisateur extends FonctionClient {
+public class SupprimerUtilisateur<T> extends FonctionClient<T> {
 	
 	/**
 	 * demarre l'action "suppression d'un utilisateur"
