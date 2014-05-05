@@ -21,7 +21,7 @@ import share.g2.miage.util.Parametre;
 public class Login extends LoginJar{
 
 	@Override
-	protected void pendantConnection() {
+	protected int pendantConnection() {
 		Utilisateur user;
 		Map<String,Utilisateur> users = ServerFichier.getListeUser();
 		if((user = users.get(this.parametre1))!=null){
@@ -49,6 +49,8 @@ public class Login extends LoginJar{
 		}else{
 			this.resultat1 = 0;
 		}
+		
+		return 1;
 		
 	}
 

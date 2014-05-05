@@ -26,7 +26,7 @@ import share.g2.miage.util.Parametre;
 public class AccepterFichier extends AccepterFichierJar{
 
 	@Override
-	protected void apresConnection() {
+	protected int apresConnection() {
 		ajouterDroit(this.parametre1);
 
 		creerFichierInfo(this.parametre1, this.parametre2);
@@ -45,7 +45,7 @@ public class AccepterFichier extends AccepterFichierJar{
 			us.setNumUpload(us.getNumUpload()+1);
 		}
 		
-		
+		return 1;
 	}
 	
 	/**

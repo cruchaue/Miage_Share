@@ -60,7 +60,12 @@ class ServerThreadFichier extends Thread {
 					fs = new StatUpDownload();
 				}
 				
-				fs.demarrer(clients);
+				int result = fs.demarrer(clients);
+				if(result == 1){
+					System.out.println("Operation "+strFonction+" "+"est bien fait!");
+				}else{
+					System.out.println("Operation "+strFonction+" "+"est raté!");
+				}
 				
 			
 		} catch (IOException e) {

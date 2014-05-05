@@ -21,7 +21,7 @@ import share.g2.miage.util.Parametre;
 public class CommenterFichier extends CommenterFichierJar{
 
 	@Override
-	protected void apresConnection() {
+	protected int apresConnection() {
 		
 		try {
 			
@@ -50,9 +50,11 @@ public class CommenterFichier extends CommenterFichierJar{
 				fos.close();
 			}
 			
+			return 1;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return -1;
 		}
 	}
 }

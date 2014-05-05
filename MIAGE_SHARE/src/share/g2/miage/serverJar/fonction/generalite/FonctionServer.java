@@ -51,29 +51,55 @@ Communication {
 	
 	/**
 	 * Lance la séquence d'execution de l'action demandee.
+	 * @return TODO
 	 */
-	public void demarrer(ClientS clients){
+	public int demarrer(ClientS clients){
+		
+		int rs;
 		this.clients = clients;
-		avantConnection();
-		commExecuter1();
-		pendantConnection();
-		commExecuter2();
-		clients.closeConnection();
-		apresConnection();
+		
+		rs = avantConnection();
+		
+		if(rs==1){
+			rs = commExecuter1();
+		}else{
+			return rs;
+		}
+		
+		if(rs==1){
+			rs = pendantConnection();
+		}else{
+			return rs;
+		}
+		
+		if(rs==1){
+			rs = commExecuter2();
+			clients.closeConnection();
+		}else{
+			clients.closeConnection();
+			return rs;
+		}
+		
+		if(rs==1){
+			rs = apresConnection();
+		}else{
+			return rs;
+		}
+		
+		return rs;
 	}
 	
 	
 	@Override
-	public int commExecuter2(){
-		return 1;
-	}
+	public int commExecuter2(){return 1;}
 	
 	/**
+	 * @return TODO
 	 * 
 	 */
-	protected void avantConnection(){}
+	protected int avantConnection(){return 1;}
 	
-	protected void pendantConnection(){}
+	protected int pendantConnection(){return 1;}
 	
-	protected void apresConnection(){}
+	protected int apresConnection(){return 1;}
 }
