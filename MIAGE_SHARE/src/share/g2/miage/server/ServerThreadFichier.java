@@ -17,7 +17,12 @@ import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
 /**
+ * Lorqu'une demande d'action est effectue par un client sur le serveur de fichier,
+ * un nouveau Thread est cree jusqu'a la fin de la demande. 
  * 
+ * exemple: telechargement ou upload de fichier.
+ * 
+ * @see Thread 
  *
  */
 class ServerThreadFichier extends Thread {

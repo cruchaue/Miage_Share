@@ -8,8 +8,10 @@ import java.net.Socket;
 import java.util.List;
 
 /**
- * 
+ * Lorqu'une demande d'action est effectue par un client sur le serveur Chat,
+ * un nouveau Thread est cree jusqu'a la fin de la demande. 
  *
+ * @see Thread
  */
 public class ServerThreadChat extends Thread {
 	List<Socket> clientLinkList;

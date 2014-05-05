@@ -11,7 +11,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 
+import share.g2.miage.clientJar.fonction.statistiques.outil.FichierTest;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
@@ -49,6 +51,7 @@ public class Fichier {
 	 * 
 	 * @param infoFichier
 	 * 					Les informations du fichier.
+	 * 
 	 */
 	public Fichier(String infoFichier) {
 		String[] strFI = infoFichier.split(Parametre.SPEPARER_FICHIER_INFO);
@@ -80,8 +83,7 @@ public class Fichier {
 	}
 	
 	/**
-	 * A l'inverse du constructeur Fichier, cette methode va transformer les informations contenus 
-	 * dans un objet Fichier en un String.
+	 * Transforme les informations contenus dans un objet Fichier en un String.
 	 * 
 	 * @return un String contenant les informations d'un objet Fichier.
 	 */

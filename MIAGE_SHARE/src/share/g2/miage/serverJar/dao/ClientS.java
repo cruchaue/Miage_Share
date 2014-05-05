@@ -6,14 +6,20 @@ import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 
 /**
- * Regroupe tout les elements permettant la communication entre le client et le serveur.
+ * <b>Represente La communication entre client serveur coté serveur</b>
  * 
+ * <p>Regroupe tout les elements permettant la communication entre le client et le serveur
+ * tel que le transfert de donnees.</p>
  * 
- *
+ * @see InputStream
+ * @see OutputStream
+ * 
  */
 public class ClientS {
 	
