@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.Socket;
 
 import share.g2.miage.server.ServerFichier;
-import share.g2.miage.server.dao.ClientS;
+import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;

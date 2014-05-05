@@ -2,7 +2,7 @@ package share.g2.miage.serverJar.fonction.generalite;
 
 import java.net.Socket;
 
-import share.g2.miage.server.dao.ClientS;
+import share.g2.miage.serverJar.dao.ClientS;
 
 /**
  * Permet au serveur de communiquer avec le client une fois la connection effectu�e.
