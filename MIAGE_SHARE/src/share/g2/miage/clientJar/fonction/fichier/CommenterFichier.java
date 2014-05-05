@@ -13,8 +13,21 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
+/**
+ * CommenterFichier est la classe qui va permettre à l'utilisateur de pouvoir commenter un fichier.
+ * Comme toute les autres fonctions clients, elle redéfinit la méthode executer() pour communiquer avec le serveur.
+ *
+ */
 public class CommenterFichier extends FonctionClient {
 	
+	/**
+	 * Le constructeur prend en parametre le nom du fichier a commenter ainsi que le contenu du commentaire.
+	 * 
+	 * @param nomFichier
+	 * 					Le nom du fichier a commenter
+	 * @param commentaire
+	 * 					Le contenu du commentaire (String)
+	 */
 	public CommenterFichier(String nomFichier, String commentaire){
 		super();
 		parametre1 = nomFichier;
