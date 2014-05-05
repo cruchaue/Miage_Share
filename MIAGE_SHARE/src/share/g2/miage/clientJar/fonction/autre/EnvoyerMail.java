@@ -20,7 +20,7 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
  */
 
 public  class EnvoyerMail<T> extends FonctionClient<T> {
-	
+
 	/**
 	 * 
 	 * @param mail
@@ -44,10 +44,10 @@ public  class EnvoyerMail<T> extends FonctionClient<T> {
 
 		Session session = Session.getInstance(props,
 				new javax.mail.Authenticator() {
-					protected PasswordAuthentication getPasswordAuthentication() {
-						return new PasswordAuthentication(username, password);
-					}
-				});
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		});
 
 		try {
 
@@ -56,12 +56,12 @@ public  class EnvoyerMail<T> extends FonctionClient<T> {
 			message.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(parametre1));
 			message.setSubject("Easy share notification");
-			message.setText("Dear Mail Crawler,"
-					+ "\n\n No spam to my email, please!");
+			message.setText("Chère collaborateur,"
+					+ "\n\n Un document à été uplodadé sur le serveur !");
 
 			Transport.send(message);
 
-			System.out.println("Done");
+
 
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);

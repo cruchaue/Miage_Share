@@ -12,7 +12,7 @@ import share.g2.miage.util.Parametre;
  *
  */
 public class GetFichierList<T> extends FonctionClient<T> {
-	
+
 	/**
 	 * 
 	 * @param userName

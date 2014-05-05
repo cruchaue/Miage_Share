@@ -15,32 +15,32 @@ import java.util.Properties;
  * 
  */
 public class ClientConnection {
-	
+
 	/**
 	 * socket du client
 	 */
 	private Socket client = null;
-	
+
 	/**
 	 * flux de donn�es entrant de type primitifs
 	 */
 	private DataInputStream dis;
-	
+
 	/**
 	 * flux de donn�es sortant de type primitifs
 	 */
 	private DataOutputStream dos;
-	
+
 	/**
 	 * flux de donn�es entrant bufferis�
 	 */
 	private BufferedInputStream bis;
-	
+
 	/**
 	 * flus de donn�es sortant buff�ris�
 	 */
 	private BufferedOutputStream bos;
-	
+
 	/**
 	 * Renvoie le flux entrant bufferis� afin recup�rer les donn�es contenues dans le buffer.
 	 * @return Le flux entrant bufferis�
@@ -48,7 +48,7 @@ public class ClientConnection {
 	public BufferedInputStream getBis() {
 		return bis;
 	}
-	
+
 	/**
 	 * Renvoi le flux entrant bufferis� afin de lui ins�rer les donn�es � envoyer.
 	 * @return Le flux sortant bufferis�
@@ -64,7 +64,7 @@ public class ClientConnection {
 	public DataInputStream getDis() {
 		return dis;
 	}
-	
+
 	/**
 	 * 
 	 * @return Le flux de donn�es sortant 
@@ -72,7 +72,7 @@ public class ClientConnection {
 	public DataOutputStream getDos() {
 		return dos;
 	}
-	
+
 	/**
 	 * M�thode permettant de lancer la s�quence de connection du client � un serveur.
 	 *
@@ -103,7 +103,7 @@ public class ClientConnection {
 			bis = new BufferedInputStream(client.getInputStream());
 			bos = new BufferedOutputStream(client.getOutputStream());
 		} catch (IOException e1) {
-			System.out.println("����ʧ�ܣ�");
+
 			e1.printStackTrace();
 			return -1;
 		}
@@ -111,7 +111,7 @@ public class ClientConnection {
 		return 1;
 
 	}
-	
+
 	/**
 	 * 
 	 * @return le socket du client.
@@ -119,7 +119,7 @@ public class ClientConnection {
 	public Socket getClient() {
 		return client;
 	}
-	
+
 	/**
 	 * Met � jour le socket du client.
 	 * @param client
@@ -128,7 +128,7 @@ public class ClientConnection {
 	public void setClient(Socket client) {
 		this.client = client;
 	}
-	
+
 	/**
 	 * Fermeture de la connection entre le client et le serveur.
 	 * @return -1 si une erreur c'est produite durant la fermeture de la connection.

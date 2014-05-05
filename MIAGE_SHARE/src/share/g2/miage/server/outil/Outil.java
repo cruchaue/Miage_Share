@@ -28,15 +28,17 @@ public class Outil {
 		Map<String, String> droitsFichier = null;
 		try {
 			droitsFichier = new HashMap<String, String>();
-			System.out.println(Parametre.droit_fichiers);
+			
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(new File(Parametre.droit_fichiers)
 					));
 			br = new BufferedReader(reader);
 			String uneLigne;
 			while ((uneLigne = br.readLine()) != null) {
 				String[] strTable = uneLigne.split(";");
-
-				droitsFichier.put(strTable[0], strTable[1]);
+				if(strTable.length==2){
+					droitsFichier.put(strTable[0], strTable[1]);
+				}
+				
 			}
 			
 			reader.close();

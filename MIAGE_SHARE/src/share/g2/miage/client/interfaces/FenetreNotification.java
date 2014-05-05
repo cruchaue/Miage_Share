@@ -90,19 +90,19 @@ public class FenetreNotification extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(73, 138, 309, 97);
 		getContentPane().add(scrollPane);
-		
+
 		final JList list = new JList(new DefaultListModel<String>());
-		
+
 		model = new DefaultListModel<String>();
 		scrollPane.setViewportView(list);
 		list.setModel(model);
-		
-		
-		
-		listerUtilisateurs();	
-		
 
-		
+
+
+		listerUtilisateurs();	
+
+
+
 
 
 		JButton btnEnvoyer = new JButton("Envoyer");
@@ -113,8 +113,8 @@ public class FenetreNotification extends JFrame {
 				{
 					FonctionClient fc = new EnvoyerMail(list2.get(i));
 				}
-				
-				
+
+
 			}
 		});
 		btnEnvoyer.setBounds(175, 243, 117, 29);
@@ -134,7 +134,7 @@ public class FenetreNotification extends JFrame {
 			String line = "";
 
 			while ((line =br.readLine()) != null) {
-				System.out.println(line);
+
 				String uStr[] = line.split(";");
 				model.addElement(uStr[3]);
 			}

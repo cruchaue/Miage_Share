@@ -12,17 +12,17 @@ public class Commentaire {
 	 * Le nom de l'utilisateur qui a d�pos� le commentaire.
 	 */
 	private String user;
-	
+
 	/**
 	 * La date de d�pose du commentaire.
 	 */
 	private String date;
-	
+
 	/**
 	 * Le commentaire lui m�me.
 	 */
 	private String contenu;
-	
+
 	/**
 	 * 
 	 * @return Le nom de l'utilisateur qui a d�pos� le commentaire.
@@ -30,11 +30,11 @@ public class Commentaire {
 	public String getUser() {
 		return user;
 	}
-	
+
 	public void setUser(String user) {
 		this.user = user;
 	}
-	
+
 	/**
 	 * 
 	 * @return La date de d�pose du commentaire.
@@ -42,7 +42,7 @@ public class Commentaire {
 	public String getDate() {
 		return date;
 	}
-	
+
 	/**
 	 * 
 	 * @param date
@@ -50,7 +50,7 @@ public class Commentaire {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	
+
 	/**
 	 * Retourne uniquement le commentaire laiss� par l'utilisateur.
 	 * @return Le commentaire
@@ -58,7 +58,7 @@ public class Commentaire {
 	public String getContenu() {
 		return contenu;
 	}
-	
+
 	/**
 	 * Edition du commentaire.
 	 * @param contenu

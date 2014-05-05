@@ -40,12 +40,10 @@ public abstract class EnvoyerFichierInfoJar extends FonctionServer {
 					dos.flush();
 				}
 
-				System.out.println("Fichier envoyé avec succès");
+
 				fis.close();
 
-			} else {
-				System.out.println("Le fichier n'existe pas!");
-			}
+			} 
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

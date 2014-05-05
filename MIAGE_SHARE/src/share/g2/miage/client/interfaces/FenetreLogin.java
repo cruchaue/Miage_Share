@@ -78,7 +78,7 @@ public class FenetreLogin extends JFrame {
 		contentPane.add(textFieldLogin);
 		textFieldLogin.setColumns(10);
 
-		
+
 
 		passwordFieldMdp = new JPasswordField();
 		passwordFieldMdp.setBounds(194, 117, 191, 28);
@@ -94,72 +94,72 @@ public class FenetreLogin extends JFrame {
 				}
 				else
 				{
-				String login = textFieldLogin.getText();
-				String mdp = passwordFieldMdp.getText();
-				mdp = CrypterMDP.crypteMDP(mdp);
-				System.out.println("MDP : " +mdp);
-				
-				FonctionClient fc = new Login(login, mdp);
+					String login = textFieldLogin.getText();
+					String mdp = passwordFieldMdp.getText();
+					mdp = CrypterMDP.crypteMDP(mdp);
 
-				String resultat = fc.getResultat1();
-				if (Parametre.OK.equals(resultat)) {
-					System.out.println("login ok");
-					String userInfoStr = fc.getResultat2();
-					String[] userInfo =  userInfoStr.split(Parametre.SEPARATEUR);
-					
-					User user = new User();
-					user.setUserName(userInfo[0]);
-					user.setDroit(Integer.valueOf(userInfo[1]));
-					ClientInterface.setUser(user);
-					
-					EventQueue.invokeLater(new Runnable() {
-						public void run() {
-							try {
-								
-								ClientInterface frame = new ClientInterface();
-								frame.setVisible(true);
 
-							} catch (Exception e) {
-								e.printStackTrace();
+					FonctionClient fc = new Login(login, mdp);
+
+					String resultat = fc.getResultat1();
+					if (Parametre.OK.equals(resultat)) {
+
+						String userInfoStr = fc.getResultat2();
+						String[] userInfo =  userInfoStr.split(Parametre.SEPARATEUR);
+
+						User user = new User();
+						user.setUserName(userInfo[0]);
+						user.setDroit(Integer.valueOf(userInfo[1]));
+						ClientInterface.setUser(user);
+
+						EventQueue.invokeLater(new Runnable() {
+							public void run() {
+								try {
+
+									ClientInterface frame = new ClientInterface();
+									frame.setVisible(true);
+
+								} catch (Exception e) {
+									e.printStackTrace();
+								}
 							}
-						}
-					});
-					
-					setVisible(false);
+						});
 
-				} else if (Parametre.UTILISATEUR_EXISTE_PAS.equals(resultat)) {
-					System.out.println("pas de user");
-					
-					JOptionPane jop = new JOptionPane();
-					jop.showMessageDialog(null,
-							"Cet utilisateur n'existe pas.",
-							"Login failed",
-							JOptionPane.WARNING_MESSAGE);
-					
-				} else if (Parametre.UTILISATEUR_PW_PAS_CORRECTE
-						.equals(resultat)) {
-					System.out.println("faute pw");
-					
-					JOptionPane jop = new JOptionPane();
-					jop.showMessageDialog(null,
-							"Mauvais mot de passe.",
-							"Login failed",
-							JOptionPane.WARNING_MESSAGE);
+						setVisible(false);
+
+					} else if (Parametre.UTILISATEUR_EXISTE_PAS.equals(resultat)) {
+
+
+						JOptionPane jop = new JOptionPane();
+						jop.showMessageDialog(null,
+								"Cet utilisateur n'existe pas.",
+								"Login failed",
+								JOptionPane.WARNING_MESSAGE);
+
+					} else if (Parametre.UTILISATEUR_PW_PAS_CORRECTE
+							.equals(resultat)) {
+
+
+						JOptionPane jop = new JOptionPane();
+						jop.showMessageDialog(null,
+								"Mauvais mot de passe.",
+								"Login failed",
+								JOptionPane.WARNING_MESSAGE);
+					}
 				}
-			}
 
 			}
 		});
 		btnConnexion.setBounds(194, 172, 191, 29);
 		contentPane.add(btnConnexion);
-		
+
 		JButton btnCreer = new JButton("Creer un utilisateur");
 		btnCreer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							
+
 							FenetreCreationUtilisateur frame = new FenetreCreationUtilisateur();
 							frame.setVisible(true);
 
@@ -168,7 +168,7 @@ public class FenetreLogin extends JFrame {
 						}
 					}
 				});
-				
+
 			}
 		});
 		btnCreer.setBounds(194, 212, 191, 29);

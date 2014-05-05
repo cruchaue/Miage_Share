@@ -24,7 +24,7 @@ import share.g2.miage.util.Parametre;
  *
  */
 public abstract class AccepterFichierJar extends FonctionServer {
-	
+
 	@Override
 	public int commExecuter1() {
 		try {
@@ -36,7 +36,7 @@ public abstract class AccepterFichierJar extends FonctionServer {
 
 			byte[] byteTemp = new byte[1024];
 			int lengthTemp = 0;
-			
+
 			String fichierNom = dis.readUTF();
 			String userName = dis.readUTF();
 
@@ -49,7 +49,7 @@ public abstract class AccepterFichierJar extends FonctionServer {
 			fos.close();
 			this.parametre1 = fichierNom;
 			this.parametre2 = userName;
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,6 +59,6 @@ public abstract class AccepterFichierJar extends FonctionServer {
 		return 1;
 	}
 
-	
+
 
 }

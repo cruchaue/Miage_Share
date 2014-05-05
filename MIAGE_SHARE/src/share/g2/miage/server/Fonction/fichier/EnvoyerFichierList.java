@@ -25,17 +25,17 @@ public class EnvoyerFichierList extends EnvoyerFichierListJar{
 		StringBuffer sb = new StringBuffer();
 		Iterator iter = fichierList.entrySet().iterator(); 
 		while (iter.hasNext()) { 
-		    Map.Entry<String, String> entry = (Map.Entry) iter.next(); 
-		    String key = entry.getKey(); 
-		    String val = entry.getValue(); 
-		    if(Outil.comparerDroit(droitU, val)){
-		    	sb.append(key+Parametre.SEPARATEUR);
-		    }
-		    
+			Map.Entry<String, String> entry = (Map.Entry) iter.next(); 
+			String key = entry.getKey(); 
+			String val = entry.getValue(); 
+			if(Outil.comparerDroit(droitU, val)){
+				sb.append(key+Parametre.SEPARATEUR);
+			}
+
 		} 
-		
+
 		this.parametre2 = sb.toString();
-		
+
 		return 1;
 	}
 

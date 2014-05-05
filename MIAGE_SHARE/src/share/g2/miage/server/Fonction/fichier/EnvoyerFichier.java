@@ -25,7 +25,7 @@ public class EnvoyerFichier extends EnvoyerFichierJar {
 		} else {
 			us.setNumDowdload(us.getNumDowdload() + 1);
 		}
-		
+
 		return 1;
 
 	}

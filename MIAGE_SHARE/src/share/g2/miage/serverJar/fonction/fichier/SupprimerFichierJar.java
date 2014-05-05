@@ -18,7 +18,7 @@ import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
 public abstract class SupprimerFichierJar extends FonctionServer {
-	
+
 	@Override
 	public int commExecuter1() {
 		try {
@@ -29,12 +29,9 @@ public abstract class SupprimerFichierJar extends FonctionServer {
 
 			// Supprimer fichier
 			File file = new File(Parametre.fichierChemin + this.parametre1);
-			if (file.exists()) {
+			if (file.exists()) 
 				file.delete();
-				System.out.println("Le fichier a été supprimé avec succès");
-			} else {
-				System.out.println("Aucun fichier selectionné");
-			}
+
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

@@ -24,14 +24,14 @@ import share.g2.miage.util.Parametre;
  * <p>Classe abstraite dont vont heriter les classes de création d'utilisateur</p>
  */
 public abstract class CreerUtilisateurJar extends FonctionServer {
-	
+
 	@Override
 	public int commExecuter1() {
 		try {
 			DataInputStream dis = clients.getDis();
 
 			this.parametre1 = dis.readUTF();
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

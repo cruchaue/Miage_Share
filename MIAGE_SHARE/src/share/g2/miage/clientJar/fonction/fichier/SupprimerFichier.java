@@ -22,8 +22,8 @@ import share.g2.miage.util.Parametre;
  * <p>Il existe, dans le package server, une classe SupprimerFichier qui fonctionne en complement de cette classe.</p> 
  */
 public class SupprimerFichier<T> extends
-		FonctionClient<T> {
-	
+FonctionClient<T> {
+
 	/**
 	 * Demarre la suppression du fichier sur le serveur
 	 * @param fichierNom Le nom du fichier a supprimer.
@@ -43,14 +43,14 @@ public class SupprimerFichier<T> extends
 
 
 			DataOutputStream dos = client.getDos();
- 
+
 			dos.writeUTF(Parametre.FICHIER_SUPPRIMER);
 			dos.flush();
 
 			dos.writeUTF(parametre1);
 			dos.flush();
 
-			System.out.println("finir de supprimer le fichier!");
+
 
 		} catch (Exception e) {
 			e.printStackTrace();

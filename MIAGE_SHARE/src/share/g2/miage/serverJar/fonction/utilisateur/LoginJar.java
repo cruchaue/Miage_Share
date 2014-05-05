@@ -47,17 +47,17 @@ public abstract class LoginJar extends FonctionServer {
 			if (this.resultat1 == 1) {
 				dos.writeUTF(Parametre.OK);
 				dos.writeUTF(this.parametre1 + Parametre.SEPARATEUR + this.parametre2);
-				System.out.println("login ok");
+
 
 			} else if (this.resultat1 == 0) {
 				dos.writeUTF(Parametre.UTILISATEUR_EXISTE_PAS);
 				dos.writeUTF("null");
-				System.out.println("pas existe");
+
 			} else if (this.resultat1 == -1) {
 
 				dos.writeUTF(Parametre.UTILISATEUR_PW_PAS_CORRECTE);
 				dos.writeUTF("null");
-				System.out.println("faut pw");
+
 			} else {
 
 			}

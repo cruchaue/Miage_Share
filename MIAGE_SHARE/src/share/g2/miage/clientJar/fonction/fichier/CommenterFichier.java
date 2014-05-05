@@ -22,7 +22,7 @@ import share.g2.miage.util.Parametre;
  * 
  */
 public class CommenterFichier<T> extends FonctionClient<T> {
-	
+
 	/**
 	 * Le constructeur prend en parametre le nom du fichier a commenter ainsi que le contenu du commentaire.
 	 * 
