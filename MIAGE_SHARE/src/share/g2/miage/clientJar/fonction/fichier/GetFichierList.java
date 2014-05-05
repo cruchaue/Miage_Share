@@ -7,8 +7,16 @@ import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.util.Parametre;
 
+/**
+ * 
+ *
+ */
 public class GetFichierList extends FonctionClient {
-
+	
+	/**
+	 * 
+	 * @param userName
+	 */
 	public GetFichierList(String userName) {
 		super();
 		parametre1 = userName;

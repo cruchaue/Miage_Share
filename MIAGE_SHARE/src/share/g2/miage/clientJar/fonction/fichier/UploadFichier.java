@@ -15,8 +15,17 @@ import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.util.Parametre;
 
+/**
+ * 
+ *
+ */
 public class UploadFichier extends FonctionClient {
-
+	
+	/**
+	 * 
+	 * @param cheminEtNom
+	 * @param fichierNom
+	 */
 	public UploadFichier(String cheminEtNom, String fichierNom) {
 		super();
 		parametre1 = cheminEtNom;
