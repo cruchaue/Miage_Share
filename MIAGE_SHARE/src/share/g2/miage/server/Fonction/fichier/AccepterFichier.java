@@ -9,10 +9,15 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.fichier.AccepterFichierJar;
 import share.g2.miage.util.Parametre;
 /**
+ * <p>Verifie les informations envoyees par l'utilisateur lors de l'upload d'un 
+ * fichier par exemple.<br />
+ * Ajoute les droit d'acces au fichier et ajoute toutes les informations relative au fichier.</p>
+ * 
  * 
  *
  */
@@ -26,6 +31,16 @@ public class AccepterFichier extends AccepterFichierJar{
 		
 	}
 	
+	/**
+	 * Va ajouter toutes les informations du fichier (date de creation, auteur, etc...).
+	 * @param fichierNom 
+	 * 					Le nom du fichier envoyé.
+	 * @param userName
+	 * 					Le nom de l'utilisateur qui a envoyé le fichier.
+	 * @return -1 si une erreur c'est produite
+	 * 
+	 * @see Fichier
+	 */
 	private int creerFichierInfo(String fichierNom, String userName) {
 		StringBuffer sb = new StringBuffer();
 		String taille;
@@ -86,7 +101,15 @@ public class AccepterFichier extends AccepterFichierJar{
 
 		return 1;
 	}
-
+	
+	/**
+	 * Ajout des droits d'acces au fichier envoyé.
+	 * 
+	 * @param fichierNom
+	 * @return -1 si une erreur c'est produite.
+	 * 
+	 * @see Fichier
+	 */
 	private int ajouterDroit(String fichierNom) {
 
 		BufferedWriter out = null;

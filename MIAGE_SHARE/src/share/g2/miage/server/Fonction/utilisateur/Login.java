@@ -8,7 +8,14 @@ import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.utilisateur.LoginJar;
 import share.g2.miage.util.Parametre;
 
-
+/**
+ * <b>Login de l'utilisateur sur le serveur</b>
+ * 
+ * <p>Va permettre a un utilisateur de se logger sur le serveur apres avoir 
+ * verifier les informations envoyees.</p>
+ * 
+ * @see LoginJar
+ */
 public class Login extends LoginJar{
 
 	@Override

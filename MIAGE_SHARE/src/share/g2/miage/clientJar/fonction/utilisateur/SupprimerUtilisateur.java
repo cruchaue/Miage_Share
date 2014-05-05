@@ -25,7 +25,7 @@ import share.g2.miage.util.Parametre;
 public class SupprimerUtilisateur extends FonctionClient {
 	
 	/**
-	 * 
+	 * demarre l'action "suppression d'un utilisateur"
 	 */
 	public SupprimerUtilisateur() {
 		super();
