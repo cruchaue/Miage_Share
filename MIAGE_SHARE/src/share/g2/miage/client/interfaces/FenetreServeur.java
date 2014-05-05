@@ -11,6 +11,8 @@ import javax.swing.JButton;
 
 
 
+
+
 import share.g2.miage.server.Server;
 
 import java.awt.event.ActionListener;
@@ -41,7 +43,7 @@ public class FenetreServeur extends JFrame {
 	 */
 	public FenetreServeur() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 209, 129);
+		setBounds(100, 100, 209, 157);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -50,12 +52,21 @@ public class FenetreServeur extends JFrame {
 		JButton btnLancerServeur = new JButton("Lancer serveur");
 		btnLancerServeur.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Server s1 = new Server();
+				new Server();
 				JOptionPane.showMessageDialog(null,
 						"Serveur en fonctionnement");
 			}
 		});
 		btnLancerServeur.setBounds(10, 30, 173, 23);
 		contentPane.add(btnLancerServeur);
+		
+		JButton btnNewButton = new JButton("Quitter Serveur");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		btnNewButton.setBounds(10, 64, 173, 23);
+		contentPane.add(btnNewButton);
 	}
 }
