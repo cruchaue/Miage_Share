@@ -10,7 +10,10 @@ import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.fichier.EnvoyerFichierListJar;
 import share.g2.miage.util.Parametre;
 
-
+/**
+ * Envoie la liste de tout les fichiers stockes sur le serveur lorsqu'une demande a ete faite.
+ *
+ */
 public class EnvoyerFichierList extends EnvoyerFichierListJar{
 
 	@Override

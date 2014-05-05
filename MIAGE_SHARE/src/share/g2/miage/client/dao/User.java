@@ -1,7 +1,19 @@
 package share.g2.miage.client.dao;
 
 /**
- * un User est la repr�sentation de l'utilisateur final de l'application.
+ * <b>un User est la representation de l'utilisateur final de l'application.</b>
+ * 
+ * <p>Element essentiel de l'application il est defini par de nombreux parametres qui 
+ * permettront de l'identifier sur le serveur ainsi que de creer des elements statistiques.
+ * 	<ul>
+ * 		<li>Le nom d'utilisateur</li>
+ * 		<li>Son email</li>
+ * 		<li>son niveau de droit d'acces</li>
+ * 		<li>Le nombre de connexion au seveur</li>
+ * 		<li>Le nombre de fichiers telecharges</li>
+ * 		<li>Etc ...</li>
+ *	</ul>
+ *</p>
  * 
  *
  */
@@ -17,7 +29,7 @@ public class User {
 	private String email;
 	
 	/**
-	 * Les droits d'acc�s que l'utilisateur aura sur les fichiers
+	 * Les droits d'acces que l'utilisateur aura sur les fichiers
 	 */
 	private int droit;
 	
@@ -44,14 +56,14 @@ public class User {
 	
 	/**
 	 * 
-	 * @return Le nombre de Fichier que l'utilisateur a envoy� sur le serveurs.
+	 * @return Le nombre de Fichier que l'utilisateur a envoye sur le serveurs.
 	 */
 	public int getNbUp() {
 		return nbUp;
 	}
 	
 	/**
-	 * Met � jour le nombre upload de l'utilisateur.
+	 * Met a jour le nombre upload de l'utilisateur.
 	 * 
 	 * @param nbUp
 	 * 			Le nouveau nombre d'upload.
@@ -61,15 +73,15 @@ public class User {
 	}
 	
 	/**
-	 * Retourne le nombre de fichier t�l�charg� par l'utilisateur depuis le serveur.
-	 * @return Le nombre de fichier t�l�charg� par l'utilisateur.
+	 * Retourne le nombre de fichier telecharge par l'utilisateur depuis le serveur.
+	 * @return Le nombre de fichier telecharge par l'utilisateur.
 	 */
 	public int getNbDown() {
 		return nbDown;
 	}
 	
 	/**
-	 * Met � jour le nombre de download de l'utilisateur.
+	 * Met a jour le nombre de download de l'utilisateur.
 	 * @param nbDown
 	 * 			Nouveau nom de download. nbDown > 0.
 	 */
@@ -95,24 +107,24 @@ public class User {
 	
 	/**
 	 * 
-	 * @return Le nombre de message envoy� par l'utilisateur sur un chat.
+	 * @return Le nombre de message envoye par l'utilisateur sur un chat.
 	 */
 	public int getNbMessages() {
 		return nbMessages;
 	}
 	
 	/**
-	 * Met � jour le nombre de message laiss� par l'utilisateur sur le chat.
+	 * Met a jour le nombre de message laisse par l'utilisateur sur le chat.
 	 * @param nbMessages
-	 * 				Le nouveau nombre de message laiss� par l'utilisateur.
+	 * 				Le nouveau nombre de message laisse par l'utilisateur.
 	 */
 	public void setNbMessages(int nbMessages) {
 		this.nbMessages = nbMessages;
 	}
 	
 	/**
-	 * Retoune le nombre de commentaire que l'utilisateur � laiss� sur l'ensemble des fichiers du serveur.
-	 * @return Le nombre total de commentaire laiss� par l'utilisateur.
+	 * Retoune le nombre de commentaire que l'utilisateur a laisse sur l'ensemble des fichiers du serveur.
+	 * @return Le nombre total de commentaire laisse par l'utilisateur.
 	 */
 	public int getNbComm() {
 		return nbComm;

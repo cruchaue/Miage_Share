@@ -14,6 +14,7 @@ import java.io.InputStreamReader;
 import java.util.Properties;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.DefaultListModel;
 import javax.swing.JTabbedPane;
@@ -46,7 +47,7 @@ public class FenetreAdministration extends JFrame {
 	private static String[] fichiers;
 	private static User user;
 	private final JButton btnAttribuerDroits = new JButton("Attribuer droits");
-	
+
 	public static User getUser() {
 		return user;
 	}
@@ -81,15 +82,15 @@ public class FenetreAdministration extends JFrame {
 		model = new DefaultListModel<String>();
 		scrollPane.setViewportView(list);
 		list.setModel(model);
-		
-		
+
 		final Properties p = new Properties();
 		System.out.println(p.getProperty("BD_utilisateurs"));
 
 		JButton btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				supprimerUtilisateur(Parametre.fichiers_BD_utilisateurs,list.getSelectedIndex());				
+				supprimerUtilisateur(Parametre.fichiers_BD_utilisateurs,
+						list.getSelectedIndex());
 
 			}
 		});
@@ -99,22 +100,22 @@ public class FenetreAdministration extends JFrame {
 		onglet.addTab("onglet2", null, pan2);
 		pan2.setLayout(null);
 		scrollPane_1.setBounds(338, 5, 2, 2);
-		
+
 		pan2.add(scrollPane_1);
-		
+
 		JScrollPane scrollPane_2 = new JScrollPane();
 		scrollPane_2.setBounds(78, 36, 558, 426);
 		pan2.add(scrollPane_2);
-		
+
 		model2 = new DefaultListModel<String>();
 		final JList list_1 = new JList(new DefaultListModel<String>());
 		scrollPane_2.setViewportView(list_1);
 		list_1.setModel(model2);
-		
+
 		btnAttribuerDroits.setBounds(269, 473, 188, 23);
-		
+
 		pan2.add(btnAttribuerDroits);
-		
+
 		onglet.addTab("onglet3", null, pan3);
 		onglet.setTitleAt(0, "Gestion utilisateurs");
 		onglet.setTitleAt(1, "Gestion fichiers ");
@@ -122,11 +123,26 @@ public class FenetreAdministration extends JFrame {
 
 		btnAttribuerDroits.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				list_1.getSelectedValue();
-				
+
+				String nomFic = (String) list_1.getSelectedValue();
+				System.out.println(nomFic);
+				if ("".equals(nomFic) || nomFic == null) {
+					JOptionPane.showMessageDialog(null,
+							"Aucun fichier selectionne");
+				} else {
+
+					Object[] possibilities = { "1", "2", "3" };
+					String choixDroit = (String) JOptionPane.showInputDialog(
+							null, "Choisir le niveau de droit du fichier",
+							"Customized Dialog", JOptionPane.PLAIN_MESSAGE,
+							null, possibilities, "1");
+					modifierDroitFichier(nomFic, choixDroit);
+
+				}
+
 			}
 		});
-		
+
 		listerFichiers();
 
 		// ***********et tu peux ajouter d'autre************************//
@@ -137,7 +153,48 @@ public class FenetreAdministration extends JFrame {
 		this.setVisible(true);
 		listerUtilisateurs();
 	}
-	
+
+	public void modifierDroitFichier(String nomFichier, String choixDroit) {
+		String droitFichier = Parametre.droit_fichiers;
+
+		File filename = new File(droitFichier);
+		InputStreamReader reader;
+		try {
+			reader = new InputStreamReader(new FileInputStream(filename));
+
+			br = new BufferedReader(reader);
+			String line = "";
+			StringBuffer sb = new StringBuffer();
+			String Newligne=System.getProperty("line.separator"); 
+			while ((line = br.readLine()) != null) {
+				System.out.println(line);
+				String uStr[] = line.split(";");
+				if (uStr[0].equals(nomFichier)) {
+					uStr[1] = choixDroit;
+					
+
+				}
+				sb.append(uStr[0] + ";" + uStr[1]+Newligne);
+
+			}
+			
+			
+			File file = new File(Parametre.droit_fichiers);
+			FileWriter fw = new FileWriter(file.getAbsoluteFile(), false);
+
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(sb.toString());
+			bw.close();
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	public void listerFichiers() {
 		// getFichiers
 		FonctionClient fc = new GetFichierList(user.getUserName());
@@ -157,7 +214,6 @@ public class FenetreAdministration extends JFrame {
 		}
 
 	}
-	
 
 	public void listerUtilisateurs() {
 		String fichiers_BD_utilisateurs = ClientInterface.getBD_utilisateurs();
@@ -169,16 +225,13 @@ public class FenetreAdministration extends JFrame {
 
 			br = new BufferedReader(reader);
 			String line = "";
-			
 
 			while ((line = br.readLine()) != null) {
 				System.out.println(line);
 				String uStr[] = line.split(";");
-				model.addElement(uStr[0]);		
-	
+				model.addElement(uStr[0]);
 
 			}
-			
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

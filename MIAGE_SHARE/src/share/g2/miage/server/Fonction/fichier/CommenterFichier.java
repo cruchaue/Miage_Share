@@ -6,12 +6,18 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import share.g2.miage.client.dao.Commentaire;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.fichier.CommenterFichierJar;
 import share.g2.miage.util.Parametre;
 
 
-
+/**
+ * Ajoute un commentaire envoyé par un utilisateur sur un fichier choisi.
+ * 
+ * @see Commentaire
+ *
+ */
 public class CommenterFichier extends CommenterFichierJar{
 
 	@Override
