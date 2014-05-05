@@ -24,6 +24,9 @@ import java.util.Properties;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.fichier.GetFichierList;
 import share.g2.miage.clientJar.fonction.fichier.LireFichierInfo;
@@ -32,6 +35,7 @@ import share.g2.miage.clientJar.fonction.fichier.TelechargerFichier;
 import share.g2.miage.clientJar.fonction.fichier.UploadFichier;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
+import share.g2.miage.clientJar.fonction.statistiques.StatUpDownload;
 import share.g2.miage.util.Parametre;
 
 public class ClientInterface extends JFrame {
@@ -292,6 +296,9 @@ public class ClientInterface extends JFrame {
 		JButton btnNewButton = new JButton("Statistiques");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				FonctionClient<ChartFrame> fcf = new StatUpDownload(User.getUserName());
+				ChartFrame chartFrame = fcf.getResultat3();
+				chartFrame.setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(23, 230, 151, 23);

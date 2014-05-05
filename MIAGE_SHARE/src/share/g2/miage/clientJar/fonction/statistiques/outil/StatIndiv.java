@@ -76,10 +76,10 @@ public class StatIndiv {
 	 * @param name: nom de la fenetre
 	 * @param chart: JFreeChart � afficher
 	 */
-	public static void visualiseChart(String name,JFreeChart chart){
+	public static ChartFrame visualiseChart(String name,JFreeChart chart){
 	    ChartFrame frame=new ChartFrame(name,chart);
 	    frame.pack();
-	    frame.setVisible(true);
+	    return frame;
 	}
 	
 	/**
@@ -88,9 +88,9 @@ public class StatIndiv {
 	 * @param titreDiag
 	 * @param titreFen
 	 */
-	public static void statUt(DefaultPieDataset data, String titreDiag, String titreFen){
+	public static ChartFrame statUt(DefaultPieDataset data, String titreDiag, String titreFen){
 		  JFreeChart chart=createPie(titreDiag,data);
-		  visualiseChart(titreFen,chart);
+		  return visualiseChart(titreFen,chart);
 	}
 	
 	
