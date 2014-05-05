@@ -152,42 +152,7 @@ public class StatGenerales {
 		
 		
 		
-		/////////////////TEST A SUPPRIM2 PLUS TARD   ///////////////
-		
-		public static DefaultPieDataset createStatFicTest(Hashtable<Integer, FichierTest> ht,String critere){
-			DefaultPieDataset data=new DefaultPieDataset();
-
-			Iterator<Integer> it;
-		    it=ht.keySet().iterator(); // on cree un iterator sur les objets du hashmap
-		     
-		    while(it.hasNext()){
-		       Object key=it.next();
-		       Object value=ht.get(key);
-		       // traitement :
-		       String nom=((FichierTest) value).getNom();
-		       int crit=0;
-		       // on selectionne en fonction du critere en parametre
-		       if(critere=="commentaire"){
-				 crit=((FichierTest) value).getNbCom();
-		       }else if(critere=="download"){
-				 crit=((FichierTest) value).getNbDown();
-		       }
-				data.setValue(nom,crit);  
-		    }
-			return data;
-		}
-		
-		
-		public static void statFicTest(Hashtable<Integer, FichierTest> ht, String critere, String titreDiag, String titreFen){
-			
-			 DefaultPieDataset data = createStatFicTest(ht, critere);
-			  JFreeChart chart=createPie(titreDiag,data);
-			  visualiseChart(titreFen,chart);
-		}
-		
-		
-		
-		
+	
 		  public static void main(String[] args) {
 			  User olmail=new User();
 			  olmail.setNbUp(3);
@@ -206,21 +171,9 @@ public class StatGenerales {
 			    ht.put(20, tamere);
 			    ht.put(30, tasoeur);
 			    
-			    FichierTest hello=new FichierTest();
-			    hello.setNom("hello.jpg");
-			    hello.setNbDown(16);
-			    hello.setNbCom(20);
-			    FichierTest trololo=new FichierTest();
-			    trololo.setNom("trololo.mp3");
-			    trololo.setNbDown(32);
-			    trololo.setNbCom(40);
-			    Hashtable<Integer, FichierTest> ht2 = new Hashtable<Integer, FichierTest>();
-				  ht2.put(10, hello);
-				    ht2.put(20, trololo);
+		
 			   
-				    statFicTest(ht2, "download", "titre diag", "titre fenetre");
-					 statFicTest(ht2, "commentaire", "titre diag", "titre fenetre");
-				    
+			    
 			    
 			   /*statUtil(ht, "upload", "titre diag", "titre fenetre");
 			 statUtil(ht, "message", "titre diag", "titre fenetre");
