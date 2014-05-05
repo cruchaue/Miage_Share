@@ -1,4 +1,4 @@
-package share.g2.miage.server.apresFonction;
+package share.g2.miage.server.Fonction.fichier;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,12 +9,12 @@ import java.util.Map;
 
 import share.g2.miage.server.outil.Outil;
 import share.g2.miage.serverJar.dao.ClientS;
-import share.g2.miage.serverJar.fonction.SupprimerFichier;
+import share.g2.miage.serverJar.fonction.fichier.SupprimerFichierJar;
 import share.g2.miage.util.Parametre;
 
-public class ApresSupprimerFichier extends SupprimerFichier {
+public class SupprimerFichier extends SupprimerFichierJar {
 
-	public ApresSupprimerFichier(ClientS clients) {
+	public SupprimerFichier(ClientS clients) {
 		super(clients);
 	}
 

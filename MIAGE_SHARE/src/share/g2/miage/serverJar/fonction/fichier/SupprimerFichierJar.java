@@ -1,4 +1,4 @@
-package share.g2.miage.serverJar.fonction;
+package share.g2.miage.serverJar.fonction.fichier;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -11,16 +11,15 @@ import java.util.Iterator;
 import java.util.Map;
 
 import share.g2.miage.server.ServerFichier;
-import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.server.outil.Outil;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
-public abstract class EnvoyerFichierList extends FonctionServer {
+public abstract class SupprimerFichierJar extends FonctionServer {
 	
-	public EnvoyerFichierList(ClientS clients){
+	public SupprimerFichierJar(ClientS clients){
 		this.clients = clients;
 		demarrer();
 	}
@@ -29,22 +28,19 @@ public abstract class EnvoyerFichierList extends FonctionServer {
 	public int commExecuter1() {
 		try {
 			DataInputStream dis = clients.getDis();
-			this.parametre1 = dis.readUTF();
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return -1;
-		}
 
-		return 1;
-	}
-	
-	@Override
-	public int commExecuter2(){
-		try {
-			DataOutputStream dos = clients.getDos();
-			dos.writeUTF(this.parametre2);
+			this.parametre1 = dis.readUTF();
+			System.out.println(this.parametre1 + ",");
+
+			// Supprimer fichier
+			File file = new File(Parametre.fichierChemin + this.parametre1);
+			if (file.exists()) {
+				file.delete();
+				System.out.println("Le fichier a été supprimé avec succès");
+			} else {
+				System.out.println("Aucun fichier selectionné");
+			}
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
