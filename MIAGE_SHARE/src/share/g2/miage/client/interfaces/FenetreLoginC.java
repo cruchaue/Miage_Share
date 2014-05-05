@@ -18,7 +18,7 @@ import share.g2.miage.client.outil.CrypterMDP;
 import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.autre.Chat;
-import share.g2.miage.clientJar.fonction.autre.outil.FenetreChat;
+import share.g2.miage.clientJar.fonction.autre.interne.FenetreChat;
 import share.g2.miage.clientJar.fonction.fichier.SupprimerFichier;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
@@ -118,7 +118,6 @@ public class FenetreLoginC extends JFrame {
 							public void run() {
 								try {
 									FonctionClient<FenetreChat> fcf = new Chat(userNom);
-									fcf.demarrer();
 									FenetreChat chat = fcf.getResultat3();
 									new Thread(chat).start();
 									

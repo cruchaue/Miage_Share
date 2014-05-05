@@ -28,6 +28,7 @@ public class ParametreSJ {
 	//prédicat d'opération de fichier
 	public final static String UTILISATEUR_LOGIN = "<@login>";
 	public final static String UTILISATEUR_CREER = "<@creerUtilisateur>";
+	public final static String UTILISATEUR_SUPPRIMER = "<@creerSupprimer>";
 	public final static String UTILISATEUR_EXISTE_PAS = "<@UserExistePas>";
 	public final static String UTILISATEUR_PW_PAS_CORRECTE = "<@pwPasCorrecte>";
 	

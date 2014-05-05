@@ -19,9 +19,9 @@ public class SupprimerUtilisateur<T> extends FonctionClient<T> {
 	/**
 	 * demarre l'action "suppression d'un utilisateur"
 	 */
-	public SupprimerUtilisateur() {
+	public SupprimerUtilisateur(String userName) {
 		super();
-		// parametre1 = utilisateurNom;
+		 parametre1 = userName;
 		// parametre2 = fichierNom;
 		demarrer();
 	}
@@ -35,7 +35,7 @@ public class SupprimerUtilisateur<T> extends FonctionClient<T> {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			dos.writeUTF(ParametreCJ.UTILISATEUR_CREER);
+			dos.writeUTF(ParametreCJ.UTILISATEUR_SUPPRIMER);
 			dos.flush();
 
 			dos.writeUTF(parametre1);

@@ -12,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 import javax.swing.JFrame;
 
 import share.g2.miage.clientJar.dao.ClientConnection;
-import share.g2.miage.clientJar.fonction.autre.outil.FenetreChat;
+import share.g2.miage.clientJar.fonction.autre.interne.FenetreChat;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 
@@ -27,6 +27,14 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 public  class Chat extends FonctionClient<FenetreChat> {
 	
 	private String userNom;
+	
+	/**
+	 * demarre l'action "suppression d'un utilisateur"
+	 */
+	public Chat() {
+		super();
+		demarrer();
+	}
 	
 	/**
 	 * lance l'envoie de mail depuis le serveur vers un client cible

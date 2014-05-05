@@ -1,4 +1,4 @@
-package share.g2.miage.clientJar.fonction.autre.outil;
+package share.g2.miage.clientJar.fonction.autre.interne;
 import java.awt.BorderLayout;  
 import java.awt.Button;  
 import java.awt.TextArea;  
