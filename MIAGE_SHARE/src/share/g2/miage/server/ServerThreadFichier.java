@@ -9,11 +9,13 @@ import share.g2.miage.server.Fonction.fichier.EnvoyerFichier;
 import share.g2.miage.server.Fonction.fichier.EnvoyerFichierInfo;
 import share.g2.miage.server.Fonction.fichier.EnvoyerFichierList;
 import share.g2.miage.server.Fonction.fichier.SupprimerFichier;
+import share.g2.miage.server.Fonction.statistiques.StatUpDownload;
 import share.g2.miage.server.Fonction.utilisateur.CreerUtilisateur;
 import share.g2.miage.server.Fonction.utilisateur.Login;
 import share.g2.miage.server.fonction.*;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
+import share.g2.miage.serverJar.fonction.statistiques.StatUpDownloadJar;
 import share.g2.miage.util.Parametre;
 
 //--- CreateServerThread
@@ -57,7 +59,7 @@ class ServerThreadFichier extends Thread {
 				}else if(Parametre.FICHIER_GET_LIST.equals(strFonction)){
 					fs = new EnvoyerFichierList();
 				}else if(Parametre.STATISTIQUE_NUM_UPDOWNLOAD.equals(strFonction)){
-					fs = new EnvoyerFichierList();
+					fs = new StatUpDownload();
 				}
 				
 				fs.demarrer(clients);
