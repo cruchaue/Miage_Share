@@ -20,7 +20,7 @@ public interface Communication {
 	 */
 	public int commExecuter1();
 	
-	/**
+	/** ??????
 	 * Lance la communication avec le client.
 	 * Chaque fonction ayant un comportement sp�cifique, toutes devront red�finir cette m�thode.
 	 *  

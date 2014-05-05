@@ -40,7 +40,6 @@ public abstract class SupprimerFichier extends FonctionServer {
 			} else {
 				System.out.println("Aucun fichier selectionné");
 			}
-			
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
