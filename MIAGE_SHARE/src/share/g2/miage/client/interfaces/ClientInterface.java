@@ -127,9 +127,15 @@ public class ClientInterface extends JFrame {
 		model = new DefaultListModel<String>();
 		list.setModel(model);
 
-
+		
 
 		JButton btnAdmin = new JButton("Administration");
+		btnAdmin.setVisible(false);
+		System.out.println("Droit"+User.getDroit());
+		if(User.getDroit()==1)
+		{
+			btnAdmin.setVisible(true);
+		}
 		btnAdmin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				FenetreAdministration fa = new FenetreAdministration(User);

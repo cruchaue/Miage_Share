@@ -47,6 +47,7 @@ public class FenetreAdministration extends JFrame {
 	private static String[] fichiers;
 	private static User user;
 	private final JButton btnAttribuerDroits = new JButton("Attribuer droits");
+	private final JButton btnNewButton = new JButton("Modifier les droits");
 
 	public static User getUser() {
 		return user;
@@ -94,8 +95,31 @@ public class FenetreAdministration extends JFrame {
 
 			}
 		});
-		btnSupprimer.setBounds(287, 382, 115, 41);
+		btnSupprimer.setBounds(363, 394, 180, 41);
 		pan1.add(btnSupprimer);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String nomUtil = (String) list.getSelectedValue();
+				
+				if ("".equals(nomUtil) || nomUtil == null) {
+					JOptionPane.showMessageDialog(null,
+							"Aucun fichier selectionne");
+				} else {
+
+					Object[] possibilities = { "1", "2", "3" };
+					String choixDroit = (String) JOptionPane.showInputDialog(
+							null, "Choisir le niveau de droit de l'utilisateur",
+							"Customized Dialog", JOptionPane.PLAIN_MESSAGE,
+							null, possibilities, "1");
+					modifierDroitUtilisateur(nomUtil, choixDroit);
+
+				}
+
+			}
+		});
+		btnNewButton.setBounds(105, 394, 180, 41);
+		
+		pan1.add(btnNewButton);
 
 		onglet.addTab("onglet2", null, pan2);
 		pan2.setLayout(null);
@@ -153,6 +177,48 @@ public class FenetreAdministration extends JFrame {
 		this.setVisible(true);
 		listerUtilisateurs();
 	}
+	
+	
+	public void modifierDroitUtilisateur(String nomUtil, String choixDroit) {
+		String droitUtil = Parametre.fichiers_BD_utilisateurs;
+
+		File filename = new File(droitUtil);
+		InputStreamReader reader;
+		try {
+			reader = new InputStreamReader(new FileInputStream(filename));
+
+			br = new BufferedReader(reader);
+			String line = "";
+			StringBuffer sb = new StringBuffer();
+			String Newligne=System.getProperty("line.separator"); 
+			while ((line = br.readLine()) != null) {
+				
+				String uStr[] = line.split(";");
+				if (uStr[0].equals(nomUtil)) {
+					uStr[2] = choixDroit;
+					
+
+				}
+				sb.append(uStr[0] + ";" + uStr[1]+";" + uStr[2]+";" + uStr[3]+";"+Newligne);
+
+			}		
+			
+			File file = new File(Parametre.fichiers_BD_utilisateurs);
+			FileWriter fw = new FileWriter(file.getAbsoluteFile(), false);
+
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(sb.toString());
+			bw.close();
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 
 	public void modifierDroitFichier(String nomFichier, String choixDroit) {
 		String droitFichier = Parametre.droit_fichiers;
@@ -176,8 +242,7 @@ public class FenetreAdministration extends JFrame {
 				}
 				sb.append(uStr[0] + ";" + uStr[1]+Newligne);
 
-			}
-			
+			}		
 			
 			File file = new File(Parametre.droit_fichiers);
 			FileWriter fw = new FileWriter(file.getAbsoluteFile(), false);
@@ -229,7 +294,8 @@ public class FenetreAdministration extends JFrame {
 			while ((line = br.readLine()) != null) {
 				
 				String uStr[] = line.split(";");
-				model.addElement(uStr[0]);
+				if(!uStr[0].equals(user.getUserName()))
+					model.addElement(uStr[0]);
 
 			}
 
