@@ -19,7 +19,7 @@ public class ApresEnvoyerFichierList extends EnvoyerFichierList{
 
 
 	@Override
-	protected void avantConnection(){
+	protected void pendantConnection(){
 		String userName = this.parametre1;
 		Map<String,Utilisateur> users = ServerFichier.getListeUser();
 		String droitU = users.get(userName).getLimite();
@@ -35,10 +35,8 @@ public class ApresEnvoyerFichierList extends EnvoyerFichierList{
 		    }
 		    
 		} 
-	}
-	
-	protected void pendantConnection(){
 		
+		this.parametre2 = sb.toString();
 	}
 
 }
