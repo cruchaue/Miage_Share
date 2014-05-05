@@ -3,7 +3,6 @@ package share.g2.miage.server;
 import java.io.*;
 import java.net.*;
 
-import share.g2.miage.server.Fonction.*;
 import share.g2.miage.server.Fonction.fichier.AccepterFichier;
 import share.g2.miage.server.Fonction.fichier.CommenterFichier;
 import share.g2.miage.server.Fonction.fichier.EnvoyerFichier;
@@ -12,6 +11,7 @@ import share.g2.miage.server.Fonction.fichier.EnvoyerFichierList;
 import share.g2.miage.server.Fonction.fichier.SupprimerFichier;
 import share.g2.miage.server.Fonction.utilisateur.CreerUtilisateur;
 import share.g2.miage.server.Fonction.utilisateur.Login;
+import share.g2.miage.server.fonction.*;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
