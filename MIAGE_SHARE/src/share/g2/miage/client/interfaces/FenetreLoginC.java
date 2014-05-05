@@ -17,6 +17,8 @@ import share.g2.miage.client.dao.User;
 import share.g2.miage.client.outil.CrypterMDP;
 import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.clientJar.dao.ClientConnection;
+import share.g2.miage.clientJar.fonction.autre.Chat;
+import share.g2.miage.clientJar.fonction.autre.outil.FenetreChat;
 import share.g2.miage.clientJar.fonction.fichier.SupprimerFichier;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
@@ -36,6 +38,8 @@ public class FenetreLoginC extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldLogin;
 	private JPasswordField passwordFieldMdp;
+	private String userNom;
+	
 
 	/**
 	 * Launch the application.
@@ -105,18 +109,18 @@ public class FenetreLoginC extends JFrame {
 						String[] userInfo = Outil
 								.StringToStringTableau(userInfoStr);
 
-						User user = new User();
-						user.setUserName(userInfo[0]);
-						user.setDroit(Integer.valueOf(userInfo[1]));
-						ClientInterface.setUser(user);
-
+						userNom = userInfo[0];
+						
+					
+						
 						EventQueue.invokeLater(new Runnable() {
 							public void run() {
 								try {
-
-									ClientInterface frame = new ClientInterface();
-									frame.setVisible(true);
-
+									FonctionClient<FenetreChat> fcf = new Chat(userNom);
+									fcf.demarrer();
+									FenetreChat chat = fcf.getResultat3();
+									new Thread(chat).start();
+									
 								} catch (Exception e) {
 									e.printStackTrace();
 								}
@@ -146,27 +150,5 @@ public class FenetreLoginC extends JFrame {
 		});
 		btnConnexion.setBounds(194, 172, 191, 29);
 		contentPane.add(btnConnexion);
-
-		JButton btnCreer = new JButton("Creer un utilisateur");
-		btnCreer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				EventQueue.invokeLater(new Runnable() {
-					public void run() {
-						try {
-
-							FenetreCreationUtilisateur frame = new FenetreCreationUtilisateur();
-							frame.setVisible(true);
-
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-				});
-
-			}
-		});
-		btnCreer.setBounds(194, 212, 191, 29);
-		contentPane.add(btnCreer);
-
 	}
 }

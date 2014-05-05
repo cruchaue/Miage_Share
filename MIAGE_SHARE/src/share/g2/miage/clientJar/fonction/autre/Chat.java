@@ -9,8 +9,10 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.swing.JFrame;
 
 import share.g2.miage.clientJar.dao.ClientConnection;
+import share.g2.miage.clientJar.fonction.autre.outil.FenetreChat;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 
@@ -22,23 +24,23 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
  *
  */
 
-public  class Chat<T> extends FonctionClient<T> {
-
+public  class Chat extends FonctionClient<FenetreChat> {
+	
+	private String userNom;
+	
 	/**
 	 * lance l'envoie de mail depuis le serveur vers un client cible
 	 * 
 	 * @param mail
 	 * 			mail du client cible
 	 */
-	public Chat(String mail) {
-		super();
-		parametre1 = mail;
-		demarrer();
+	public Chat(String userNom){
+		this.userNom = userNom;
 	}
 
 	@Override
 	public int commExecuter1() {
-		
+		this.resultat3 = new FenetreChat(userNom);
 		return 1;
 	}
 }

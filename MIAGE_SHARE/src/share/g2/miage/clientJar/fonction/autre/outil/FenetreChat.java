@@ -17,7 +17,8 @@ import javax.swing.JFrame;
 @SuppressWarnings("serial")  
 public class FenetreChat extends JFrame  implements Runnable {  
 	private TextArea textArea = new TextArea();  
-	private TextField textField = new TextField();  
+	private TextField textField = new TextField(); 
+	
 	private String userName;
 	private Button button_send = new Button("Envoyer");  
 	private Button button_clear = new Button("Effacer");  
