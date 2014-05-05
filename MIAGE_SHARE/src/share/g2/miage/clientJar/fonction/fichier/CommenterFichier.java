@@ -17,6 +17,9 @@ import share.g2.miage.util.Parametre;
  * CommenterFichier est la classe qui va permettre à l'utilisateur de pouvoir commenter un fichier.
  * Comme toute les autres fonctions clients, elle redéfinit la méthode executer() pour communiquer avec le serveur.
  *
+ * Il existe dans le package server une classe CommenterFichier qui fonctionne en complement de cette classe. 
+
+ * 
  */
 public class CommenterFichier extends FonctionClient {
 	

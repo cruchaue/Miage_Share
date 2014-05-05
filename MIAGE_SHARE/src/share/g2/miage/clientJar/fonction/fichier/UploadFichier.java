@@ -16,8 +16,11 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.util.Parametre;
 
 /**
+ * Permet a l'utilisateur d'uploader un fichier sur le serveur.
  * 
- *
+ * Il est preferable de definir des droits d'acces au fichier uploadé lors de la conception de l'application.
+ * 
+ * Il existe dans le package server une classe AccepterFichier qui fonctionne en complement de cette classe. 
  */
 public class UploadFichier extends FonctionClient {
 	

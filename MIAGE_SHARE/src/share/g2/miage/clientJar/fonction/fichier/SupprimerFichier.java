@@ -12,9 +12,21 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
+/**
+ * Permet à l'utilisateur de supprimer un fichier sur le serveur.
+ * 
+ * Il est preferable de definir quels utilisateurs 
+ * peuvent effectuer cette action lors de la concetption de l'application.
+ *
+ * Il existe, dans le package server, une classe SupprimerFichier qui fonctionne en complement de cette classe. 
+ */
 public class SupprimerFichier extends
 		FonctionClient {
-
+	
+	/**
+	 * 
+	 * @param fichierNom
+	 */
 	public SupprimerFichier(String fichierNom){
 		super();
 		parametre1 = fichierNom;

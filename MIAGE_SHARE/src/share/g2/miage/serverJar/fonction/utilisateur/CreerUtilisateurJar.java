@@ -18,6 +18,11 @@ import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
+/**
+ * <b>Action de creer un utilisateur sur le serveur</b>
+ * 
+ * <p>Classe abstraite dont vont heriter les classes de création d'utilisateur</p>
+ */
 public abstract class CreerUtilisateurJar extends FonctionServer {
 	
 	@Override
