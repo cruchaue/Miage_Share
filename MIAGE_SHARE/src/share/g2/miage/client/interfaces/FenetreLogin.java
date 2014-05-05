@@ -87,10 +87,13 @@ public class FenetreLogin extends JFrame {
 		JButton btnConnexion = new JButton("Connexion");
 		btnConnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				
-				
-				
+				if(textFieldLogin.getText().equals("") || passwordFieldMdp.getText().equals(""))
+				{
+					JOptionPane.showMessageDialog(null,
+							"Manque logien et/ou mot de passe");
+				}
+				else
+				{
 				String login = textFieldLogin.getText();
 				String mdp = passwordFieldMdp.getText();
 				mdp = CrypterMDP.crypteMDP(mdp);
@@ -145,7 +148,7 @@ public class FenetreLogin extends JFrame {
 				}
 			}
 
-			
+			}
 		});
 		btnConnexion.setBounds(194, 172, 191, 29);
 		contentPane.add(btnConnexion);
