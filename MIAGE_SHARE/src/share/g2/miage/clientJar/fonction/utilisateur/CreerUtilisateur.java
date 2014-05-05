@@ -25,7 +25,7 @@ import share.g2.miage.server.ServerFichier;
  * </p>
  */
 public class CreerUtilisateur<T> extends FonctionClient<T> {
-	
+
 	/**
 	 * 
 	 * @param utilisateurInfo

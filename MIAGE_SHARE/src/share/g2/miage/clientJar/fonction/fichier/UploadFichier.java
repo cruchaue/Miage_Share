@@ -23,7 +23,7 @@ import share.g2.miage.clientJar.Outil.ParametreCJ;
  * Il existe dans le package server une classe AccepterFichier qui fonctionne en complement de cette classe. 
  */
 public class UploadFichier<T> extends FonctionClient<T> {
-	
+
 	/**
 	 * 
 	 * @param cheminEtNom
@@ -63,9 +63,9 @@ public class UploadFichier<T> extends FonctionClient<T> {
 			while ((length = fis.read(sendBytes, 0, sendBytes.length)) > 0) {
 				bos.write(sendBytes, 0, length);
 				bos.flush();
-				System.out.println("upload en cours!");
+
 			}
-			
+
 			client.closeConnection();
 			JOptionPane.showMessageDialog(null, "Fichier uploadé avec succès");
 

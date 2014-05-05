@@ -16,7 +16,7 @@ import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 
 public abstract class CommenterFichierJar extends FonctionServer {
-	
+
 	@Override
 	public int commExecuter1() {
 		try {
@@ -24,7 +24,7 @@ public abstract class CommenterFichierJar extends FonctionServer {
 
 			this.parametre1 = dis.readUTF();
 			this.parametre2 = dis.readUTF();
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -79,14 +79,14 @@ public class AccepterFichier extends AccepterFichierJar{
 		} else if (filesize < 1024 * 1024) {
 			temp = filesize / temp;
 			taille = df.format(temp) + "kb";
-			System.out.println(df.format(temp));
+			
 		} else {
 			temp = 1024 * 1024;
 			temp = filesize / temp;
 			taille = df.format(temp) + "mb";
-			System.out.println(df.format(temp));
+			
 		}
-		System.out.println("filesize: --" + filesize);
+		
 
 		// obtenir le temps.
 		Date date = new Date(System.currentTimeMillis());
@@ -104,7 +104,7 @@ public class AccepterFichier extends AccepterFichierJar{
 		sb.append(ParametreS.FICHIER_DROIT_DEFAULT);
 		sb.append(ParametreS.SPEPARER_FICHIER_INFO);
 
-		System.out.println(sb.toString());
+		
 		FileOutputStream fos;
 		try {
 			fos = new FileOutputStream(new File(

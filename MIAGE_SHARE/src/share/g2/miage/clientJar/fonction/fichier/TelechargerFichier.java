@@ -22,7 +22,7 @@ import share.g2.miage.clientJar.Outil.ParametreCJ;
  *
  */
 public class TelechargerFichier<T> extends FonctionClient<T> {
-	
+
 	/**
 	 * 
 	 * @param chemin
@@ -50,7 +50,7 @@ public class TelechargerFichier<T> extends FonctionClient<T> {
 
 			dos.writeUTF(parametre2);
 			dos.flush();
-			
+
 			dos.writeUTF(parametre3);
 			dos.flush();
 
@@ -60,7 +60,7 @@ public class TelechargerFichier<T> extends FonctionClient<T> {
 				fos.write(sendBytes, 0, length);
 				fos.flush();
 			}
-			
+
 			fos.close();
 		} catch (Exception e) {
 			e.printStackTrace();

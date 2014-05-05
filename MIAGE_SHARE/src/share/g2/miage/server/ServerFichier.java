@@ -26,29 +26,29 @@ import share.g2.miage.server.outil.ParametreS;
  *
  */
 public class ServerFichier   extends Thread {
-	
+
 	/**
 	 * Socket sur lequel les clients vont pouvoir se connecter afin de communiquer avec le serveur de gestion de Fichier.
 	 * Un Utilisateur, une fois connect�, va pouvoir Uploader, downloader, laisser un commentaire sur un fichier etc...
 	 */
 	private ServerSocket serverFichier = null;
-	
+
 	/**
 	 * 
 	 */
 	private boolean demarre = true;
 
 	/**
-     * Collection d'Utilisateurs qui sont connect�s sur le serveur.
-     * Chaque utilisateur est identifi� par son nom/pseudo.
-     * 
-     * @see Utilisateur
-     * @see Collection
-     * @see Map
-     */
+	 * Collection d'Utilisateurs qui sont connect�s sur le serveur.
+	 * Chaque utilisateur est identifi� par son nom/pseudo.
+	 * 
+	 * @see Utilisateur
+	 * @see Collection
+	 * @see Map
+	 */
 	private static Map<String,Utilisateur> listeUser;
 	private static Map<String,UtilisateurStat> listeUserStat;
-	
+
 	/**
 	 * D�marre le serveur de Fichier.
 	 * 
@@ -58,7 +58,7 @@ public class ServerFichier   extends Thread {
 	public ServerFichier(){
 		start();
 	}
-	
+
 
 	@Override
 	public void run() { 
@@ -75,10 +75,10 @@ public class ServerFichier   extends Thread {
 		}
 
 		int portFichier = Integer.valueOf(p.getProperty("portServerFichier"));
-		
-		
-		
-		
+
+
+
+
 		chargerUtilisateur();
 
 
@@ -97,7 +97,7 @@ public class ServerFichier   extends Thread {
 		}
 
 	}
-	
+
 	/**
 	 * Retourne une Map<String, Utilisateur> qui contient tous les Utilisateur connect� au serveur.
 	 * 
@@ -109,7 +109,7 @@ public class ServerFichier   extends Thread {
 	public static Map<String, Utilisateur> getListeUser() {
 		return listeUser;
 	}
-	
+
 	public static Map<String, UtilisateurStat> getListeUserStat() {
 		return listeUserStat;
 	}
@@ -121,7 +121,7 @@ public class ServerFichier   extends Thread {
 	public void closeServer() {
 		demarre = false;
 	}
-	
+
 	/**
 	 * Lors du lancement du serveur, celui-ci va aller chercher dans un fichier, stock� en m�moire, toutes les informations sur les utilisateurs inscrits.
 	 * Ce fichier sert de sauvegarde en cas de d�faillance du serveur et �vite de tout perdre .
@@ -138,17 +138,17 @@ public class ServerFichier   extends Thread {
 			String line = "";
 
 			while ((line =br.readLine()) != null) {
-				System.out.println(line);
+
 				String uStr[] = line.split(";");
 				Utilisateur u = new Utilisateur();
 				u.setLoginName(uStr[0]);
 				u.setPassword(uStr[1]);
 				u.setLimite(uStr[2]);
 				listeUser.put(uStr[0], u);
-				
-				System.out.println(uStr[0]+","+uStr[1]+","+uStr[2]);
+
+
 			}
-			
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

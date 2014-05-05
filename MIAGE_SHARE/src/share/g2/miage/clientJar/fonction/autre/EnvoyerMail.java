@@ -15,15 +15,20 @@ import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 
 /**
+ * Permet l'envoi de mail depuis le serveur jusqu'a un ou des clients cibles.
  * 
+ * Cette classse peut etre utilis� dans le cas d'envoi de notifications lors de 
+ * changement sur un fichier par exemple.
  *
  */
 
 public  class EnvoyerMail<T> extends FonctionClient<T> {
-	
+
 	/**
+	 * lance l'envoie de mail depuis le serveur vers un client cible
 	 * 
 	 * @param mail
+	 * 			mail du client cible
 	 */
 	public EnvoyerMail(String mail) {
 		super();
@@ -44,10 +49,10 @@ public  class EnvoyerMail<T> extends FonctionClient<T> {
 
 		Session session = Session.getInstance(props,
 				new javax.mail.Authenticator() {
-					protected PasswordAuthentication getPasswordAuthentication() {
-						return new PasswordAuthentication(username, password);
-					}
-				});
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		});
 
 		try {
 
@@ -56,12 +61,12 @@ public  class EnvoyerMail<T> extends FonctionClient<T> {
 			message.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(parametre1));
 			message.setSubject("Easy share notification");
-			message.setText("Dear Mail Crawler,"
-					+ "\n\n No spam to my email, please!");
+			message.setText("Chère collaborateur,"
+					+ "\n\n Un document à été uplodadé sur le serveur !");
 
 			Transport.send(message);
 
-			System.out.println("Done");
+
 
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);

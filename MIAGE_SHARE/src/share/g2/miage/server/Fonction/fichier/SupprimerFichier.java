@@ -37,12 +37,9 @@ public class SupprimerFichier extends SupprimerFichierJar {
 		// Supprimer fichierInfo
 		File file = new File(ParametreS.fichiersConfigChemin + this.parametre1
 				+ ".txt");
-		if (file.exists()) {
+		if (file.exists()) 
 			file.delete();
-			System.out.println("Le fichier a été supprimé avec succès");
-		} else {
-			System.out.println("Aucun fichier selectionné");
-		}
+
 
 		// Supprimer fichierDroit
 		Map<String, String> fichierList = Outil.getDroitsFichier();
@@ -77,8 +74,9 @@ public class SupprimerFichier extends SupprimerFichierJar {
 			e.printStackTrace();
 			return -1;
 		}
-		
+
 
 	}
 
 }
+

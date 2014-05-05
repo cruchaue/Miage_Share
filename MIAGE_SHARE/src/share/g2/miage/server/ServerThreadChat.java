@@ -8,8 +8,10 @@ import java.net.Socket;
 import java.util.List;
 
 /**
- * 
+ * Lorqu'une demande d'action est effectue par un client sur le serveur Chat,
+ * un nouveau Thread est cree jusqu'a la fin de la demande. 
  *
+ * @see Thread
  */
 public class ServerThreadChat extends Thread {
 	List<Socket> clientLinkList;
@@ -18,7 +20,7 @@ public class ServerThreadChat extends Thread {
 	PrintStream ps;
 	String msg;
 	String ip;
-	
+
 	/**
 	 * 
 	 * @param clientLinkList
@@ -48,17 +50,17 @@ public class ServerThreadChat extends Thread {
 					}
 				}
 			}
-			
+
 			//supprimer socket fermé de la liste des sockets
 			int indexRemove = 0;
 			for(int i = 0; i < clientLinkList.size();i++){
 				if(clientLinkList.get(i).equals(clientLink)){
 					indexRemove = i;
-					System.out.println("trouvé!!"+i);
+
 				}
 			}
 			clientLinkList.remove(indexRemove);
-			
+
 			clientLink.close();
 			br.close();
 			ps.close();

@@ -1,3 +1,4 @@
+
 package share.g2.miage.clientJar.fonction.statistiques.outil;
 
 import org.jfree.chart.ChartFactory;

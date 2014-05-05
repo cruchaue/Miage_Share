@@ -28,7 +28,7 @@ public class CreerUtilisateur extends CreerUtilisateurJar {
 	protected int apresConnection() {
 
 		try {
-			System.out.println("Info util : " + this.parametre1);
+			
 			String[] lesInfosUtilisateur = this.parametre1
 					.split(ParametreS.SPEPARER_INFO_UTILISATEUR);
 

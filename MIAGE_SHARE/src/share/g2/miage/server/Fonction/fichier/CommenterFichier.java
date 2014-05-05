@@ -30,7 +30,6 @@ public class CommenterFichier extends CommenterFichierJar{
 			
 			File file = new File(ParametreS.fichiersConfigChemin+this.parametre1+".txt");
 			
-			System.out.println(this.parametre2);
 			
 			
 			StringBuffer sb = new StringBuffer();

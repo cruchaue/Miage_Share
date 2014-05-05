@@ -49,9 +49,9 @@ public class FenetreStat extends JFrame {
 	private static User User;
 	private BufferedReader br;
 	private StatIndiv statI = new StatIndiv();
-	
-	
-	
+
+
+
 	public static User getUser() {
 		return User;
 	}
@@ -59,7 +59,7 @@ public class FenetreStat extends JFrame {
 	public static void setUser(User user) {
 		user = user;
 	}
-	
+
 	private JTabbedPane onglet = new JTabbedPane();
 
 	/**
@@ -75,91 +75,91 @@ public class FenetreStat extends JFrame {
 		container.add(onglet, null);
 		// *************les onglets*****************************************//
 		onglet.addTab("onglet1", null, pan1);
-		
-				
-				
-				onglet.setTitleAt(0, "Statistiques individuelles");
+
+
+
+		onglet.setTitleAt(0, "Statistiques individuelles");
 		pan1.setLayout(null);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(170, 29, 167, 255);
 		pan1.add(scrollPane);
-		
+
 		final JList list = new JList(new DefaultListModel<String>());
 		scrollPane.setViewportView(list);
-		
+
 		model = new DefaultListModel<String>();
 		scrollPane.setViewportView(list);
 		list.setModel(model);
 
-		
+
 		JCheckBox chckbxNewCheckBox = new JCheckBox("connexion");
 		chckbxNewCheckBox.setBounds(19, 76, 97, 23);
 		pan1.add(chckbxNewCheckBox);
-		
+
 		JCheckBox checkBox = new JCheckBox("upload");
 		checkBox.setBounds(19, 99, 97, 23);
 		pan1.add(checkBox);
-		
+
 		JCheckBox checkBox_1 = new JCheckBox("download");
 		checkBox_1.setBounds(19, 125, 97, 23);
 		pan1.add(checkBox_1);
-		
+
 		JCheckBox checkBox_2 = new JCheckBox("suppression");
 		checkBox_2.setBounds(19, 151, 97, 23);
 		pan1.add(checkBox_2);
-		
+
 		JCheckBox checkBox_3 = new JCheckBox("message");
 		checkBox_3.setBounds(19, 177, 97, 23);
 		pan1.add(checkBox_3);
-		
+
 		JCheckBox chckbxCommentaire_2 = new JCheckBox("commentaire");
 		chckbxCommentaire_2.setBounds(19, 203, 97, 23);
 		pan1.add(chckbxCommentaire_2);
-		
+
 		JCheckBox checkBox_5 = new JCheckBox("notification");
 		checkBox_5.setBounds(19, 229, 97, 23);
 		pan1.add(checkBox_5);
-		
+
 		JButton btnNewButton = new JButton("Générer diagramme");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				
+
+
 			}
 		});
 		btnNewButton.setBounds(10, 259, 150, 23);
 		pan1.add(btnNewButton);
-		
+
 		JLabel lblNewLabel = new JLabel("Utilisateur :");
 		lblNewLabel.setBounds(19, 29, 97, 14);
 		pan1.add(lblNewLabel);
-		
+
 		JLabel lblFichier = new JLabel("Fichier :");
 		lblFichier.setBounds(401, 31, 62, 14);
 		pan1.add(lblFichier);
-		
+
 		JCheckBox chckbxDownload = new JCheckBox("download");
 		chckbxDownload.setBounds(401, 76, 97, 23);
 		pan1.add(chckbxDownload);
-		
+
 		JCheckBox chckbxCommentaire = new JCheckBox("commentaire");
 		chckbxCommentaire.setBounds(401, 99, 97, 23);
 		pan1.add(chckbxCommentaire);
-		
+
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(504, 27, 165, 253);
 		pan1.add(scrollPane_1);
-		
+
 		JList list_1 = new JList(new DefaultListModel<String>());
 		scrollPane_1.setViewportView(list_1);
-		
+
 		model2 = new DefaultListModel<String>();
 		scrollPane_1.setViewportView(list_1);
 		list_1.setModel(model2);
-		
-		
-		
+
+
+
 		JButton button = new JButton("Générer diagramme");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -171,21 +171,21 @@ public class FenetreStat extends JFrame {
 				Fichier fichier = new Fichier((String) list.getSelectedValue()
 						+ Parametre.SPEPARER_FICHIER_INFO
 						+ fc.getResultat1());
-				
+
 				Fichier fic = null;
-				
+
 				DefaultPieDataset data2= new DefaultPieDataset();
-				
+
 				statI.createStatFicTest(fic,"commentaire",data2);
-				
+
 				statI.createStatFicTest(fic,"download",data2);
-				  
+
 				  statI.statUt(data2,"Statistiques de l'utilisateur : "+list.getSelectedValue(),"");*/
 			}
 		});
 		button.setBounds(347, 259, 151, 23);
 		pan1.add(button);
-		
+
 		JButton btnDmo = new JButton("démo");
 		btnDmo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -196,62 +196,62 @@ public class FenetreStat extends JFrame {
 		});
 		btnDmo.setBounds(19, 320, 150, 23);
 		pan1.add(btnDmo);
-		
-				
-				
-				onglet.addTab("onglet2", null, pan2);
-				onglet.setTitleAt(1, "Statistiques générales");
-				pan2.setLayout(null);
-				
-				JButton button_1 = new JButton("Générer diagramme");
-				button_1.setBounds(424, 82, 138, 23);
-				pan2.add(button_1);
-				
-				JLabel lblFichiers = new JLabel("Fichiers");
-				lblFichiers.setBounds(401, 14, 62, 14);
-				pan2.add(lblFichiers);
-				
-				JButton button_2 = new JButton("Générer diagramme");
-				button_2.setBounds(19, 82, 150, 23);
-				pan2.add(button_2);
-				
-				JLabel lblUtilisateurs = new JLabel("Utilisateurs");
-				lblUtilisateurs.setBounds(19, 12, 96, 14);
-				pan2.add(lblUtilisateurs);
-				
-				JComboBox comboBox = new JComboBox();
-				comboBox.setBounds(95, 32, 131, 20);
-				comboBox.addItem("connexion");
-				comboBox.addItem("upload");
-				comboBox.addItem("download");
-				comboBox.addItem("suppression");
-				comboBox.addItem("message");
-				comboBox.addItem("commentaire");
-				comboBox.addItem("notification");
-				pan2.add(comboBox);
-				
-				JComboBox comboBox_1 = new JComboBox();
-				comboBox_1.setBounds(471, 32, 131, 20);
-				comboBox_1.addItem("download");
-				comboBox_1.addItem("commentaire");
-				pan2.add(comboBox_1);
-				
-				JLabel lblCritres = new JLabel("Critère :");
-				lblCritres.setBounds(19, 35, 62, 14);
-				pan2.add(lblCritres);
-				
-				JLabel label = new JLabel("Critère :");
-				label.setBounds(401, 39, 62, 14);
-				pan2.add(label);
+
+
+
+		onglet.addTab("onglet2", null, pan2);
+		onglet.setTitleAt(1, "Statistiques générales");
+		pan2.setLayout(null);
+
+		JButton button_1 = new JButton("Générer diagramme");
+		button_1.setBounds(424, 82, 138, 23);
+		pan2.add(button_1);
+
+		JLabel lblFichiers = new JLabel("Fichiers");
+		lblFichiers.setBounds(401, 14, 62, 14);
+		pan2.add(lblFichiers);
+
+		JButton button_2 = new JButton("Générer diagramme");
+		button_2.setBounds(19, 82, 150, 23);
+		pan2.add(button_2);
+
+		JLabel lblUtilisateurs = new JLabel("Utilisateurs");
+		lblUtilisateurs.setBounds(19, 12, 96, 14);
+		pan2.add(lblUtilisateurs);
+
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(95, 32, 131, 20);
+		comboBox.addItem("connexion");
+		comboBox.addItem("upload");
+		comboBox.addItem("download");
+		comboBox.addItem("suppression");
+		comboBox.addItem("message");
+		comboBox.addItem("commentaire");
+		comboBox.addItem("notification");
+		pan2.add(comboBox);
+
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(471, 32, 131, 20);
+		comboBox_1.addItem("download");
+		comboBox_1.addItem("commentaire");
+		pan2.add(comboBox_1);
+
+		JLabel lblCritres = new JLabel("Critère :");
+		lblCritres.setBounds(19, 35, 62, 14);
+		pan2.add(lblCritres);
+
+		JLabel label = new JLabel("Critère :");
+		label.setBounds(401, 39, 62, 14);
+		pan2.add(label);
 
 		this.setContentPane(container);
 
 		this.setVisible(true);
 		listerFichiers();
 		listerUtilisateurs();
-		
+
 	}
-	
+
 	public void listerFichiers() {
 		// getFichiers
 		FonctionClient fc = new GetFichierList(User.getUserName());
@@ -284,7 +284,7 @@ public class FenetreStat extends JFrame {
 			String line = "";
 
 			while ((line = br.readLine()) != null) {
-				System.out.println(line);
+
 				String uStr[] = line.split(";");
 				model.addElement(uStr[0]);
 

@@ -18,13 +18,13 @@ import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 
 public abstract class EnvoyerFichierListJar extends FonctionServer {
-	
+
 	@Override
 	public int commExecuter1() {
 		try {
 			DataInputStream dis = clients.getDis();
 			this.parametre1 = dis.readUTF();
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -33,7 +33,7 @@ public abstract class EnvoyerFichierListJar extends FonctionServer {
 
 		return 1;
 	}
-	
+
 	@Override
 	public int commExecuter2(){
 		try {

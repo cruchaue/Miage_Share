@@ -14,7 +14,7 @@ import share.g2.miage.clientJar.Outil.ParametreCJ;
  *
  */
 public class LireFichierInfo<T> extends FonctionClient<T> {
-	
+
 	/**
 	 * 
 	 * @param filename

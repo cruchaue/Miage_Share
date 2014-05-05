@@ -12,7 +12,7 @@ import share.g2.miage.clientJar.Outil.ParametreCJ;
  *
  */
 public class GetFichierList<T> extends FonctionClient<T> {
-	
+
 	/**
 	 * 
 	 * @param userName

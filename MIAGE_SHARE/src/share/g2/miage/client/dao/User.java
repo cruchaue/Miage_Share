@@ -22,22 +22,22 @@ public class User {
 	 * Le nom de l'utilisateur (pseudo)
 	 */
 	private String userName;
-	
+
 	/**
 	 * L'email de l'utilisateur
 	 */
 	private String email;
-	
+
 	/**
 	 * Les droits d'acces que l'utilisateur aura sur les fichiers
 	 */
 	private int droit;
-	
+
 	/**
 	 * 
 	 */
 	private int nbConnex, nbUp, nbDown, nbSuppr, nbMessages, nbComm, nbNotif;
-	
+
 	/**
 	 * 
 	 * @return 
@@ -45,7 +45,7 @@ public class User {
 	public int getNbConnex() {
 		return nbConnex;
 	}
-	
+
 	/**
 	 * 
 	 * @param nbConnex
@@ -53,7 +53,7 @@ public class User {
 	public void setNbConnex(int nbConnex) {
 		this.nbConnex = nbConnex;
 	}
-	
+
 	/**
 	 * 
 	 * @return Le nombre de Fichier que l'utilisateur a envoye sur le serveurs.
@@ -61,7 +61,7 @@ public class User {
 	public int getNbUp() {
 		return nbUp;
 	}
-	
+
 	/**
 	 * Met a jour le nombre upload de l'utilisateur.
 	 * 
@@ -71,7 +71,7 @@ public class User {
 	public void setNbUp(int nbUp) {
 		this.nbUp = nbUp;
 	}
-	
+
 	/**
 	 * Retourne le nombre de fichier telecharge par l'utilisateur depuis le serveur.
 	 * @return Le nombre de fichier telecharge par l'utilisateur.
@@ -79,7 +79,7 @@ public class User {
 	public int getNbDown() {
 		return nbDown;
 	}
-	
+
 	/**
 	 * Met a jour le nombre de download de l'utilisateur.
 	 * @param nbDown
@@ -88,7 +88,7 @@ public class User {
 	public void setNbDown(int nbDown) {
 		this.nbDown = nbDown;
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -96,7 +96,7 @@ public class User {
 	public int getNbSuppr() {
 		return nbSuppr;
 	}
-	
+
 	/**
 	 * 
 	 * @param nbSuppr
@@ -104,7 +104,7 @@ public class User {
 	public void setNbSuppr(int nbSuppr) {
 		this.nbSuppr = nbSuppr;
 	}
-	
+
 	/**
 	 * 
 	 * @return Le nombre de message envoye par l'utilisateur sur un chat.
@@ -112,7 +112,7 @@ public class User {
 	public int getNbMessages() {
 		return nbMessages;
 	}
-	
+
 	/**
 	 * Met a jour le nombre de message laisse par l'utilisateur sur le chat.
 	 * @param nbMessages
@@ -121,7 +121,7 @@ public class User {
 	public void setNbMessages(int nbMessages) {
 		this.nbMessages = nbMessages;
 	}
-	
+
 	/**
 	 * Retoune le nombre de commentaire que l'utilisateur a laisse sur l'ensemble des fichiers du serveur.
 	 * @return Le nombre total de commentaire laisse par l'utilisateur.
@@ -129,7 +129,7 @@ public class User {
 	public int getNbComm() {
 		return nbComm;
 	}
-	
+
 	/**
 	 * Met � jour le nombre de commentaire laiss� par l'utilisateur.
 	 * @param nbComm
@@ -138,7 +138,7 @@ public class User {
 	public void setNbComm(int nbComm) {
 		this.nbComm = nbComm;
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -146,7 +146,7 @@ public class User {
 	public int getNbNotif() {
 		return nbNotif;
 	}
-	
+
 	/**
 	 * 
 	 * @param nbNotif
@@ -154,7 +154,7 @@ public class User {
 	public void setNbNotif(int nbNotif) {
 		this.nbNotif = nbNotif;
 	}
-	
+
 	/**
 	 * Retourne le nom/pseudo que l'utilisateur � choisi lors de son inscription. 
 	 * @return Le nom (pseudo) de l'utilisateur.
@@ -162,7 +162,7 @@ public class User {
 	public String getUserName() {
 		return userName;
 	}
-	
+
 	/**
 	 * Modifie le nom/pseudo de l'utilisateur (si la fonction de modification de nom a �t� implent�e).
 	 * @param userName
@@ -171,7 +171,7 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -179,7 +179,7 @@ public class User {
 	public String getEmail() {
 		return email;
 	}
-	
+
 	/**
 	 * 
 	 * @param email
@@ -187,7 +187,7 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -195,7 +195,7 @@ public class User {
 	public int getDroit() {
 		return droit;
 	}
-	
+
 	/**
 	 * 
 	 * @param droit
@@ -203,5 +203,5 @@ public class User {
 	public void setDroit(int droit) {
 		this.droit = droit;
 	}
-	
+
 }

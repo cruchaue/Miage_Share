@@ -22,56 +22,56 @@ import share.g2.miage.serverJar.dao.ClientS;
  */
 public  abstract class FonctionServer implements
 Communication {
-	
+
 	/**
 	 * 
 	 */
 	protected ClientS clients;
-	
+
 	/**
 	 * 
 	 */
 	protected String parametre1 = "";
-	
+
 	/**
 	 * 
 	 */
 	protected String parametre2 = "";
-	
+
 
 	/**
 	 * 
 	 */
 	protected int resultat1;
-	
+
 	/**
 	 * 
 	 */
 	protected String resultat2 = "";
-	
+
 	/**
 	 * Lance la séquence d'execution de l'action demandee.
 	 * @return TODO
 	 */
 	public int demarrer(ClientS clients){
-		
+
 		int rs;
 		this.clients = clients;
-		
+
 		rs = avantConnection();
-		
+
 		if(rs==1){
 			rs = commExecuter1();
 		}else{
 			return rs;
 		}
-		
+
 		if(rs==1){
 			rs = pendantConnection();
 		}else{
 			return rs;
 		}
-		
+
 		if(rs==1){
 			rs = commExecuter2();
 			clients.closeConnection();
@@ -79,33 +79,33 @@ Communication {
 			clients.closeConnection();
 			return rs;
 		}
-		
+
 		if(rs==1){
 			rs = apresConnection();
 		}else{
 			return rs;
 		}
-		
+
 		return rs;
 	}
-	
-	
+
+
 	@Override
 	public int commExecuter2(){return 1;}
-	
+
 	/**
 	 * 
 	 * @return 
 	 */
 	protected int avantConnection(){return 1;}
-	
+
 
 	/**
 	 * 
 	 * @return
 	 */
 	protected int pendantConnection(){return 1;}
-	
+
 	/**
 	 * Va permettre d'executer certaines actions demandés par l'utilisateur au serveur une fois la connection effectuee.
 	 */

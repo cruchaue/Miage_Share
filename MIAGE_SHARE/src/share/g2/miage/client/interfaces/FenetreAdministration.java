@@ -85,7 +85,7 @@ public class FenetreAdministration extends JFrame {
 		list.setModel(model);
 
 		final Properties p = new Properties();
-		System.out.println(p.getProperty("BD_utilisateurs"));
+		
 
 		JButton btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.addActionListener(new ActionListener() {
@@ -126,7 +126,7 @@ public class FenetreAdministration extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				String nomFic = (String) list_1.getSelectedValue();
-				System.out.println(nomFic);
+			
 				if ("".equals(nomFic) || nomFic == null) {
 					JOptionPane.showMessageDialog(null,
 							"Aucun fichier selectionne");
@@ -168,7 +168,7 @@ public class FenetreAdministration extends JFrame {
 			StringBuffer sb = new StringBuffer();
 			String Newligne=System.getProperty("line.separator"); 
 			while ((line = br.readLine()) != null) {
-				System.out.println(line);
+				
 				String uStr[] = line.split(";");
 				if (uStr[0].equals(nomFichier)) {
 					uStr[1] = choixDroit;
@@ -228,7 +228,7 @@ public class FenetreAdministration extends JFrame {
 			String line = "";
 
 			while ((line = br.readLine()) != null) {
-				System.out.println(line);
+				
 				String uStr[] = line.split(";");
 				model.addElement(uStr[0]);
 
@@ -261,7 +261,7 @@ public class FenetreAdministration extends JFrame {
 			BufferedWriter out = new BufferedWriter(new FileWriter(fileName));
 			out.write(sb.toString());
 			out.close();
-			System.out.println("done");
+			
 
 		} catch (Exception e) {
 
