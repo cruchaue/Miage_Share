@@ -25,6 +25,7 @@ import share.g2.miage.client.dao.User;
 import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.clientJar.fonction.fichier.GetFichierList;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
+import share.g2.miage.clientJar.fonction.utilisateur.ModifierDroitUtilisateur;
 import share.g2.miage.clientJar.fonction.utilisateur.SupprimerUtilisateur;
 import share.g2.miage.clientJar.outil.Outil;
 
@@ -112,7 +113,9 @@ public class FenetreAdministration extends JFrame {
 							null, "Choisir le niveau de droit de l'utilisateur",
 							"Customized Dialog", JOptionPane.PLAIN_MESSAGE,
 							null, possibilities, "1");
-					modifierDroitUtilisateur(nomUtil, choixDroit);
+					
+					FonctionClient fcf = new ModifierDroitUtilisateur(nomUtil, choixDroit);
+					//modifierDroitUtilisateur(nomUtil, choixDroit);
 
 				}
 
