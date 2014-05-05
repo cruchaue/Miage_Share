@@ -28,10 +28,11 @@ public class TelechargerFichier extends FonctionClient {
 	 * @param chemin
 	 * @param fichierNom
 	 */
-	public TelechargerFichier(String chemin, String fichierNom){
+	public TelechargerFichier(String chemin, String fichierNom, String userNom){
 		super();
 		parametre1 = chemin;
 		parametre2 = fichierNom;
+		parametre3 = userNom;
 		demarrer();
 	}
 
@@ -48,6 +49,9 @@ public class TelechargerFichier extends FonctionClient {
 			dos.flush();
 
 			dos.writeUTF(parametre2);
+			dos.flush();
+			
+			dos.writeUTF(parametre3);
 			dos.flush();
 
 			FileOutputStream fos = new FileOutputStream(new File(

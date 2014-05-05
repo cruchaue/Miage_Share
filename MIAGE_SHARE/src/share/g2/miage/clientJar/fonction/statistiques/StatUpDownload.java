@@ -15,22 +15,25 @@ import share.g2.miage.util.Parametre;
 
 public class StatUpDownload extends FonctionClient<ChartFrame> {
 	public StatUpDownload(String userName) {
+		super();
 		this.parametre1 = userName;
+		demarrer();
 	}
-
+	
 	@Override
 	public int executer() {
 		try {
-			System.out.println("ttttttt111111");
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
 			dos.writeUTF(Parametre.STATISTIQUE_NUM_UPDOWNLOAD);
+			dos.flush();
+			
 			dos.writeUTF(this.parametre1);
+			dos.flush();
 
 			int resultat = dis.readInt();
 			this.resultat2 = dis.readUTF();
-			System.out.println("ttttttt"+this.resultat2);
 			if (resultat == 1) {
 				List<String> list = Outil.StringToList(this.resultat2);
 				
@@ -45,7 +48,7 @@ public class StatUpDownload extends FonctionClient<ChartFrame> {
 				  StatIndiv.createStatUtil(user, "upload",data);
 				  StatIndiv.createStatUtil(user, "download",data);
 				  
-				  this.resultat3 =  StatIndiv.statUt(data,"titrediag","titrfen");
+				  this.resultat3 =  StatIndiv.statUt(data,this.parametre1,"Statistique de num de upload/download/connection");
 				
 			}
 

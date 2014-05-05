@@ -1,9 +1,11 @@
 package share.g2.miage.server.Fonction.utilisateur;
 
+import java.util.List;
 import java.util.Map;
 
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.server.dao.Utilisateur;
+import share.g2.miage.server.dao.UtilisateurStat;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.utilisateur.LoginJar;
 import share.g2.miage.util.Parametre;
@@ -20,6 +22,20 @@ public class Login extends LoginJar{
 				this.resultat1 = 1;
 				this.parametre1 = user.getLoginName();
 				this.parametre2 = user.getLimite();
+				
+				UtilisateurStat us;
+				Map<String,UtilisateurStat> list = ServerFichier.getListeUserStat();
+				if((us = list.get(user.getLoginName())) == null){
+					us = new UtilisateurStat();
+					us.setLoginName(user.getLoginName());
+					us.setNumConnection(1);
+					us.setNumUpload(0);
+					us.setNumDowdload(0);
+					list.put(user.getLoginName(), us);
+				}else{
+					us.setNumConnection(us.getNumConnection()+1);
+				}
+				
 			}else{
 				this.resultat1 = -1;
 			}

@@ -8,7 +8,10 @@ import java.io.OutputStreamWriter;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
+import share.g2.miage.server.ServerFichier;
+import share.g2.miage.server.dao.UtilisateurStat;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.fichier.AccepterFichierJar;
 import share.g2.miage.util.Parametre;
@@ -23,6 +26,21 @@ public class AccepterFichier extends AccepterFichierJar{
 		ajouterDroit(this.parametre1);
 
 		creerFichierInfo(this.parametre1, this.parametre2);
+		
+		//modifier le num de upload
+		UtilisateurStat us;
+		Map<String,UtilisateurStat> list = ServerFichier.getListeUserStat();
+		if((us = list.get(this.parametre2)) == null){
+			us = new UtilisateurStat();
+			us.setLoginName(this.parametre2);
+			us.setNumConnection(1);
+			us.setNumUpload(1);
+			us.setNumDowdload(0);
+			list.put(this.parametre2, us);
+		}else{
+			us.setNumUpload(us.getNumUpload()+1);
+		}
+		
 		
 	}
 	

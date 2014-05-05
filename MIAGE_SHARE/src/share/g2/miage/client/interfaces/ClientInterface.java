@@ -198,7 +198,7 @@ public class ClientInterface extends JFrame {
 						"Aucun fichier selectionne");					
 				}
 				else{
-					FonctionClient fc = new TelechargerFichier(cheminC_enregistrer_fichier_defaut, nomFic);
+					FonctionClient fc = new TelechargerFichier(cheminC_enregistrer_fichier_defaut, nomFic, User.getUserName());
 					JOptionPane.showMessageDialog(null,
 							"Fichier telecharge avec succes");
 				}
@@ -297,7 +297,9 @@ public class ClientInterface extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				FonctionClient<ChartFrame> fcf = new StatUpDownload(User.getUserName());
+				fcf.demarrer();
 				ChartFrame chartFrame = fcf.getResultat3();
+				
 				chartFrame.setVisible(true);
 			}
 		});

@@ -41,6 +41,11 @@ public abstract class FonctionClient<T> implements
 	/**
 	 * 
 	 */
+	protected String parametre3 = "";
+	
+	/**
+	 * 
+	 */
 	protected String resultat1 = ""; 
 	
 	/**
