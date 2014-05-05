@@ -39,7 +39,7 @@ public class FenetreAdministration extends JFrame {
 	private JPanel container = new JPanel();
 	private JPanel pan1 = new JPanel();
 	private JPanel pan2 = new JPanel();
-	private JPanel pan3 = new JPanel();
+
 	private JTabbedPane onglet = new JTabbedPane();
 	private final DefaultListModel<String> model;
 	private final DefaultListModel<String> model2;
@@ -141,10 +141,10 @@ public class FenetreAdministration extends JFrame {
 
 		pan2.add(btnAttribuerDroits);
 
-		onglet.addTab("onglet3", null, pan3);
+		
 		onglet.setTitleAt(0, "Gestion utilisateurs");
 		onglet.setTitleAt(1, "Gestion fichiers ");
-		onglet.setTitleAt(2, "Gestion des groupes ");
+		
 
 		btnAttribuerDroits.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
