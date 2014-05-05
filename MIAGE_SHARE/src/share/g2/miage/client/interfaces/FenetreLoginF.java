@@ -31,7 +31,7 @@ import javax.swing.JPasswordField;
 import java.awt.SystemColor;
 import java.awt.Color;
 
-public class FenetreLogin extends JFrame {
+public class FenetreLoginF extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldLogin;
@@ -44,7 +44,7 @@ public class FenetreLogin extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FenetreLogin frame = new FenetreLogin();
+					FenetreLoginF frame = new FenetreLoginF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,7 +56,7 @@ public class FenetreLogin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FenetreLogin() {
+	public FenetreLoginF() {
 		setBackground(SystemColor.activeCaption);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 540, 360);

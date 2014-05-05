@@ -1,4 +1,4 @@
-package share.g2.miage.client.interfaces;
+package share.g2.miage.clientJar.fonction.autre.outil;
 import java.awt.BorderLayout;  
 import java.awt.Button;  
 import java.awt.TextArea;  
@@ -27,7 +27,7 @@ public class FenetreChat extends JFrame  implements Runnable {
 	private PrintStream ps;  
 	private String msg;  
 	private StringBuffer sb = new StringBuffer();  
-
+	
 	static {  
 		try {  
 			clientLink = new Socket("127.0.0.1",2001);  

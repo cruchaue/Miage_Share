@@ -38,7 +38,7 @@ public class FenetreCreationUtilisateur extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FenetreLogin frame = new FenetreLogin();
+					FenetreLoginF frame = new FenetreLoginF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

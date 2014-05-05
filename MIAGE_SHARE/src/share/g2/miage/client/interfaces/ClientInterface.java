@@ -48,7 +48,6 @@ public class ClientInterface extends JFrame {
 	private static String BD_utilisateurs;
 	private static User User;
 	private static String[] fichiers;
-	private FenetreChat fc;
 	private FenetreInformations finfo;
 
 	// private Client client;
