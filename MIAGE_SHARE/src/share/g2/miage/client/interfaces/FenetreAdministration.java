@@ -141,7 +141,7 @@ public class FenetreAdministration extends JFrame {
 	public void listerFichiers() {
 		// getFichiers
 		FonctionClient fc = new GetFichierList(user.getUserName());
-		fichiers = fc.getResultat1().split(";");
+		fichiers = fc.getResultat1().split(Parametre.SEPARATEUR);
 
 		// Temps d'attente pour l'upload du fichier sur le serveur
 		try {

@@ -289,6 +289,14 @@ public class ClientInterface extends JFrame {
 		btnDconnexion.setBounds(23, 329, 151, 29);
 		contentPane.add(btnDconnexion);
 		
+		JButton btnNewButton = new JButton("Statistiques");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnNewButton.setBounds(23, 230, 151, 23);
+		contentPane.add(btnNewButton);
+		
 		
 
 	}
