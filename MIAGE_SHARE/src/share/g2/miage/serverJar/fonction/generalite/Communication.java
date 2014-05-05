@@ -22,7 +22,9 @@ public interface Communication {
 	
 	/** ??????
 	 * Lance la communication avec le client.
-	 * Chaque fonction ayant un comportement sp�cifique, toutes devront red�finir cette m�thode.
+	 * Cette méthode n'est pas forcement redefinie par toute les classe d'action
+	 * 
+	 * Elle permet une seconde connexion entre client serveur si l'action en a besoin.
 	 *  
 	 * @return -1 si une erreur c'est produite lors de l'�x�cution d'une fonction.
 	 */
