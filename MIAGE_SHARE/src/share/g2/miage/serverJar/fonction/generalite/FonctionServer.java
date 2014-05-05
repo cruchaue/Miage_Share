@@ -39,12 +39,7 @@ Communication {
 	}
 	
 	
-	/** ????? pas forcement realiser
-	 * Lance la communication avec le client.
-	 * Chaque fonction ayant un comportement sp�cifique, toutes devront red�finir cette m�thode.
-	 *  
-	 * @return -1 si une erreur c'est produite lors de l'�x�cution d'une fonction.
-	 */
+	@Override
 	public int commExecuter2(){
 		return 1;
 	}

@@ -1,4 +1,4 @@
-package share.g2.miage.serverJar.fonction;
+package share.g2.miage.serverJar.fonction.fichier;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -14,9 +14,9 @@ import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
-public abstract class EnvoyerFichierInfo extends FonctionServer {
+public abstract class EnvoyerFichierInfoJar extends FonctionServer {
 	
-	public EnvoyerFichierInfo(ClientS clients){
+	public EnvoyerFichierInfoJar(ClientS clients){
 		this.clients = clients;
 		demarrer();
 	}

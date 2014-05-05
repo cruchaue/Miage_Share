@@ -1,4 +1,4 @@
-package share.g2.miage.server.apresFonction;
+package share.g2.miage.server.Fonction.fichier;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -7,13 +7,13 @@ import share.g2.miage.server.ServerFichier;
 import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.server.outil.Outil;
 import share.g2.miage.serverJar.dao.ClientS;
-import share.g2.miage.serverJar.fonction.EnvoyerFichierList;
+import share.g2.miage.serverJar.fonction.fichier.EnvoyerFichierListJar;
 import share.g2.miage.util.Parametre;
 
 
-public class ApresEnvoyerFichierList extends EnvoyerFichierList{
+public class EnvoyerFichierList extends EnvoyerFichierListJar{
 
-	public ApresEnvoyerFichierList(ClientS clients) {
+	public EnvoyerFichierList(ClientS clients) {
 		super(clients);
 	}
 

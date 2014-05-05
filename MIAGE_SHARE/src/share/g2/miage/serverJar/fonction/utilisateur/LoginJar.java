@@ -1,4 +1,4 @@
-package share.g2.miage.serverJar.fonction;
+package share.g2.miage.serverJar.fonction.utilisateur;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -16,9 +16,9 @@ import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
-public abstract class Login extends FonctionServer {
+public abstract class LoginJar extends FonctionServer {
 	
-	public Login(ClientS clients){
+	public LoginJar(ClientS clients){
 		this.clients = clients;
 		demarrer();
 	}
