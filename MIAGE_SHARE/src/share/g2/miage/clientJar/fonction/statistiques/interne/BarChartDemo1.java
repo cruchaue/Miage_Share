@@ -1,4 +1,4 @@
-package share.g2.miage.clientJar.fonction.statistiques.outil;
+package share.g2.miage.clientJar.fonction.statistiques.interne;
 /* ===========================================================
  * JFreeChart : a free chart library for the Java(tm) platform
  * ===========================================================

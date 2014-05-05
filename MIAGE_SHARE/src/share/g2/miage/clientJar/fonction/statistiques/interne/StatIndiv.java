@@ -1,5 +1,5 @@
 
-package share.g2.miage.clientJar.fonction.statistiques.outil;
+package share.g2.miage.clientJar.fonction.statistiques.interne;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;

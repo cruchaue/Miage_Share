@@ -7,7 +7,7 @@ import org.jfree.data.general.DefaultPieDataset;
 
 import share.g2.miage.client.dao.User;
 import share.g2.miage.clientJar.fonction.statistiques.StatUpDownloadJar;
-import share.g2.miage.clientJar.fonction.statistiques.outil.StatIndiv;
+import share.g2.miage.clientJar.fonction.statistiques.interne.StatIndiv;
 import share.g2.miage.clientJar.outil.Outil;
 
 public class StatUpDownload extends StatUpDownloadJar<ChartFrame> {

@@ -32,7 +32,7 @@ import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.clientJar.fonction.fichier.GetFichierList;
 import share.g2.miage.clientJar.fonction.fichier.LireFichierInfo;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.clientJar.fonction.statistiques.outil.StatIndiv;
+import share.g2.miage.clientJar.fonction.statistiques.interne.StatIndiv;
 import share.g2.miage.clientJar.outil.Outil;
 
 import java.awt.event.ActionListener;

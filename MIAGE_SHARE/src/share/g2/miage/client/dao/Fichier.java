@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import share.g2.miage.client.outil.ParametreC;
-import share.g2.miage.clientJar.fonction.statistiques.outil.FichierTest;
+import share.g2.miage.clientJar.fonction.statistiques.interne.FichierTest;
 import share.g2.miage.server.ServerFichier;
 
 /**
