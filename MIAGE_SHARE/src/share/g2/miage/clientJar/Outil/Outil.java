@@ -5,7 +5,17 @@ import java.util.List;
 
 import share.g2.miage.util.Parametre;
 
+/**
+ * 
+ *
+ */
 public class Outil {
+	
+	/**
+	 * 
+	 * @param lists
+	 * @return
+	 */
 	public static String ListToString(List<String> lists){
 		StringBuffer sb = new StringBuffer();
 		for(int i = 0; i< lists.size();i++){
@@ -17,6 +27,11 @@ public class Outil {
 		return sb.toString();
 	}
 	
+	/**
+	 * 
+	 * @param strT
+	 * @return
+	 */
 	public static String strTableauToString(String[] strT){
 		StringBuffer sb = new StringBuffer();
 		for(int i = 0; i< strT.length;i++){
@@ -28,6 +43,11 @@ public class Outil {
 		return sb.toString();
 	}
 	
+	/**
+	 * 
+	 * @param str
+	 * @return
+	 */
 	public static List<String> StringToList(String str){
 		String[] strT =  str.split(Parametre.SEPARATEUR);
 		List<String> list = new ArrayList<String>();
@@ -39,6 +59,11 @@ public class Outil {
 		return list;
 	}
 	
+	/**
+	 * 
+	 * @param str
+	 * @return
+	 */
 	public static String[] StringToStringTableau(String str){
 		return str.split(Parametre.SEPARATEUR);
 	}

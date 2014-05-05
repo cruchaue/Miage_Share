@@ -16,11 +16,19 @@ import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
-//--- CreateServerThread
+/**
+ * 
+ *
+ */
 class ServerThreadFichier extends Thread {
 	private ClientS clients;
 	private FonctionServer fs;
-
+	
+	/**
+	 * 
+	 * @param s
+	 * @throws IOException
+	 */
 	public ServerThreadFichier(Socket s) throws IOException {
 		clients = new ClientS();
 		clients.setClient(s);

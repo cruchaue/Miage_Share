@@ -7,6 +7,10 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.util.List;
 
+/**
+ * 
+ *
+ */
 public class ServerThreadChat extends Thread {
 	List<Socket> clientLinkList;
 	Socket clientLink;
@@ -14,7 +18,12 @@ public class ServerThreadChat extends Thread {
 	PrintStream ps;
 	String msg;
 	String ip;
-
+	
+	/**
+	 * 
+	 * @param clientLinkList
+	 * @param clientLink
+	 */
 	public ServerThreadChat(List<Socket> clientLinkList, Socket clientLink) {
 		this.clientLinkList = clientLinkList;
 		this.clientLink = clientLink;

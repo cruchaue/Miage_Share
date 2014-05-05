@@ -20,7 +20,7 @@ public interface Communication {
 	 */
 	public int commExecuter1();
 	
-	/** ??????
+	/**
 	 * Lance la communication avec le client.
 	 * Cette méthode n'est pas forcement redefinie par toute les classe d'action
 	 * 

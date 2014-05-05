@@ -71,6 +71,7 @@ public abstract class FonctionClient<T> implements
 	
 	/**
 	 * 
+	 * execution de la communication et la deconnection avec le serveur.
 	 */
 	public void demarrer(){
 		executer();

@@ -73,7 +73,13 @@ Communication {
 	 */
 	protected void avantConnection(){}
 	
+	/**
+	 * 
+	 */
 	protected void pendantConnection(){}
 	
+	/**
+	 * Va permettre d'executer certaines actions demandés par l'utilisateur au serveur une fois la connection effectuee.
+	 */
 	protected void apresConnection(){}
 }

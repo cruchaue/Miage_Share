@@ -13,7 +13,10 @@ import share.g2.miage.serverJar.fonction.utilisateur.LoginJar;
 import share.g2.miage.serverJar.outil.Outil;
 import share.g2.miage.util.Parametre;
 
-
+/**
+ * 
+ *
+ */
 public class StatUpDownload extends StatUpDownloadJar{
 
 	@Override
