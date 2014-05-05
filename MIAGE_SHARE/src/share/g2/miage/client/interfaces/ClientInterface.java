@@ -14,6 +14,7 @@ import javax.swing.JButton;
 
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.dao.User;
+import share.g2.miage.client.fonction.statistiques.StatUpDownload;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -296,7 +297,7 @@ public class ClientInterface extends JFrame {
 		JButton btnNewButton = new JButton("Statistiques");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				FonctionClient<ChartFrame> fcf = new StatUpDownloadJar(User.getUserName());
+				FonctionClient<ChartFrame> fcf = new StatUpDownload(User.getUserName());
 				fcf.demarrer();
 				ChartFrame chartFrame = fcf.getResultat3();
 				
