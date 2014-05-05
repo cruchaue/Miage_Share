@@ -15,6 +15,23 @@ import java.util.List;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
+/**
+ * <b>Representation d'un fichier</b>
+ * 
+ * <p>Contient toutes les informations necessaires a l'identification du fichier sur le serveur
+ *  ainsi que toutes les methodes qui permettent d'acceder aux differents parametres.
+ * <ul>
+ * 		<li>Le nom du fichier</li>
+ * 		<li>L'auteur</li>
+ * 		<li>La taille du fichier</li>
+ * 		<li>La date de creation</li>
+ * 		<li>Le nombre de fois que le fichier a ete telecharge</li>
+ * 		<li>les droits d'acces</li>
+ * 		<li>La liste des commentaires associe</li>
+ * </ul>
+ * </p>
+ *
+ */
 public class Fichier {
 	private String nom;
 	private String auteur;
@@ -26,30 +43,13 @@ public class Fichier {
 	private String commsStr;
 	private int nbDown,nbCom;
 
-	public int getNbDown() {
-		return nbDown;
-	}
-
-	public void setNbDown(int nbDown) {
-		this.nbDown = nbDown;
-	}
-
-	public int getNbCom() {
-		return nbCom;
-	}
-
-	public void setNbCom(int nbCom) {
-		this.nbCom = nbCom;
-	}
-
-	public String getCommsStr() {
-		return commsStr;
-	}
-
-	public void setCommsStr(String commsStr) {
-		this.commsStr = commsStr;
-	}
-
+	
+	/**
+	 * Transforme les informations du fichier enregistes sous forme d'un String sous la forme d'un objet.
+	 * 
+	 * @param infoFichier
+	 * 					Les informations du fichier.
+	 */
 	public Fichier(String infoFichier) {
 		String[] strFI = infoFichier.split(Parametre.SPEPARER_FICHIER_INFO);
 		this.nom = strFI[0];
@@ -79,6 +79,12 @@ public class Fichier {
 
 	}
 	
+	/**
+	 * A l'inverse du constructeur Fichier, cette methode va transformer les informations contenus 
+	 * dans un objet Fichier en un String.
+	 * 
+	 * @return un String contenant les informations d'un objet Fichier.
+	 */
 	public String fichierToString(){
 		
 
@@ -113,7 +119,9 @@ public class Fichier {
 	    
 	    return sb.toString();
 	}
-
+	
+	//getters et setters
+	
 	public String getNom() {
 		return nom;
 	}
@@ -168,6 +176,31 @@ public class Fichier {
 
 	public void setTaille(String taille) {
 		this.taille = taille;
+	}
+	
+
+	public int getNbDown() {
+		return nbDown;
+	}
+
+	public void setNbDown(int nbDown) {
+		this.nbDown = nbDown;
+	}
+
+	public int getNbCom() {
+		return nbCom;
+	}
+
+	public void setNbCom(int nbCom) {
+		this.nbCom = nbCom;
+	}
+
+	public String getCommsStr() {
+		return commsStr;
+	}
+
+	public void setCommsStr(String commsStr) {
+		this.commsStr = commsStr;
 	}
 
 }
