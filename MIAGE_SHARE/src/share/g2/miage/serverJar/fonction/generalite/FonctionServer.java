@@ -94,13 +94,16 @@ Communication {
 	public int commExecuter2(){return 1;}
 	
 	/**
-	 * @return TODO
 	 * 
+	 * @return 
 	 */
 	protected int avantConnection(){return 1;}
 	
 
-
+	/**
+	 * 
+	 * @return
+	 */
 	protected int pendantConnection(){return 1;}
 	
 	/**
