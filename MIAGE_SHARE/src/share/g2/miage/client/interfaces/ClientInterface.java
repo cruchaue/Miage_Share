@@ -127,7 +127,7 @@ public class ClientInterface extends JFrame {
 		JButton btnAdmin = new JButton("Administration");
 		btnAdmin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				FenetreAdministration fa = new FenetreAdministration();
+				FenetreAdministration fa = new FenetreAdministration(User);
 				fa.setVisible(true);
 			}
 		});
@@ -191,8 +191,7 @@ public class ClientInterface extends JFrame {
 				
 				if("".equals(nomFic)||nomFic == null){
 					JOptionPane.showMessageDialog(null,
-						"Aucun fichier selectionne");
-					
+						"Aucun fichier selectionne");					
 				}
 				else{
 					FonctionClient fc = new TelechargerFichier(cheminC_enregistrer_fichier_defaut, nomFic);
@@ -246,7 +245,7 @@ public class ClientInterface extends JFrame {
 
 			}
 		});
-		btnChat.setBounds(23, 286, 151, 29);
+		btnChat.setBounds(23, 262, 151, 29);
 		contentPane.add(btnChat);
 
 		JButton btnInformationsFichier = new JButton("Informations fichier");
@@ -279,6 +278,16 @@ public class ClientInterface extends JFrame {
 		});
 		btnInformationsFichier.setBounds(23, 196, 151, 23);
 		contentPane.add(btnInformationsFichier);
+		
+		JButton btnDconnexion = new JButton("Deconnexion");
+		btnDconnexion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+				
+			}
+		});
+		btnDconnexion.setBounds(23, 329, 151, 29);
+		contentPane.add(btnDconnexion);
 		
 		
 

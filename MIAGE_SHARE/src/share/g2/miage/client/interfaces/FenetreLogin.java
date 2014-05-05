@@ -58,7 +58,7 @@ public class FenetreLogin extends JFrame {
 	public FenetreLogin() {
 		setBackground(SystemColor.activeCaption);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 540, 360);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -74,14 +74,14 @@ public class FenetreLogin extends JFrame {
 		contentPane.add(lblMotDePasse);
 
 		textFieldLogin = new JTextField();
-		textFieldLogin.setBounds(194, 73, 134, 28);
+		textFieldLogin.setBounds(194, 73, 191, 28);
 		contentPane.add(textFieldLogin);
 		textFieldLogin.setColumns(10);
 
 		
 
 		passwordFieldMdp = new JPasswordField();
-		passwordFieldMdp.setBounds(194, 117, 134, 28);
+		passwordFieldMdp.setBounds(194, 117, 191, 28);
 		contentPane.add(passwordFieldMdp);
 
 		JButton btnConnexion = new JButton("Connexion");
@@ -147,7 +147,7 @@ public class FenetreLogin extends JFrame {
 
 			
 		});
-		btnConnexion.setBounds(194, 156, 134, 29);
+		btnConnexion.setBounds(194, 172, 191, 29);
 		contentPane.add(btnConnexion);
 		
 		JButton btnCreer = new JButton("Creer un utilisateur");
@@ -168,7 +168,7 @@ public class FenetreLogin extends JFrame {
 				
 			}
 		});
-		btnCreer.setBounds(194, 212, 134, 29);
+		btnCreer.setBounds(194, 212, 191, 29);
 		contentPane.add(btnCreer);
 
 	}
