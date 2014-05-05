@@ -35,7 +35,7 @@ public abstract class AccepterFichier extends FonctionServer {
 	}
 	
 	@Override
-	public int commExecuter() {
+	public int commExecuter1() {
 		try {
 
 			DataInputStream dis = clients.getDis();

@@ -26,7 +26,7 @@ public abstract class CreerUtilisateur extends FonctionServer {
 	}
 
 	@Override
-	public int commExecuter() {
+	public int commExecuter1() {
 		try {
 			DataInputStream dis = clients.getDis();
 			DataOutputStream dos = clients.getDos();

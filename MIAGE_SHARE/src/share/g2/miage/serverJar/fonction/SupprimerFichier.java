@@ -11,10 +11,10 @@ import java.util.Iterator;
 import java.util.Map;
 
 import share.g2.miage.server.ServerFichier;
+import share.g2.miage.server.outil.Outil;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
-import share.g2.miage.util.Outil;
 import share.g2.miage.util.Parametre;
 
 public abstract class SupprimerFichier extends FonctionServer {
@@ -25,56 +25,22 @@ public abstract class SupprimerFichier extends FonctionServer {
 	}
 
 	@Override
-	public int commExecuter() {
+	public int commExecuter1() {
 		try {
 			DataInputStream dis = clients.getDis();
 
-			String strTemp = "";
-
-			strTemp = dis.readUTF();
-			System.out.println(strTemp + ",");
+			this.parametre1 = dis.readUTF();
+			System.out.println(this.parametre1 + ",");
 
 			// Supprimer fichier
-			File file = new File(Parametre.fichierChemin + strTemp);
+			File file = new File(Parametre.fichierChemin + this.parametre1);
 			if (file.exists()) {
 				file.delete();
 				System.out.println("Le fichier a été supprimé avec succès");
 			} else {
 				System.out.println("Aucun fichier selectionné");
 			}
-
-			// Supprimer fichierInfo
-			file = new File(Parametre.fichiersConfigChemin + strTemp
-					+ ".txt");
-			if (file.exists()) {
-				file.delete();
-				System.out.println("Le fichier a été supprimé avec succès");
-			} else {
-				System.out.println("Aucun fichier selectionné");
-			}
-
-			// Supprimer fichierDroit
-			Map<String, String> fichierList = Outil.getDroitsFichier();
-			fichierList.remove(strTemp);
-
-			StringBuffer sb = new StringBuffer();
-			Iterator iter = fichierList.entrySet().iterator();
-			while (iter.hasNext()) {
-				Map.Entry<String, String> entry = (Map.Entry) iter.next();
-				String key = entry.getKey();
-				String val = entry.getValue();
-				sb.append(key);
-				sb.append(";");
-				sb.append(val);
-				sb.append("\r\n");
-			}
-
-			FileOutputStream fos = new FileOutputStream(new File(
-					Parametre.droit_fichiers));
-			fos.write(sb.toString().getBytes());
-
-			fos.close();
-			clients.closeConnection();
+			
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

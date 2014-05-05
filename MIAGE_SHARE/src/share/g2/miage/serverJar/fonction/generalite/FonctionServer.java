@@ -30,13 +30,31 @@ Communication {
 	 * 
 	 */
 	protected void demarrer(){
-		commExecuter();
+		avantConnection();
+		commExecuter1();
+		pendantConnection();
+		commExecuter2();
 		clients.closeConnection();
 		apresConnection();
+	}
+	
+	
+	/** ????? pas forcement realiser
+	 * Lance la communication avec le client.
+	 * Chaque fonction ayant un comportement sp�cifique, toutes devront red�finir cette m�thode.
+	 *  
+	 * @return -1 si une erreur c'est produite lors de l'�x�cution d'une fonction.
+	 */
+	public int commExecuter2(){
+		return 1;
 	}
 	
 	/**
 	 * 
 	 */
-	protected abstract void apresConnection();
+	protected void avantConnection(){}
+	
+	protected void pendantConnection(){}
+	
+	protected void apresConnection(){}
 }
