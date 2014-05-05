@@ -24,14 +24,12 @@ public abstract class EnvoyerFichierJar extends FonctionServer {
 
 			byte[] byteTemp = new byte[Parametre.LENGTH_ENVOYER];
 			int lengthTemp = 0;
-			String strTemp = "";
-
-			strTemp = dis.readUTF();
-			System.out.println(strTemp + ",");
-
-			System.out.println(lengthTemp + ", " + strTemp);
-
-			File file = new File(Parametre.fichierChemin+strTemp);
+			String fichierNom  = dis.readUTF();
+			
+			//utilisateurNom
+			this.parametre1  = dis.readUTF();
+			
+			File file = new File(Parametre.fichierChemin+fichierNom);
 
 			FileInputStream fis = new FileInputStream(file);
 			

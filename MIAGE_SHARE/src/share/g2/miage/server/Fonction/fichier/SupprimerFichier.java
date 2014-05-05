@@ -7,15 +7,28 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
 
+import share.g2.miage.client.dao.Fichier;
+import share.g2.miage.client.dao.User;
 import share.g2.miage.server.outil.Outil;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.fichier.SupprimerFichierJar;
 import share.g2.miage.util.Parametre;
 
+/**
+ * <b>Supprime du serveur un fichier choisi par l'utilisateur</b>
+ * 
+ * <p>Après avoir verifié que l'utilisateur a tous les droits d'effectuer
+ *  cette action, le serveur va supprimer de sa memoire le fichier choisi.</p>
+ *  
+ *  @see User
+ *  @see Fichier
+ *  @see share.g2.miage.clientJar.fonction.fichier.SupprimerFichier
+ *
+ */
 public class SupprimerFichier extends SupprimerFichierJar {
 
 	@Override
-	protected void apresConnection() {
+	protected int apresConnection() {
 		// Supprimer fichierInfo
 		File file = new File(Parametre.fichiersConfigChemin + this.parametre1
 				+ ".txt");
@@ -49,12 +62,15 @@ public class SupprimerFichier extends SupprimerFichierJar {
 			fos.write(sb.toString().getBytes());
 
 			fos.close();
+			return 1;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return -1;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return -1;
 		}
 		
 

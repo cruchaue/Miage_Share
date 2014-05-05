@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
+import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
@@ -13,19 +14,22 @@ import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
 /**
- * Permet à l'utilisateur de supprimer un fichier sur le serveur.
+ * <b>Permet à l'utilisateur de supprimer un fichier sur le serveur.</b>
  * 
- * Il est preferable de definir quels utilisateurs 
- * peuvent effectuer cette action lors de la concetption de l'application.
+ * <p>Il est preferable de definir au prealable quels utilisateurs 
+ * peuvent effectuer cette action lors de la concetption de l'application.</p>
  *
- * Il existe, dans le package server, une classe SupprimerFichier qui fonctionne en complement de cette classe. 
+ * <p>Il existe, dans le package server, une classe SupprimerFichier qui fonctionne en complement de cette classe.</p> 
  */
-public class SupprimerFichier extends
-		FonctionClient {
+public class SupprimerFichier<T> extends
+		FonctionClient<T> {
 	
 	/**
+	 * Demarre la suppression du fichier sur le serveur
+	 * @param fichierNom Le nom du fichier a supprimer.
 	 * 
-	 * @param fichierNom
+	 * @see share.g2.miage.server.Fonction.fichier.SupprimerFichier
+	 * @see Fichier
 	 */
 	public SupprimerFichier(String fichierNom){
 		super();
@@ -34,7 +38,7 @@ public class SupprimerFichier extends
 	}
 
 	@Override
-	public int executer() {
+	public int commExecuter1() {
 		try {
 
 

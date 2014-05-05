@@ -18,6 +18,14 @@ public interface Communication {
 	 *  
 	 * @return -1 si une erreur c'est produite lors de l'�x�cution d'une fonction.
 	 */
-	public int executer();
+	public int commExecuter1();
+	
+	/**
+	 * Lance la communication avec le serveur.
+	 * Chaque fonction ayant un comportement sp�cifique, toutes devront red�finir cette m�thode.
+	 *  
+	 * @return -1 si une erreur c'est produite lors de l'�x�cution d'une fonction.
+	 */
+	public int commExecuter2();
 	
 }

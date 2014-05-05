@@ -14,6 +14,7 @@ import javax.swing.JButton;
 
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.dao.User;
+import share.g2.miage.client.fonction.statistiques.StatUpDownload;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -35,7 +36,7 @@ import share.g2.miage.clientJar.fonction.fichier.TelechargerFichier;
 import share.g2.miage.clientJar.fonction.fichier.UploadFichier;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.clientJar.fonction.statistiques.StatUpDownload;
+import share.g2.miage.clientJar.fonction.statistiques.StatUpDownloadJar;
 import share.g2.miage.util.Parametre;
 
 public class ClientInterface extends JFrame {
@@ -198,7 +199,7 @@ public class ClientInterface extends JFrame {
 						"Aucun fichier selectionne");					
 				}
 				else{
-					FonctionClient fc = new TelechargerFichier(cheminC_enregistrer_fichier_defaut, nomFic);
+					FonctionClient fc = new TelechargerFichier(cheminC_enregistrer_fichier_defaut, nomFic, User.getUserName());
 					JOptionPane.showMessageDialog(null,
 							"Fichier telecharge avec succes");
 				}
@@ -299,7 +300,9 @@ public class ClientInterface extends JFrame {
 				FenetreStat fs = new FenetreStat(User);
 				fs.setVisible(true);
 				FonctionClient<ChartFrame> fcf = new StatUpDownload(User.getUserName());
+				fcf.demarrer();
 				ChartFrame chartFrame = fcf.getResultat3();
+				
 				chartFrame.setVisible(true);
 			}
 		});

@@ -21,22 +21,23 @@ import share.g2.miage.util.Parametre;
  * lors de la conception de l'application.
  *
  */
-public class TelechargerFichier extends FonctionClient {
+public class TelechargerFichier<T> extends FonctionClient<T> {
 	
 	/**
 	 * 
 	 * @param chemin
 	 * @param fichierNom
 	 */
-	public TelechargerFichier(String chemin, String fichierNom){
+	public TelechargerFichier(String chemin, String fichierNom, String userNom){
 		super();
 		parametre1 = chemin;
 		parametre2 = fichierNom;
+		parametre3 = userNom;
 		demarrer();
 	}
 
 	@Override
-	public int executer() {
+	public int commExecuter1() {
 		try {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
@@ -49,6 +50,9 @@ public class TelechargerFichier extends FonctionClient {
 
 			dos.writeUTF(parametre2);
 			dos.flush();
+			
+			dos.writeUTF(parametre3);
+			dos.flush();
 
 			FileOutputStream fos = new FileOutputStream(new File(
 					parametre1 + parametre2));
@@ -56,13 +60,8 @@ public class TelechargerFichier extends FonctionClient {
 				fos.write(sendBytes, 0, length);
 				fos.flush();
 			}
-			fos.close();
-
 			
-			// socket.close();
 			fos.close();
-			// dos.close();
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			return -1;

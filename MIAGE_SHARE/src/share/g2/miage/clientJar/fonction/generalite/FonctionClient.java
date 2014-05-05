@@ -41,6 +41,11 @@ public abstract class FonctionClient<T> implements
 	/**
 	 * 
 	 */
+	protected String parametre3 = "";
+	
+	/**
+	 * 
+	 */
 	protected String resultat1 = ""; 
 	
 	/**
@@ -65,12 +70,56 @@ public abstract class FonctionClient<T> implements
 	}
 	
 	/**
+	 * @return TODO
+	 * 
+	 * execution de la communication et la deconnection avec le serveur.
+	 */
+	public int demarrer(){
+		int rs;
+		rs = avantConnection();
+		
+		if(rs==1){
+			rs = commExecuter1();
+		}else{
+			return rs;
+		}
+		
+		if(rs==1){
+			rs = pendantConnection();
+		}else{
+			return rs;
+		}
+		
+		if(rs==1){
+			rs = commExecuter2();
+			client.closeConnection();
+		}else{
+			client.closeConnection();
+			return rs;
+		}
+		
+		if(rs==1){
+			rs = apresConnection();
+		}else{
+			return rs;
+		}
+		
+		return rs;
+	}
+	
+	@Override
+	public int commExecuter2(){return 1;}
+	
+	/**
+	 * @return TODO
 	 * 
 	 */
-	public void demarrer(){
-		executer();
-		client.closeConnection();
-	}
+	protected int avantConnection(){return 1;}
+	
+	protected int pendantConnection(){return 1;}
+	
+	protected int apresConnection(){return 1;}
+	
 	
 	/**
 	 * 

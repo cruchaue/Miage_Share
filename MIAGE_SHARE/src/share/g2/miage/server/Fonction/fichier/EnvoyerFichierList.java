@@ -10,11 +10,14 @@ import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.fichier.EnvoyerFichierListJar;
 import share.g2.miage.util.Parametre;
 
-
+/**
+ * Envoie la liste de tout les fichiers stockes sur le serveur lorsqu'une demande a ete faite.
+ *
+ */
 public class EnvoyerFichierList extends EnvoyerFichierListJar{
 
 	@Override
-	protected void pendantConnection(){
+	protected int pendantConnection(){
 		String userName = this.parametre1;
 		Map<String,Utilisateur> users = ServerFichier.getListeUser();
 		String droitU = users.get(userName).getLimite();
@@ -32,6 +35,8 @@ public class EnvoyerFichierList extends EnvoyerFichierListJar{
 		} 
 		
 		this.parametre2 = sb.toString();
+		
+		return 1;
 	}
 
 }

@@ -3,7 +3,6 @@ package share.g2.miage.server;
 import java.io.*;
 import java.net.*;
 
-import share.g2.miage.server.Fonction.*;
 import share.g2.miage.server.Fonction.fichier.AccepterFichier;
 import share.g2.miage.server.Fonction.fichier.CommenterFichier;
 import share.g2.miage.server.Fonction.fichier.EnvoyerFichier;
@@ -15,14 +14,21 @@ import share.g2.miage.server.Fonction.utilisateur.CreerUtilisateur;
 import share.g2.miage.server.Fonction.utilisateur.Login;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
-import share.g2.miage.serverJar.fonction.statistiques.StatUpDownloadJar;
 import share.g2.miage.util.Parametre;
 
-//--- CreateServerThread
+/**
+ * 
+ *
+ */
 class ServerThreadFichier extends Thread {
 	private ClientS clients;
 	private FonctionServer fs;
-
+	
+	/**
+	 * 
+	 * @param s
+	 * @throws IOException
+	 */
 	public ServerThreadFichier(Socket s) throws IOException {
 		clients = new ClientS();
 		clients.setClient(s);
@@ -62,7 +68,12 @@ class ServerThreadFichier extends Thread {
 					fs = new StatUpDownload();
 				}
 				
-				fs.demarrer(clients);
+				int result = fs.demarrer(clients);
+				if(result == 1){
+					System.out.println("Operation "+strFonction+" "+"est bien fait!");
+				}else{
+					System.out.println("Operation "+strFonction+" "+"est raté!");
+				}
 				
 			
 		} catch (IOException e) {

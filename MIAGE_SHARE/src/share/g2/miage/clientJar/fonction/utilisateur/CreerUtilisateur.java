@@ -24,7 +24,7 @@ import share.g2.miage.util.Parametre;
  * Il existe dans le package server une classe CreerUtilisateur qui fonctionne en complement de cette classe.
  * </p>
  */
-public class CreerUtilisateur extends FonctionClient {
+public class CreerUtilisateur<T> extends FonctionClient<T> {
 	
 	/**
 	 * 
@@ -37,7 +37,7 @@ public class CreerUtilisateur extends FonctionClient {
 	}
 
 	@Override
-	public int executer() {
+	public int commExecuter1() {
 		try {
 
 			// FileInputStream fis = new FileInputStream(file);

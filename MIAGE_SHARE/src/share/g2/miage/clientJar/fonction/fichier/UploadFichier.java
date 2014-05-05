@@ -22,7 +22,7 @@ import share.g2.miage.util.Parametre;
  * 
  * Il existe dans le package server une classe AccepterFichier qui fonctionne en complement de cette classe. 
  */
-public class UploadFichier extends FonctionClient {
+public class UploadFichier<T> extends FonctionClient<T> {
 	
 	/**
 	 * 
@@ -37,7 +37,7 @@ public class UploadFichier extends FonctionClient {
 	}
 
 	@Override
-	public int executer() {
+	public int commExecuter1() {
 		try {
 
 			File file = new File(parametre1);
@@ -65,7 +65,7 @@ public class UploadFichier extends FonctionClient {
 				bos.flush();
 				System.out.println("upload en cours!");
 			}
-			// client.setResultat1(dis.readUTF());
+			
 			client.closeConnection();
 			JOptionPane.showMessageDialog(null, "Fichier uploadé avec succès");
 

@@ -8,9 +8,7 @@ import java.util.Properties;
  *
  */
 public class Parametre {
-	/**
-	 * 
-	 */
+
 	//**************parametre de JAR*************/
 	public final static int LENGTH_ENVOYER = 1024;
 	
@@ -72,7 +70,6 @@ public class Parametre {
 		fichiers_BD_utilisateurs = p.getProperty("BD_utilisateurs");
 		droit_fichiers = p.getProperty("droit_fichiers");
 		portServerChat = Integer.valueOf(p.getProperty("portServerChat"));
-		
 	}
 	
 }

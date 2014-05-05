@@ -3,7 +3,6 @@ package share.g2.miage.clientJar.fonction.fichier;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 
-import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.util.Parametre;
 
@@ -12,7 +11,7 @@ import share.g2.miage.util.Parametre;
  * Le seul parametre a envoyer est le nom d'utilisateur. 
  *
  */
-public class GetFichierList extends FonctionClient {
+public class GetFichierList<T> extends FonctionClient<T> {
 	
 	/**
 	 * 
@@ -25,7 +24,7 @@ public class GetFichierList extends FonctionClient {
 	}
 
 	@Override
-	public int executer() {
+	public int commExecuter1() {
 		try {
 
 			DataOutputStream dos = client.getDos();

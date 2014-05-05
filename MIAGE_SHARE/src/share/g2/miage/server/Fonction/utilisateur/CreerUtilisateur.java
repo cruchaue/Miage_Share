@@ -11,10 +11,21 @@ import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.utilisateur.CreerUtilisateurJar;
 import share.g2.miage.util.Parametre;
 
+/**
+ * <b>Creation d'un utilisateur</b>
+ * 
+ * <p>
+ * Permettre de creer le profil d'un utilisateur sur le serveur lors de
+ * l'inscription de celui-ci après avoir verifier les donnees envoyees.
+ * </p>
+ * 
+ * @see CreerUtilisateurJar
+ * 
+ */
 public class CreerUtilisateur extends CreerUtilisateurJar {
 
 	@Override
-	protected void apresConnection() {
+	protected int apresConnection() {
 
 		try {
 			System.out.println("Info util : " + this.parametre1);
@@ -36,10 +47,11 @@ public class CreerUtilisateur extends CreerUtilisateurJar {
 
 			clients.closeConnection();
 			ServerFichier.chargerUtilisateur();
-
+			return 1;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return -1;
 		}
 
 	}

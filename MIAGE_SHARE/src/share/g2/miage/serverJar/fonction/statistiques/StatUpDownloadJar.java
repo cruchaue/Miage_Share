@@ -39,7 +39,11 @@ public abstract class StatUpDownloadJar extends FonctionServer {
 		try {
 			DataOutputStream dos = clients.getDos();
 			dos.writeInt(this.resultat1);
+			dos.flush();
+			
 			dos.writeUTF(this.resultat2);
+			dos.flush();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
