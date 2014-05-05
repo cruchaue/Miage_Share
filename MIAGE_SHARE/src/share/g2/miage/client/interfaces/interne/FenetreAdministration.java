@@ -24,6 +24,7 @@ import javax.swing.JButton;
 import share.g2.miage.client.dao.User;
 import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.clientJar.fonction.fichier.GetFichierList;
+import share.g2.miage.clientJar.fonction.fichier.ModifierDroitFichier;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.clientJar.fonction.utilisateur.ModifierDroitUtilisateur;
 import share.g2.miage.clientJar.fonction.utilisateur.SupprimerUtilisateur;
@@ -164,8 +165,8 @@ public class FenetreAdministration extends JFrame {
 							null, "Choisir le niveau de droit du fichier",
 							"Customized Dialog", JOptionPane.PLAIN_MESSAGE,
 							null, possibilities, "1");
-					modifierDroitFichier(nomFic, choixDroit);
-
+					
+					FonctionClient fcf = new ModifierDroitFichier(nomFic, choixDroit);
 				}
 
 			}
@@ -182,89 +183,6 @@ public class FenetreAdministration extends JFrame {
 		listerUtilisateurs();
 	}
 	
-	
-	public void modifierDroitUtilisateur(String nomUtil, String choixDroit) {
-		String droitUtil = ParametreC.fichiers_BD_utilisateurs;
-
-		File filename = new File(droitUtil);
-		InputStreamReader reader;
-		try {
-			reader = new InputStreamReader(new FileInputStream(filename));
-
-			br = new BufferedReader(reader);
-			String line = "";
-			StringBuffer sb = new StringBuffer();
-			String Newligne=System.getProperty("line.separator"); 
-			while ((line = br.readLine()) != null) {
-				
-				String uStr[] = line.split(";");
-				if (uStr[0].equals(nomUtil)) {
-					uStr[2] = choixDroit;
-					
-
-				}
-				sb.append(uStr[0] + ";" + uStr[1]+";" + uStr[2]+";" + uStr[3]+";"+Newligne);
-
-			}		
-			
-			File file = new File(ParametreC.fichiers_BD_utilisateurs);
-			FileWriter fw = new FileWriter(file.getAbsoluteFile(), false);
-
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(sb.toString());
-			bw.close();
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-
-	public void modifierDroitFichier(String nomFichier, String choixDroit) {
-		String droitFichier = ParametreC.droit_fichiers;
-
-		File filename = new File(droitFichier);
-		InputStreamReader reader;
-		try {
-			reader = new InputStreamReader(new FileInputStream(filename));
-
-			br = new BufferedReader(reader);
-			String line = "";
-			StringBuffer sb = new StringBuffer();
-			String Newligne=System.getProperty("line.separator"); 
-			while ((line = br.readLine()) != null) {
-				
-				String uStr[] = line.split(";");
-				if (uStr[0].equals(nomFichier)) {
-					uStr[1] = choixDroit;
-					
-
-				}
-				sb.append(uStr[0] + ";" + uStr[1]+Newligne);
-
-			}		
-			
-
-			File file = new File(ParametreC.droit_fichiers);
-			FileWriter fw = new FileWriter(file.getAbsoluteFile(), false);
-
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(sb.toString());
-			bw.close();
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
 	public void listerFichiers() {
 		// getFichiers
 		FonctionClient fc = new GetFichierList(user.getUserName());

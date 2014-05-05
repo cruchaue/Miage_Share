@@ -24,6 +24,7 @@ public class ParametreSJ {
 	public final static String FICHIER_COMMENTER = "<@commenterFichier>";
 	public final static String FICHIER_LIRE_INFO = "<@lireFichierInfo>";
 	public final static String FICHIER_GET_LIST = "<@getFichierList>";
+	public final static String FICHIER_MODIFIER_DROIT = "<@modifierFichierDroit>";
 	
 	//prédicat d'opération de fichier
 	public final static String UTILISATEUR_LOGIN = "<@login>";

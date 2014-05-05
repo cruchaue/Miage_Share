@@ -8,6 +8,7 @@ import share.g2.miage.server.Fonction.fichier.CommenterFichier;
 import share.g2.miage.server.Fonction.fichier.EnvoyerFichier;
 import share.g2.miage.server.Fonction.fichier.EnvoyerFichierInfo;
 import share.g2.miage.server.Fonction.fichier.EnvoyerFichierList;
+import share.g2.miage.server.Fonction.fichier.ModifierDroitFichier;
 import share.g2.miage.server.Fonction.fichier.SupprimerFichier;
 import share.g2.miage.server.Fonction.statistiques.StatUpDownload;
 import share.g2.miage.server.Fonction.utilisateur.CreerUtilisateur;
@@ -80,6 +81,9 @@ class ServerThreadFichier extends Thread {
 			}else if (ParametreSJ.UTILISATEUR_MODIFIER_DROIT
 					.equals(strFonction)) {
 				fs = new ModifierDroitUtilisateur(ParametreS.fichiers_BD_utilisateurs);
+			}else if (ParametreSJ.FICHIER_MODIFIER_DROIT
+					.equals(strFonction)) {
+				fs = new ModifierDroitFichier(ParametreS.droit_fichiers);
 			}
 
 			int result = fs.demarrer(clients);
