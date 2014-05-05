@@ -10,8 +10,8 @@ import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
+import share.g2.miage.clientJar.outil.ParametreCJ;
 import share.g2.miage.server.ServerFichier;
-import share.g2.miage.util.Parametre;
 
 /**
  * CommenterFichier est la classe qui va permettre à l'utilisateur de pouvoir commenter un fichier.
@@ -44,7 +44,7 @@ public class CommenterFichier<T> extends FonctionClient<T> {
 
 			DataOutputStream dos = client.getDos();
 
-			dos.writeUTF(Parametre.FICHIER_COMMENTER);
+			dos.writeUTF(ParametreCJ.FICHIER_COMMENTER);
 			dos.flush();
 
 			dos.writeUTF(parametre1);

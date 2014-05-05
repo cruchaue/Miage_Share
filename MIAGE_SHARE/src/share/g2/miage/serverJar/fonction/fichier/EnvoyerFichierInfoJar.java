@@ -12,10 +12,16 @@ import share.g2.miage.server.ServerFichier;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.serverJar.outil.ParametreSJ;
 
 public abstract class EnvoyerFichierInfoJar extends FonctionServer {
-
+	
+	private String fichiersConfigChemin;
+	public EnvoyerFichierInfoJar(String fichiersConfigChemin){
+		this.fichiersConfigChemin = fichiersConfigChemin;
+	}
+	
+	
 	@Override
 	public int commExecuter1() {
 		try {
@@ -27,12 +33,12 @@ public abstract class EnvoyerFichierInfoJar extends FonctionServer {
 
 			strTemp = dis.readUTF();
 			System.out.println(strTemp + ",");
-			File file = new File(Parametre.fichiersConfigChemin + strTemp
+			File file = new File(fichiersConfigChemin + strTemp
 					+ ".txt");
 			if (file.exists()) {
 				fis = new FileInputStream(file);
 
-				byte[] sendBytes = new byte[Parametre.LENGTH_ENVOYER];
+				byte[] sendBytes = new byte[ParametreSJ.LENGTH_ENVOYER];
 				int length = 0;
 
 				while ((length = fis.read(sendBytes, 0, sendBytes.length)) > 0) {

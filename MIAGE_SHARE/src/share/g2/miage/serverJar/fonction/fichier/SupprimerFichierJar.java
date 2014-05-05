@@ -15,10 +15,12 @@ import share.g2.miage.server.outil.Outil;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
-import share.g2.miage.util.Parametre;
 
 public abstract class SupprimerFichierJar extends FonctionServer {
-
+	private String fichierChemin;
+	public SupprimerFichierJar(String fichierChemin){
+		this.fichierChemin = fichierChemin;
+	}
 	@Override
 	public int commExecuter1() {
 		try {
@@ -28,11 +30,11 @@ public abstract class SupprimerFichierJar extends FonctionServer {
 			System.out.println(this.parametre1 + ",");
 
 			// Supprimer fichier
-			File file = new File(Parametre.fichierChemin + this.parametre1);
-			if (file.exists()) 
+			File file = new File(fichierChemin + this.parametre1);
+			if (file.exists()) {
 				file.delete();
-
-
+			}
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

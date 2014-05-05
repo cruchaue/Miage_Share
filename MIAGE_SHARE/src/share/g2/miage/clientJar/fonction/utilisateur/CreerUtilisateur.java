@@ -11,8 +11,8 @@ import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
+import share.g2.miage.clientJar.outil.ParametreCJ;
 import share.g2.miage.server.ServerFichier;
-import share.g2.miage.util.Parametre;
 
 /**
  * <b>Represente l'action de creer un utilisateur sur le serveur.</b>
@@ -45,7 +45,7 @@ public class CreerUtilisateur<T> extends FonctionClient<T> {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			dos.writeUTF(Parametre.UTILISATEUR_CREER);
+			dos.writeUTF(ParametreCJ.UTILISATEUR_CREER);
 			dos.flush();
 
 			dos.writeUTF(parametre1);

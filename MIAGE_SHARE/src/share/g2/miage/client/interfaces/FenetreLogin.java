@@ -14,13 +14,14 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import share.g2.miage.client.dao.User;
+import share.g2.miage.client.outil.CrypterMDP;
+import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.fichier.SupprimerFichier;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.clientJar.fonction.utilisateur.Login;
-import share.g2.miage.util.CrypterMDP;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.clientJar.outil.Outil;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -78,8 +79,6 @@ public class FenetreLogin extends JFrame {
 		contentPane.add(textFieldLogin);
 		textFieldLogin.setColumns(10);
 
-
-
 		passwordFieldMdp = new JPasswordField();
 		passwordFieldMdp.setBounds(194, 117, 191, 28);
 		contentPane.add(passwordFieldMdp);
@@ -87,25 +86,24 @@ public class FenetreLogin extends JFrame {
 		JButton btnConnexion = new JButton("Connexion");
 		btnConnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(textFieldLogin.getText().equals("") || passwordFieldMdp.getText().equals(""))
-				{
+				if (textFieldLogin.getText().equals("")
+						|| passwordFieldMdp.getText().equals("")) {
 					JOptionPane.showMessageDialog(null,
 							"Manque logien et/ou mot de passe");
-				}
-				else
-				{
+				} else {
 					String login = textFieldLogin.getText();
 					String mdp = passwordFieldMdp.getText();
 					mdp = CrypterMDP.crypteMDP(mdp);
-
+					System.out.println("MDP : " + mdp);
 
 					FonctionClient fc = new Login(login, mdp);
 
 					String resultat = fc.getResultat1();
-					if (Parametre.OK.equals(resultat)) {
-
+					if ("1".equals(resultat)) {
+						System.out.println("login ok");
 						String userInfoStr = fc.getResultat2();
-						String[] userInfo =  userInfoStr.split(Parametre.SEPARATEUR);
+						String[] userInfo = Outil
+								.StringToStringTableau(userInfoStr);
 
 						User user = new User();
 						user.setUserName(userInfo[0]);
@@ -127,24 +125,20 @@ public class FenetreLogin extends JFrame {
 
 						setVisible(false);
 
-					} else if (Parametre.UTILISATEUR_EXISTE_PAS.equals(resultat)) {
-
+					} else if ("0".equals(resultat)) {
+						System.out.println("pas de user");
 
 						JOptionPane jop = new JOptionPane();
 						jop.showMessageDialog(null,
 								"Cet utilisateur n'existe pas.",
-								"Login failed",
-								JOptionPane.WARNING_MESSAGE);
+								"Login failed", JOptionPane.WARNING_MESSAGE);
 
-					} else if (Parametre.UTILISATEUR_PW_PAS_CORRECTE
-							.equals(resultat)) {
-
+					} else if ("-1".equals(resultat)) {
+						System.out.println("faute pw");
 
 						JOptionPane jop = new JOptionPane();
-						jop.showMessageDialog(null,
-								"Mauvais mot de passe.",
-								"Login failed",
-								JOptionPane.WARNING_MESSAGE);
+						jop.showMessageDialog(null, "Mauvais mot de passe.",
+								"Login failed", JOptionPane.WARNING_MESSAGE);
 					}
 				}
 

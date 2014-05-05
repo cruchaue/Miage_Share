@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import share.g2.miage.client.dao.User;
+import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.autre.EnvoyerMail;
 import share.g2.miage.clientJar.fonction.fichier.GetFichierList;
@@ -21,8 +22,6 @@ import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.clientJar.fonction.utilisateur.Login;
 import share.g2.miage.server.dao.Utilisateur;
-import share.g2.miage.util.CrypterMDP;
-import share.g2.miage.util.Parametre;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

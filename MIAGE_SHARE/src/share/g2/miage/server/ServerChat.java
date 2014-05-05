@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import share.g2.miage.server.dao.Utilisateur;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.server.outil.ParametreS;
 
 /**
  * Lance le serveur, dans un nouveau Thread, qui va g�rer un chat. 
@@ -79,7 +79,7 @@ public class ServerChat   extends Thread {
 
 		try {
 
-			serverChat = new ServerSocket(Parametre.portServerChat);
+			serverChat = new ServerSocket(ParametreS.portServerChat);
 
 			while (demarre) {
 

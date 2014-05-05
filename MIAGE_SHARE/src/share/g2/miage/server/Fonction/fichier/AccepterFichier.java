@@ -12,9 +12,9 @@ import java.util.Map;
 
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.server.dao.UtilisateurStat;
+import share.g2.miage.server.outil.ParametreS;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.serverJar.fonction.fichier.AccepterFichierJar;
-import share.g2.miage.util.Parametre;
 /**
  * <p>Verifie les informations envoyees par l'utilisateur lors de l'upload d'un 
  * fichier par exemple.<br />
@@ -24,6 +24,11 @@ import share.g2.miage.util.Parametre;
  *
  */
 public class AccepterFichier extends AccepterFichierJar{
+	
+	public AccepterFichier(String fichierChemin) {
+		super(fichierChemin);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	protected int apresConnection() {
@@ -67,7 +72,7 @@ public class AccepterFichier extends AccepterFichierJar{
 		DecimalFormat df = new DecimalFormat("#.00");
 
 		// obtenir la taille de fichier.
-		File file = new File(Parametre.fichierChemin + fichierNom);
+		File file = new File(ParametreS.fichierChemin + fichierNom);
 		long filesize = file.length();
 		if (filesize < 1024) {
 			taille = filesize + "b";
@@ -89,21 +94,21 @@ public class AccepterFichier extends AccepterFichierJar{
 		datestr = sdf.format(date);
 
 		sb.append(userName);
-		sb.append(Parametre.SPEPARER_FICHIER_INFO);
+		sb.append(ParametreS.SPEPARER_FICHIER_INFO);
 		sb.append(taille);
-		sb.append(Parametre.SPEPARER_FICHIER_INFO);
+		sb.append(ParametreS.SPEPARER_FICHIER_INFO);
 		sb.append(datestr);
-		sb.append(Parametre.SPEPARER_FICHIER_INFO);
+		sb.append(ParametreS.SPEPARER_FICHIER_INFO);
 		sb.append("0");
-		sb.append(Parametre.SPEPARER_FICHIER_INFO);
-		sb.append(Parametre.FICHIER_DROIT_DEFAULT);
-		sb.append(Parametre.SPEPARER_FICHIER_INFO);
+		sb.append(ParametreS.SPEPARER_FICHIER_INFO);
+		sb.append(ParametreS.FICHIER_DROIT_DEFAULT);
+		sb.append(ParametreS.SPEPARER_FICHIER_INFO);
 
 		
 		FileOutputStream fos;
 		try {
 			fos = new FileOutputStream(new File(
-					Parametre.fichiersConfigChemin + fichierNom + ".txt"));
+					ParametreS.fichiersConfigChemin + fichierNom + ".txt"));
 			byte[] byteFI = sb.toString().getBytes();
 
 			fos.write(byteFI);
@@ -132,9 +137,9 @@ public class AccepterFichier extends AccepterFichierJar{
 		BufferedWriter out = null;
 		try {
 			out = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream(Parametre.droit_fichiers, true)));
+					new FileOutputStream(ParametreS.droit_fichiers, true)));
 			out.write(fichierNom + ";"
-					+ Parametre.FICHIER_DROIT_DEFAULT + "\r\n");
+					+ ParametreS.FICHIER_DROIT_DEFAULT + "\r\n");
 			out.flush();
 			out.close();
 		} catch (Exception e) {

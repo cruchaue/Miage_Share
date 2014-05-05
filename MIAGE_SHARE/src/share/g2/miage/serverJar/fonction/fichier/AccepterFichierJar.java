@@ -17,18 +17,21 @@ import share.g2.miage.server.ServerFichier;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
-import share.g2.miage.util.Parametre;
 
 /**
  * 
  *
  */
 public abstract class AccepterFichierJar extends FonctionServer {
-
+	
+	private String fichierChemin;
+	public AccepterFichierJar(String fichierChemin){
+		this.fichierChemin = fichierChemin;
+	}
+	
 	@Override
 	public int commExecuter1() {
 		try {
-
 			DataInputStream dis = clients.getDis();
 			DataOutputStream dos = clients.getDos();
 			BufferedInputStream bis = clients.getBis();
@@ -40,7 +43,7 @@ public abstract class AccepterFichierJar extends FonctionServer {
 			String fichierNom = dis.readUTF();
 			String userName = dis.readUTF();
 
-			fos = new FileOutputStream(new File(Parametre.fichierChemin
+			fos = new FileOutputStream(new File(fichierChemin
 					+ fichierNom));
 			while ((lengthTemp = bis.read(byteTemp, 0, byteTemp.length)) > 0) {
 				fos.write(byteTemp, 0, lengthTemp);

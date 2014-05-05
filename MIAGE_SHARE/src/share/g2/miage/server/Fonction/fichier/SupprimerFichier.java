@@ -10,9 +10,9 @@ import java.util.Map;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.dao.User;
 import share.g2.miage.server.outil.Outil;
+import share.g2.miage.server.outil.ParametreS;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.fichier.SupprimerFichierJar;
-import share.g2.miage.util.Parametre;
 
 /**
  * <b>Supprime du serveur un fichier choisi par l'utilisateur</b>
@@ -27,10 +27,15 @@ import share.g2.miage.util.Parametre;
  */
 public class SupprimerFichier extends SupprimerFichierJar {
 
+	public SupprimerFichier(String fichierChemin) {
+		super(fichierChemin);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	protected int apresConnection() {
 		// Supprimer fichierInfo
-		File file = new File(Parametre.fichiersConfigChemin + this.parametre1
+		File file = new File(ParametreS.fichiersConfigChemin + this.parametre1
 				+ ".txt");
 		if (file.exists()) 
 			file.delete();
@@ -55,7 +60,7 @@ public class SupprimerFichier extends SupprimerFichierJar {
 		FileOutputStream fos;
 		try {
 			fos = new FileOutputStream(new File(
-					Parametre.droit_fichiers));
+					ParametreS.droit_fichiers));
 			fos.write(sb.toString().getBytes());
 
 			fos.close();

@@ -7,9 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import share.g2.miage.client.dao.Commentaire;
+import share.g2.miage.server.outil.ParametreS;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.fichier.CommenterFichierJar;
-import share.g2.miage.util.Parametre;
 
 
 /**
@@ -26,9 +26,9 @@ public class CommenterFichier extends CommenterFichierJar{
 		try {
 			
 			int lengthTemp;
-			byte[] byteTemp = new byte[Parametre.LENGTH_ENVOYER];
+			byte[] byteTemp = new byte[ParametreS.LENGTH_ENVOYER];
 			
-			File file = new File(Parametre.fichiersConfigChemin+this.parametre1+".txt");
+			File file = new File(ParametreS.fichiersConfigChemin+this.parametre1+".txt");
 			
 			
 			

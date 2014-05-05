@@ -14,7 +14,7 @@ import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.serverJar.outil.ParametreSJ;
 
 /**
  * <b>Action de logger un utilisateur sur le serveur</b>
@@ -45,17 +45,16 @@ public abstract class LoginJar extends FonctionServer {
 		try {
 			DataOutputStream dos = clients.getDos();
 			if (this.resultat1 == 1) {
-				dos.writeUTF(Parametre.OK);
-				dos.writeUTF(this.parametre1 + Parametre.SEPARATEUR + this.parametre2);
-
+				dos.writeUTF("1");
+				dos.writeUTF(this.parametre1 + ParametreSJ.SEPARATEUR + this.parametre2);
 
 			} else if (this.resultat1 == 0) {
-				dos.writeUTF(Parametre.UTILISATEUR_EXISTE_PAS);
+				dos.writeUTF("0");
 				dos.writeUTF("null");
 
 			} else if (this.resultat1 == -1) {
 
-				dos.writeUTF(Parametre.UTILISATEUR_PW_PAS_CORRECTE);
+				dos.writeUTF("-1");
 				dos.writeUTF("null");
 
 			} else {

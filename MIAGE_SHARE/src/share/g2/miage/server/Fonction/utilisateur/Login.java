@@ -8,7 +8,6 @@ import share.g2.miage.server.dao.Utilisateur;
 import share.g2.miage.server.dao.UtilisateurStat;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.utilisateur.LoginJar;
-import share.g2.miage.util.Parametre;
 
 /**
  * <b>Login de l'utilisateur sur le serveur</b>

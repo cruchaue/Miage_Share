@@ -5,7 +5,7 @@ import java.io.DataOutputStream;
 
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.clientJar.outil.ParametreCJ;
 
 /**
  * Permet a l'utilisateur de lire les informations lié au fichier.
@@ -32,13 +32,13 @@ public class LireFichierInfo<T> extends FonctionClient<T> {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			dos.writeUTF(Parametre.FICHIER_LIRE_INFO);
+			dos.writeUTF(ParametreCJ.FICHIER_LIRE_INFO);
 			dos.flush();
 
 			dos.writeUTF(parametre1);
 			dos.flush();
 
-			byte[] sendBytes = new byte[Parametre.LENGTH_ENVOYER];
+			byte[] sendBytes = new byte[ParametreCJ.LENGTH_ENVOYER];
 			int length = 0;
 
 			StringBuffer sb = new StringBuffer();

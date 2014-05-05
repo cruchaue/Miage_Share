@@ -13,9 +13,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.clientJar.fonction.statistiques.outil.FichierTest;
 import share.g2.miage.server.ServerFichier;
-import share.g2.miage.util.Parametre;
 
 /**
  * <b>Representation d'un fichier</b>
@@ -54,7 +54,7 @@ public class Fichier {
 	 * 
 	 */
 	public Fichier(String infoFichier) {
-		String[] strFI = infoFichier.split(Parametre.SPEPARER_FICHIER_INFO);
+		String[] strFI = infoFichier.split(ParametreC.SPEPARER_FICHIER_INFO);
 		this.nom = strFI[0];
 		this.auteur = strFI[1];
 		this.taille = strFI[2];
@@ -65,12 +65,11 @@ public class Fichier {
 		this.droit = Integer.valueOf(strFI[5]);
 
 		if (strFI.length > 6) {
-			String[] strCMMS = strFI[6].split(Parametre.SPEPARER_FICHIER_COMMENTAIRE1);
+			String[] strCMMS = strFI[6].split(ParametreC.SPEPARER_FICHIER_COMMENTAIRE1);
 			this.comms = new ArrayList<Commentaire>();
 			for (int i = 0; i < strCMMS.length; i++) {
 				Commentaire cmm = new Commentaire();
-				String[] strCMM = strCMMS[i].split(Parametre.SPEPARER_FICHIER_COMMENTAIRE2);
-
+				String[] strCMM = strCMMS[i].split(ParametreC.SPEPARER_FICHIER_COMMENTAIRE2);
 				cmm.setUser(strCMM[0]);
 
 				cmm.setDate(strCMM[1]);
@@ -93,33 +92,33 @@ public class Fichier {
 
 
 		StringBuffer sb =  new StringBuffer();
-
-		sb.append(this.auteur);
-		sb.append(Parametre.SPEPARER_FICHIER_INFO);
-		sb.append(this.taille);
-		sb.append(Parametre.SPEPARER_FICHIER_INFO);
-		sb.append(this.date);
-		sb.append(Parametre.SPEPARER_FICHIER_INFO);
-		sb.append(this.numTelechargement);
-		sb.append(Parametre.SPEPARER_FICHIER_INFO);
-		sb.append(this.droit);
-		sb.append(Parametre.SPEPARER_FICHIER_INFO);
-
-		if(this.comms!=null){
-			for(int i = 0;i<comms.size();i++){
-
-				sb.append(comms.get(i).getUser());
-				sb.append(Parametre.SPEPARER_FICHIER_COMMENTAIRE2);
-				sb.append(comms.get(i).getDate());
-				sb.append(Parametre.SPEPARER_FICHIER_COMMENTAIRE2);
-				sb.append(comms.get(i).getContenu());
-				if(i!=comms.size()-1){
-					sb.append(Parametre.SPEPARER_FICHIER_COMMENTAIRE1);
-				}
-			}
-		}
-
-		return sb.toString();
+		
+	    sb.append(this.auteur);
+	    sb.append(ParametreC.SPEPARER_FICHIER_INFO);
+	    sb.append(this.taille);
+	    sb.append(ParametreC.SPEPARER_FICHIER_INFO);
+	    sb.append(this.date);
+	    sb.append(ParametreC.SPEPARER_FICHIER_INFO);
+	    sb.append(this.numTelechargement);
+	    sb.append(ParametreC.SPEPARER_FICHIER_INFO);
+	    sb.append(this.droit);
+	    sb.append(ParametreC.SPEPARER_FICHIER_INFO);
+	    
+	    if(this.comms!=null){
+	    	for(int i = 0;i<comms.size();i++){
+	    		
+	    		sb.append(comms.get(i).getUser());
+	    		sb.append(ParametreC.SPEPARER_FICHIER_COMMENTAIRE2);
+	    		sb.append(comms.get(i).getDate());
+	    		sb.append(ParametreC.SPEPARER_FICHIER_COMMENTAIRE2);
+	    		sb.append(comms.get(i).getContenu());
+	    		if(i!=comms.size()-1){
+	    			sb.append(ParametreC.SPEPARER_FICHIER_COMMENTAIRE1);
+	    		}
+	    	}
+	    }
+	    
+	    return sb.toString();
 	}
 
 	//getters et setters

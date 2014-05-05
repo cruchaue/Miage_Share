@@ -11,7 +11,6 @@ import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.statistiques.StatUpDownloadJar;
 import share.g2.miage.serverJar.fonction.utilisateur.LoginJar;
 import share.g2.miage.serverJar.outil.Outil;
-import share.g2.miage.util.Parametre;
 
 /**
  * 

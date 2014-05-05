@@ -12,18 +12,19 @@ import share.g2.miage.server.Fonction.fichier.SupprimerFichier;
 import share.g2.miage.server.Fonction.statistiques.StatUpDownload;
 import share.g2.miage.server.Fonction.utilisateur.CreerUtilisateur;
 import share.g2.miage.server.Fonction.utilisateur.Login;
+import share.g2.miage.server.outil.ParametreS;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.serverJar.outil.ParametreSJ;
 
 /**
- * Lorqu'une demande d'action est effectue par un client sur le serveur de fichier,
- * un nouveau Thread est cree jusqu'a la fin de la demande. 
+ * Lorqu'une demande d'action est effectue par un client sur le serveur de
+ * fichier, un nouveau Thread est cree jusqu'a la fin de la demande.
  * 
  * exemple: telechargement ou upload de fichier.
  * 
- * @see Thread 
- *
+ * @see Thread
+ * 
  */
 class ServerThreadFichier extends Thread {
 	private ClientS clients;
@@ -50,40 +51,40 @@ class ServerThreadFichier extends Thread {
 	public void run() {
 		try {
 
-
 			String strFonction = clients.getDis().readUTF();
-
-			if (Parametre.FICHIER_UPLOAD.equals(strFonction)) {
-				fs = new AccepterFichier();
-			}else if(Parametre.FICHIER_TELECHARGER.equals(strFonction)){
-				fs = new EnvoyerFichier();
-			}else if(Parametre.FICHIER_SUPPRIMER.equals(strFonction)){
-				fs = new SupprimerFichier();
-			}else if(Parametre.UTILISATEUR_LOGIN.equals(strFonction)){
+			System.out.println("---  ---" + strFonction);
+			if (ParametreSJ.FICHIER_UPLOAD.equals(strFonction)) {
+				fs = new AccepterFichier(ParametreS.fichierChemin);
+			} else if (ParametreSJ.FICHIER_TELECHARGER.equals(strFonction)) {
+				fs = new EnvoyerFichier(ParametreS.fichierChemin);
+			} else if (ParametreSJ.FICHIER_SUPPRIMER.equals(strFonction)) {
+				fs = new SupprimerFichier(ParametreS.fichierChemin);
+			} else if (ParametreSJ.UTILISATEUR_LOGIN.equals(strFonction)) {
 				fs = new Login();
-			}else if(Parametre.FICHIER_LIRE_INFO.equals(strFonction)){
-				fs = new EnvoyerFichierInfo();
-			}else if(Parametre.FICHIER_COMMENTER.equals(strFonction)){
+			} else if (ParametreSJ.FICHIER_LIRE_INFO.equals(strFonction)) {
+				fs = new EnvoyerFichierInfo(ParametreS.fichiersConfigChemin);
+			} else if (ParametreSJ.FICHIER_COMMENTER.equals(strFonction)) {
 				fs = new CommenterFichier();
-			}else if(Parametre.UTILISATEUR_CREER.equals(strFonction)){
+			} else if (ParametreSJ.UTILISATEUR_CREER.equals(strFonction)) {
 				fs = new CreerUtilisateur();
-			}else if(Parametre.FICHIER_GET_LIST.equals(strFonction)){
+			} else if (ParametreSJ.FICHIER_GET_LIST.equals(strFonction)) {
 				fs = new EnvoyerFichierList();
-			}else if(Parametre.STATISTIQUE_NUM_UPDOWNLOAD.equals(strFonction)){
+			} else if (ParametreSJ.STATISTIQUE_NUM_UPDOWNLOAD
+					.equals(strFonction)) {
 				fs = new StatUpDownload();
 			}
 
 			int result = fs.demarrer(clients);
-			if(result == 1){
-				System.out.println("Operation "+strFonction+" "+"est un succes");
-			}else{
-				System.out.println("Operation "+strFonction+" "+"est un echec!");
+			if (result == 1) {
+				System.out.println("Operation " + strFonction + " "
+						+ "est bien fait!");
+			} else {
+				System.out.println("Operation " + strFonction + " "
+						+ "est raté!");
 			}
-
 
 		} catch (IOException e) {
 		}
 	}
-
 
 }

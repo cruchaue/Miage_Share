@@ -28,11 +28,12 @@ import org.jfree.data.general.DefaultPieDataset;
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.client.dao.User;
 import share.g2.miage.client.fonction.statistiques.StatUpDownload;
+import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.clientJar.fonction.fichier.GetFichierList;
 import share.g2.miage.clientJar.fonction.fichier.LireFichierInfo;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.clientJar.fonction.statistiques.outil.StatIndiv;
-import share.g2.miage.util.Parametre;
+import share.g2.miage.clientJar.outil.Outil;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -254,7 +255,7 @@ public class FenetreStat extends JFrame {
 	public void listerFichiers() {
 		// getFichiers
 		FonctionClient fc = new GetFichierList(User.getUserName());
-		fichiers = fc.getResultat1().split(Parametre.SEPARATEUR);
+		fichiers = Outil.StringToStringTableau(fc.getResultat1());
 
 		// Temps d'attente pour l'upload du fichier sur le serveur
 		try {
