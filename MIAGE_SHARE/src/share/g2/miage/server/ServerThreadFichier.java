@@ -41,23 +41,26 @@ class ServerThreadFichier extends Thread {
 				String strFonction = clients.getDis().readUTF();
 				System.out.println("---  ---"+strFonction);
 				if (Parametre.FICHIER_UPLOAD.equals(strFonction)) {
-					fs = new AccepterFichier(clients);
+					fs = new AccepterFichier();
 				}else if(Parametre.FICHIER_TELECHARGER.equals(strFonction)){
-					fs = new EnvoyerFichier(clients);
+					fs = new EnvoyerFichier();
 				}else if(Parametre.FICHIER_SUPPRIMER.equals(strFonction)){
-					fs = new SupprimerFichier(clients);
+					fs = new SupprimerFichier();
 				}else if(Parametre.UTILISATEUR_LOGIN.equals(strFonction)){
-					fs = new Login(clients);
+					fs = new Login();
 				}else if(Parametre.FICHIER_LIRE_INFO.equals(strFonction)){
-					fs = new EnvoyerFichierInfo(clients);
+					fs = new EnvoyerFichierInfo();
 				}else if(Parametre.FICHIER_COMMENTER.equals(strFonction)){
-					fs = new CommenterFichier(clients);
+					fs = new CommenterFichier();
 				}else if(Parametre.UTILISATEUR_CREER.equals(strFonction)){
-					fs = new CreerUtilisateur(clients);
+					fs = new CreerUtilisateur();
 				}else if(Parametre.FICHIER_GET_LIST.equals(strFonction)){
-					fs = new EnvoyerFichierList(clients);
+					fs = new EnvoyerFichierList();
+				}else if(Parametre.STATISTIQUE_NUM_UPDOWNLOAD.equals(strFonction)){
+					fs = new EnvoyerFichierList();
 				}
 				
+				fs.demarrer(clients);
 				
 			
 		} catch (IOException e) {

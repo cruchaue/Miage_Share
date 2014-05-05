@@ -9,10 +9,6 @@ import share.g2.miage.serverJar.fonction.fichier.EnvoyerFichierJar;
 
 public class EnvoyerFichierInfo extends EnvoyerFichierInfoJar{
 
-	public EnvoyerFichierInfo(ClientS clients) {
-		super(clients);
-	}
-
 	@Override
 	protected void apresConnection() {
 		// TODO Auto-generated method stub

@@ -25,15 +25,6 @@ import share.g2.miage.util.Parametre;
  */
 public abstract class AccepterFichierJar extends FonctionServer {
 	
-	/**
-	 * 
-	 * @param clients
-	 */
-	public AccepterFichierJar(ClientS clients){
-		this.clients = clients;
-		demarrer();
-	}
-	
 	@Override
 	public int commExecuter1() {
 		try {

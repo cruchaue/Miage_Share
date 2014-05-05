@@ -19,11 +19,6 @@ import share.g2.miage.util.Parametre;
 
 public abstract class SupprimerFichierJar extends FonctionServer {
 	
-	public SupprimerFichierJar(ClientS clients){
-		this.clients = clients;
-		demarrer();
-	}
-
 	@Override
 	public int commExecuter1() {
 		try {

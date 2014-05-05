@@ -14,10 +14,6 @@ import share.g2.miage.util.Parametre;
 
 public class SupprimerFichier extends SupprimerFichierJar {
 
-	public SupprimerFichier(ClientS clients) {
-		super(clients);
-	}
-
 	@Override
 	protected void apresConnection() {
 		// Supprimer fichierInfo

@@ -18,11 +18,6 @@ import share.g2.miage.util.Parametre;
 
 public abstract class CommenterFichierJar extends FonctionServer {
 	
-	public CommenterFichierJar(ClientS clients){
-		this.clients = clients;
-		demarrer();
-	}
-
 	@Override
 	public int commExecuter1() {
 		try {

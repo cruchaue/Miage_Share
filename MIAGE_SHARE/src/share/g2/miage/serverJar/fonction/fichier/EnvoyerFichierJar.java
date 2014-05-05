@@ -16,11 +16,6 @@ import share.g2.miage.util.Parametre;
 
 public abstract class EnvoyerFichierJar extends FonctionServer {
 	
-	public EnvoyerFichierJar(ClientS clients){
-		this.clients = clients;
-		demarrer();
-	}
-
 	@Override
 	public int commExecuter1() {
 		try {

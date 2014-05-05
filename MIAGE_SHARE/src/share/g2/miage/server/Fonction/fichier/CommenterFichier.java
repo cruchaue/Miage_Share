@@ -14,10 +14,6 @@ import share.g2.miage.util.Parametre;
 
 public class CommenterFichier extends CommenterFichierJar{
 
-	public CommenterFichier(ClientS clients) {
-		super(clients);
-	}
-
 	@Override
 	protected void apresConnection() {
 		

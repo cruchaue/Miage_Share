@@ -33,6 +33,9 @@ public class Parametre {
 	public final static String UTILISATEUR_EXISTE_PAS = "<@UserExistePas>";
 	public final static String UTILISATEUR_PW_PAS_CORRECTE = "<@pwPasCorrecte>";
 	
+	//prédicat d'opération de statistique
+		public final static String STATISTIQUE_NUM_UPDOWNLOAD = "<@numUpDownLoad>";
+	
 	//prédicat d'opération de chat
 	public final static String CHAT = "<@chat>";
 	

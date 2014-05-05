@@ -40,7 +40,8 @@ Communication {
 	/**
 	 * 
 	 */
-	protected void demarrer(){
+	public void demarrer(ClientS clients){
+		this.clients = clients;
 		avantConnection();
 		commExecuter1();
 		pendantConnection();

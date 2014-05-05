@@ -20,11 +20,6 @@ import share.g2.miage.util.Parametre;
 
 public abstract class CreerUtilisateurJar extends FonctionServer {
 	
-	public CreerUtilisateurJar(ClientS clients){
-		this.clients = clients;
-		demarrer();
-	}
-
 	@Override
 	public int commExecuter1() {
 		try {
