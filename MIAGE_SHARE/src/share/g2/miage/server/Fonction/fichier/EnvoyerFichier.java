@@ -8,10 +8,6 @@ import share.g2.miage.serverJar.fonction.fichier.EnvoyerFichierJar;
 
 public class EnvoyerFichier extends EnvoyerFichierJar{
 
-	public EnvoyerFichier(ClientS clients) {
-		super(clients);
-	}
-
 	@Override
 	protected void apresConnection() {
 		// TODO Auto-generated method stub

@@ -13,10 +13,6 @@ import share.g2.miage.util.Parametre;
 
 public class CreerUtilisateur extends CreerUtilisateurJar {
 
-	public CreerUtilisateur(ClientS clients) {
-		super(clients);
-	}
-
 	@Override
 	protected void apresConnection() {
 

@@ -13,11 +13,6 @@ import share.g2.miage.util.Parametre;
 
 public class EnvoyerFichierList extends EnvoyerFichierListJar{
 
-	public EnvoyerFichierList(ClientS clients) {
-		super(clients);
-	}
-
-
 	@Override
 	protected void pendantConnection(){
 		String userName = this.parametre1;

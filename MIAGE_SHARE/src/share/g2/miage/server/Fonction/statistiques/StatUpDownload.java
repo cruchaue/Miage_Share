@@ -1,4 +1,4 @@
-package share.g2.miage.server.Fonction.utilisateur;
+package share.g2.miage.server.Fonction.statistiques;
 
 import java.util.Map;
 
@@ -9,7 +9,7 @@ import share.g2.miage.serverJar.fonction.utilisateur.LoginJar;
 import share.g2.miage.util.Parametre;
 
 
-public class Login extends LoginJar{
+public class StatUpDownload extends LoginJar{
 
 	@Override
 	protected void pendantConnection() {

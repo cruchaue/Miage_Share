@@ -18,10 +18,6 @@ import share.g2.miage.util.Parametre;
  */
 public class AccepterFichier extends AccepterFichierJar{
 
-	public AccepterFichier(ClientS clients) {
-		super(clients);
-	}
-
 	@Override
 	protected void apresConnection() {
 		ajouterDroit(this.parametre1);

@@ -19,7 +19,7 @@ public class StatUpDownload extends FonctionClient {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
 
-			dos.writeUTF(Parametre.UTILISATEUR_LOGIN);
+			dos.writeUTF(Parametre.STATISTIQUE_NUM_UPDOWNLOAD);
 			dos.flush();
 
 			

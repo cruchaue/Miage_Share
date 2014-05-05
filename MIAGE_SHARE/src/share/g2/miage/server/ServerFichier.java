@@ -18,6 +18,7 @@ import java.util.Properties;
 
 import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.server.dao.Utilisateur;
+import share.g2.miage.server.dao.UtilisateurStat;
 import share.g2.miage.util.Parametre;
 
 /**
@@ -46,6 +47,7 @@ public class ServerFichier   extends Thread {
      * @see Map
      */
 	private static Map<String,Utilisateur> listeUser;
+	private static Map<String,UtilisateurStat> listeUserStat;
 	
 	/**
 	 * D�marre le serveur de Fichier.

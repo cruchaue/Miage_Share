@@ -1,4 +1,4 @@
-package share.g2.miage.serverJar.fonction.fichier;
+package share.g2.miage.serverJar.fonction.statistiques;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -7,25 +7,24 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.Iterator;
 import java.util.Map;
 
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.server.dao.Utilisateur;
-import share.g2.miage.server.outil.Outil;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
-public abstract class EnvoyerFichierListJar extends FonctionServer {
-	
+public abstract class StatUpDownloadJar extends FonctionServer {
+
 	@Override
 	public int commExecuter1() {
 		try {
 			DataInputStream dis = clients.getDis();
+
 			this.parametre1 = dis.readUTF();
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,18 +33,33 @@ public abstract class EnvoyerFichierListJar extends FonctionServer {
 
 		return 1;
 	}
-	
+
 	@Override
-	public int commExecuter2(){
+	public int commExecuter2() {
 		try {
 			DataOutputStream dos = clients.getDos();
-			dos.writeUTF(this.parametre2);
+			if ("1".equals(this.resultat1)) {
+				dos.writeUTF(Parametre.OK);
+				dos.writeUTF(this.parametre1 + Parametre.SEPARATEUR + this.parametre2);
+				System.out.println("login ok");
+
+			} else if ("0".equals(this.resultat1)) {
+				dos.writeUTF(Parametre.UTILISATEUR_EXISTE_PAS);
+				dos.writeUTF("null");
+				System.out.println("pas existe");
+			} else if ("-1".equals(this.resultat1)) {
+
+				dos.writeUTF(Parametre.UTILISATEUR_PW_PAS_CORRECTE);
+				dos.writeUTF("null");
+				System.out.println("faut pw");
+			} else {
+
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return -1;
 		}
-
 		return 1;
 	}
 
