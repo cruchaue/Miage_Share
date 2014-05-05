@@ -9,7 +9,7 @@ import share.g2.miage.util.Parametre;
 
 public class StatUpDownload extends FonctionClient {
 	public StatUpDownload(String userName) {
-
+		this.parametre1 = userName;
 	}
 
 	@Override
@@ -20,9 +20,10 @@ public class StatUpDownload extends FonctionClient {
 			DataInputStream dis = client.getDis();
 
 			dos.writeUTF(Parametre.STATISTIQUE_NUM_UPDOWNLOAD);
-			dos.flush();
-
+			dos.writeUTF(this.parametre1);
 			
+			int resultat = dis.readInt();
+			this.resultat2 = dis.readUTF();
 
 		} catch (Exception e) {
 			e.printStackTrace();
