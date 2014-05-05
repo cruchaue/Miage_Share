@@ -26,9 +26,8 @@ public abstract class EnvoyerFichierJar extends FonctionServer {
 		try {
 			DataInputStream dis = clients.getDis();
 			DataOutputStream dos = clients.getDos();
-			//FileOutputStream fos = null;
 
-			byte[] byteTemp = new byte[1024];
+			byte[] byteTemp = new byte[Parametre.LENGTH_ENVOYER];
 			int lengthTemp = 0;
 			String strTemp = "";
 
@@ -50,7 +49,6 @@ public abstract class EnvoyerFichierJar extends FonctionServer {
 			
 
 			fis.close();
-			clients.closeConnection();
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

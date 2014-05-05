@@ -27,40 +27,10 @@ public abstract class CommenterFichierJar extends FonctionServer {
 	public int commExecuter1() {
 		try {
 			DataInputStream dis = clients.getDis();
-			//FileOutputStream fos = null;
 
+			this.parametre1 = dis.readUTF();
+			this.parametre2 = dis.readUTF();
 			
-
-			String fichierNom = dis.readUTF();
-			
-			String commentaire = dis.readUTF();
-			int lengthTemp;
-			byte[] byteTemp = new byte[Parametre.LENGTH_ENVOYER];
-			//StringBuffer sb = new StringBuffer();
-			
-			File file = new File(Parametre.fichiersConfigChemin+fichierNom+".txt");
-			
-			System.out.println(commentaire);
-			
-			
-			StringBuffer sb = new StringBuffer();
-			if(file.exists()){
-				FileInputStream fis = new FileInputStream(file);
-				while ((lengthTemp = fis.read(byteTemp, 0, byteTemp.length)) > 0) {
-					String strRead = new String(byteTemp);
-					sb.append(String.copyValueOf(strRead.toCharArray(), 0, lengthTemp));
-				
-				}
-				sb.append(commentaire);
-				
-				FileOutputStream fos = new FileOutputStream(file);
-				
-				fos.write(sb.toString().getBytes());
-				
-				fos.close();
-			}
-			
-
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

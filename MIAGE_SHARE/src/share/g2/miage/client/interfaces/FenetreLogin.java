@@ -102,7 +102,7 @@ public class FenetreLogin extends JFrame {
 				if (Parametre.OK.equals(resultat)) {
 					System.out.println("login ok");
 					String userInfoStr = fc.getResultat2();
-					String[] userInfo =  userInfoStr.split("<@>");
+					String[] userInfo =  userInfoStr.split(Parametre.SEPARATEUR);
 					
 					User user = new User();
 					user.setUserName(userInfo[0]);

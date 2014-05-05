@@ -29,40 +29,9 @@ public abstract class CreerUtilisateurJar extends FonctionServer {
 	public int commExecuter1() {
 		try {
 			DataInputStream dis = clients.getDis();
-			DataOutputStream dos = clients.getDos();
-			//FileOutputStream fos = null;
 
-			String infoUtilisateur;
-		
-			infoUtilisateur = dis.readUTF();
-			System.out.println("Info util : " +infoUtilisateur);
-			String[] lesInfosUtilisateur = infoUtilisateur.split(Parametre.SPEPARER_INFO_UTILISATEUR);
+			this.parametre1 = dis.readUTF();
 			
-			// login lesInfosUtilisateur[0]
-			// mdp   lesInfosUtilisateur[1]
-			// mail  lesInfosUtilisateur[3]
-			StringBuffer sb =  new StringBuffer();
-			sb.append(lesInfosUtilisateur[0]+";");
-			sb.append(lesInfosUtilisateur[1]+";");
-			sb.append(Parametre.UTILISATEUR_DROIT_DEFAULT+";");
-			sb.append(lesInfosUtilisateur[3]+";\r\n");
-			
-			
-			File file = new File(Parametre.fichiers_BD_utilisateurs);
-			 
-			
-			
-			
-			
-			
-			FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(sb.toString());
-			bw.close();
-			
-		
-			clients.closeConnection();
-			ServerFichier.chargerUtilisateur();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -26,6 +26,17 @@ Communication {
 	 */
 	protected String parametre2 = "";
 	
+
+	/**
+	 * 
+	 */
+	protected String resultat1 = "";
+	
+	/**
+	 * 
+	 */
+	protected String resultat2 = "";
+	
 	/**
 	 * 
 	 */

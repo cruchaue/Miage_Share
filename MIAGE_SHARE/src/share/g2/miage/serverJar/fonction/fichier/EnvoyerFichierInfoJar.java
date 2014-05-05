@@ -15,8 +15,8 @@ import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
 public abstract class EnvoyerFichierInfoJar extends FonctionServer {
-	
-	public EnvoyerFichierInfoJar(ClientS clients){
+
+	public EnvoyerFichierInfoJar(ClientS clients) {
 		this.clients = clients;
 		demarrer();
 	}
@@ -32,13 +32,11 @@ public abstract class EnvoyerFichierInfoJar extends FonctionServer {
 
 			strTemp = dis.readUTF();
 			System.out.println(strTemp + ",");
-			File file = new File(Parametre.fichiersConfigChemin+strTemp+".txt");
-			if(file.exists()){
+			File file = new File(Parametre.fichiersConfigChemin + strTemp
+					+ ".txt");
+			if (file.exists()) {
 				fis = new FileInputStream(file);
-				
-				
-				
-				
+
 				byte[] sendBytes = new byte[Parametre.LENGTH_ENVOYER];
 				int length = 0;
 
@@ -48,17 +46,11 @@ public abstract class EnvoyerFichierInfoJar extends FonctionServer {
 				}
 
 				System.out.println("Fichier envoyé avec succès");
-				//socket.close();
 				fis.close();
-				
-				
-				
-				
-			}else{
+
+			} else {
 				System.out.println("Le fichier n'existe pas!");
 			}
-
-			clients.closeConnection();
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

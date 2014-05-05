@@ -110,10 +110,4 @@ public class AccepterFichier extends AccepterFichierJar{
 
 	}
 
-	@Override
-	public int commExecuter2() {
-		// TODO Auto-generated method stub
-		return 1;
-	}
-
 }
