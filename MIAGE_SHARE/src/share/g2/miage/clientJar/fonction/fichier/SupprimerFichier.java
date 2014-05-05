@@ -38,7 +38,7 @@ public class SupprimerFichier extends
 	}
 
 	@Override
-	public int executer() {
+	public int commExecuter1() {
 		try {
 
 

@@ -21,7 +21,7 @@ public class StatUpDownload extends FonctionClient<ChartFrame> {
 	}
 	
 	@Override
-	public int executer() {
+	public int commExecuter1() {
 		try {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();

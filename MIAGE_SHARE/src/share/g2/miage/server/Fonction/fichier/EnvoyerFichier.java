@@ -11,7 +11,7 @@ import share.g2.miage.serverJar.fonction.fichier.EnvoyerFichierJar;
 public class EnvoyerFichier extends EnvoyerFichierJar {
 
 	@Override
-	protected void apresConnection() {
+	protected int apresConnection() {
 		// modifier le num de upload
 		UtilisateurStat us;
 		Map<String, UtilisateurStat> list = ServerFichier.getListeUserStat();
@@ -25,6 +25,8 @@ public class EnvoyerFichier extends EnvoyerFichierJar {
 		} else {
 			us.setNumDowdload(us.getNumDowdload() + 1);
 		}
+		
+		return 1;
 
 	}
 

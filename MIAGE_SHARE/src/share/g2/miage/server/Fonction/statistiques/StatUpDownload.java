@@ -20,7 +20,7 @@ import share.g2.miage.util.Parametre;
 public class StatUpDownload extends StatUpDownloadJar{
 
 	@Override
-	protected void pendantConnection() {
+	protected int pendantConnection() {
 		Map<String,UtilisateurStat> userStats = ServerFichier.getListeUserStat();
 		UtilisateurStat userStat;
 		if((userStat = userStats.get(this.parametre1))!=null){
@@ -34,6 +34,8 @@ public class StatUpDownload extends StatUpDownloadJar{
 			this.resultat1 = -1;
 			this.resultat2 = "pas d'information de cet utilisateur!";
 		}
+		
+		return 1;
 		
 	}
 

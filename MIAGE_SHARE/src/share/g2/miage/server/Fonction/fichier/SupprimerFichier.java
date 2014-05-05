@@ -28,7 +28,7 @@ import share.g2.miage.util.Parametre;
 public class SupprimerFichier extends SupprimerFichierJar {
 
 	@Override
-	protected void apresConnection() {
+	protected int apresConnection() {
 		// Supprimer fichierInfo
 		File file = new File(Parametre.fichiersConfigChemin + this.parametre1
 				+ ".txt");
@@ -62,12 +62,15 @@ public class SupprimerFichier extends SupprimerFichierJar {
 			fos.write(sb.toString().getBytes());
 
 			fos.close();
+			return 1;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return -1;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return -1;
 		}
 		
 

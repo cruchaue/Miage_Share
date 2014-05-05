@@ -35,7 +35,7 @@ public class SupprimerUtilisateur extends FonctionClient {
 	}
 
 	@Override
-	public int executer() {
+	public int commExecuter1() {
 		try {
 
 			// FileInputStream fis = new FileInputStream(file);
