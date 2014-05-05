@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -36,8 +37,8 @@ import share.g2.miage.util.Parametre;
 public class ClientInterface extends JFrame {
 
 	private JPanel contentPane;
-	private JList list;
 	private DefaultListModel<String> model;
+	private JList list;
 	private JScrollPane scrollPane;
 	private String cheminC_enregistrer_fichier_defaut;
 	private String cheminS_liste_fichier;
@@ -101,7 +102,7 @@ public class ClientInterface extends JFrame {
 		
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 390, 298);
+		setBounds(100, 100, 550, 460);
 
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -113,24 +114,24 @@ public class ClientInterface extends JFrame {
 		JButton btnUpload = new JButton("Upload");
 
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(204, 31, 151, 130);
+		scrollPane.setBounds(252, 11, 282, 347);
 		contentPane.add(scrollPane);
-
+		
 		list = new JList(new DefaultListModel<String>());
-		model = new DefaultListModel<String>();
 		scrollPane.setViewportView(list);
+		model = new DefaultListModel<String>();
 		list.setModel(model);
 		
 		
 		
-		JButton btnAdmin = new JButton("admin");
+		JButton btnAdmin = new JButton("Administration");
 		btnAdmin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				FenetreAdministration fa = new FenetreAdministration();
 				fa.setVisible(true);
 			}
 		});
-		btnAdmin.setBounds(44, 29, 123, 23);
+		btnAdmin.setBounds(23, 26, 151, 23);
 		contentPane.add(btnAdmin);
 
 		listerFichier();
@@ -177,28 +178,44 @@ public class ClientInterface extends JFrame {
 			}
 
 		});
-		btnUpload.setBounds(44, 78, 89, 23);
+		btnUpload.setBounds(23, 73, 151, 23);
 		contentPane.add(btnUpload);
 
 		JButton btnDownload = new JButton("Download");
 		btnDownload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				String nomFic = (String) list.getSelectedValue();
-
+				
 				System.out.println(nomFic);
 				
+				if("".equals(nomFic)||nomFic == null){
+					JOptionPane.showMessageDialog(null,
+						"Aucun fichier selectionne");
+					
+				}
+				else{
+					FonctionClient fc = new TelechargerFichier(cheminC_enregistrer_fichier_defaut, nomFic);
+					JOptionPane.showMessageDialog(null,
+							"Fichier telecharge avec succes");
+				}
 				
-				FonctionClient fc = new TelechargerFichier(cheminC_enregistrer_fichier_defaut, nomFic);
 			}
 		});
-		btnDownload.setBounds(44, 135, 89, 23);
+		btnDownload.setBounds(23, 107, 151, 23);
 		contentPane.add(btnDownload);
 
 		JButton btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String fichierSuppression = (String) list.getSelectedValue();
-
+				
+				if("".equals(fichierSuppression)||fichierSuppression == null){
+					JOptionPane.showMessageDialog(null,
+						"Aucun fichier selectionne");
+					
+				}
+				else{
 				FonctionClient fcf = new SupprimerFichier(fichierSuppression);
 				
 				try {
@@ -211,8 +228,9 @@ public class ClientInterface extends JFrame {
 				listerFichier();
 
 			}
+			}
 		});
-		btnSupprimer.setBounds(204, 172, 151, 23);
+		btnSupprimer.setBounds(23, 162, 151, 23);
 		contentPane.add(btnSupprimer);
 
 		JButton btnChat = new JButton("Chat");
@@ -228,7 +246,7 @@ public class ClientInterface extends JFrame {
 
 			}
 		});
-		btnChat.setBounds(23, 193, 117, 29);
+		btnChat.setBounds(23, 286, 151, 29);
 		contentPane.add(btnChat);
 
 		JButton btnInformationsFichier = new JButton("Informations fichier");
@@ -240,6 +258,13 @@ public class ClientInterface extends JFrame {
 				}
 
 				String filename = (String) list.getSelectedValue();
+				
+				if("".equals(filename)||filename == null){
+					JOptionPane.showMessageDialog(null,
+						"Aucun fichier selectionne");
+					
+				}
+				else{
 
 				FonctionClient fc = new LireFichierInfo(filename);
 
@@ -250,9 +275,9 @@ public class ClientInterface extends JFrame {
 				finfo.setFichierInfo(fichier);
 
 				finfo.show();
-			}
+			}}
 		});
-		btnInformationsFichier.setBounds(204, 206, 151, 23);
+		btnInformationsFichier.setBounds(23, 196, 151, 23);
 		contentPane.add(btnInformationsFichier);
 		
 		
