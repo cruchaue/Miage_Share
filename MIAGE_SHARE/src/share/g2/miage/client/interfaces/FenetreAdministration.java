@@ -23,10 +23,10 @@ import javax.swing.JList;
 import javax.swing.JButton;
 
 import share.g2.miage.client.dao.User;
-import share.g2.miage.clientJar.Outil.Outil;
+import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.clientJar.fonction.fichier.GetFichierList;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.client.ParametreC;
+import share.g2.miage.clientJar.outil.Outil;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

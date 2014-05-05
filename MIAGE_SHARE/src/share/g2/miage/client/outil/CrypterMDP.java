@@ -1,21 +1,21 @@
-package share.g2.miage.util;
+package share.g2.miage.client.outil;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Classe permettant de crypter les mots de passes grâce à l'algorithme MD5
+ * Classe permettant de crypter les mots de passes grï¿½ce ï¿½ l'algorithme MD5
  * 
- * Il suffit de passer en paramètre le mot de passe à crypter dans la méthode
- * crypteMDP() afin que celle-ci le renvoie crypté.
+ * Il suffit de passer en paramï¿½tre le mot de passe ï¿½ crypter dans la mï¿½thode
+ * crypteMDP() afin que celle-ci le renvoie cryptï¿½.
  */
 public class CrypterMDP {
 	
 	/**
-	 * Renvoie le mot de passe crypter grâce à l'algorithme MD5.
+	 * Renvoie le mot de passe crypter grï¿½ce ï¿½ l'algorithme MD5.
 	 * @param mdp
-	 * 			Le mot de passe à crypter.
-	 * @return Le mot de passe crypté.
+	 * 			Le mot de passe ï¿½ crypter.
+	 * @return Le mot de passe cryptï¿½.
 	 */
 	public static String crypteMDP(String mdp){
 		

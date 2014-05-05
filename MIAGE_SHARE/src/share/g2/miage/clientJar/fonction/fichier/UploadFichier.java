@@ -13,7 +13,7 @@ import share.g2.miage.client.interfaces.ClientInterface;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.clientJar.Outil.ParametreCJ;
+import share.g2.miage.clientJar.outil.ParametreCJ;
 
 /**
  * Permet a l'utilisateur d'uploader un fichier sur le serveur.

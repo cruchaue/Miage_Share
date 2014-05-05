@@ -1,4 +1,4 @@
-package share.g2.miage.client;
+package share.g2.miage.client.outil;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -11,8 +11,8 @@ import javax.swing.JOptionPane;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
+import share.g2.miage.clientJar.outil.ParametreCJ;
 import share.g2.miage.server.ServerFichier;
-import share.g2.miage.clientJar.Outil.ParametreCJ;
 
 /**
  * Permet à l'utilisateur de Telecharger un fichier stocké sur le serveur.

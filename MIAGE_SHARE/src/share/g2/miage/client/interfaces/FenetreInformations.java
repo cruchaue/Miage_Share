@@ -9,12 +9,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
 import share.g2.miage.client.dao.Fichier;
+import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.fichier.CommenterFichier;
 import share.g2.miage.clientJar.fonction.fichier.LireFichierInfo;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.client.ParametreC;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JScrollPane;

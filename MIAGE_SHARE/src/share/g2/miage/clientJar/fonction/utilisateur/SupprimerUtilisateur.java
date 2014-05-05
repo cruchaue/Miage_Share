@@ -2,8 +2,9 @@ package share.g2.miage.clientJar.fonction.utilisateur;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.clientJar.Outil.ParametreCJ;
+import share.g2.miage.clientJar.outil.ParametreCJ;
 
 /**
  * <b>Represente l'action de supprimer un utilisateur du serveur</b>

@@ -8,10 +8,10 @@ import org.jfree.chart.ChartFrame;
 import org.jfree.data.general.DefaultPieDataset;
 
 import share.g2.miage.client.dao.User;
-import share.g2.miage.clientJar.Outil.Outil;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.clientJar.fonction.statistiques.outil.StatIndiv;
-import share.g2.miage.clientJar.Outil.ParametreCJ;
+import share.g2.miage.clientJar.outil.Outil;
+import share.g2.miage.clientJar.outil.ParametreCJ;
 
 public class StatUpDownloadJar<T> extends FonctionClient<T> {
 	public StatUpDownloadJar(String userName) {

@@ -4,7 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.clientJar.Outil.ParametreCJ;
+import share.g2.miage.clientJar.outil.ParametreCJ;
 
 /**
  * Contient la méthode permettant de recuperer la liste des fichiers stockés sur le serveur.

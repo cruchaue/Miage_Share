@@ -5,7 +5,7 @@ import java.io.DataOutputStream;
 
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
-import share.g2.miage.clientJar.Outil.ParametreCJ;
+import share.g2.miage.clientJar.outil.ParametreCJ;
 
 /**
  * Permet a l'utilisateur de lire les informations lié au fichier.

@@ -1,4 +1,4 @@
-package share.g2.miage.clientJar.Outil;
+package share.g2.miage.clientJar.outil;
 
 import java.util.ArrayList;
 import java.util.List;

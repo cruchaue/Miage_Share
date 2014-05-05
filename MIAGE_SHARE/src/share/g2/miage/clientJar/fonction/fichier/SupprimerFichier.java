@@ -10,8 +10,8 @@ import share.g2.miage.client.dao.Fichier;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
+import share.g2.miage.clientJar.outil.ParametreCJ;
 import share.g2.miage.server.ServerFichier;
-import share.g2.miage.clientJar.Outil.ParametreCJ;
 
 /**
  * <b>Permet à l'utilisateur de supprimer un fichier sur le serveur.</b>
