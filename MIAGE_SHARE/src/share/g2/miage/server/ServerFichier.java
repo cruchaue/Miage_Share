@@ -63,6 +63,7 @@ public class ServerFichier   extends Thread {
 	@Override
 	public void run() { 
 		listeUser = new HashMap<String,Utilisateur>();
+		listeUserStat  = new HashMap<String,UtilisateurStat>();
 		// lire le fichier de parametre
 		InputStream inputStream = this.getClass().getClassLoader()
 				.getResourceAsStream("ipConfig.properties");
@@ -109,6 +110,11 @@ public class ServerFichier   extends Thread {
 		return listeUser;
 	}
 	
+	public static Map<String, UtilisateurStat> getListeUserStat() {
+		return listeUserStat;
+	}
+
+
 	/**
 	 * Permet de fermer la connection entre le serveur et le client.
 	 */

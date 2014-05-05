@@ -18,7 +18,7 @@ import share.g2.miage.util.Parametre;
  * lors d'envoi ou la r�cuperation d'informations sur le serveur.  
  *
  */
-public abstract class FonctionClient implements
+public abstract class FonctionClient<T> implements
 		Communication {
 	
 	/**
@@ -48,6 +48,15 @@ public abstract class FonctionClient implements
 	 */
 	protected String resultat2 = ""; 
 	
+	/**
+	 * 
+	 */
+	protected T resultat3; 
+	
+	public T getResultat3() {
+		return resultat3;
+	}
+
 	/**
 	 * 
 	 */

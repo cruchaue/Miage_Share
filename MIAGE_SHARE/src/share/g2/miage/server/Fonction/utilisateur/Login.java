@@ -17,14 +17,14 @@ public class Login extends LoginJar{
 		Map<String,Utilisateur> users = ServerFichier.getListeUser();
 		if((user = users.get(this.parametre1))!=null){
 			if(user.getPassword().equals(this.parametre2)){
-				this.resultat1 = "1";
+				this.resultat1 = 1;
 				this.parametre1 = user.getLoginName();
 				this.parametre2 = user.getLimite();
 			}else{
-				this.resultat1 = "-1";
+				this.resultat1 = -1;
 			}
 		}else{
-			this.resultat1 = "-2";
+			this.resultat1 = 0;
 		}
 		
 	}

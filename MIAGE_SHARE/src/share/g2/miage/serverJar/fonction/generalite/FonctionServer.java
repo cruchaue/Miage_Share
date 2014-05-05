@@ -42,7 +42,7 @@ Communication {
 	/**
 	 * 
 	 */
-	protected String resultat1 = "";
+	protected int resultat1;
 	
 	/**
 	 * 
