@@ -18,7 +18,7 @@ public class CommenterFichier extends FonctionClient {
 	public CommenterFichier(String nomFichier, String commentaire){
 		super();
 		parametre1 = nomFichier;
-		parametre1 = commentaire;
+		parametre2 = commentaire;
 		demarrer();
 	}
 
