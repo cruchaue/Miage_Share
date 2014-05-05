@@ -12,6 +12,7 @@ import share.g2.miage.server.Fonction.fichier.SupprimerFichier;
 import share.g2.miage.server.Fonction.statistiques.StatUpDownload;
 import share.g2.miage.server.Fonction.utilisateur.CreerUtilisateur;
 import share.g2.miage.server.Fonction.utilisateur.Login;
+import share.g2.miage.server.Fonction.utilisateur.SupprimerUtilisateur;
 import share.g2.miage.server.outil.ParametreS;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
@@ -72,6 +73,9 @@ class ServerThreadFichier extends Thread {
 			} else if (ParametreSJ.STATISTIQUE_NUM_UPDOWNLOAD
 					.equals(strFonction)) {
 				fs = new StatUpDownload();
+			}else if (ParametreSJ.UTILISATEUR_SUPPRIMER
+					.equals(strFonction)) {
+				fs = new SupprimerUtilisateur(ParametreS.fichiers_BD_utilisateurs);
 			}
 
 			int result = fs.demarrer(clients);

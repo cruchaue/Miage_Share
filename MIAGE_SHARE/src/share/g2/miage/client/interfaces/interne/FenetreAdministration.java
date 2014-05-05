@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Properties;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -19,11 +20,14 @@ import javax.swing.JTabbedPane;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.JButton;
+
 import share.g2.miage.client.dao.User;
 import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.clientJar.fonction.fichier.GetFichierList;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
+import share.g2.miage.clientJar.fonction.utilisateur.SupprimerUtilisateur;
 import share.g2.miage.clientJar.outil.Outil;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -87,9 +91,9 @@ public class FenetreAdministration extends JFrame {
 		JButton btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				supprimerUtilisateur(ParametreC.fichiers_BD_utilisateurs,
-						list.getSelectedIndex());
-
+				
+				new SupprimerUtilisateur(list.getSelectedValue());
+			
 			}
 		});
 		btnSupprimer.setBounds(363, 394, 180, 41);
@@ -304,32 +308,6 @@ public class FenetreAdministration extends JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	public void supprimerUtilisateur(String fileName, int lineNumber) {
-		try {
-			BufferedReader reader = new BufferedReader(new InputStreamReader(
-					new FileInputStream(fileName)));
-
-			StringBuffer sb = new StringBuffer();
-			String line;
-			int nbLinesRead = 0;
-			while ((line = reader.readLine()) != null) {
-				if (nbLinesRead != lineNumber) {
-					sb.append(line + "\r\n");
-				}
-				nbLinesRead++;
-			}
-			reader.close();
-			BufferedWriter out = new BufferedWriter(new FileWriter(fileName));
-			out.write(sb.toString());
-			out.close();
-			
-
-		} catch (Exception e) {
-
-		}
-
 	}
 
 }

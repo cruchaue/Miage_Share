@@ -22,7 +22,6 @@ public class SupprimerUtilisateur<T> extends FonctionClient<T> {
 	public SupprimerUtilisateur(String userName) {
 		super();
 		 parametre1 = userName;
-		// parametre2 = fichierNom;
 		demarrer();
 	}
 
