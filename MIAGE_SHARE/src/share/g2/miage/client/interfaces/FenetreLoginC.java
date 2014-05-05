@@ -61,9 +61,10 @@ public class FenetreLoginC extends JFrame {
 	 * Create the frame.
 	 */
 	public FenetreLoginC() {
+		setTitle("Chatroom");
 		setBackground(SystemColor.activeCaption);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 540, 360);
+		setBounds(100, 100, 484, 280);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -150,5 +151,9 @@ public class FenetreLoginC extends JFrame {
 		});
 		btnConnexion.setBounds(194, 172, 191, 29);
 		contentPane.add(btnConnexion);
+		
+		JLabel lblLoginPourChatroom = new JLabel("Login pour chatroom :");
+		lblLoginPourChatroom.setBounds(60, 48, 152, 14);
+		contentPane.add(lblLoginPourChatroom);
 	}
 }

@@ -57,9 +57,10 @@ public class FenetreLoginF extends JFrame {
 	 * Create the frame.
 	 */
 	public FenetreLoginF() {
+		setTitle("Système partage");
 		setBackground(SystemColor.activeCaption);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 540, 360);
+		setBounds(100, 100, 490, 312);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -167,6 +168,10 @@ public class FenetreLoginF extends JFrame {
 		});
 		btnCreer.setBounds(194, 212, 191, 29);
 		contentPane.add(btnCreer);
+		
+		JLabel lblLoginPourSystme = new JLabel("Login pour système partage :");
+		lblLoginPourSystme.setBounds(59, 36, 158, 14);
+		contentPane.add(lblLoginPourSystme);
 
 	}
 }
