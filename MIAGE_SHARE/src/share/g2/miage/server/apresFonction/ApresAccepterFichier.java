@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import share.g2.miage.server.dao.ClientS;
-import share.g2.miage.server.fonction.AccepterFichier;
+import share.g2.miage.serverJar.fonction.AccepterFichier;
 import share.g2.miage.util.Parametre;
 /**
  * 

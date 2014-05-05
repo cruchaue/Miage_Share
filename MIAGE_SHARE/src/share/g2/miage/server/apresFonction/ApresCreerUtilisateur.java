@@ -1,7 +1,7 @@
 package share.g2.miage.server.apresFonction;
 
 import share.g2.miage.server.dao.ClientS;
-import share.g2.miage.server.fonction.CreerUtilisateur;
+import share.g2.miage.serverJar.fonction.CreerUtilisateur;
 
 public class ApresCreerUtilisateur extends CreerUtilisateur{
 

@@ -1,4 +1,4 @@
-package share.g2.miage.server.fonction;
+package share.g2.miage.serverJar.fonction;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -12,8 +12,8 @@ import java.util.Map;
 
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.server.dao.ClientS;
-import share.g2.miage.server.fonction.generalite.Communication;
-import share.g2.miage.server.fonction.generalite.FonctionServer;
+import share.g2.miage.serverJar.fonction.generalite.Communication;
+import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Outil;
 import share.g2.miage.util.Parametre;
 

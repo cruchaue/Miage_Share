@@ -1,11 +1,11 @@
-package share.g2.miage.server.fonction.generalite;
+package share.g2.miage.serverJar.fonction.generalite;
 
 import share.g2.miage.server.dao.ClientS;
 
 /**
- * Superclasse (qui implémente l'interface Communication) dont toutes les actions demandées par un client et executable par le serveur découleront.
- * Toutes fonctions nouvellement implementées devra héritée de cette classe afin d'assurer le bon fonctionnement de cette dernière 
- * lors d'envoi ou la récuperation d'informations par le serveur.  
+ * Superclasse (qui implï¿½mente l'interface Communication) dont toutes les actions demandï¿½es par un client et executable par le serveur dï¿½couleront.
+ * Toutes fonctions nouvellement implementï¿½es devra hï¿½ritï¿½e de cette classe afin d'assurer le bon fonctionnement de cette derniï¿½re 
+ * lors d'envoi ou la rï¿½cuperation d'informations par le serveur.  
  *
  */
 public  abstract class FonctionServer implements

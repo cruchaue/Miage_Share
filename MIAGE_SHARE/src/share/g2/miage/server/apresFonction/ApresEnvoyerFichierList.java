@@ -1,7 +1,7 @@
 package share.g2.miage.server.apresFonction;
 
 import share.g2.miage.server.dao.ClientS;
-import share.g2.miage.server.fonction.EnvoyerFichierList;
+import share.g2.miage.serverJar.fonction.EnvoyerFichierList;
 
 
 public class ApresEnvoyerFichierList extends EnvoyerFichierList{

@@ -3,10 +3,9 @@ package share.g2.miage.server;
 import java.io.*;
 import java.net.*;
 
-import share.g2.miage.server.fonction.*;
-import share.g2.miage.server.fonction.generalite.FonctionServer;
 import share.g2.miage.server.apresFonction.*;
 import share.g2.miage.server.dao.ClientS;
+import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.util.Parametre;
 
 //--- CreateServerThread
