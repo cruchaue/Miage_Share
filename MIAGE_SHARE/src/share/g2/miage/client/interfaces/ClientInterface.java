@@ -296,6 +296,8 @@ public class ClientInterface extends JFrame {
 		JButton btnNewButton = new JButton("Statistiques");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				FenetreStat fs = new FenetreStat(User);
+				fs.setVisible(true);
 				FonctionClient<ChartFrame> fcf = new StatUpDownload(User.getUserName());
 				ChartFrame chartFrame = fcf.getResultat3();
 				chartFrame.setVisible(true);
