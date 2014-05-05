@@ -26,10 +26,8 @@ public class LireFichierInfo extends FonctionClient {
 	}
 
 	@Override
-	public int executer() {
+	public int commExecuter1() {
 		try {
-
-			// FileInputStream fis = new FileInputStream(file);
 
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
@@ -52,11 +50,6 @@ public class LireFichierInfo extends FonctionClient {
 			}
 
 			resultat1 = sb.toString();
-			System.out.println(sb.toString());
-
-			// socket.close();
-			// fos.close();
-			// dos.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();

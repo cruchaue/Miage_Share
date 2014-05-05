@@ -39,13 +39,10 @@ public class CommenterFichier extends FonctionClient {
 	}
 
 	@Override
-	public int executer() {
+	public int commExecuter1() {
 		try {
 
-			// FileInputStream fis = new FileInputStream(file);
-
 			DataOutputStream dos = client.getDos();
-			// DataInputStream dis = client.getDis();
 
 			dos.writeUTF(Parametre.FICHIER_COMMENTER);
 			dos.flush();
@@ -55,8 +52,6 @@ public class CommenterFichier extends FonctionClient {
 
 			dos.writeUTF(parametre2);
 			dos.flush();
-
-			System.out.println("finir de commenter le fichier!");
 
 		} catch (Exception e) {
 			e.printStackTrace();

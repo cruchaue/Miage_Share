@@ -40,7 +40,7 @@ public class Login extends FonctionClient {
 	}
 
 	@Override
-	public int executer() {
+	public int commExecuter1() {
 		try {
 
 			DataOutputStream dos = client.getDos();

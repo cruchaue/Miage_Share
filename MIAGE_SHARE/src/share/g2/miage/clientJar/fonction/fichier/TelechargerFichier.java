@@ -37,7 +37,7 @@ public class TelechargerFichier extends FonctionClient {
 	}
 
 	@Override
-	public int executer() {
+	public int commExecuter1() {
 		try {
 			DataOutputStream dos = client.getDos();
 			DataInputStream dis = client.getDis();
@@ -60,13 +60,8 @@ public class TelechargerFichier extends FonctionClient {
 				fos.write(sendBytes, 0, length);
 				fos.flush();
 			}
-			fos.close();
-
 			
-			// socket.close();
 			fos.close();
-			// dos.close();
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			return -1;

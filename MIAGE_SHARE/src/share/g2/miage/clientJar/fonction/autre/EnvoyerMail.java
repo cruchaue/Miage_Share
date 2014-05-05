@@ -19,7 +19,7 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
  *
  */
 
-public class EnvoyerMail extends FonctionClient {
+public  class EnvoyerMail extends FonctionClient {
 	
 	/**
 	 * 
@@ -32,7 +32,7 @@ public class EnvoyerMail extends FonctionClient {
 	}
 
 	@Override
-	public int executer() {
+	public int commExecuter1() {
 		final String username = "easy.share.miage@gmail.com";
 		final String password = "123easy456";
 

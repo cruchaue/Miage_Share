@@ -70,12 +70,55 @@ public abstract class FonctionClient<T> implements
 	}
 	
 	/**
+	 * @return TODO
 	 * 
 	 */
-	public void demarrer(){
-		executer();
-		client.closeConnection();
+	public int demarrer(){
+		int rs;
+		rs = avantConnection();
+		
+		if(rs==1){
+			rs = commExecuter1();
+		}else{
+			return rs;
+		}
+		
+		if(rs==1){
+			rs = pendantConnection();
+		}else{
+			return rs;
+		}
+		
+		if(rs==1){
+			rs = commExecuter2();
+			client.closeConnection();
+		}else{
+			client.closeConnection();
+			return rs;
+		}
+		
+		if(rs==1){
+			rs = apresConnection();
+		}else{
+			return rs;
+		}
+		
+		return rs;
 	}
+	
+	@Override
+	public int commExecuter2(){return 1;}
+	
+	/**
+	 * @return TODO
+	 * 
+	 */
+	protected int avantConnection(){return 1;}
+	
+	protected int pendantConnection(){return 1;}
+	
+	protected int apresConnection(){return 1;}
+	
 	
 	/**
 	 * 
