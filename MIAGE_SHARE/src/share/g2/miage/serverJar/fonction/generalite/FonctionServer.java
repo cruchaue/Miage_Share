@@ -94,12 +94,20 @@ Communication {
 	public int commExecuter2(){return 1;}
 	
 	/**
-	 * @return TODO
 	 * 
+	 * @return 
 	 */
 	protected int avantConnection(){return 1;}
 	
+
+	/**
+	 * 
+	 * @return
+	 */
 	protected int pendantConnection(){return 1;}
 	
+	/**
+	 * Va permettre d'executer certaines actions demandés par l'utilisateur au serveur une fois la connection effectuee.
+	 */
 	protected int apresConnection(){return 1;}
 }

@@ -8,9 +8,7 @@ import java.util.Properties;
  *
  */
 public class Parametre {
-	/**
-	 * 
-	 */
+
 	//**************parametre de JAR*************/
 	public final static int LENGTH_ENVOYER = 1024;
 	

@@ -13,14 +13,15 @@ import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
 /**
- * 
+ * Classe regroupant quelques fonctions utiles pouvant etre couramment utilisees.
  * 
  */
 public class Outil {
 	
 	/**
+	 * Retourne la liste de tous les fichiers avec leur droits d'acces respectifs.
 	 * 
-	 * @return
+	 * @return une Map contenant les droits d'acces au fichier identifier par le nom des fichier.
 	 */
 	public static Map<String, String> getDroitsFichier() {
 		BufferedReader br;
@@ -52,10 +53,13 @@ public class Outil {
 	}
 	
 	/**
+	 * Verifie si l'utilisateur a les droits suffisant pour effectuer une action sur un fichier.
 	 * 
 	 * @param droitUtilisateur
+	 * 						Les droits d'acces de l'utilisateur.
 	 * @param droitFichier
-	 * @return
+	 * 						Les droits d'acces du fichier.
+	 * @return True si l'utilisateur a le droit d'effectuer une action sur un fichier, False sinon.
 	 */
 	public static boolean comparerDroit(String droitUtilisateur,
 			String droitFichier) {
