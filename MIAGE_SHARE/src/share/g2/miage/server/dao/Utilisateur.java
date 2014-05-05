@@ -1,5 +1,19 @@
 package share.g2.miage.server.dao;
 
+/**
+ * <b>Represention d'un utilisateur enregistré sur le serveur</b>
+ * 
+ * <p>Contient toute les informations necessaire a l'identification d'un utilisateur
+ * ainsi que les differentes methodes d'acces au differents element de l'objet:
+ * 	<ul>
+ * 		<li>Un login unique</li>
+ * 		<li>Son mot de passe</li>
+ * 		<li>ses droit d'acces aux fichier du serveur</li>
+ * 		<li>Son adresse mail</li>
+ * 	</ul>
+ * </p>
+ *
+ */
 public class Utilisateur {
 	private String loginName;
 	private String password;

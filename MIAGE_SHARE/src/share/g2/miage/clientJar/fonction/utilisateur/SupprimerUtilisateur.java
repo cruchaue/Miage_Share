@@ -14,8 +14,19 @@ import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.server.ServerFichier;
 import share.g2.miage.util.Parametre;
 
+/**
+ * <b>Represente l'action de supprimer un utilisateur du serveur</b>
+ * 
+ * <p>A la demande de l'utilisateur l'action de supprimer son compte va etre demander.
+ * Cette classe va lancer l'execution qui va elle même demander au serveur de supprimer 
+ * cet utilisateur.</p>
+ *
+ */
 public class SupprimerUtilisateur extends FonctionClient {
-
+	
+	/**
+	 * 
+	 */
 	public SupprimerUtilisateur() {
 		super();
 		// parametre1 = utilisateurNom;

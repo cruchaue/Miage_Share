@@ -3,10 +3,22 @@ package share.g2.miage.serverJar.fonction.generalite;
 import share.g2.miage.serverJar.dao.ClientS;
 
 /**
- * Superclasse (qui impl�mente l'interface Communication) dont toutes les actions demand�es par un client et executable par le serveur d�couleront.
- * Toutes fonctions nouvellement implement�es devra h�rit�e de cette classe afin d'assurer le bon fonctionnement de cette derni�re 
- * lors d'envoi ou la r�cuperation d'informations par le serveur.  
+ * <p>Superclasse (qui implemente l'interface Communication) dont 
+ * toutes les actions demandees par un client et executable par le serveur decouleront.</p>
+ * 
+ * <p>Toutes fonctions nouvellement implementees devra heritee de cette classe afin d'assurer le bon fonctionnement de cette derniere 
+ * lors d'envoi ou la recuperation d'informations par le serveur. </p>
  *
+ * <p>C'est cette classe qui sera chargé d'executer toutes les differentes fonctions permettant le 
+ * bon deroulement de l'action</p>
+ * 
+ * <p>Le deroulement s'effectue en plusieurs etapes: 
+ * 	<ul>
+ * 		<li>une action avant la connection</li>
+ * 		<li>une action une fois la connection effectuee</li>
+ * 		<li>une derniere action apres la connection</li>
+ * 	</ul>
+ * </p>
  */
 public  abstract class FonctionServer implements
 Communication {
@@ -38,7 +50,7 @@ Communication {
 	protected String resultat2 = "";
 	
 	/**
-	 * 
+	 * Lance la séquence d'execution de l'action demandee.
 	 */
 	public void demarrer(ClientS clients){
 		this.clients = clients;
