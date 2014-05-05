@@ -21,6 +21,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.JButton;
 
+import share.g2.miage.client.dao.User;
+import share.g2.miage.clientJar.fonction.fichier.GetFichierList;
+import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.util.Parametre;
 
 import java.awt.event.ActionListener;
@@ -37,13 +40,26 @@ public class FenetreAdministration extends JFrame {
 	private JPanel pan3 = new JPanel();
 	private JTabbedPane onglet = new JTabbedPane();
 	private final DefaultListModel<String> model;
+	private final DefaultListModel<String> model2;
 	private BufferedReader br;
+	private final JScrollPane scrollPane_1 = new JScrollPane();
+	private static String[] fichiers;
+	private static User user;
+	private final JButton btnAttribuerDroits = new JButton("Attribuer droits");
+	
+	public static User getUser() {
+		return user;
+	}
+
+	public static void setUser(User user) {
+		user = user;
+	}
 
 	/**
 	 * Create the frame.
 	 */
-	public FenetreAdministration() {
-		this.setTitle("TESTE");
+	public FenetreAdministration(User user) {
+		this.user = user;
 		this.setSize(700, 600);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setLocationRelativeTo(null);
@@ -65,36 +81,53 @@ public class FenetreAdministration extends JFrame {
 		model = new DefaultListModel<String>();
 		scrollPane.setViewportView(list);
 		list.setModel(model);
+		
+		
 		final Properties p = new Properties();
 		System.out.println(p.getProperty("BD_utilisateurs"));
-
-		JButton btnNewButton = new JButton("Modifier");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				
-				
-			}
-		});
-		btnNewButton.setBounds(74, 382, 115, 41);
-		pan1.add(btnNewButton);
 
 		JButton btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				supprimerUtilisateur(Parametre.fichiers_BD_utilisateurs,list.getSelectedIndex());
+				supprimerUtilisateur(Parametre.fichiers_BD_utilisateurs,list.getSelectedIndex());				
+
 			}
 		});
-		btnSupprimer.setBounds(223, 382, 115, 41);
+		btnSupprimer.setBounds(287, 382, 115, 41);
 		pan1.add(btnSupprimer);
 
 		onglet.addTab("onglet2", null, pan2);
+		pan2.setLayout(null);
+		scrollPane_1.setBounds(338, 5, 2, 2);
+		
+		pan2.add(scrollPane_1);
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(78, 36, 558, 426);
+		pan2.add(scrollPane_2);
+		
+		model2 = new DefaultListModel<String>();
+		final JList list_1 = new JList(new DefaultListModel<String>());
+		scrollPane_2.setViewportView(list_1);
+		list_1.setModel(model2);
+		
+		btnAttribuerDroits.setBounds(269, 473, 188, 23);
+		
+		pan2.add(btnAttribuerDroits);
+		
 		onglet.addTab("onglet3", null, pan3);
 		onglet.setTitleAt(0, "Gestion utilisateurs");
 		onglet.setTitleAt(1, "Gestion fichiers ");
 		onglet.setTitleAt(2, "Gestion des groupes ");
 
-		listerUtilisateurs();
+		btnAttribuerDroits.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				list_1.getSelectedValue();
+				
+			}
+		});
+		
+		listerFichiers();
 
 		// ***********et tu peux ajouter d'autre************************//
 		container.add(onglet, null);
@@ -102,7 +135,29 @@ public class FenetreAdministration extends JFrame {
 		this.setContentPane(container);
 
 		this.setVisible(true);
+		listerUtilisateurs();
 	}
+	
+	public void listerFichiers() {
+		// getFichiers
+		FonctionClient fc = new GetFichierList(user.getUserName());
+		fichiers = fc.getResultat1().split(";");
+
+		// Temps d'attente pour l'upload du fichier sur le serveur
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.clear();
+		for (int i = 0; i < fichiers.length; i++) {
+
+			model2.addElement(fichiers[i]);
+		}
+
+	}
+	
 
 	public void listerUtilisateurs() {
 		String fichiers_BD_utilisateurs = ClientInterface.getBD_utilisateurs();
@@ -119,8 +174,7 @@ public class FenetreAdministration extends JFrame {
 			while ((line = br.readLine()) != null) {
 				System.out.println(line);
 				String uStr[] = line.split(";");
-				model.addElement(uStr[0]);
-				
+				model.addElement(uStr[0]);		
 	
 
 			}
@@ -161,19 +215,4 @@ public class FenetreAdministration extends JFrame {
 
 	}
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FenetreAdministration frame = new FenetreAdministration();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 }
