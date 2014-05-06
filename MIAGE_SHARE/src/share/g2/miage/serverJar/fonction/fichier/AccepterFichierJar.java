@@ -18,13 +18,25 @@ import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 
-/**
+/** 
+ * Description: 
+ * <br/>Cette classe réaliser la fonction en bas d'accepterFichier sur le 
+ * cote de serveur. 
+ * <br/>Data: this.parametre1 et this.parametre2 seront bien preparer pour 
+ * le developpeur.
+ * this.parametre1 = fichiername; this.parametre2 = username 
  * 
- *
+ * @author G2
  */
 public abstract class AccepterFichierJar extends FonctionServer {
 	
+	
 	private String fichierChemin;
+	
+	/** 
+     * constructeur
+     * @param fichierChemin chemin pour enregister le fichier 
+     */ 
 	public AccepterFichierJar(String fichierChemin){
 		this.fichierChemin = fichierChemin;
 	}
