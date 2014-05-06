@@ -20,11 +20,13 @@ import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 
 /** 
  * Description: 
- * <br/>Cette classe réaliser la fonction en bas d'accepterFichier sur le 
+ * <br/>Cette classe réaliser la fonction en bas de upload un fichier sur le 
  * cote de serveur. 
- * <br/>Data: this.parametre1 et this.parametre2 seront bien preparer pour 
- * le developpeur.
- * this.parametre1 = fichiername; this.parametre2 = username 
+ * <br/><br/>
+ * Data: 
+ * <br/>(this.parametre1 et this.parametre2 seront bien preparer pour 
+ * le developpeur.)<br/>
+ * this.parametre1 = fichiername; <br/>this.parametre2 = username 
  * 
  * @author G2
  */

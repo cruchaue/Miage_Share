@@ -15,6 +15,19 @@ import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 
+
+/** 
+ * Description: 
+ * <br/>Cette classe réaliser la fonction en bas d'CommenterFichier sur le 
+ * cote de serveur. 
+ * <br/><br/>
+ * Data: 
+ * <br/>(this.parametre1 et this.parametre2 seront bien preparer pour 
+ * le developpeur.)<br/>
+ * this.parametre1 = fichiername; <br/>this.parametre2 = commentaire 
+ * 
+ * @author G2
+ */
 public abstract class CommenterFichierJar extends FonctionServer {
 
 	@Override
