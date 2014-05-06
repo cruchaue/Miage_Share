@@ -84,27 +84,27 @@ public class FenetreInformations extends JFrame {
 		contentPane.add(lblCommentaires);
 
 		nomFicLabel = new JLabel("New label");
-		nomFicLabel.setBounds(229, 30, 87, 14);
+		nomFicLabel.setBounds(229, 30, 193, 14);
 		contentPane.add(nomFicLabel);
 
 		auteurLabel = new JLabel("New label");
-		auteurLabel.setBounds(229, 55, 87, 14);
+		auteurLabel.setBounds(229, 55, 176, 14);
 		contentPane.add(auteurLabel);
 
 		tailleLabel = new JLabel("New label");
-		tailleLabel.setBounds(229, 81, 87, 14);
+		tailleLabel.setBounds(229, 81, 198, 14);
 		contentPane.add(tailleLabel);
 
 		tempsUploadLabel = new JLabel("New label");
-		tempsUploadLabel.setBounds(229, 107, 87, 14);
+		tempsUploadLabel.setBounds(229, 107, 210, 14);
 		contentPane.add(tempsUploadLabel);
 
 		nbTelechargementLabel = new JLabel("New label");
-		nbTelechargementLabel.setBounds(229, 135, 87, 14);
+		nbTelechargementLabel.setBounds(229, 135, 193, 14);
 		contentPane.add(nbTelechargementLabel);
 
 		droitsLabel = new JLabel("New label");
-		droitsLabel.setBounds(229, 155, 75, 24);
+		droitsLabel.setBounds(229, 155, 193, 24);
 		contentPane.add(droitsLabel);
 
 		//nomFicLabel.setText(nomFichier);
