@@ -10,8 +10,6 @@ import java.net.Socket;
 import java.util.Iterator;
 import java.util.Map;
 
-import share.g2.miage.server.ServerFichier;
-import share.g2.miage.server.outil.Outil;
 import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
