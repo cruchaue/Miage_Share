@@ -11,11 +11,13 @@ import java.io.InputStreamReader;
 
 import share.g2.miage.client.outil.ParametreC;
 import share.g2.miage.server.ServerFichier;
+import share.g2.miage.server.dao.Fichier;
 import share.g2.miage.server.outil.ParametreS;
 import share.g2.miage.serverJar.fonction.fichier.ModifierDroitFichierJar;
 import share.g2.miage.serverJar.fonction.utilisateur.CreerUtilisateurJar;
 import share.g2.miage.serverJar.fonction.utilisateur.ModifierDroitUtilisateurJar;
 import share.g2.miage.serverJar.fonction.utilisateur.SupprimerUtilisateurJar;
+import share.g2.miage.serverJar.outil.Outil;
 
 /**
  * <b>Creation d'un utilisateur</b>
@@ -65,6 +67,21 @@ public class ModifierDroitFichier extends ModifierDroitFichierJar {
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(sb.toString());
 			bw.close();
+			
+			//modifier le droit de fichier sur le fichierConfig particulier
+			String fichierContenue = Outil.LireFichierContenue(ParametreS.fichiersConfigChemin + this.parametre1
+					+ ".txt");
+			Fichier fichier = new Fichier(fichierContenue);
+			fichier.setDroit(Integer.valueOf(this.parametre2));
+			fichierContenue = fichier.fichierToString();
+			
+			File file3 = new File(ParametreS.fichiersConfigChemin + this.parametre1
+					+ ".txt");
+			FileWriter fw2 = new FileWriter(file3.getAbsoluteFile(), false);
+
+			BufferedWriter bw1 = new BufferedWriter(fw2);
+			bw1.write(fichierContenue);
+			bw1.close();
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

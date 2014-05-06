@@ -150,7 +150,7 @@ public class FenetreInformations extends JFrame {
 
 
 				FonctionClient fc = new LireFichierInfo(nomFicLabel.getText());
-				Fichier fichier = new Fichier(nomFicLabel.getText()+ParametreC.SPEPARER_FICHIER_INFO+ fc.getResultat1());
+				Fichier fichier = new Fichier(fc.getResultat1());
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {

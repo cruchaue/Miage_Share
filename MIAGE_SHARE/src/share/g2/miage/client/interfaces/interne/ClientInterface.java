@@ -233,9 +233,7 @@ public class ClientInterface extends JFrame {
 
 					FonctionClient fc = new LireFichierInfo(filename);
 
-				Fichier fichier = new Fichier(filename
-						+ ParametreC.SPEPARER_FICHIER_INFO
-						+ fc.getResultat1());
+				Fichier fichier = new Fichier(fc.getResultat1());
 				finfo.setFichierInfo(fichier);
 
 					finfo.show();

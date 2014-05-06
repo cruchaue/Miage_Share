@@ -92,7 +92,9 @@ public class AccepterFichier extends AccepterFichierJar{
 		Date date = new Date(System.currentTimeMillis());
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 		datestr = sdf.format(date);
-
+		
+		sb.append(fichierNom);
+		sb.append(ParametreS.SPEPARER_FICHIER_INFO);
 		sb.append(userName);
 		sb.append(ParametreS.SPEPARER_FICHIER_INFO);
 		sb.append(taille);
