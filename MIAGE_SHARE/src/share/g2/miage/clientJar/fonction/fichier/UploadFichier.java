@@ -9,7 +9,6 @@ import java.io.FileInputStream;
 
 import javax.swing.JOptionPane;
 
-import share.g2.miage.client.interfaces.interne.ClientInterface;
 import share.g2.miage.clientJar.dao.ClientConnection;
 import share.g2.miage.clientJar.fonction.generalite.Communication;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
@@ -29,10 +28,11 @@ public class UploadFichier<T> extends FonctionClient<T> {
 	 * @param cheminEtNom
 	 * @param fichierNom
 	 */
-	public UploadFichier(String cheminEtNom, String fichierNom) {
+	public UploadFichier(String cheminEtNom, String fichierNom,String userName) {
 		super();
 		parametre1 = cheminEtNom;
 		parametre2 = fichierNom;
+		parametre3 = userName;
 		demarrer();
 	}
 
@@ -57,7 +57,7 @@ public class UploadFichier<T> extends FonctionClient<T> {
 			dos.writeUTF(parametre2);
 			dos.flush();
 
-			dos.writeUTF(ClientInterface.getUser().getUserName());
+			dos.writeUTF(parametre3);
 			dos.flush();
 
 			while ((length = fis.read(sendBytes, 0, sendBytes.length)) > 0) {

@@ -136,7 +136,7 @@ public class ClientInterface extends JFrame {
 
 					FonctionClient fc = new UploadFichier(chooser.getSelectedFile()
 							.getAbsolutePath().replaceAll("\\\\", "\\\\\\\\"),
-							chooser.getSelectedFile().getName()
+							chooser.getSelectedFile().getName(),User.getUserName()
 							);
 					String fichier = chooser.getSelectedFile()
 							.getAbsolutePath().replaceAll("\\\\", "\\\\\\\\");
