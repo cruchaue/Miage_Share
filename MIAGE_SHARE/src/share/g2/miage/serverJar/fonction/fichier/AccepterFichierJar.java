@@ -18,7 +18,9 @@ import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 
+
 /**
+ * @author Olivier
  * 
  *
  */
