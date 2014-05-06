@@ -118,6 +118,7 @@ public class FenetreLoginC extends JFrame {
 							public void run() {
 								try {
 									FonctionClient<FenetreChat> fcf = new Chat(userNom);
+									fcf.demarrer();
 									FenetreChat chat = fcf.getResultat3();
 									new Thread(chat).start();
 									

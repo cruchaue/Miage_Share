@@ -61,6 +61,8 @@ public class ModifierDroitUtilisateur extends ModifierDroitUtilisateurJar {
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(sb.toString());
 			bw.close();
+			
+			ServerFichier.chargerUtilisateur();
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
