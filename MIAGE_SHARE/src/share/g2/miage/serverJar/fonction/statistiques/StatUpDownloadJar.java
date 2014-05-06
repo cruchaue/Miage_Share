@@ -15,6 +15,19 @@ import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 
+
+/** 
+ * Description: 
+ * <br/>Cette classe réalise la fonction de base permettant de realiser des statistiques concernant un utilisateur 
+ * cote serveur.
+ * <br/><br/>
+ * Data: 
+ * <br/>(this.parametre1 sera utilisé par 
+ * le developpeur.)<br/>
+ * this.parametre1 = username;  
+ * 
+ * @author G2
+ */
 public abstract class StatUpDownloadJar extends FonctionServer {
 
 	@Override

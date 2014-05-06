@@ -18,9 +18,15 @@ import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 
 /**
- * <b>Action de creer un utilisateur sur le serveur</b>
+ * <b>Action de modifier le droit d'un utilisateur sur le serveur</b>
  * 
  * <p>Classe abstraite dont vont heriter les classes de création d'utilisateur</p>
+ *
+ * Data: 
+ * <br/>(this.parametre1 et this.parametre2 seront utilisés par 
+ * le developpeur.)<br/>
+ * this.parametre1 = username; <br/>this.parametre2 = droit 
+ * 
  */
 public abstract class ModifierDroitUtilisateurJar extends FonctionServer {
 

@@ -20,6 +20,13 @@ import share.g2.miage.serverJar.outil.ParametreSJ;
  * <b>Action de logger un utilisateur sur le serveur</b>
  * 
  * <p>Classe abstraite dont vont heriter les classes de login</p>
+ * 
+ * Data: 
+ * <br/>(this.parametre1 et this.parametre2 seront utilisés par 
+ * le developpeur.)<br/>
+ * this.parametre1 = userName; <br/>this.parametre2 = password 
+ * 
+ * 
  */
 public abstract class LoginJar extends FonctionServer {
 

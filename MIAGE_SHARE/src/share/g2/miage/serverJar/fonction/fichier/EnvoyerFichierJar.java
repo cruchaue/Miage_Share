@@ -14,6 +14,18 @@ import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 import share.g2.miage.serverJar.outil.ParametreSJ;
 
+/** 
+ * Description: 
+ * <br/>Cette classe réalise la fonction de base du download d'un fichier 
+ * cote serveur. 
+ * <br/><br/>
+ * Data: 
+ * <br/>(this.parametre1 sera utilisé par 
+ * le developpeur.)<br/>
+ * this.parametre1 = fichiername;  
+ * 
+ * @author G2
+ */
 public abstract class EnvoyerFichierJar extends FonctionServer {
 	
 	private String fichierChemin;

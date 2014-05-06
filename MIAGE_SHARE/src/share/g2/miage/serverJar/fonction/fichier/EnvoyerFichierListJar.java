@@ -17,6 +17,18 @@ import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 
+/** 
+ * Description: 
+ * <br/>Cette classe réalise la fonction de base d'envoyer une liste des fichier 
+ * cote serveur.(comparer le droit de fichier avec le droit d'utilisateur)
+ * <br/><br/>
+ * Data: 
+ * <br/>(this.parametre1 sera utilisé par 
+ * le developpeur.)<br/>
+ * this.parametre1 = username;  
+ * 
+ * @author G2
+ */
 public abstract class EnvoyerFichierListJar extends FonctionServer {
 
 	@Override

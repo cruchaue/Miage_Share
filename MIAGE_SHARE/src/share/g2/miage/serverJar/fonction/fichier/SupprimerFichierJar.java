@@ -16,6 +16,19 @@ import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 
+
+/** 
+ * Description: 
+ * <br/>Cette classe réalise la fonction de base de supprimer d'un fichier 
+ * cote serveur.
+ * <br/><br/>
+ * Data: 
+ * <br/>(this.parametre1  sera utilisé par 
+ * le developpeur.)<br/>
+ * this.parametre1 = fichiername;  
+ * 
+ * @author G2
+ */
 public abstract class SupprimerFichierJar extends FonctionServer {
 	private String fichierChemin;
 	public SupprimerFichierJar(String fichierChemin){

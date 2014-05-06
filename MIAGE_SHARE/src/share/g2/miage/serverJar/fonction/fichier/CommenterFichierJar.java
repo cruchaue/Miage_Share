@@ -18,11 +18,11 @@ import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 
 /** 
  * Description: 
- * <br/>Cette classe réaliser la fonction en bas d'CommenterFichier sur le 
- * cote de serveur. 
+ * <br/>Cette classe réalise la fonction de base du commentaire d'un fichier 
+ * cote serveur. 
  * <br/><br/>
  * Data: 
- * <br/>(this.parametre1 et this.parametre2 seront bien preparer pour 
+ * <br/>(this.parametre1 et this.parametre2 seront utilisés par 
  * le developpeur.)<br/>
  * this.parametre1 = fichiername; <br/>this.parametre2 = commentaire 
  * 

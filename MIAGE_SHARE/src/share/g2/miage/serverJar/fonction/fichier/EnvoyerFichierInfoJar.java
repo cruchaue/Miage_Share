@@ -16,13 +16,9 @@ import share.g2.miage.serverJar.outil.ParametreSJ;
 
 /** 
  * Description: 
- * <br/>Cette classe réaliser la fonction en bas d'afficher l'information d'un fichier sur le 
- * cote de serveur. 
- * <br/>
- * Data: 
- * <br/>(this.parametre1 et this.parametre2 seront bien preparer pour 
- * le developpeur.)<br/>
- * this.parametre1 = fichiername; <br/>this.parametre2 = username 
+ * <br/>Cette classe réalise la fonction de base de la recuperation des infomations d'un fichier 
+ * cote serveur. 
+ * <br/><br/>
  * 
  * @author G2
  */

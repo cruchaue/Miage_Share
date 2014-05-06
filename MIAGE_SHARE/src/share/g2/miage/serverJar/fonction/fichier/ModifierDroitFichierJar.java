@@ -17,10 +17,17 @@ import share.g2.miage.serverJar.dao.ClientS;
 import share.g2.miage.serverJar.fonction.generalite.Communication;
 import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
 
-/**
- * <b>Action de creer un utilisateur sur le serveur</b>
+/** 
+ * Description: 
+ * <br/>Cette classe réalise la fonction de base de modifier le droit d'un fichier 
+ * cote serveur.
+ * <br/><br/>
+ * Data: 
+ * <br/>(this.parametre1 et this.parametre2 seront utilisés par 
+ * le developpeur.)<br/>
+ * this.parametre1 = fichiername; <br/>this.parametre2 = droit 
  * 
- * <p>Classe abstraite dont vont heriter les classes de création d'utilisateur</p>
+ * @author G2
  */
 public abstract class ModifierDroitFichierJar extends FonctionServer {
 

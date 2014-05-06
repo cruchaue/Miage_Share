@@ -21,6 +21,11 @@ import share.g2.miage.serverJar.fonction.generalite.FonctionServer;
  * <b>Action de creer un utilisateur sur le serveur</b>
  * 
  * <p>Classe abstraite dont vont heriter les classes de création d'utilisateur</p>
+ * Data: 
+ * <br/>(this.parametre1 sera utilisé par 
+ * le developpeur.)<br/>
+ * this.parametre1 = infomationUtilisateur;  
+ * 
  */
 public abstract class CreerUtilisateurJar extends FonctionServer {
 
