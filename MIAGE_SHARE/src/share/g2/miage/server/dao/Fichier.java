@@ -93,6 +93,8 @@ public class Fichier {
 
 		StringBuffer sb =  new StringBuffer();
 		
+		sb.append(this.nom);
+	    sb.append(ParametreC.SPEPARER_FICHIER_INFO);
 	    sb.append(this.auteur);
 	    sb.append(ParametreC.SPEPARER_FICHIER_INFO);
 	    sb.append(this.taille);
