@@ -12,7 +12,7 @@ public class Server {
 
 	/**
 	 * Constructeur qui permet de mettre en route les serveurs de fichiers et de chats.
-	 * @param args
+	 
 	 * 
 	 * @throws Exception Si un probl�me est apparu lors du lancement du serveur
 	 */
