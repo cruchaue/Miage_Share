@@ -57,7 +57,7 @@ public class FenetreChat extends JFrame  implements Runnable {
 		this.add(button_clear, BorderLayout.WEST);  
 		this.setVisible(true);//   
 		this.pack();//  
-		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);  
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
 
 		try {  
 

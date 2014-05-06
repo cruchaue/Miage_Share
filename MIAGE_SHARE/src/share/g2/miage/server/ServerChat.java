@@ -70,6 +70,7 @@ public class ServerChat   extends Thread {
 	 */
 	public ServerChat(){
 		start();
+		
 	}
 
 	@Override
@@ -80,7 +81,7 @@ public class ServerChat   extends Thread {
 		try {
 
 			serverChat = new ServerSocket(ParametreS.portServerChat);
-
+			System.out.println("le serveur de chat est bien démarré!");
 			while (demarre) {
 
 				Socket socketChat = serverChat.accept();

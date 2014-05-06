@@ -51,6 +51,15 @@ public class ServerThreadChat extends Thread {
 				}
 			}
 
+			
+
+			clientLink.close();
+			br.close();
+			ps.close();
+
+		} catch (IOException e) {
+			//e.printStackTrace();
+			
 			//supprimer socket fermé de la liste des sockets
 			int indexRemove = 0;
 			for(int i = 0; i < clientLinkList.size();i++){
@@ -60,13 +69,7 @@ public class ServerThreadChat extends Thread {
 				}
 			}
 			clientLinkList.remove(indexRemove);
-
-			clientLink.close();
-			br.close();
-			ps.close();
-
-		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Un utilisateur est parti de Chatroom!");
 		} 
 
 	}

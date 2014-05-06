@@ -85,7 +85,7 @@ public class ServerFichier   extends Thread {
 		try {
 
 			serverFichier = new ServerSocket(portFichier);
-
+			System.out.println("le serveur de fichier est bien démarré!");
 			while (demarre) {
 				Socket socketFichier = serverFichier.accept();
 				new ServerThreadFichier(socketFichier);
