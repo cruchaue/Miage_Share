@@ -7,7 +7,6 @@ import java.util.List;
 import org.jfree.chart.ChartFrame;
 import org.jfree.data.general.DefaultPieDataset;
 
-import share.g2.miage.client.dao.User;
 import share.g2.miage.clientJar.fonction.generalite.FonctionClient;
 import share.g2.miage.clientJar.fonction.statistiques.interne.StatIndiv;
 import share.g2.miage.clientJar.outil.Outil;
