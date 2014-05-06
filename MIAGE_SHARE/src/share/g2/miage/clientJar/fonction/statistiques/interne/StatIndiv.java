@@ -75,7 +75,7 @@ public class StatIndiv {
 	 * @param titre
 	 *            : titre du diagramme
 	 * @param data
-	 *            : donn�ess (� g�n�rer plus t�t)
+	 *            : donness (� g�n�rer plus t�t)
 	 * @return
 	 */
 	public static JFreeChart createPie(String titre, DefaultPieDataset data) {
