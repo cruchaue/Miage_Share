@@ -7,12 +7,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;  
 import java.io.BufferedReader;  
 import java.io.IOException;  
+import java.io.InputStream;
 import java.io.InputStreamReader;  
 import java.io.PrintStream;  
 import java.net.Socket;  
 import java.net.UnknownHostException;  
+import java.util.Properties;
 
 import javax.swing.JFrame;  
+
+import share.g2.miage.client.outil.ParametreC;
 
 @SuppressWarnings("serial")  
 public class FenetreChat extends JFrame  implements Runnable {  
@@ -31,7 +35,18 @@ public class FenetreChat extends JFrame  implements Runnable {
 	
 	static {  
 		try {  
-			clientLink = new Socket("127.0.0.1",2001);  
+			
+			InputStream inputStream = FenetreChat.class.getClass().getClassLoader()
+					.getResourceAsStream("ipConfig.properties");
+			Properties p = new Properties();
+			try {
+				p.load(inputStream);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			String serverIp = p.getProperty("serverIp");
+			
+			clientLink = new Socket(serverIp,2001);  
 		} catch (UnknownHostException e) {  
 			e.printStackTrace();  
 		} catch (IOException e) {  
